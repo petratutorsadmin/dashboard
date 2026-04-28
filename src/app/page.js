@@ -1,7 +1,11 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   HoverCard,
   HoverCardContent,
@@ -13,7 +17,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Calendar, User, BookOpen, MessageSquare, PenTool } from "lucide-react";
+import { Calendar, User, BookOpen, MessageSquare, PenTool, LogOut } from "lucide-react";
+import { db } from "@/lib/data";
 
 const petraPurple = "#31063d";
 const petraGold = "#ddb873";
@@ -24,132 +29,10 @@ function clampPercent(value) {
     return Math.max(0, Math.min(100, Number(value)));
 }
 
-// Basic sanity tests
-console.assert(clampPercent(40) === 40);
-console.assert(clampPercent(-10) === 0);
-console.assert(clampPercent(140) === 100);
-console.assert(clampPercent("bad") === 0);
-
-const skills = [
-    { 
-        name: "Vocabulary Understanding", grade: "B+", level: 82, note: "Strong word meaning",
-        issue: "Knows meanings well but needs regular reinforcement rather than rote memorization.",
-        improvement: "Regular vocabulary review focusing on context and familiarity."
-    },
-    { 
-        name: "Spelling", grade: "C", level: 42, note: "Needs pattern training", warning: true,
-        issue: "Struggles with spelling accuracy on common words ('should', 'because') and specific suffixes ('-ture', '-tion').",
-        improvement: "Reinforce spelling patterns and continue 10-word spelling checks weekly."
-    },
-    { 
-        name: "Grammar & Punctuation", grade: "C", level: 45, note: "Basic accuracy unstable",
-        issue: "Inconsistent capitalization and comma usage in sentences.",
-        improvement: "Practice sentence segmentation and review basic punctuation rules."
-    },
-    { 
-        name: "Writing Structure", grade: "B-", level: 62, note: "Understands basics",
-        issue: "Understands basic structure but needs to practice writing introductions with hooks and comprehensive conclusions.",
-        improvement: "Practice incorporating a hook/background info in the intro, and restating both opinion and reasons in the conclusion."
-    },
-    { 
-        name: "Reading Comprehension", grade: "C-", level: 35, note: "Main challenge identified", critical: true,
-        issue: "Finds it difficult to fully understand the context of passages, which negatively impacts writing tasks.",
-        improvement: "Introduce structured reading strategies to help with context understanding before attempting to write."
-    },
-    { 
-        name: "Logical Thinking", grade: "A-", level: 88, note: "Adapts quickly",
-        issue: "Strong potential, but needs more practice applying complex structures in independent writing.",
-        improvement: "Continue to engage with complex topics and build background knowledge to support arguments."
-    },
-];
-
-const phases = [
-    {
-        title: "Phase 1",
-        label: "Foundation Stabilization",
-        period: "Weeks 1–3",
-        progress: 40,
-        items: [
-            "10-word spelling check every lesson",
-            "Sentence accuracy training",
-            "Capitalization and punctuation correction",
-        ],
-    },
-    {
-        title: "Phase 2",
-        label: "Reading → Expression",
-        period: "Weeks 3–5",
-        progress: 20,
-        items: [
-            "Paragraph-by-paragraph summary",
-            "Identify main idea and reasoning",
-            "Read first, then write response",
-        ],
-    },
-    {
-        title: "Phase 3",
-        label: "Exam Performance",
-        period: "Weeks 5–8",
-        progress: 0,
-        items: [
-            "Timed EIKEN writing",
-            "Full mock test",
-            "Score tracking and weak-point review",
-        ],
-    },
-];
-
-const lessons = [
-    {
-        id: "rDOogXN",
-        date: "Apr 24, 2026",
-        tutor: "Riku",
-        type: "Make-up",
-        topic: "EIKEN Pre-1 Overall Practice",
-        rating: "Good",
-        content: "We covered vocabulary (1000 Basic Words) and spelling (allot, deliberate, empathy). We then did EIKEN Pre-1 overall practice, including reading comprehension and two writing tasks.",
-        feedback: "Tadashi demonstrated good vocabulary knowledge, but spelling accuracy needs practice. His main challenge is reading comprehension, which affected his ability to respond correctly in writing. We will place greater emphasis on improving reading comprehension strategies.",
-        homework: "Review and practice spelling of key vocabulary. Focus on identifying spelling patterns. Complete writing practice."
-    },
-    {
-        id: "Kp5kZq8",
-        date: "Apr 23, 2026",
-        tutor: "Tina",
-        type: "Regular",
-        topic: "English Composition Writing",
-        rating: "Excellent",
-        content: "Briefly revised paragraph structure with sample essays. Introduced more complex structures like hooks and restating reasons in conclusions. Taught flexible body paragraph structure (using results instead of just examples).",
-        feedback: "Tadashi remembered key content well and showed good understanding of basic essay structure. He needs more practice applying complex structures like hooks. He forgot his homework from 4/17.",
-        homework: "Highlight structural elements in the other two sample essays. Finish homework from last lesson."
-    },
-    {
-        id: "gbeXqNP",
-        date: "Apr 17, 2026",
-        tutor: "Tina",
-        type: "Regular",
-        topic: "English Composition Writing",
-        rating: "Excellent",
-        content: "Reviewed homework, vocabulary, and grammar rules (capitalization, comma usage). Broke down EIKEN writing prompt. Wrote intro and first body paragraph together.",
-        feedback: "Tadashi showed strong background knowledge. He was focused and engaged. We will work on improving consistency and accuracy, especially with punctuation and spelling.",
-        homework: "Finish writing the second body paragraph. Optional: conclusion and vocabulary review."
-    },
-    {
-        id: "J1qvbQR",
-        date: "Apr 10, 2026",
-        tutor: "Tina",
-        type: "Trial",
-        topic: "EIKEN Pre-1 Introduction",
-        rating: "Excellent",
-        content: "Assessed speaking ability and introduced EIKEN Pre-1 structure, time, and word count. Writing practice on 'Should students use AI to complete their homework?'. Introduced basic essay structure.",
-        feedback: "Tadashi shows strong logical thinking and adapts quickly. He needs to improve spelling, punctuation, and capitalization. Vocabulary should be reviewed regularly for familiarity.",
-        homework: "1. Go through vocab list. 2. Complete English Summarization section of EIKEN Pre-1."
-    }
-];
-
 function MiniIcon({ children, dark = false }) {
     return (
         <span
-            className="inline-flex h-7 w-7 items-center justify-center rounded-xl text-sm font-bold"
+            className="inline-flex h-7 w-7 items-center justify-center rounded-xl text-sm font-bold shrink-0"
             style={{
                 backgroundColor: dark ? "rgba(255,255,255,0.12)" : softGold,
                 color: dark ? petraGold : petraPurple,
@@ -165,7 +48,7 @@ function ProgressBar({ value, gold = false }) {
     return (
         <div className="h-2.5 w-full overflow-hidden rounded-full bg-zinc-100">
             <div
-                className="h-full rounded-full"
+                className="h-full rounded-full transition-all duration-1000 ease-out"
                 style={{ width: `${safeValue}%`, backgroundColor: gold ? petraGold : petraPurple }}
             />
         </div>
@@ -173,16 +56,16 @@ function ProgressBar({ value, gold = false }) {
 }
 
 function SkillRow({ skill }) {
-    const isCritical = Boolean(skill.critical);
+    const isCritical = Boolean(skill.critical || skill.warning);
     return (
         <HoverCard openDelay={200} closeDelay={150}>
             <HoverCardTrigger asChild>
                 <div className="grid grid-cols-12 items-center gap-3 border-b border-zinc-100 py-3 last:border-0 cursor-pointer hover:bg-zinc-50 transition-colors -mx-3 px-3 rounded-xl group relative">
                     <div className="col-span-12 sm:col-span-4">
                         <div className="flex items-center gap-2">
-                            <p className="font-medium text-zinc-900 group-hover:text-[#31063d] transition-colors">{skill.name}</p>
+                            <p className="font-medium text-zinc-900 group-hover:text-[#31063d] transition-colors line-clamp-1">{skill.name}</p>
                             {isCritical && (
-                                <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-700">
+                                <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-700">
                                     Priority
                                 </span>
                             )}
@@ -197,7 +80,7 @@ function SkillRow({ skill }) {
                         {skill.grade}
                     </div>
 
-                    <div className="col-span-12 text-xs text-zinc-500 sm:col-span-2 sm:text-right">
+                    <div className="col-span-12 text-xs text-zinc-500 sm:col-span-2 sm:text-right line-clamp-1">
                         {skill.note}
                     </div>
                 </div>
@@ -231,29 +114,34 @@ function SectionCard({ children, className = "", style = {} }) {
     );
 }
 
-export default function PetraStudentChartDashboard() {
+function Dashboard({ student, parentName, onLogout }) {
     return (
-        <div className="min-h-screen bg-[#faf8f4] p-6 text-zinc-900">
+        <div className="min-h-screen bg-[#faf8f4] p-4 sm:p-6 text-zinc-900 animate-in fade-in duration-500">
             <div className="mx-auto max-w-6xl space-y-6">
                 <header className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                     <div>
                         <div className="mb-2 flex items-center gap-3">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-2xl font-bold text-white" style={{ backgroundColor: petraPurple }}>
+                            <div className="flex h-10 w-10 items-center justify-center rounded-2xl font-bold text-white shadow-sm" style={{ backgroundColor: petraPurple }}>
                                 P
                             </div>
-                            <Badge className="rounded-full px-3 py-1" style={{ backgroundColor: petraGold, color: petraPurple }}>
-                                Parent Dashboard
+                            <Badge className="rounded-full px-3 py-1 border-0" style={{ backgroundColor: petraGold, color: petraPurple }}>
+                                {parentName}
                             </Badge>
                         </div>
                         <h1 className="text-3xl font-bold tracking-tight" style={{ color: petraPurple }}>
                             Student Chart & Learning Plan
                         </h1>
-                        <p className="mt-1 text-zinc-600">Tadashi｜EIKEN Pre-1 Writing & Reading Support</p>
+                        <p className="mt-1 text-zinc-600 font-medium">{student.name}｜{student.course}</p>
                     </div>
 
-                    <Button className="rounded-2xl shadow-sm" style={{ backgroundColor: petraPurple }}>
-                        Export PDF
-                    </Button>
+                    <div className="flex items-center gap-3">
+                        <Button variant="outline" className="rounded-2xl bg-white border-zinc-200 text-zinc-600 hover:bg-zinc-50" onClick={onLogout}>
+                            <LogOut className="w-4 h-4 mr-2" /> Sign Out
+                        </Button>
+                        <Button className="rounded-2xl shadow-sm text-white" style={{ backgroundColor: petraPurple }}>
+                            Export PDF
+                        </Button>
+                    </div>
                 </header>
 
                 <main className="space-y-6">
@@ -264,57 +152,60 @@ export default function PetraStudentChartDashboard() {
                                     <MiniIcon>▦</MiniIcon>
                                     <h2 className="text-xl font-bold">Diagnosis</h2>
                                 </div>
-                                <Badge variant="outline" className="rounded-full">Overall: B-</Badge>
+                                <Badge variant="outline" className="rounded-full font-bold">Overall: {student.overallGrade}</Badge>
                             </div>
 
                             <div className="mb-5 rounded-3xl p-5" style={{ backgroundColor: softGold }}>
                                 <div className="flex items-start gap-3">
                                     <MiniIcon>◎</MiniIcon>
                                     <div>
-                                        <p className="font-bold">Target</p>
-                                        <p className="text-sm text-zinc-700">
-                                            Pass EIKEN Pre-1. Improve reading comprehension and stabilize writing performance.
+                                        <p className="font-bold text-zinc-900">Target</p>
+                                        <p className="text-sm text-zinc-700 mt-0.5 leading-relaxed">
+                                            {student.target}
                                         </p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div>{skills.map((skill) => <SkillRow key={skill.name} skill={skill} />)}</div>
+                            <div className="mt-2">
+                                {student.skills.map((skill) => <SkillRow key={skill.name} skill={skill} />)}
+                            </div>
                         </SectionCard>
 
-                        <Card className="rounded-3xl border-0 shadow-sm" style={{ backgroundColor: petraPurple }}>
-                            <CardContent className="flex h-full flex-col justify-between p-6 text-white">
+                        <Card className="rounded-3xl border-0 shadow-sm overflow-hidden relative" style={{ backgroundColor: petraPurple }}>
+                            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
+                            <CardContent className="flex h-full flex-col justify-between p-6 text-white relative z-10">
                                 <div>
                                     <div className="mb-4 flex items-center gap-2">
                                         <MiniIcon dark>!</MiniIcon>
                                         <h2 className="text-xl font-bold">Core Issue</h2>
                                     </div>
                                     <p className="text-2xl font-bold leading-snug">
-                                        Weak reading comprehension is limiting overall performance.
+                                        {student.coreIssue}
                                     </p>
-                                    <p className="mt-4 text-sm text-white/75">
-                                        The main issue is not knowledge, but processing. Without full understanding of text and prompts, writing becomes unstable.
+                                    <p className="mt-4 text-sm text-white/80 leading-relaxed">
+                                        {student.coreIssueDetail}
                                     </p>
                                 </div>
 
-                                <div className="mt-8 rounded-3xl border border-white/10 bg-white/10 p-4">
+                                <div className="mt-8 rounded-3xl border border-white/10 bg-black/10 backdrop-blur-sm p-4">
                                     <p className="text-sm text-white/70">Focus This Month</p>
-                                    <p className="mt-1 font-semibold">Reading → Summary → Writing connection</p>
+                                    <p className="mt-1 font-semibold text-lg">{student.focusThisMonth}</p>
                                 </div>
                             </CardContent>
                         </Card>
                     </div>
 
                     <section className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-                        {phases.map((phase) => (
+                        {student.phases.map((phase) => (
                             <SectionCard key={phase.title}>
                                 <div className="mb-4 flex items-start justify-between">
                                     <div>
-                                        <p className="text-sm font-semibold" style={{ color: petraPurple }}>{phase.title}</p>
-                                        <h3 className="text-xl font-bold">{phase.label}</h3>
-                                        <p className="text-xs text-zinc-500 mt-1">{phase.period}</p>
+                                        <p className="text-sm font-semibold uppercase tracking-wider" style={{ color: petraPurple }}>{phase.title}</p>
+                                        <h3 className="text-xl font-bold mt-1">{phase.label}</h3>
+                                        <p className="text-xs text-zinc-500 mt-1 font-medium">{phase.period}</p>
                                     </div>
-                                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl font-bold" style={{ backgroundColor: softGold, color: petraPurple }}>
+                                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl font-bold shadow-inner" style={{ backgroundColor: softGold, color: petraPurple }}>
                                         {clampPercent(phase.progress)}%
                                     </div>
                                 </div>
@@ -324,8 +215,8 @@ export default function PetraStudentChartDashboard() {
                                 <div className="mt-5 space-y-3">
                                     {phase.items.map((item) => (
                                         <div key={item} className="flex items-start gap-2 text-sm text-zinc-700">
-                                            <span className="mt-0.5 font-bold" style={{ color: petraGold }}>✓</span>
-                                            <span>{item}</span>
+                                            <span className="mt-0.5 font-bold shrink-0" style={{ color: petraGold }}>✓</span>
+                                            <span className="leading-snug">{item}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -340,25 +231,25 @@ export default function PetraStudentChartDashboard() {
                                     <MiniIcon>↗</MiniIcon>
                                     <h2 className="text-xl font-bold">Recent Lesson Reports</h2>
                                 </div>
-                                <span className="text-xs text-zinc-500">Click to expand details</span>
+                                <span className="text-xs text-zinc-500 hidden sm:inline-block">Click to expand details</span>
                             </div>
 
-                            <Accordion type="single" collapsible className="w-full space-y-3">
-                                {lessons.map((lesson) => (
-                                    <AccordionItem key={lesson.id} value={lesson.id} className="border border-zinc-100 rounded-2xl px-4 py-1 bg-white shadow-sm data-[state=open]:border-zinc-200">
+                            <Accordion className="w-full space-y-3">
+                                {student.lessons.map((lesson) => (
+                                    <AccordionItem key={lesson.id} value={lesson.id} className="border border-zinc-100 rounded-2xl px-4 py-1 bg-white shadow-sm data-[state=open]:border-zinc-200 transition-colors">
                                         <AccordionTrigger className="hover:no-underline py-3">
                                             <div className="flex items-center w-full gap-4 text-left">
                                                 <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-zinc-50 border border-zinc-100 text-zinc-600">
                                                     <Calendar className="w-5 h-5" />
                                                 </div>
-                                                <div className="flex-grow">
-                                                    <h3 className="font-bold text-zinc-900 text-sm">{lesson.date} <span className="text-zinc-400 font-normal ml-2">| {lesson.topic}</span></h3>
+                                                <div className="flex-grow min-w-0">
+                                                    <h3 className="font-bold text-zinc-900 text-sm truncate">{lesson.date} <span className="text-zinc-400 font-normal ml-2 hidden sm:inline-block">| {lesson.topic}</span></h3>
                                                     <div className="flex items-center gap-3 mt-1 text-xs font-medium text-zinc-500">
-                                                        <span className="flex items-center gap-1"><User className="w-3 h-3" /> {lesson.tutor}</span>
-                                                        <span className="px-2 py-0.5 rounded-full bg-zinc-100">{lesson.type}</span>
+                                                        <span className="flex items-center gap-1 shrink-0"><User className="w-3 h-3" /> {lesson.tutor}</span>
+                                                        <span className="px-2 py-0.5 rounded-full bg-zinc-100 shrink-0">{lesson.type}</span>
                                                     </div>
                                                 </div>
-                                                <div className="pr-4 hidden sm:block">
+                                                <div className="pr-4 shrink-0 hidden sm:block">
                                                     <Badge variant="outline" className={`rounded-full ${lesson.rating === 'Excellent' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-blue-50 text-blue-700 border-blue-200'}`}>
                                                         {lesson.rating}
                                                     </Badge>
@@ -366,7 +257,7 @@ export default function PetraStudentChartDashboard() {
                                             </div>
                                         </AccordionTrigger>
                                         <AccordionContent className="pb-4 pt-2">
-                                            <div className="pl-16 pr-4 space-y-4">
+                                            <div className="sm:pl-16 sm:pr-4 space-y-4">
                                                 <div className="rounded-xl bg-zinc-50 p-4 border border-zinc-100">
                                                     <h4 className="text-xs font-bold text-zinc-900 mb-2 flex items-center gap-1.5"><MessageSquare className="w-3.5 h-3.5" style={{ color: petraPurple }}/> Feedback & Performance</h4>
                                                     <p className="text-sm text-zinc-700 leading-relaxed">{lesson.feedback}</p>
@@ -385,6 +276,9 @@ export default function PetraStudentChartDashboard() {
                                         </AccordionContent>
                                     </AccordionItem>
                                 ))}
+                                {student.lessons.length === 0 && (
+                                    <div className="text-center py-8 text-zinc-500 text-sm">No recent lessons found.</div>
+                                )}
                             </Accordion>
                         </SectionCard>
 
@@ -392,25 +286,107 @@ export default function PetraStudentChartDashboard() {
                             <h2 className="mb-4 text-xl font-bold">Next Lesson Plan</h2>
 
                             <div className="space-y-3">
-                                <div className="rounded-2xl bg-zinc-50 p-4">
-                                    <p className="text-sm font-bold">1. Reading Comprehension Focus</p>
-                                    <p className="text-xs text-zinc-500 mt-1">Introduce structured reading strategies to help with context understanding.</p>
-                                </div>
-
-                                <div className="rounded-2xl bg-zinc-50 p-4">
-                                    <p className="text-sm font-bold">2. Spelling & Vocab Reinforcement</p>
-                                    <p className="text-xs text-zinc-500 mt-1">Review key EIKEN Pre-1 vocabulary and identify spelling patterns (-ture, -tion).</p>
-                                </div>
-
-                                <div className="rounded-2xl bg-zinc-50 p-4">
-                                    <p className="text-sm font-bold">3. Writing Application</p>
-                                    <p className="text-xs text-zinc-500 mt-1">Focus on understanding source material first before responding to prompts.</p>
-                                </div>
+                                {student.nextPlan.map((plan, index) => (
+                                    <div key={index} className="rounded-2xl bg-zinc-50 p-4 border border-zinc-100">
+                                        <p className="text-sm font-bold text-zinc-900">{plan.title}</p>
+                                        <p className="text-xs text-zinc-600 mt-1 leading-relaxed">{plan.desc}</p>
+                                    </div>
+                                ))}
                             </div>
                         </SectionCard>
                     </div>
                 </main>
             </div>
+        </div>
+    );
+}
+
+export default function App() {
+    const [user, setUser] = useState(null);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        setError("");
+        const parent = db.parents.find(p => p.username === username && p.password === password);
+        if (parent) {
+            setUser(parent);
+        } else {
+            setError("Invalid username or password");
+        }
+    };
+
+    if (user) {
+        const student = db.students[user.studentId];
+        return <Dashboard student={student} parentName={user.name} onLogout={() => setUser(null)} />;
+    }
+
+    return (
+        <div className="min-h-screen bg-[#faf8f4] flex items-center justify-center p-4">
+            <Card className="w-full max-w-md shadow-xl border-0 rounded-3xl overflow-hidden animate-in fade-in zoom-in-95 duration-500">
+                <div className="h-2 w-full" style={{ backgroundColor: petraPurple }} />
+                <CardContent className="p-8">
+                    <div className="flex flex-col items-center text-center mb-8">
+                        <div className="flex h-16 w-16 items-center justify-center rounded-3xl font-bold text-white text-3xl shadow-sm mb-4" style={{ backgroundColor: petraPurple }}>
+                            P
+                        </div>
+                        <h1 className="text-2xl font-bold tracking-tight text-zinc-900">Petra Parent Portal</h1>
+                        <p className="text-zinc-500 mt-1 text-sm">Sign in to view your student's progress</p>
+                    </div>
+
+                    <form onSubmit={handleLogin} className="space-y-5">
+                        <div className="space-y-2">
+                            <Label htmlFor="username" className="text-zinc-700 font-semibold">Username</Label>
+                            <Input 
+                                id="username" 
+                                type="text" 
+                                placeholder="e.g. tadashi_parent" 
+                                className="rounded-xl bg-zinc-50 border-zinc-200 h-11"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                        </div>
+                        <div className="space-y-2">
+                            <div className="flex items-center justify-between">
+                                <Label htmlFor="password" className="text-zinc-700 font-semibold">Password</Label>
+                            </div>
+                            <Input 
+                                id="password" 
+                                type="password" 
+                                className="rounded-xl bg-zinc-50 border-zinc-200 h-11"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+
+                        {error && (
+                            <div className="p-3 bg-red-50 text-red-600 rounded-xl text-sm font-medium animate-in fade-in slide-in-from-top-1">
+                                {error}
+                            </div>
+                        )}
+
+                        <Button type="submit" className="w-full h-11 rounded-xl font-bold text-base shadow-sm mt-2" style={{ backgroundColor: petraPurple }}>
+                            Sign In
+                        </Button>
+                    </form>
+
+                    <div className="mt-8 pt-6 border-t border-zinc-100 text-center">
+                        <p className="text-xs text-zinc-500 font-medium">Demo Accounts:</p>
+                        <div className="mt-3 flex flex-col gap-2">
+                            <div className="text-xs bg-zinc-50 p-2 rounded-lg inline-block mx-auto text-zinc-600">
+                                <strong>User:</strong> tadashi_parent <br/>
+                                <strong>Pass:</strong> password123
+                            </div>
+                            <div className="text-xs bg-zinc-50 p-2 rounded-lg inline-block mx-auto text-zinc-600">
+                                <strong>User:</strong> sakura_parent <br/>
+                                <strong>Pass:</strong> password123
+                            </div>
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
         </div>
     );
 }
