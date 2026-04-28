@@ -372,19 +372,7 @@ export default function App() {
                         </Button>
                     </form>
 
-                    <div className="mt-8 pt-6 border-t border-zinc-100 text-center">
-                        <p className="text-xs text-zinc-500 font-medium">Demo Accounts:</p>
-                        <div className="mt-3 flex flex-col gap-2">
-                            <div className="text-xs bg-zinc-50 p-2 rounded-lg inline-block mx-auto text-zinc-600">
-                                <strong>User:</strong> tadashi_parent <br/>
-                                <strong>Pass:</strong> password123
-                            </div>
-                            <div className="text-xs bg-zinc-50 p-2 rounded-lg inline-block mx-auto text-zinc-600">
-                                <strong>User:</strong> sakura_parent <br/>
-                                <strong>Pass:</strong> password123
-                            </div>
-                        </div>
-                    </div>
+
                 </CardContent>
             </Card>
         </div>
