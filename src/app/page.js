@@ -19,10 +19,54 @@ import {
 } from "@/components/ui/accordion";
 import { Calendar, User, BookOpen, MessageSquare, PenTool, LogOut } from "lucide-react";
 import { db } from "@/lib/data";
+import { useRouter } from "next/navigation";
 
 const petraPurple = "#31063d";
 const petraGold = "#ddb873";
 const softGold = "#f7f1df";
+
+const text = {
+    en: {
+        chartLearningPlan: "Student Chart & Learning Plan",
+        signOut: "Sign Out",
+        exportPDF: "Export PDF",
+        diagnosis: "Diagnosis",
+        overall: "Overall",
+        target: "Target",
+        priority: "Priority",
+        whatIsIssue: "What is the issue?",
+        howToImprove: "How to improve",
+        coreIssue: "Core Issue",
+        focusMonth: "Focus This Month",
+        recentReports: "Recent Lesson Reports",
+        clickExpand: "Click to expand details",
+        feedback: "Feedback & Performance",
+        content: "Class Content",
+        homework: "Homework Assigned",
+        nextPlan: "Next Lesson Plan",
+        noLessons: "No recent lessons found."
+    },
+    ja: {
+        chartLearningPlan: "学習状況＆レッスンプラン",
+        signOut: "ログアウト",
+        exportPDF: "PDFを出力",
+        diagnosis: "現在の学習状況",
+        overall: "総合評価",
+        target: "目標",
+        priority: "優先",
+        whatIsIssue: "課題点",
+        howToImprove: "改善方法",
+        coreIssue: "主な課題",
+        focusMonth: "今月の重点目標",
+        recentReports: "最近のレッスンレポート",
+        clickExpand: "クリックして詳細を見る",
+        feedback: "フィードバックとパフォーマンス",
+        content: "レッスン内容",
+        homework: "宿題",
+        nextPlan: "次回のレッスンプラン",
+        noLessons: "最近のレッスンはありません。"
+    }
+};
 
 function clampPercent(value) {
     if (Number.isNaN(Number(value))) return 0;
@@ -55,8 +99,9 @@ function ProgressBar({ value, gold = false }) {
     );
 }
 
-function SkillRow({ skill }) {
+function SkillRow({ skill, lang = "en" }) {
     const isCritical = Boolean(skill.critical || skill.warning);
+    const t = text[lang];
     return (
         <HoverCard openDelay={200} closeDelay={150}>
             <HoverCardTrigger asChild>
@@ -66,7 +111,7 @@ function SkillRow({ skill }) {
                             <p className="font-medium text-zinc-900 group-hover:text-[#31063d] transition-colors line-clamp-1">{skill.name}</p>
                             {isCritical && (
                                 <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-700">
-                                    Priority
+                                    {t.priority}
                                 </span>
                             )}
                         </div>
@@ -89,14 +134,14 @@ function SkillRow({ skill }) {
                 <div className="space-y-4">
                     <div>
                         <h4 className="text-sm font-bold flex items-center gap-2 mb-1.5" style={{ color: petraPurple }}>
-                            <span className="w-2 h-2 rounded-full bg-red-400"></span> What is the issue?
+                            <span className="w-2 h-2 rounded-full bg-red-400"></span> {t.whatIsIssue}
                         </h4>
                         <p className="text-sm text-zinc-600 leading-relaxed">{skill.issue}</p>
                     </div>
                     <div className="h-px w-full bg-zinc-100"></div>
                     <div>
                         <h4 className="text-sm font-bold flex items-center gap-2 mb-1.5" style={{ color: petraGold }}>
-                            <span className="w-2 h-2 rounded-full bg-emerald-400"></span> How to improve
+                            <span className="w-2 h-2 rounded-full bg-emerald-400"></span> {t.howToImprove}
                         </h4>
                         <p className="text-sm text-zinc-600 leading-relaxed">{skill.improvement}</p>
                     </div>
@@ -114,7 +159,30 @@ function SectionCard({ children, className = "", style = {} }) {
     );
 }
 
-function Dashboard({ student, parentName, onLogout }) {
+function overrideLocalizedData(base, jaData) {
+    if (!jaData) return base;
+    const merged = { ...base, ...jaData };
+    
+    // Deep merge array elements by index to preserve base properties like grade/level
+    for (const key of ['skills', 'phases', 'lessons', 'nextPlan']) {
+        if (base[key] && jaData[key]) {
+            merged[key] = base[key].map((item, index) => {
+                return { ...item, ...(jaData[key][index] || {}) };
+            });
+        }
+    }
+    return merged;
+}
+
+export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogout }) {
+    const t = text[lang];
+    const student = lang === "ja" && rawStudent.ja ? overrideLocalizedData(rawStudent, rawStudent.ja) : rawStudent;
+
+    const sortedLessons = [...(student.lessons || [])].sort((a, b) => {
+        const parseDate = (d) => new Date(d.replace(/年|月/g, '/').replace(/日/g, ''));
+        return parseDate(b.date) - parseDate(a.date);
+    });
+
     return (
         <div className="min-h-screen bg-[#faf8f4] p-4 sm:p-6 text-zinc-900 animate-in fade-in duration-500">
             <div className="mx-auto max-w-6xl space-y-6">
@@ -129,17 +197,17 @@ function Dashboard({ student, parentName, onLogout }) {
                             </Badge>
                         </div>
                         <h1 className="text-3xl font-bold tracking-tight" style={{ color: petraPurple }}>
-                            Student Chart & Learning Plan
+                            {t.chartLearningPlan}
                         </h1>
                         <p className="mt-1 text-zinc-600 font-medium">{student.name}｜{student.course}</p>
                     </div>
 
                     <div className="flex items-center gap-3">
                         <Button variant="outline" className="rounded-2xl bg-white border-zinc-200 text-zinc-600 hover:bg-zinc-50" onClick={onLogout}>
-                            <LogOut className="w-4 h-4 mr-2" /> Sign Out
+                            <LogOut className="w-4 h-4 mr-2" /> {t.signOut}
                         </Button>
                         <Button className="rounded-2xl shadow-sm text-white" style={{ backgroundColor: petraPurple }}>
-                            Export PDF
+                            {t.exportPDF}
                         </Button>
                     </div>
                 </header>
@@ -150,16 +218,16 @@ function Dashboard({ student, parentName, onLogout }) {
                             <div className="mb-5 flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                     <MiniIcon>▦</MiniIcon>
-                                    <h2 className="text-xl font-bold">Diagnosis</h2>
+                                    <h2 className="text-xl font-bold">{t.diagnosis}</h2>
                                 </div>
-                                <Badge variant="outline" className="rounded-full font-bold">Overall: {student.overallGrade}</Badge>
+                                <Badge variant="outline" className="rounded-full font-bold">{t.overall}: {student.overallGrade}</Badge>
                             </div>
 
                             <div className="mb-5 rounded-3xl p-5" style={{ backgroundColor: softGold }}>
                                 <div className="flex items-start gap-3">
                                     <MiniIcon>◎</MiniIcon>
                                     <div>
-                                        <p className="font-bold text-zinc-900">Target</p>
+                                        <p className="font-bold text-zinc-900">{t.target}</p>
                                         <p className="text-sm text-zinc-700 mt-0.5 leading-relaxed">
                                             {student.target}
                                         </p>
@@ -168,7 +236,7 @@ function Dashboard({ student, parentName, onLogout }) {
                             </div>
 
                             <div className="mt-2">
-                                {student.skills.map((skill) => <SkillRow key={skill.name} skill={skill} />)}
+                                {student.skills.map((skill) => <SkillRow key={skill.name} skill={skill} lang={lang} />)}
                             </div>
                         </SectionCard>
 
@@ -178,7 +246,7 @@ function Dashboard({ student, parentName, onLogout }) {
                                 <div>
                                     <div className="mb-4 flex items-center gap-2">
                                         <MiniIcon dark>!</MiniIcon>
-                                        <h2 className="text-xl font-bold">Core Issue</h2>
+                                        <h2 className="text-xl font-bold">{t.coreIssue}</h2>
                                     </div>
                                     <p className="text-2xl font-bold leading-snug">
                                         {student.coreIssue}
@@ -189,7 +257,7 @@ function Dashboard({ student, parentName, onLogout }) {
                                 </div>
 
                                 <div className="mt-8 rounded-3xl border border-white/10 bg-black/10 backdrop-blur-sm p-4">
-                                    <p className="text-sm text-white/70">Focus This Month</p>
+                                    <p className="text-sm text-white/70">{t.focusMonth}</p>
                                     <p className="mt-1 font-semibold text-lg">{student.focusThisMonth}</p>
                                 </div>
                             </CardContent>
@@ -229,13 +297,13 @@ function Dashboard({ student, parentName, onLogout }) {
                             <div className="mb-5 flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                     <MiniIcon>↗</MiniIcon>
-                                    <h2 className="text-xl font-bold">Recent Lesson Reports</h2>
+                                    <h2 className="text-xl font-bold">{t.recentReports}</h2>
                                 </div>
-                                <span className="text-xs text-zinc-500 hidden sm:inline-block">Click to expand details</span>
+                                <span className="text-xs text-zinc-500 hidden sm:inline-block">{t.clickExpand}</span>
                             </div>
 
                             <Accordion className="w-full space-y-3">
-                                {student.lessons.map((lesson) => (
+                                {sortedLessons.map((lesson) => (
                                     <AccordionItem key={lesson.id} value={lesson.id} className="border border-zinc-100 rounded-2xl px-4 py-1 bg-white shadow-sm data-[state=open]:border-zinc-200 transition-colors">
                                         <AccordionTrigger className="hover:no-underline py-3">
                                             <div className="flex items-center w-full gap-4 text-left">
@@ -259,16 +327,16 @@ function Dashboard({ student, parentName, onLogout }) {
                                         <AccordionContent className="pb-4 pt-2">
                                             <div className="sm:pl-16 sm:pr-4 space-y-4">
                                                 <div className="rounded-xl bg-zinc-50 p-4 border border-zinc-100">
-                                                    <h4 className="text-xs font-bold text-zinc-900 mb-2 flex items-center gap-1.5"><MessageSquare className="w-3.5 h-3.5" style={{ color: petraPurple }}/> Feedback & Performance</h4>
+                                                    <h4 className="text-xs font-bold text-zinc-900 mb-2 flex items-center gap-1.5"><MessageSquare className="w-3.5 h-3.5" style={{ color: petraPurple }}/> {t.feedback}</h4>
                                                     <p className="text-sm text-zinc-700 leading-relaxed">{lesson.feedback}</p>
                                                 </div>
                                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                                     <div>
-                                                        <h4 className="text-xs font-bold text-zinc-900 mb-1.5 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5" style={{ color: petraGold }}/> Class Content</h4>
+                                                        <h4 className="text-xs font-bold text-zinc-900 mb-1.5 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5" style={{ color: petraGold }}/> {t.content}</h4>
                                                         <p className="text-xs text-zinc-600 leading-relaxed">{lesson.content}</p>
                                                     </div>
                                                     <div>
-                                                        <h4 className="text-xs font-bold text-zinc-900 mb-1.5 flex items-center gap-1.5"><PenTool className="w-3.5 h-3.5" style={{ color: petraPurple }}/> Homework Assigned</h4>
+                                                        <h4 className="text-xs font-bold text-zinc-900 mb-1.5 flex items-center gap-1.5"><PenTool className="w-3.5 h-3.5" style={{ color: petraPurple }}/> {t.homework}</h4>
                                                         <p className="text-xs text-zinc-600 leading-relaxed">{lesson.homework}</p>
                                                     </div>
                                                 </div>
@@ -277,13 +345,13 @@ function Dashboard({ student, parentName, onLogout }) {
                                     </AccordionItem>
                                 ))}
                                 {student.lessons.length === 0 && (
-                                    <div className="text-center py-8 text-zinc-500 text-sm">No recent lessons found.</div>
+                                    <div className="text-center py-8 text-zinc-500 text-sm">{t.noLessons}</div>
                                 )}
                             </Accordion>
                         </SectionCard>
 
                         <SectionCard className="lg:col-span-2">
-                            <h2 className="mb-4 text-xl font-bold">Next Lesson Plan</h2>
+                            <h2 className="mb-4 text-xl font-bold">{t.nextPlan}</h2>
 
                             <div className="space-y-3">
                                 {student.nextPlan.map((plan, index) => (
@@ -306,21 +374,66 @@ export default function App() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [isLoaded, setIsLoaded] = useState(false);
+    const router = useRouter();
+
+    React.useEffect(() => {
+        if (localStorage.getItem("petra_admin_id")) {
+            router.push("/admin");
+        } else if (localStorage.getItem("petra_tutor_id")) {
+            router.push("/tutor");
+        } else {
+            const savedUserId = localStorage.getItem("petra_parent_id");
+            if (savedUserId) {
+                const parent = db.parents.find(p => p.id === savedUserId);
+                if (parent) {
+                    setUser(parent);
+                }
+            }
+        }
+        setIsLoaded(true);
+    }, [router]);
 
     const handleLogin = (e) => {
         e.preventDefault();
         setError("");
+
+        const admin = db.admins.find(a => a.username === username && a.password === password);
+        if (admin) {
+            localStorage.setItem("petra_admin_id", admin.id);
+            router.push("/admin");
+            return;
+        }
+
+        const tutor = db.tutors.find(t => t.username === username && t.password === password);
+        if (tutor) {
+            localStorage.setItem("petra_tutor_id", tutor.id);
+            router.push("/tutor");
+            return;
+        }
+
         const parent = db.parents.find(p => p.username === username && p.password === password);
         if (parent) {
             setUser(parent);
-        } else {
-            setError("Invalid username or password");
+            localStorage.setItem("petra_parent_id", parent.id);
+            return;
         }
+
+        setError("Invalid username or password");
     };
+
+    const handleLogout = () => {
+        setUser(null);
+        localStorage.removeItem("petra_parent_id");
+    };
+
+    if (!isLoaded) {
+        return <div className="min-h-screen bg-[#faf8f4]" />; // Empty state while checking localStorage
+    }
 
     if (user) {
         const student = db.students[user.studentId];
-        return <Dashboard student={student} parentName={user.name} onLogout={() => setUser(null)} />;
+        return <Dashboard student={student} parentName={user.name} lang={user.lang || "en"} onLogout={handleLogout} />;
     }
 
     return (
@@ -332,8 +445,8 @@ export default function App() {
                         <div className="flex h-16 w-16 items-center justify-center rounded-3xl font-bold text-white text-3xl shadow-sm mb-4" style={{ backgroundColor: petraPurple }}>
                             P
                         </div>
-                        <h1 className="text-2xl font-bold tracking-tight text-zinc-900">Petra Parent Portal</h1>
-                        <p className="text-zinc-500 mt-1 text-sm">Sign in to view your student's progress</p>
+                        <h1 className="text-2xl font-bold tracking-tight text-zinc-900">Petra Portal</h1>
+                        <p className="text-zinc-500 mt-1 text-sm">Sign in with your assigned credentials</p>
                     </div>
 
                     <form onSubmit={handleLogin} className="space-y-5">
