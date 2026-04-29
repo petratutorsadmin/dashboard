@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { db } from "@/lib/data";
 import { Dashboard } from "../page";
 import { useRouter } from "next/navigation";
+import { BookOpen } from "lucide-react";
 
 const petraPurple = "#31063d";
 const petraGold = "#ddb873";
@@ -182,6 +183,10 @@ export default function PetraTutorDashboard() {
           </div>
 
           <div className="flex gap-2">
+            <Button className="rounded-2xl shadow-sm text-white border-0 hover:opacity-90 transition-opacity" style={{ backgroundColor: petraPurple }} onClick={() => router.push('/tutor/library')}>
+              <BookOpen className="w-4 h-4 mr-2" />
+              Resource Library
+            </Button>
             <Button variant="outline" className="rounded-2xl bg-white border-zinc-200" onClick={handleLogout}>Sign Out</Button>
           </div>
         </header>

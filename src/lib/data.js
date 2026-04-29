@@ -609,5 +609,27 @@ export const db = {
           ]
       }
     }
-  }
+  },
+  resources: [
+    { id: "r7", name: "4000_Essential_English_Words_5_LV4.CORE.ACTIVE.COLOR.HW.WORD.TEST.READ.WRITE.LISTEN", display: "4000 Essential English Words 5", category: "Vocabulary", assignedTo: [], link: "https://drive.google.com/file/d/1WQAkQGmus8ALK63Akz_B8RYdahRy8Lrv/view?usp=drivesdk" },
+    { id: "r8", name: "English_Collocations_in_Use_Advanced_LV4.CORE.ACTIVE.HW.WORD.COLOR.READ.WRITE.LISTEN", display: "English Collocations In Use Advanced", category: "Business", assignedTo: [], link: "https://drive.google.com/file/d/1HJ5w-ogaIp0bfBwZjSqO9QykZywocmo5/view?usp=drivesdk" },
+    { id: "r9", name: "English_for_Everyone_Business_English_LV2.CORE.ACTIVE.COLOR.HW.WORD.TEST.COLOR.SPEAK.WRITE.LISTEN", display: "English For Everyone Business English", category: "Business", assignedTo: [], link: "https://drive.google.com/file/d/1xTfrXOYcOAfhpNLQfdsyqVNLv7P2Hho4/view?usp=drivesdk" },
+    { id: "r10", name: "Business_English_Lesson_Template_Guide_LV1.CORE", display: "Business English Lesson Template Guide", category: "Business", assignedTo: [], link: "https://docs.google.com/document/d/1EcLKARs5UYUU0yI66nfzr7gB-v9O78KTiLzeeEPbbU4/edit?usp=drivesdk" },
+    { id: "r11", name: "Speakout_Advanced_Students_Book_LV5.CORE.READ.WRITE.LISTEN", display: "Speakout Advanced Students Book", category: "Business", assignedTo: [], link: "https://drive.google.com/file/d/1RBhkegJa1EdfB65oiPfIZ08tsTQ9ynRi/view?usp=drivesdk" },
+    { id: "r12", name: "Business_Partner_Coursebook_B2_LV4.CORE", display: "Business Partner Coursebook B2", category: "Business", assignedTo: [], link: "https://drive.google.com/file/d/1O-AIV7C2M2oWjIH92vZYeRwNerMvPfJB/view?usp=drivesdk" },
+    { id: "r13", name: "Free_English_Grammar_eBook_Beginner_LV1.CORE.COLOR", display: "Free English Grammar eBook Beginner", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/1JIUSg0IgKt4FKu61JVEgcm8s_31NYnsP/view?usp=drivesdk" },
+    { id: "r14", name: "Everyday_Conversations_LV2.CORE.ACTIVE.COLOR.SPEAK.LISTEN", display: "Everyday Conversations", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/1NAnHwWoqyzQevUPzmzwwoJVeDI-UD_mb/view?usp=drivesdk" },
+    { id: "r15", name: "Basic_English_Grammar_LV1.CORE.ACTIVE.COLOR.HW.WORD.TEST.SPEAK.WRITE.LISTEN", display: "Basic English Grammar", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/1Bnty3KNlzekfbzgYOSN-PHVKjTM1u-l8/view?usp=drivesdk" },
+    { id: "r16", name: "Practice_Makes_Perfect_Complete_English_All_in_One_for_ESL_Learners_LV3.CORE.ACTIVE.COLOR.HW.READ.SPEAK.WRITE.LISTEN", display: "Practice Makes Perfect Complete English", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/12GFYx8pIkYUAZo2cp-lGgL-qIXZUV4nG/view?usp=drivesdk" },
+    { id: "r17", name: "English_for_Everyone_Level1_Beginner_Course_Book_LV1.CORE.ACTIVE.COLOR.HW.WORD.SPEAK.WRITE.LISTEN", display: "English For Everyone Level 1 Beginner", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/1S2Jn0Rb7QY9QaHwuO0oT7xbA64wfFm9g/view?usp=drivesdk" },
+    { id: "r18", name: "English_Grammar_in_Use_LV3.CORE.ACTIVE.COLOR.HW.WORD.TEST.READ.WRITE.LISTEN", display: "English Grammar In Use", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/171NP-XWsv_nS6oLqM3Hp04y-RXb98kaN/view?usp=drivesdk" },
+    { id: "r19", name: "Rosetta_Stone_English_American_Student_Workbook_LV1.ACTIVE.HW.WORD.TEST.READ.WRITE", display: "Rosetta Stone English American Workbook", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/1mWQzpsP0vcmWBiJpZoxtLLHEUgLwnfwZ/view?usp=drivesdk" },
+    { id: "r20", name: "New_Headway_Beginner_Student_Book_LV1.CORE.ACTIVE.COLOR.SPEAK.WRITE.LISTEN", display: "New Headway Beginner Student Book", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/1cZ9cGwM7D4dWspwslEVyigc3-DHmIFFH/view?usp=drivesdk" },
+    { id: "r21", name: "Speakout_Advanced_Students_Book_LV5.CORE.ACTIVE.COLOR.WORD.SPEAK.WRITE.LISTEN", display: "Speakout Advanced Students Book", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/1TT8no82mHttMizKo5RelMAsTFCrYCRYj/view?usp=drivesdk" },
+    { id: "r22", name: "Basic_English_Grammar_A1_LV1.CORE.ACTIVE.COLOR.HW.WORD.TEST.SPEAK.WRITE.LISTEN", display: "Basic English Grammar A1", category: "A1 English", assignedTo: [], link: "https://drive.google.com/file/d/1nk33oFAU23CWh0vL_TNqQg4aFytmop1j/view?usp=drivesdk" },
+    { id: "r23", name: "Cambridge_Assessment_English_LV1.CORE.ACTIVE.WORD.COLOR", display: "Cambridge Assessment English", category: "Kids English", assignedTo: [], link: "https://drive.google.com/file/d/1Me06Z9s0tCX1L_OiYMgQnCyRz5-qu8PU/view?usp=drivesdk" },
+    { id: "r24", name: "My_First_English_Book_LV1.CORE.ACTIVE", display: "My First English Book", category: "Kids English", assignedTo: [], link: "https://drive.google.com/file/d/17KZ8lKnKDeT_O2caHmFreZ7r9or2Zbo1/view?usp=drivesdk" },
+    { id: "r25", name: "Smart_Phonics_3_LV1.CORE.ACTIVE", display: "Smart Phonics 3", category: "Kids English", assignedTo: [], link: "https://drive.google.com/file/d/10pIkdznDGk0sDIEVpxzbN10NtATHG1Oo/view?usp=drivesdk" },
+    { id: "r26", name: "RosettaStone_English_LV4.HW.TEST", display: "RosettaStone English", category: "Kids English", assignedTo: [], link: "https://drive.google.com/file/d/1vyCWm0pLi2CiVhvHnP-UJ0BQ6netDPc5/view?usp=drivesdk" }
+  ]
 };

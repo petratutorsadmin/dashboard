@@ -17,7 +17,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Calendar, User, BookOpen, MessageSquare, PenTool, LogOut, TrendingUp } from "lucide-react";
+import { Calendar, User, BookOpen, MessageSquare, PenTool, LogOut, TrendingUp, ExternalLink } from "lucide-react";
 import { db } from "@/lib/data";
 import { useRouter } from "next/navigation";
 
@@ -29,7 +29,6 @@ const text = {
     en: {
         chartLearningPlan: "Student Chart & Learning Plan",
         signOut: "Sign Out",
-        exportPDF: "Export PDF",
         diagnosis: "Diagnosis",
         overall: "Overall",
         target: "Target",
@@ -45,12 +44,13 @@ const text = {
         homework: "Homework Assigned",
         nextPlan: "Next Lesson Plan",
         impacts: "Skills Impacted",
-        noLessons: "No recent lessons found."
+        noLessons: "No recent lessons found.",
+        assignedResources: "Assigned Resources",
+        noResources: "No resources assigned yet."
     },
     ja: {
         chartLearningPlan: "学習状況＆レッスンプラン",
         signOut: "ログアウト",
-        exportPDF: "PDFを出力",
         diagnosis: "現在の学習状況",
         overall: "総合評価",
         target: "目標",
@@ -66,7 +66,9 @@ const text = {
         homework: "宿題",
         nextPlan: "次回のレッスンプラン",
         impacts: "スコアへの影響",
-        noLessons: "最近のレッスンはありません。"
+        noLessons: "最近のレッスンはありません。",
+        assignedResources: "課題・教材",
+        noResources: "現在割り当てられている教材はありません。"
     }
 };
 
@@ -185,6 +187,8 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
         return parseDate(b.date) - parseDate(a.date);
     });
 
+    const assignedResources = db.resources.filter(r => r.assignedTo.includes(student.id));
+
     return (
         <div className="min-h-screen bg-[#faf8f4] p-4 sm:p-6 text-zinc-900 animate-in fade-in duration-500">
             <div className="mx-auto max-w-6xl space-y-6">
@@ -207,9 +211,6 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                     <div className="flex items-center gap-3">
                         <Button variant="outline" className="rounded-2xl bg-white border-zinc-200 text-zinc-600 hover:bg-zinc-50" onClick={onLogout}>
                             <LogOut className="w-4 h-4 mr-2" /> {t.signOut}
-                        </Button>
-                        <Button className="rounded-2xl shadow-sm text-white" style={{ backgroundColor: petraPurple }}>
-                            {t.exportPDF}
                         </Button>
                     </div>
                 </header>
@@ -363,18 +364,46 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                             </Accordion>
                         </SectionCard>
 
-                        <SectionCard className="lg:col-span-2">
-                            <h2 className="mb-4 text-xl font-bold">{t.nextPlan}</h2>
+                        <div className="lg:col-span-2 flex flex-col gap-6">
+                            <SectionCard>
+                                <h2 className="mb-4 text-xl font-bold">{t.nextPlan}</h2>
 
-                            <div className="space-y-3">
-                                {student.nextPlan.map((plan, index) => (
-                                    <div key={index} className="rounded-2xl bg-zinc-50 p-4 border border-zinc-100">
-                                        <p className="text-sm font-bold text-zinc-900">{plan.title}</p>
-                                        <p className="text-xs text-zinc-600 mt-1 leading-relaxed">{plan.desc}</p>
+                                <div className="space-y-3">
+                                    {student.nextPlan.map((plan, index) => (
+                                        <div key={index} className="rounded-2xl bg-zinc-50 p-4 border border-zinc-100">
+                                            <p className="text-sm font-bold text-zinc-900">{plan.title}</p>
+                                            <p className="text-xs text-zinc-600 mt-1 leading-relaxed">{plan.desc}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </SectionCard>
+
+                            <SectionCard>
+                                <div className="mb-4 flex items-center justify-between">
+                                    <div className="flex items-center gap-2">
+                                        <MiniIcon>📚</MiniIcon>
+                                        <h2 className="text-xl font-bold">{t.assignedResources}</h2>
                                     </div>
-                                ))}
-                            </div>
-                        </SectionCard>
+                                </div>
+                                {assignedResources.length > 0 ? (
+                                    <div className="space-y-3">
+                                        {assignedResources.map(res => (
+                                            <a key={res.id} href={res.link} target="_blank" rel="noopener noreferrer" className="block rounded-2xl bg-zinc-50 p-4 border border-zinc-100 hover:bg-zinc-100 transition-colors group">
+                                                <div className="flex justify-between items-start gap-4">
+                                                    <div>
+                                                        <span className="text-[10px] font-bold text-[#31063d] bg-purple-50 px-2 py-0.5 rounded-full mb-1.5 inline-block">{res.category}</span>
+                                                        <p className="text-sm font-bold text-zinc-900 group-hover:text-[#31063d] transition-colors line-clamp-1">{res.display}</p>
+                                                    </div>
+                                                    <ExternalLink className="w-4 h-4 text-zinc-400 group-hover:text-[#31063d] shrink-0 mt-1" />
+                                                </div>
+                                            </a>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <p className="text-sm text-zinc-500 text-center py-4 bg-zinc-50 rounded-2xl border border-zinc-100">{t.noResources}</p>
+                                )}
+                            </SectionCard>
+                        </div>
                     </div>
                 </main>
             </div>
