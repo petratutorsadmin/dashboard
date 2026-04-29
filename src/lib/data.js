@@ -162,7 +162,11 @@ export const db = {
             rating: "Good",
             content: "We covered vocabulary (1000 Basic Words) and spelling (allot, deliberate, empathy). We then did EIKEN Pre-1 overall practice, including reading comprehension and two writing tasks.",
             feedback: "Tadashi demonstrated good vocabulary knowledge, but spelling accuracy needs practice. His main challenge is reading comprehension, which affected his ability to respond correctly in writing. We will place greater emphasis on improving reading comprehension strategies.",
-            homework: "Review and practice spelling of key vocabulary. Focus on identifying spelling patterns. Complete writing practice."
+            homework: "Review and practice spelling of key vocabulary. Focus on identifying spelling patterns. Complete writing practice.",
+            impacts: [
+                { skill: "Vocabulary Understanding", change: "+2" },
+                { skill: "Spelling", change: "+1" }
+            ]
         },
         {
             id: "Kp5kZq8",
@@ -173,7 +177,10 @@ export const db = {
             rating: "Excellent",
             content: "Briefly revised paragraph structure with sample essays. Introduced more complex structures like hooks and restating reasons in conclusions. Taught flexible body paragraph structure (using results instead of just examples).",
             feedback: "Tadashi remembered key content well and showed good understanding of basic essay structure. He needs more practice applying complex structures like hooks. He forgot his homework from 4/17.",
-            homework: "Highlight structural elements in the other two sample essays. Finish homework from last lesson."
+            homework: "Highlight structural elements in the other two sample essays. Finish homework from last lesson.",
+            impacts: [
+                { skill: "Writing Structure", change: "+3" }
+            ]
         },
         {
             id: "gbeXqNP",
@@ -184,7 +191,11 @@ export const db = {
             rating: "Excellent",
             content: "Reviewed homework, vocabulary, and grammar rules (capitalization, comma usage). Broke down EIKEN writing prompt. Wrote intro and first body paragraph together.",
             feedback: "Tadashi showed strong background knowledge. He was focused and engaged. We will work on improving consistency and accuracy, especially with punctuation and spelling.",
-            homework: "Finish writing the second body paragraph. Optional: conclusion and vocabulary review."
+            homework: "Finish writing the second body paragraph. Optional: conclusion and vocabulary review.",
+            impacts: [
+                { skill: "Grammar & Punctuation", change: "+2" },
+                { skill: "Logical Thinking", change: "+1" }
+            ]
         },
         {
             id: "J1qvbQR",
@@ -195,7 +206,11 @@ export const db = {
             rating: "Excellent",
             content: "Assessed speaking ability and introduced EIKEN Pre-1 structure, time, and word count. Writing practice on 'Should students use AI to complete their homework?'. Introduced basic essay structure.",
             feedback: "Tadashi shows strong logical thinking and adapts quickly. He needs to improve spelling, punctuation, and capitalization. Vocabulary should be reviewed regularly for familiarity.",
-            homework: "1. Go through vocab list. 2. Complete English Summarization section of EIKEN Pre-1."
+            homework: "1. Go through vocab list. 2. Complete English Summarization section of EIKEN Pre-1.",
+            impacts: [
+                { skill: "Logical Thinking", change: "+5" },
+                { skill: "Writing Structure", change: "+2" }
+            ]
         }
       ],
       nextPlan: [
@@ -273,7 +288,10 @@ export const db = {
             rating: "Excellent",
             content: "Initial lesson support and speaking assessment. We started with introductions with the tutor and parents, followed by light conversation about hobbies and background to create a relaxed atmosphere. After that, the lesson proceeded using the tutor's prepared materials. I attended mainly as support to observe the flow and the student's progress.",
             feedback: "As this was the first lesson, we focused on creating a comfortable environment and observing her English communication. Although Miyako mentioned she was nervous, she was actually very calm and expressed herself clearly in her own words. She actively participated in the conversation, making it a great start. Moving forward, we will leverage this strength to build her confidence while improving her speaking skills.",
-            homework: "Homework details were provided directly by the tutor."
+            homework: "Homework details were provided directly by the tutor.",
+            impacts: [
+                { skill: "Sentence Structure", change: "+2" }
+            ]
         },
         {
             id: "s2_l2",
@@ -284,7 +302,11 @@ export const db = {
             rating: "Excellent",
             content: "The lesson focused on practical speaking without using a textbook. We practiced natural communication assuming a conversation with someone meeting for the first time, covering self-introductions, hobbies, and background. I provided real-time feedback on natural phrasing and sentence structure, and connected useful vocabulary to the student's actual speech.",
             feedback: "Today we had a practical English conversation lesson focusing on speaking. Although Miyako mentioned feeling nervous, she actually showed very high ability to express herself and the conversation flowed smoothly. She has a proactive attitude toward speaking, which is a great learning mindset. I was particularly impressed that she understands the core concept that 'English is learned by speaking' and is eager to focus on output. Her pronunciation is also very good. The current challenge is not her English ability itself, but rather building 'familiarity' and 'confidence', which we hope to develop at Petra.",
-            homework: "None (Trial lesson)"
+            homework: "None (Trial lesson)",
+            impacts: [
+                { skill: "Vocabulary", change: "+3" },
+                { skill: "Sentence Structure", change: "+1" }
+            ]
         },
         {
             id: "s2_l1",
@@ -295,7 +317,10 @@ export const db = {
             rating: "Good",
             content: "Basic Self Introduction(Name, birthday, age, where from, etc.). Location vocabulary (Unit 1). Reading a dialogue and solving related questions.",
             feedback: "She felt basic structures ('there is/are') were very easy, but was only confident with half the words in Unit 1. She wants to learn sentence construction, article usage, negative questions, and IELTS prep.",
-            homework: "Write an English diary entry to enjoy practicing and assess current writing level."
+            homework: "Write an English diary entry to enjoy practicing and assess current writing level.",
+            impacts: [
+                { skill: "Grammar Foundations", change: "+2" }
+            ]
         }
       ],
       nextPlan: [
@@ -362,7 +387,10 @@ export const db = {
                 topic: "Speaking, Basic English",
                 content: "初回レッスンサポートおよびスピーキング力の初期診断（コミュニケーション力・自信の把握）。当日は、講師の紹介および保護者様・生徒様との簡単な自己紹介からスタートし、英語での軽い会話（趣味やバックグラウンド等）を通して、リラックスした雰囲気づくりを行いました。その後は、講師が事前に準備した教材（プリント・テキスト）を使用し、計画に沿ってレッスンが進行されました。私は主にサポートとして同席し、レッスンの進行や生徒様の様子を確認しておりました。",
                 feedback: "本日は初回レッスンということもあり、安心してご参加いただける環境づくりと、英語でのコミュニケーションの様子を確認させていただきました。生徒様は緊張されているとお話しされていましたが、実際には非常に落ち着いており、自分の言葉でしっかりと英語を使って表現されていました。積極的に会話に参加する姿勢も見られ、とても良いスタートとなりました。今後は、この強みを活かしながら、自信をさらに高めつつスピーキング力の向上を図ってまいります。",
-                homework: "本レッスンの宿題は講師より案内しております。"
+                homework: "本レッスンの宿題は講師より案内しております。",
+                impacts: [
+                    { skill: "文構造 (Sentence Structure)", change: "+2" }
+                ]
             },
             {
                 date: "2026年4月12日",
@@ -370,7 +398,11 @@ export const db = {
                 topic: "Speaking, Basic English",
                 content: "本レッスンではテキストは使用せず、実際の会話を想定したスピーキング中心の内容で進めました。初対面の相手と英語で会話をする場面を想定し、自己紹介や趣味、バックグラウンドなどについて自然な形でやり取りを行いながら、コミュニケーションの流れを重視した練習を行いました。また、会話の中で実際に使える表現やフレーズをその場で指摘・共有し、「どのような言い方を覚えておくと良いか」「どのような文の組み立てが自然か」といった点についても具体的にフィードバックを行いました。",
                 feedback: "本日はスピーキングを中心とした実践的な英会話レッスンを行いました。生徒様は緊張されているとのことでしたが、実際には英語での自己表現力が非常に高く、会話もスムーズに進めることができていました。また、自ら積極的に発話する姿勢が見られ、とても良い学習姿勢であると感じております。特に印象的だったのは、「英語は話すことで身につく」という本質的な学習方法をすでに理解されており、アウトプットを重視した学びに取り組もうとされている点です。また、発音も非常に良く、日頃から英語の映画などに触れていることが良い形で反映されていました。現時点での課題は、英語力そのものというよりも、「慣れ」や「自信」といった心理的な部分にあると考えらるので、ペトラで自信を伸ばせていけたらと思います。",
-                homework: "体験授業ですので、宿題は出しませんでした。"
+                homework: "体験授業ですので、宿題は出しませんでした。",
+                impacts: [
+                    { skill: "語彙力 (Vocabulary)", change: "+3" },
+                    { skill: "文構造 (Sentence Structure)", change: "+1" }
+                ]
             },
             {
                 date: "2026年4月21日",
@@ -378,7 +410,10 @@ export const db = {
                 topic: "スピーキング、リーディング、文法練習",
                 content: "現在の英語レベルと留学に向けた目標の確認を行いました。基本的な自己紹介、場所に関する語彙（Unit 1）、および関連問題の解読（テキストの対話文）をカバーしました。",
                 feedback: "基本的な構造（「there is/are」）は非常に簡単だと感じていましたが、Unit 1の単語の約半分しか自信がないようでした。本人は、文構造の作り方、冠詞（a/an/the）の使い方、否定疑問文、そしてIELTSの準備を希望しています。",
-                homework: "楽しんで英語を練習し、現在のライティングレベルを確認するために、英語日記を書いてきてください。"
+                homework: "楽しんで英語を練習し、現在のライティングレベルを確認するために、英語日記を書いてきてください。",
+                impacts: [
+                    { skill: "基礎文法 (Grammar Foundations)", change: "+2" }
+                ]
             }
           ],
           nextPlan: [
@@ -462,7 +497,11 @@ export const db = {
             rating: "Excellent",
             content: "Introductions, 'Would you rather' game, 2 dialogue practice scenarios (science homework, office hours). Vocabulary and drills using textbook (English Vocabulary in Use, Unit 20: Health).",
             feedback: "She possesses very high skills in speaking, listening, and reading. She demonstrated advanced vocabulary and solid pronunciation. She seemed to enjoy the customized slideshow activities and the textbook also helped her learn new content.",
-            homework: "No specific homework for this lesson."
+            homework: "No specific homework for this lesson.",
+            impacts: [
+                { skill: "Advanced Vocabulary", change: "+3" },
+                { skill: "Speaking Confidence", change: "+1" }
+            ]
         }
       ],
       nextPlan: [
@@ -534,7 +573,11 @@ export const db = {
                 topic: "アセスメント、スライド＆テキスト",
                 content: "自己紹介、「Would you rather（究極の選択）」ゲーム、2つの対話練習シナリオ（理科の宿題、オフィスアワー）。テキストを使用した語彙とドリル（English Vocabulary in Use, Unit 20: Health）。",
                 feedback: "スピーキング、リスニング、リーディングにおいて非常に高いスキルを持っています。高度な語彙力としっかりとした発音を披露してくれました。カスタマイズしたスライドショーのアクティビティを楽しみ、テキストも新しい内容を学ぶのに役立ったようです。",
-                homework: "今回のレッスンでは特定の宿題はありません。"
+                homework: "今回のレッスンでは特定の宿題はありません。",
+                impacts: [
+                    { skill: "高度な語彙力", change: "+3" },
+                    { skill: "スピーキングへの自信", change: "+1" }
+                ]
             }
           ],
           nextPlan: [

@@ -17,7 +17,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Calendar, User, BookOpen, MessageSquare, PenTool, LogOut } from "lucide-react";
+import { Calendar, User, BookOpen, MessageSquare, PenTool, LogOut, TrendingUp } from "lucide-react";
 import { db } from "@/lib/data";
 import { useRouter } from "next/navigation";
 
@@ -44,6 +44,7 @@ const text = {
         content: "Class Content",
         homework: "Homework Assigned",
         nextPlan: "Next Lesson Plan",
+        impacts: "Skills Impacted",
         noLessons: "No recent lessons found."
     },
     ja: {
@@ -64,6 +65,7 @@ const text = {
         content: "レッスン内容",
         homework: "宿題",
         nextPlan: "次回のレッスンプラン",
+        impacts: "スコアへの影響",
         noLessons: "最近のレッスンはありません。"
     }
 };
@@ -326,6 +328,17 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                         </AccordionTrigger>
                                         <AccordionContent className="pb-4 pt-2">
                                             <div className="sm:pl-16 sm:pr-4 space-y-4">
+                                                {lesson.impacts && lesson.impacts.length > 0 && (
+                                                    <div className="flex flex-wrap items-center gap-2">
+                                                        <span className="text-xs font-bold text-zinc-500 mr-1">{t.impacts}:</span>
+                                                        {lesson.impacts.map(impact => (
+                                                            <Badge key={impact.skill} variant="secondary" className="bg-purple-50 text-purple-700 border-purple-100 font-medium px-2.5 py-0.5">
+                                                                <TrendingUp className="w-3 h-3 mr-1.5" />
+                                                                {impact.skill} <span className="ml-1.5 font-bold text-purple-900">{impact.change}</span>
+                                                            </Badge>
+                                                        ))}
+                                                    </div>
+                                                )}
                                                 <div className="rounded-xl bg-zinc-50 p-4 border border-zinc-100">
                                                     <h4 className="text-xs font-bold text-zinc-900 mb-2 flex items-center gap-1.5"><MessageSquare className="w-3.5 h-3.5" style={{ color: petraPurple }}/> {t.feedback}</h4>
                                                     <p className="text-sm text-zinc-700 leading-relaxed">{lesson.feedback}</p>
