@@ -73,6 +73,19 @@ export const db = {
         "Review Miyako's English diary",
         "Prepare Unit 2 location vocabulary"
       ]
+    },
+    {
+      id: "t4",
+      username: "hazel_tutor",
+      password: "petraPassword",
+      name: "Hazel",
+      role: "English Tutor",
+      assignedStudents: ["s1"],
+      nextLesson: null,
+      todayAgenda: [
+        "Review Tadashi's recent lesson reports",
+        "Prepare customized reading materials"
+      ]
     }
   ],
   students: {
