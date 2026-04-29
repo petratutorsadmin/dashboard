@@ -152,25 +152,54 @@ export default function PetraLibraryPremium() {
           if (assigned.length > 0) {
               setSelectedStudentId(assigned[0].id);
           }
+
+          const savedFavs = localStorage.getItem(`petra_favs_${savedTutorId}`);
+          if (savedFavs) {
+              try { setFavs(JSON.parse(savedFavs)); } catch(e){}
+          }
       } else {
           router.push("/");
       }
     } else {
         router.push("/");
     }
+
+    const savedAssignmentsStr = localStorage.getItem("petra_library_assignments");
+    if (savedAssignmentsStr) {
+        try {
+            const savedAssignments = JSON.parse(savedAssignmentsStr);
+            setResources(prev => prev.map(r => {
+                const updatedAssigned = savedAssignments[r.id] || r.assignedTo;
+                // Keep db in sync for runtime
+                const dbItem = db.resources.find(res => res.id === r.id);
+                if (dbItem) dbItem.assignedTo = updatedAssigned;
+                return { ...r, assignedTo: updatedAssigned };
+            }));
+        } catch(e) {}
+    }
+
     setIsLoaded(true);
   }, [router]);
 
+  function saveAssignments(currentResources) {
+      const assignments = {};
+      currentResources.forEach(r => { assignments[r.id] = r.assignedTo; });
+      localStorage.setItem("petra_library_assignments", JSON.stringify(assignments));
+  }
+
   function toggleFav(id) {
-    setFavs((f) => (f.includes(id) ? f.filter((x) => x !== id) : [...f, id]));
+    setFavs((f) => {
+        const newFavs = f.includes(id) ? f.filter((x) => x !== id) : [...f, id];
+        if (tutor) localStorage.setItem(`petra_favs_${tutor.id}`, JSON.stringify(newFavs));
+        return newFavs;
+    });
   }
 
   function assign(id, studentId) {
-    setResources((r) =>
-      r.map((item) => {
+    setResources((r) => {
+      const newR = r.map((item) => {
         if (item.id === id && !item.assignedTo.includes(studentId)) {
           const updated = { ...item, assignedTo: [...item.assignedTo, studentId] };
-          // Persist to db mock
           const dbItem = db.resources.find(res => res.id === id);
           if (dbItem && !dbItem.assignedTo.includes(studentId)) {
               dbItem.assignedTo.push(studentId);
@@ -178,16 +207,17 @@ export default function PetraLibraryPremium() {
           return updated;
         }
         return item;
-      })
-    );
+      });
+      saveAssignments(newR);
+      return newR;
+    });
   }
 
   function unassign(id, studentId) {
-    setResources((r) =>
-      r.map((item) => {
+    setResources((r) => {
+      const newR = r.map((item) => {
         if (item.id === id) {
           const updated = { ...item, assignedTo: item.assignedTo.filter((s) => s !== studentId) };
-          // Persist to db mock
           const dbItem = db.resources.find(res => res.id === id);
           if (dbItem) {
               dbItem.assignedTo = dbItem.assignedTo.filter(s => s !== studentId);
@@ -195,8 +225,10 @@ export default function PetraLibraryPremium() {
           return updated;
         }
         return item;
-      })
-    );
+      });
+      saveAssignments(newR);
+      return newR;
+    });
   }
 
   function clearFilters() {

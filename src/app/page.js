@@ -187,7 +187,20 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
         return parseDate(b.date) - parseDate(a.date);
     });
 
-    const assignedResources = db.resources.filter(r => r.assignedTo.includes(student.id));
+    const [assignedResources, setAssignedResources] = React.useState([]);
+
+    React.useEffect(() => {
+        let savedAssignments = {};
+        const savedStr = localStorage.getItem("petra_library_assignments");
+        if (savedStr) {
+            try { savedAssignments = JSON.parse(savedStr); } catch(e) {}
+        }
+        const filtered = db.resources.filter(r => {
+            const assignedList = savedAssignments[r.id] || r.assignedTo;
+            return assignedList.includes(student.id);
+        });
+        setAssignedResources(filtered);
+    }, [student.id]);
 
     return (
         <div className="min-h-screen bg-[#faf8f4] p-4 sm:p-6 text-zinc-900 animate-in fade-in duration-500">
