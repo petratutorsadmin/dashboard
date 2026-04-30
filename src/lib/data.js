@@ -293,6 +293,20 @@ export const db = {
       ],
       lessons: [
         {
+            id: "s2_l4",
+            date: "Apr 28, 2026",
+            tutor: "Dayun Suh",
+            type: "Regular",
+            topic: "English Grammar and Time",
+            rating: "Excellent",
+            content: "Homework Check for Diary Entry and Grammar Error Check\nEnglish Grammar:\nFree Grammar E-book \n- Present Simple: Be\n- Possessives\n- Articles\n- This, That, These, Those\n- some, any\nHow to construct a question sentence\nLearned how to read the time in English",
+            feedback: "In our class today, we completed a diary entry assignment along with a grammar review covering the present simple (verb “to be”), possessives, articles, demonstratives (this, that, these, those), the use of “some” and “any,” and how to construct question sentences. In addition, they learned how to read and tell the time in English, and a free grammar e-book was provided for further practice.",
+            homework: "- Diary entry\n- Clock/Time reading practice",
+            impacts: [
+                { skill: "Grammar Foundations", change: "+2" }
+            ]
+        },
+        {
             id: "s2_l3",
             date: "Apr 21, 2026",
             tutor: "Riku",
@@ -394,6 +408,17 @@ export const db = {
             }
           ],
           lessons: [
+            {
+                date: "2026年4月28日",
+                type: "通常レッスン",
+                topic: "English Grammar and Time",
+                content: "英語日記の宿題確認と文法チェックを行いました。\n英文法：\n無料の文法Eブックを使用\n- 現在形（be動詞）\n- 所有格\n- 冠詞\n- 指示代名詞（this, that, these, those）\n- some, any\n疑問文の作り方\n英語での時間の読み方について学習しました。",
+                feedback: "本日のレッスンでは、英語日記の課題を完了させ、be動詞の現在形、所有格、冠詞、指示代名詞（this, that, these, those）、some/anyの使い方、疑問文の作り方を含む文法の復習を行いました。さらに、英語での時間の読み方と伝え方を学び、今後の練習用に無料の文法eブックをお渡ししました。",
+                homework: "- 英語日記\n- 時計/時間の読み方の練習",
+                impacts: [
+                    { skill: "基礎文法 (Grammar Foundations)", change: "+2" }
+                ]
+            },
             {
                 date: "2026年4月21日",
                 type: "Consultation",
