@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { db } from "@/lib/data";
 import { Dashboard } from "../page";
+import { computeOverallGrade, computePhaseProgress } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { BookOpen } from "lucide-react";
 
@@ -81,7 +82,7 @@ function StudentCard({ student, onClick }) {
             <div>
               <div className="mb-2 flex items-center gap-2">
                 <h3 className="text-xl font-bold">{student.name}</h3>
-                <StatusBadge status={student.overallGrade} />
+                <StatusBadge status={computeOverallGrade(student)} />
               </div>
               <p className="text-sm text-zinc-500">{student.course}</p>
             </div>
@@ -97,9 +98,9 @@ function StudentCard({ student, onClick }) {
           <div className="mb-5 rounded-2xl p-4" style={{ backgroundColor: softGold }}>
             <div className="mb-2 flex items-center justify-between">
               <p className="text-sm font-bold">{currentPhase.label}</p>
-              <p className="text-sm font-bold" style={{ color: petraPurple }}>{currentPhase.progress}%</p>
+              <p className="text-sm font-bold" style={{ color: petraPurple }}>{computePhaseProgress(currentPhase)}%</p>
             </div>
-            <ProgressBar value={currentPhase.progress} gold />
+            <ProgressBar value={computePhaseProgress(currentPhase)} gold />
           </div>
           )}
 
@@ -259,7 +260,7 @@ export default function PetraTutorDashboard() {
                     <tr key={student.name} className="border-t border-zinc-100 cursor-pointer hover:bg-zinc-50 transition-colors" onClick={() => setSelectedStudent(student)}>
                       <td className="p-4 font-bold">{student.name}</td>
                       <td className="p-4 text-zinc-600">{student.course}</td>
-                      <td className="p-4"><StatusBadge status={student.overallGrade} /></td>
+                      <td className="p-4"><StatusBadge status={computeOverallGrade(student)} /></td>
                     </tr>
                   ))}
                 </tbody>

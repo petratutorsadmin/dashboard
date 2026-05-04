@@ -113,32 +113,32 @@ export const db = {
       focusThisMonth: "Reading → Summary → Writing connection",
       skills: [
         { 
-            name: "Vocabulary Understanding", grade: "B+", level: 82, note: "Strong word meaning",
+            name: "Vocabulary Understanding", baseLevel: 79, weight: 1.0, note: "Strong word meaning",
             issue: "Knows meanings well but needs regular reinforcement rather than rote memorization.",
             improvement: "Regular vocabulary review focusing on context and familiarity."
         },
         { 
-            name: "Spelling", grade: "C", level: 42, note: "Needs pattern training", warning: true,
+            name: "Spelling", baseLevel: 40, weight: 1.0, note: "Needs pattern training", warning: true,
             issue: "Struggles with spelling accuracy on common words ('should', 'because') and specific suffixes ('-ture', '-tion').",
             improvement: "Reinforce spelling patterns and continue 10-word spelling checks weekly."
         },
         { 
-            name: "Grammar & Punctuation", grade: "C", level: 45, note: "Basic accuracy unstable",
+            name: "Grammar & Punctuation", baseLevel: 42, weight: 1.0, note: "Basic accuracy unstable",
             issue: "Inconsistent capitalization and comma usage in sentences.",
             improvement: "Practice sentence segmentation and review basic punctuation rules."
         },
         { 
-            name: "Writing Structure", grade: "B-", level: 62, note: "Understands basics",
+            name: "Writing Structure", baseLevel: 57, weight: 1.2, note: "Understands basics",
             issue: "Understands basic structure but needs to practice writing introductions with hooks and comprehensive conclusions.",
             improvement: "Practice incorporating a hook/background info in the intro, and restating both opinion and reasons in the conclusion."
         },
         { 
-            name: "Reading Comprehension", grade: "C-", level: 35, note: "Main challenge identified", critical: true,
+            name: "Reading Comprehension", baseLevel: 30, weight: 1.5, note: "Main challenge identified", critical: true,
             issue: "Finds it difficult to fully understand the context of passages, which negatively impacts writing tasks.",
             improvement: "Introduce structured reading strategies to help with context understanding before attempting to write."
         },
         { 
-            name: "Logical Thinking", grade: "A-", level: 88, note: "Adapts quickly",
+            name: "Logical Thinking", baseLevel: 82, weight: 1.0, note: "Adapts quickly",
             issue: "Strong potential, but needs more practice applying complex structures in independent writing.",
             improvement: "Continue to engage with complex topics and build background knowledge to support arguments."
         },
@@ -148,33 +148,30 @@ export const db = {
             title: "Phase 1",
             label: "Foundation Stabilization",
             period: "Weeks 1–3",
-            progress: 40,
             items: [
-                "10-word spelling check every lesson",
-                "Sentence accuracy training",
-                "Capitalization and punctuation correction",
+                { title: "10-word spelling check every lesson", completed: true },
+                { title: "Sentence accuracy training", completed: true },
+                { title: "Capitalization and punctuation correction", completed: false }
             ],
         },
         {
             title: "Phase 2",
             label: "Reading → Expression",
             period: "Weeks 3–5",
-            progress: 20,
             items: [
-                "Paragraph-by-paragraph summary",
-                "Identify main idea and reasoning",
-                "Read first, then write response",
+                { title: "Paragraph-by-paragraph summary", completed: false },
+                { title: "Identify main idea and reasoning", completed: false },
+                { title: "Read first, then write response", completed: false }
             ],
         },
         {
             title: "Phase 3",
             label: "Exam Performance",
             period: "Weeks 5–8",
-            progress: 0,
             items: [
-                "Timed EIKEN writing",
-                "Full mock test",
-                "Score tracking and weak-point review",
+                { title: "Timed EIKEN writing", completed: false },
+                { title: "Full mock test", completed: false },
+                { title: "Score tracking and weak-point review", completed: false }
             ],
         },
       ],
@@ -296,17 +293,17 @@ export const db = {
       focusThisMonth: "Vocabulary building and sentence structure",
       skills: [
         { 
-            name: "Vocabulary", grade: "C+", level: 60, note: "Needs academic vocabulary", warning: true,
+            name: "Vocabulary", baseLevel: 57, weight: 1.0, note: "Needs academic vocabulary", warning: true,
             issue: "Only confident with about half of the '1000 Basic English Words'.",
             improvement: "Review academic and daily location vocabulary daily and practice using them in context."
         },
         { 
-            name: "Grammar Foundations", grade: "B+", level: 85, note: "Basics are solid",
+            name: "Grammar Foundations", baseLevel: 81, weight: 1.0, note: "Basics are solid",
             issue: "Struggles with specific rules like using definite/indefinite articles (a/an/the) and direct translation of negative questions.",
             improvement: "Drills focused on article usage and translating negative questions from Japanese to English."
         },
         { 
-            name: "Sentence Structure", grade: "B-", level: 65, note: "Eager to improve",
+            name: "Sentence Structure", baseLevel: 62, weight: 1.0, note: "Eager to improve",
             issue: "Needs to learn how to construct correct sentence structures independently for higher-level academic writing.",
             improvement: "Practice writing an English diary using new grammar rules to build writing confidence."
         }
@@ -316,22 +313,20 @@ export const db = {
             title: "Phase 1",
             label: "Grammar Foundations",
             period: "Weeks 1–3",
-            progress: 30,
             items: [
-                "Master a/an/the article rules",
-                "Understand negative question structures",
-                "English diary writing practice",
+                { title: "Master a/an/the article rules", completed: false },
+                { title: "Understand negative question structures", completed: false },
+                { title: "English diary writing practice", completed: true }
             ],
         },
         {
             title: "Phase 2",
             label: "Vocabulary Retention",
             period: "Weeks 3–6",
-            progress: 10,
             items: [
-                "Complete 1000 Basic English Words",
-                "Use vocabulary in academic context",
-                "Long reading comprehension drills",
+                { title: "Complete 1000 Basic English Words", completed: false },
+                { title: "Use vocabulary in academic context", completed: false },
+                { title: "Long reading comprehension drills", completed: false }
             ],
         }
       ],
@@ -436,18 +431,18 @@ export const db = {
                 label: "文法の基礎固め",
                 period: "第1〜3週",
                 items: [
-                    "a/an/theの冠詞ルールのマスター",
-                    "否定疑問文の構造理解",
-                    "英語日記のライティング練習",
+                    { title: "a/an/theの冠詞ルールのマスター", completed: false },
+                    { title: "否定疑問文の構造理解", completed: false },
+                    { title: "英語日記のライティング練習", completed: true }
                 ],
             },
             {
                 label: "語彙力の定着",
                 period: "第3〜6週",
                 items: [
-                    "1000 Basic English Words の完了",
-                    "アカデミックな文脈での語彙の使用",
-                    "長文読解ドリル",
+                    { title: "1000 Basic English Words の完了", completed: false },
+                    { title: "アカデミックな文脈での語彙の使用", completed: false },
+                    { title: "長文読解ドリル", completed: false }
                 ],
             }
           ],
@@ -525,22 +520,22 @@ export const db = {
       focusThisMonth: "Realistic school conversation scenarios and advanced vocabulary drills",
       skills: [
         { 
-            name: "Speaking Confidence", grade: "A", level: 95, note: "Extremely high descriptive ability",
+            name: "Speaking Confidence", baseLevel: 94, weight: 1.0, note: "Extremely high descriptive ability",
             issue: "No major issues. She can speak clearly about her interests (e.g., track and field, science club).",
             improvement: "Continue exercises involving longer descriptions and making inferences."
         },
         { 
-            name: "Reading/Listening Comp.", grade: "A", level: 90, note: "Excellent",
+            name: "Reading/Listening Comp.", baseLevel: 90, weight: 1.0, note: "Excellent",
             issue: "Can understand lessons conducted almost entirely in English without problems.",
             improvement: "Incorporate cultural nuances (Irish culture and English) to expand listening breadth."
         },
         { 
-            name: "Advanced Vocabulary", grade: "B+", level: 85, note: "Learning technical terms",
+            name: "Advanced Vocabulary", baseLevel: 82, weight: 1.0, note: "Learning technical terms",
             issue: "Encountering new technical terms in health and science fields (e.g., 'suffers from', 'Cancer').",
             improvement: "Use 'English Vocabulary in Use' textbook drills to solidify new words."
         },
         { 
-            name: "Grammar Accuracy", grade: "B+", level: 82, note: "Phase of increasing accuracy", warning: true,
+            name: "Grammar Accuracy", baseLevel: 82, weight: 1.0, note: "Phase of increasing accuracy", warning: true,
             issue: "Needs to perfect the distinction between specific articles ('a', 'the', and no article) in complex sentences.",
             improvement: "Practice constructing accurate sentences during scenario practice using slides."
         }
@@ -550,22 +545,20 @@ export const db = {
             title: "Phase 1",
             label: "Practical Dialogues (Conversation)",
             period: "Weeks 1–4",
-            progress: 80,
             items: [
-                "Office hours scenario (asking a teacher questions)",
-                "Discussion about science homework",
-                "Immersion in Irish culture",
+                { title: "Office hours scenario (asking a teacher questions)", completed: true },
+                { title: "Discussion about science homework", completed: true },
+                { title: "Immersion in Irish culture", completed: false }
             ],
         },
         {
             title: "Phase 2",
             label: "Acquisition of Advanced Vocab",
             period: "Weeks 1–4",
-            progress: 50,
             items: [
-                "Health/medical-related vocabulary",
-                "'English Vocabulary in Use' textbook",
-                "Practice inferring and describing from paintings",
+                { title: "Health/medical-related vocabulary", completed: true },
+                { title: "'English Vocabulary in Use' textbook", completed: false },
+                { title: "Practice inferring and describing from paintings", completed: false }
             ],
         }
       ],
@@ -633,18 +626,18 @@ export const db = {
                 label: "実践的なダイアログ（会話）",
                 period: "第1〜4週",
                 items: [
-                    "オフィスアワー（先生への質問）のシナリオ",
-                    "理科の宿題についてのディスカッション",
-                    "アイルランド文化への没入",
+                    { title: "オフィスアワー（先生への質問）のシナリオ", completed: true },
+                    { title: "理科の宿題についてのディスカッション", completed: true },
+                    { title: "アイルランド文化への没入", completed: false }
                 ],
             },
             {
                 label: "高度な語彙力の習得",
                 period: "第1〜4週",
                 items: [
-                    "健康/医療関連の語彙",
-                    "「English Vocabulary in Use」テキスト",
-                    "絵画から推測して描写する練習",
+                    { title: "健康/医療関連の語彙", completed: true },
+                    { title: "「English Vocabulary in Use」テキスト", completed: false },
+                    { title: "絵画から推測して描写する練習", completed: false }
                 ],
             }
           ],

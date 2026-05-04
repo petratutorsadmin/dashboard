@@ -17,8 +17,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Calendar, User, BookOpen, MessageSquare, PenTool, LogOut, TrendingUp, ExternalLink } from "lucide-react";
+import { LogOut, TrendingUp, ExternalLink } from "lucide-react";
 import { db } from "@/lib/data";
+import { cn, computeSkillLevel, computeGrade, computeOverallGrade, computePhaseProgress } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
 const petraPurple = "#31063d";
@@ -103,9 +104,11 @@ function ProgressBar({ value, gold = false }) {
     );
 }
 
-function SkillRow({ skill, lang = "en", recentChange }) {
+function SkillRow({ skill, student, lang = "en", recentChange }) {
     const isCritical = Boolean(skill.critical || skill.warning);
     const t = text[lang];
+    const level = computeSkillLevel(student, skill.name);
+    const grade = computeGrade(level);
     return (
         <HoverCard openDelay={200} closeDelay={150}>
             <HoverCardTrigger asChild>
@@ -127,12 +130,14 @@ function SkillRow({ skill, lang = "en", recentChange }) {
                         </div>
                     </div>
 
-                    <div className="col-span-8 sm:col-span-5">
-                        <ProgressBar value={skill.level} gold={skill.level > 80} />
+                    <div className="col-span-8 sm:col-span-5 flex items-center gap-2">
+                        <ProgressBar value={level} gold={level > 80} />
                     </div>
 
-                    <div className="col-span-2 text-right font-semibold sm:col-span-1" style={{ color: isCritical ? "#b45309" : petraPurple }}>
-                        {skill.grade}
+                    <div className="col-span-2 flex items-center justify-end gap-2 sm:col-span-1">
+                        <span className="font-semibold" style={{ color: isCritical ? "#b45309" : petraPurple }}>
+                            {grade}
+                        </span>
                     </div>
 
                     <div className="col-span-12 text-xs text-zinc-500 sm:col-span-2 sm:text-right line-clamp-1">
@@ -242,7 +247,7 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                     <MiniIcon>▦</MiniIcon>
                                     <h2 className="text-xl font-bold">{t.diagnosis}</h2>
                                 </div>
-                                <Badge variant="outline" className="rounded-full font-bold">{t.overall}: {student.overallGrade}</Badge>
+                                <Badge variant="outline" className="rounded-full font-bold">{t.overall}: {computeOverallGrade(student)}</Badge>
                             </div>
 
                             <div className="mb-5 rounded-3xl p-5" style={{ backgroundColor: softGold }}>
@@ -261,7 +266,7 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                 {student.skills.map((skill) => {
                                     const latestLessonWithImpact = sortedLessons.find(l => l.impacts?.some(i => i.skill === skill.name));
                                     const recentChange = latestLessonWithImpact?.impacts.find(i => i.skill === skill.name)?.change;
-                                    return <SkillRow key={skill.name} skill={skill} lang={lang} recentChange={recentChange} />
+                                    return <SkillRow key={skill.name} skill={skill} student={student} lang={lang} recentChange={recentChange} />
                                 })}
                             </div>
                         </SectionCard>
@@ -291,7 +296,9 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                     </div>
 
                     <section className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-                        {student.phases.map((phase) => (
+                        {student.phases.map((phase) => {
+                            const progress = computePhaseProgress(phase);
+                            return (
                             <SectionCard key={phase.title}>
                                 <div className="mb-4 flex items-start justify-between">
                                     <div>
@@ -300,22 +307,24 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                         <p className="text-xs text-zinc-500 mt-1 font-medium">{phase.period}</p>
                                     </div>
                                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl font-bold shadow-inner" style={{ backgroundColor: softGold, color: petraPurple }}>
-                                        {clampPercent(phase.progress)}%
+                                        {clampPercent(progress)}%
                                     </div>
                                 </div>
 
-                                <ProgressBar value={phase.progress} gold={phase.progress > 0} />
+                                <ProgressBar value={progress} gold={progress > 0} />
 
                                 <div className="mt-5 space-y-3">
-                                    {phase.items.map((item) => (
-                                        <div key={item} className="flex items-start gap-2 text-sm text-zinc-700">
-                                            <span className="mt-0.5 font-bold shrink-0" style={{ color: petraGold }}>✓</span>
-                                            <span className="leading-snug">{item}</span>
+                                    {phase.items.map((item, idx) => (
+                                        <div key={idx} className="flex items-start gap-2 text-sm text-zinc-700">
+                                            <span className="mt-0.5 font-bold shrink-0" style={{ color: (typeof item === 'object' ? item.completed : false) ? petraGold : "#d4d4d8" }}>
+                                                {(typeof item === 'object' ? item.completed : false) ? "✓" : "○"}
+                                            </span>
+                                            <span className="leading-snug">{typeof item === 'object' ? item.title : item}</span>
                                         </div>
                                     ))}
                                 </div>
                             </SectionCard>
-                        ))}
+                        )})}
                     </section>
 
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
