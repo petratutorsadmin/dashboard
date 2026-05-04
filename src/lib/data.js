@@ -86,6 +86,19 @@ export const db = {
         "Review Tadashi's recent lesson reports",
         "Prepare customized reading materials"
       ]
+    },
+    {
+      id: "t5",
+      username: "alice_tutor",
+      password: "petraPassword",
+      name: "Alice Williams",
+      role: "English Tutor",
+      assignedStudents: ["s1"],
+      nextLesson: null,
+      todayAgenda: [
+        "Review Tadashi's recent lesson reports",
+        "Prepare for the next reading comprehension lesson"
+      ]
     }
   ],
   students: {
@@ -166,6 +179,37 @@ export const db = {
         },
       ],
       lessons: [
+        {
+            id: "l_alceW0501",
+            date: "May 1, 2026",
+            tutor: "Alice",
+            type: "Regular",
+            topic: "Reading comprehension",
+            rating: "Excellent",
+            content: "At the start of the lesson we briefly went through the previous lessons spelling words and their definitions. Focused on further developing reading comprehension with EIKEN style passages on the topic of homework reduction in schools. We covered identifying key information, predicting content from titles and skimming for the main idea. We practiced paraphrasing certain sentences to improve understanding/ language choice and proper structures for answers.",
+            feedback: "Tadashi is definitely a hard worker and does try his best.\n\nGiven time and a moment to think, he is able to work out the correct spelling of many words. However, his main weakness is finding the appropriate words to describe definitions or explanations. Time management also appears to be a slight issue, as it takes Tadashi time to express what he wants to write or say. Expanding his vocabulary will help improve both his time management and his word choices, as his answers currently tend to use quite basic vocabulary.",
+            homework: "To write and finish both the ‘for’ and ‘against’ arguments for the topic question “Should schools reduce homework?”\n\n- using the bullet point notes we made during the lesson to structure the paragraphs.",
+            impacts: [
+                { skill: "Reading Comprehension", change: "+2" },
+                { skill: "Spelling", change: "+1" },
+                { skill: "Vocabulary Understanding", change: "+1" }
+            ]
+        },
+        {
+            id: "l_tnZh0430",
+            date: "Apr 30, 2026",
+            tutor: "Tina",
+            type: "Regular",
+            topic: "EIKEN Pre-1 Reading Comprehension",
+            rating: "Excellent",
+            content: "Vocabulary check - quizzed student on vocabulary spelling and definition from last lesson; taught student differences between noun, adjective, verb\nReading comprehension practice - used 2 EIKEN style reading passages to test student's comprehension, asked student to identify topic, supporters' opinions, critics' opinions, and summarizing the passage in 3 sentences or under; gave student tips such as skipping unknown words, identifying connecting indicators like \"first\" \"for example\" \"to conclude\"\nReading summarization practice - had student shorten long sentences into shorter ones, learning skills like removing irrelevant information, identifying key words\nNote taking - helped student take notes about important content from today",
+            feedback: "Today, we started with a vocabulary check to review spelling and definitions from the previous lesson, and also introduced the differences between nouns, adjectives, and verbs. We then focused on reading comprehension using EIKEN-style passages, where Tadashi practiced identifying the main topic, supporters’ and critics’ opinions, and summarizing the text in a few sentences. I also introduced strategies such as skipping unknown words and using keywords like “first” and “for example” to follow the structure more easily. We then practiced summarization by shortening longer sentences and focusing on key information.\n\nTadashi showed good overall reading comprehension and stayed focused throughout the lesson. He is able to understand the main ideas well, but needs more practice summarizing using academic language and filtering out less important details. We will also continue building his grammar foundation to better understand word types and sentence structure.\n\nFor homework, he should memorize the spelling and definitions of today’s vocabulary.",
+            homework: "Memorize spelling and definition of today's vocabulary perfectly.",
+            impacts: [
+                { skill: "Reading Comprehension", change: "+3" },
+                { skill: "Grammar & Punctuation", change: "+1" }
+            ]
+        },
         {
             id: "rDOogXN",
             date: "Apr 24, 2026",
