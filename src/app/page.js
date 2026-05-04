@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/accordion";
 import { Calendar, User, BookOpen, MessageSquare, PenTool, LogOut, TrendingUp, ExternalLink } from "lucide-react";
 import { db } from "@/lib/data";
-import { cn, computeSkillLevel, computeGrade, computeOverallGrade, computePhaseProgress } from "@/lib/utils";
+import { cn, computeSkillLevel, computeGrade, computeOverallGrade, computePhaseProgress, computeNextPlan } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
 const petraPurple = "#31063d";
@@ -401,7 +401,7 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                 <h2 className="mb-4 text-xl font-bold">{t.nextPlan}</h2>
 
                                 <div className="space-y-3">
-                                    {student.nextPlan.map((plan, index) => (
+                                    {computeNextPlan(student, lang).map((plan, index) => (
                                         <div key={index} className="rounded-2xl bg-zinc-50 p-4 border border-zinc-100">
                                             <p className="text-sm font-bold text-zinc-900">{plan.title}</p>
                                             <p className="text-xs text-zinc-600 mt-1 leading-relaxed">{plan.desc}</p>
