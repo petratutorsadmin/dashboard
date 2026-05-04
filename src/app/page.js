@@ -17,7 +17,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { LogOut, TrendingUp, ExternalLink } from "lucide-react";
+import { Calendar, User, BookOpen, MessageSquare, PenTool, LogOut, TrendingUp, ExternalLink } from "lucide-react";
 import { db } from "@/lib/data";
 import { cn, computeSkillLevel, computeGrade, computeOverallGrade, computePhaseProgress } from "@/lib/utils";
 import { useRouter } from "next/navigation";
