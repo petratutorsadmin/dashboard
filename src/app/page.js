@@ -103,7 +103,7 @@ function ProgressBar({ value, gold = false }) {
     );
 }
 
-function SkillRow({ skill, lang = "en" }) {
+function SkillRow({ skill, lang = "en", recentChange }) {
     const isCritical = Boolean(skill.critical || skill.warning);
     const t = text[lang];
     return (
@@ -111,8 +111,14 @@ function SkillRow({ skill, lang = "en" }) {
             <HoverCardTrigger asChild>
                 <div className="grid grid-cols-12 items-center gap-3 border-b border-zinc-100 py-3 last:border-0 cursor-pointer hover:bg-zinc-50 transition-colors -mx-3 px-3 rounded-xl group relative">
                     <div className="col-span-12 sm:col-span-4">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 flex-wrap">
                             <p className="font-medium text-zinc-900 group-hover:text-[#31063d] transition-colors line-clamp-1">{skill.name}</p>
+                            {recentChange && (
+                                <Badge variant="secondary" className="bg-purple-50 text-purple-700 border-purple-100 font-bold px-1.5 py-0 text-[10px] whitespace-nowrap shrink-0">
+                                    <TrendingUp className="w-2.5 h-2.5 mr-0.5 inline" />
+                                    {recentChange}
+                                </Badge>
+                            )}
                             {isCritical && (
                                 <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-700">
                                     {t.priority}
@@ -252,7 +258,11 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                             </div>
 
                             <div className="mt-2">
-                                {student.skills.map((skill) => <SkillRow key={skill.name} skill={skill} lang={lang} />)}
+                                {student.skills.map((skill) => {
+                                    const latestLessonWithImpact = sortedLessons.find(l => l.impacts?.some(i => i.skill === skill.name));
+                                    const recentChange = latestLessonWithImpact?.impacts.find(i => i.skill === skill.name)?.change;
+                                    return <SkillRow key={skill.name} skill={skill} lang={lang} recentChange={recentChange} />
+                                })}
                             </div>
                         </SectionCard>
 
