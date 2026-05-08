@@ -177,6 +177,22 @@ export const db = {
       ],
       lessons: [
         {
+            id: "l_alceW0507",
+            date: "May 7, 2026",
+            tutor: "Alice",
+            type: "Regular",
+            topic: "Reading comprehension practice. (Continuation from last week)",
+            rating: "Excellent",
+            content: "Tadashi and I explored both sides of the argument, focusing on the advantages and disadvantages of reducing homework. Tadashi developed ideas about how excessive homework may increase stress, negatively affect academic performance, reduce time for hobbies and family, and potentially lead to behavioural issues in school etc. Tadashi also practiced explaining how good wellbeing outside of school can positively impact students classroom performance.\n\nTogether we wrote an exam style paragraph for the supporting argument using elevated language. Tadashi learned new words and their definitions through our use of elevated language.",
+            feedback: "Tadashi remembered the structure and ideas from the previous lesson well and applied them confidently and correctly to today’s lesson. Despite the lesson being online, he stayed focused and contributed very well throughout! We are continuing to work on reading fluency and pronunciation of longer or unfamiliar words, but he showed great effort and engagement during the lesson!",
+            homework: "Learn the correct spelling and definitions for the following words:\n\n- Behavioral\n- Contribute\n- Beneficial\n- Scenario\n- Delay\n- Revise",
+            impacts: [
+                { skill: "Reading Comprehension", change: "+1" },
+                { skill: "Vocabulary Understanding", change: "+2" },
+                { skill: "Spelling", change: "+1" }
+            ]
+        },
+        {
             id: "l_alceW0501",
             date: "May 1, 2026",
             tutor: "Alice",
