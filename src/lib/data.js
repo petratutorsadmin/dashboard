@@ -177,6 +177,21 @@ export const db = {
       ],
       lessons: [
         {
+            id: "l_hazel0508",
+            date: "May 8, 2026",
+            tutor: "Hazel",
+            type: "Regular",
+            topic: "Spelling and reading comprehension",
+            rating: "Okay",
+            content: "1. Started the lesson with a 5 to 10 minute short introductory and ice breaker activity.\n2. Tested the student on the previous spelling homework.\n3. Since Tadashi only got 2 words correct, I taught him how to write the words at least 5 times and read the words aloud after each time. I then gave him 5 minutes to memorise all the words again and tested him on the spelling.\n4. We went through one reading comprehension from Eiken official paper pre-1 (3) together. I taught him how to read the questions before reading the passage and identify important key words from the questions as well.\n5. I then asked Tadashi to do the questions himself. After marking the paper, I went through the passage with him again as I guide him on how to identify the answers by recognising the similar keywords and phrases in the questions and the passage.",
+            feedback: "1. Had a quiz on the spelling homework.\n2. Taught Tadashi to how to memorise again and quizzed him again (he received full marks on the second try).\n3. Asked him to answer the questions for the reading comprehension.\n4. Solved the answers after marking the paper and taught him how to identify key words in the passages and the questions.\n5. Gave him 8 spelling words to memorise for homework.\n\nNote: Due to the short amount of time for the lesson, I was unable to focus on other areas. Therefore, I only gave him a little bit of homework for my first lesson with him. However, I plan on giving him more assignments to do from the next few lessons onwards.",
+            homework: "I assigned him the following words for spelling from Unit 6 of the 4000 Essential English Words textbook (definitions included):\n- Devise\n- Fracture\n- Indigenous\n- Insight\n- Limb\n- Migraine\n- Optimism\n- Quest",
+            impacts: [
+                { skill: "Spelling", change: "+1" },
+                { skill: "Reading Comprehension", change: "+2" }
+            ]
+        },
+        {
             id: "l_alceW0507",
             date: "May 7, 2026",
             tutor: "Alice",
@@ -716,7 +731,7 @@ export const db = {
     }
   },
   resources: [
-    { id: "r7", name: "4000_Essential_English_Words_5_LV4.CORE.ACTIVE.COLOR.HW.WORD.TEST.READ.WRITE.LISTEN", display: "4000 Essential English Words 5", category: "Vocabulary", assignedTo: [], link: "https://drive.google.com/file/d/1WQAkQGmus8ALK63Akz_B8RYdahRy8Lrv/view?usp=drivesdk" },
+    { id: "r7", name: "4000_Essential_English_Words_5_LV4.CORE.ACTIVE.COLOR.HW.WORD.TEST.READ.WRITE.LISTEN", display: "4000 Essential English Words 5", category: "Vocabulary", assignedTo: ["s1"], link: "https://drive.google.com/file/d/1WQAkQGmus8ALK63Akz_B8RYdahRy8Lrv/view?usp=drivesdk" },
     { id: "r8", name: "English_Collocations_in_Use_Advanced_LV4.CORE.ACTIVE.HW.WORD.COLOR.READ.WRITE.LISTEN", display: "English Collocations In Use Advanced", category: "Business", assignedTo: [], link: "https://drive.google.com/file/d/1HJ5w-ogaIp0bfBwZjSqO9QykZywocmo5/view?usp=drivesdk" },
     { id: "r9", name: "English_for_Everyone_Business_English_LV2.CORE.ACTIVE.COLOR.HW.WORD.TEST.COLOR.SPEAK.WRITE.LISTEN", display: "English For Everyone Business English", category: "Business", assignedTo: [], link: "https://drive.google.com/file/d/1xTfrXOYcOAfhpNLQfdsyqVNLv7P2Hho4/view?usp=drivesdk" },
     { id: "r10", name: "Business_English_Lesson_Template_Guide_LV1.CORE", display: "Business English Lesson Template Guide", category: "Business", assignedTo: [], link: "https://docs.google.com/document/d/1EcLKARs5UYUU0yI66nfzr7gB-v9O78KTiLzeeEPbbU4/edit?usp=drivesdk" },
@@ -737,6 +752,7 @@ export const db = {
     { id: "r25", name: "Smart_Phonics_3_LV1.CORE.ACTIVE", display: "Smart Phonics 3", category: "Kids English", assignedTo: [], link: "https://drive.google.com/file/d/10pIkdznDGk0sDIEVpxzbN10NtATHG1Oo/view?usp=drivesdk" },
     { id: "r26", name: "RosettaStone_English_LV4.HW.TEST", display: "RosettaStone English", category: "Kids English", assignedTo: [], link: "https://drive.google.com/file/d/1vyCWm0pLi2CiVhvHnP-UJ0BQ6netDPc5/view?usp=drivesdk" },
     { id: "r27", name: "English_Vocabulary_in_Use_Unit_41", display: "English Vocabulary in Use (Unit 41)", category: "Vocabulary", assignedTo: ["s3"], link: "#" },
-    { id: "r28", name: "English_Vocabulary_in_Use_Unit_42", display: "English Vocabulary in Use (Unit 42)", category: "Vocabulary", assignedTo: ["s3"], link: "#" }
+    { id: "r28", name: "English_Vocabulary_in_Use_Unit_42", display: "English Vocabulary in Use (Unit 42)", category: "Vocabulary", assignedTo: ["s3"], link: "#" },
+    { id: "r29", name: "Eiken_official_paper_pre-1_3", display: "Eiken official paper pre-1 (3)", category: "Exam Prep", assignedTo: ["s1"], link: "#" }
   ]
 };
