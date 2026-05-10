@@ -22,6 +22,14 @@ export const db = {
       name: "Sugiyama様",
       studentId: "s3",
       lang: "ja"
+    },
+    {
+      id: "p4",
+      username: "sarah_sugiyama",
+      password: "petraPassword",
+      name: "Sarah",
+      studentId: "s3",
+      lang: "en"
     }
   ],
   admins: [
@@ -580,14 +588,29 @@ export const db = {
       ],
       lessons: [
         {
+            id: "s3_l2",
+            date: "May 9, 2026",
+            tutor: "Hannah Tuffy",
+            type: "Regular",
+            topic: "Lesson 2: Speaking, Vocabulary, & Sentence Structure - Sports and Leisure",
+            rating: "Excellent",
+            content: "Greetings:\nAnything fun for Golden Week?\nAny weekend plans? (track meet tomorrow?)\n\nRead Lesson Objective\n\nGame:\n2 truths and a lie (have her read the instructions)\n\nMaking Observations:\nDescribe a picture of a sports match in detail\n\nDialogue Practice:\nSports match scenario (introduced another Irish name)\nHobbies scenario\n\nTextbook material:\nEnglish Vocabulary in Use (Unit 41- Sports and Leisure)\n\nChallenge:\nSpeaking about her own experiences using the vocab we learned (3 prompts)\n\nFor next class:\nBriefly looked over English Vocabulary in Use (Unit 42- Competitive Sport)",
+            feedback: "Sarah did a great job with our lesson on Saturday night! Our main objective was to learn and practice new terms related to sports and leisure.\n\nWe began the lesson with a warm-up game, called \"two truths and a lie\". This is a very popular icebreaker game among English speaking students in America and Europe. I had her read the instructions so that she would be able to explain them if she ever wants to play this game with someone who is unfamiliar with it. Sarah understood the directions, and played the game well! It was a fun way to start our lesson.\n\nThen, I had Sarah free-speak about her observations about an image. She described it as \"a soccer game\" (+more details). While that is completely correct, I let her know that in Ireland, soccer is called \"football\", and games are called \"matches\".\n\nNext, we used 2 scenarios for dialogue practice. The first one was a conversation between two young girls regarding their football match that they won. I introduced another Irish name that is a little bit hard to pronounce (Saoirse - \"ceer-shuh\"). There were some new words that I want Sarah to review and practice using:\n- \"Nerve-wracking\" (adjective): to describe something that causes anxiety or nervousness, something that is high-pressure\n- \"Same here\": me too (「私も！」）\n- \"Pulling a muscle\": an injury of your muscles when you pull or tear them / 「肉離れ」\n\nNext, we reviewed sports vocabulary words that Sarah mostly knew, then learned verbs that match those words, and practiced structuring sentences using them. (English Vocabulary in Use, Unit 41- Sports and Leisure, pp. 88-89). We did all of the drills for that unit, and Sarah improved her sentence structure/grammar for describing sports and leisure activities. (Example: I did a bit of swimming in the summer VS. I swam in the summer VS. I go swimming in the summer)\n- new verbs: \"To play\", \"To do\", \"To race\", \"To run\" (\"To PLAY\" is usually for a sport with a ball!)\n\nAfter that, as a review, I had Sarah speak about her own experiences using the vocabulary that we used (3 prompts). Finally, we reviewed the textbook material for our next class.",
+            homework: "Exercise 41.4 from English Vocabulary in Use (Unit 41- Sports and Leisure)\n\nSome new words that I want Sarah to review, and practice using:\n1. \"Nerve-wracking\" (adjective): to describe something that causes anxiety or nervousness, something that is high-pressure\n2. \"Same here\": me too (「私も！」）\n3. \"Pulling a muscle\": an injury of your muscles when you pull or tear them / 「肉離れ」\n\nResources to review:\n- Everyday Conversations (Page 62, dialogue 3-9: Hobbies)\n- English Vocabulary in Use (Unit 41- Sports and Leisure)\n- English Vocabulary in Use (Unit 42- Competitive Sport)",
+            impacts: [
+                { skill: "Advanced Vocabulary", change: "+2" },
+                { skill: "Grammar Accuracy", change: "+1" }
+            ]
+        },
+        {
             id: "s3_l1",
             date: "Apr 26, 2026",
             tutor: "Hannah Tuffy",
             type: "Trial",
-            topic: "Assessment, Slides & Textbook",
+            topic: "Introductions, speaking/reading/listening assessment, slides, and textbook",
             rating: "Excellent",
-            content: "Introductions, 'Would you rather' game, 2 dialogue practice scenarios (science homework, office hours). Vocabulary and drills using textbook (English Vocabulary in Use, Unit 20: Health).",
-            feedback: "She possesses very high skills in speaking, listening, and reading. She demonstrated advanced vocabulary and solid pronunciation. She seemed to enjoy the customized slideshow activities and the textbook also helped her learn new content.",
+            content: "Introductions - name, where you are from, and hobbies\nWarm up game - \"would you rather\"\nDialogue practice: 1. Science homework scenario and 2. office hours scenario (I made slides)\nObservations - speaking about thoughts and observations based on a painting. I had Sarah describe what she saw, and also making inferences.\nTextbook vocabulary and drills - English Vocabulary in Use, Unit 20 (Health): pg. 46-47\nSpeaking confidence: I had Sarah speak about an event or topic. She spoke about her club activities at school, including track and field and Earth Sciences Club.\nRecap of new terms learned: \"she/he suffers from ___\", proper nouns like \"Band-aid\" and \"Cancer\", using \"a\", \"the\", or none in sentences, different types of doctors.",
+            feedback: "I had a very pleasant time meeting Sarah! I noticed that she is very skilled in speaking, listening, and reading. We did not work on any writing today. She demonstrated advanced vocabulary and overall comprehension, and her pronunciation was pretty solid. Today, I wanted to get to know Sarah and assess her comfort level with English. The lesson was conducted almost completely English, and Sarah showed excellent performance.\n\nSLIDES: We started with introductions, including our name, where we are from, and our hobbies. Next, we played a warm up game with fun questions, called \"would you rather\". We also worked on 2 dialogue practice scenarios to get Sarah comfortable with speaking. I also had Sarah look at a painting, and make comments about her observations, opinions, and inferences.\n\nTEXTBOOK: Next, we worked on 2 textbook pages that consisted of vocabulary and drills. The drills allowed Sarah to form precise sentences as well as descriptively speaking about personal experiences.\n\nSPEAKING: Finally, I prompted Sarah to speak about an event or something fun. I wanted to encourage her to speak descriptively for as long as she could. Sarah did amazing on this exercise, and spoke clearly about her after school activities, such as track and field and Earth sciences club.\n\nAt the end, we reviewed new terms that Sarah learned, and I got some input about our lesson structure. Sarah said that she enjoyed the slideshow activities that we did, as well as the textbook material. The textbook used today seemed easy for her, but she told me that it was helpful, as there was some new material she didn't know. I would like to keep using this textbook to use for ~30 mins(or more) of the lesson. She seemed to really enjoy the slideshow I made. Besides the game and picture activities, I created realistic school scenarios for dialogue practice, while sprinkling a bit of Irish culture and Irish English (since it's a bit different than U.S.).\n\nI'm looking forward to continue working with Sarah! Thank you!",
             homework: "No specific homework for this lesson.",
             impacts: [
                 { skill: "Advanced Vocabulary", change: "+3" },
