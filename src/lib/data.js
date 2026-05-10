@@ -22,14 +22,6 @@ export const db = {
       name: "Sugiyama様",
       studentId: "s3",
       lang: "ja"
-    },
-    {
-      id: "p4",
-      username: "sarah_sugiyama",
-      password: "petraPassword",
-      name: "Sarah",
-      studentId: "s3",
-      lang: "en"
     }
   ],
   admins: [
@@ -596,7 +588,7 @@ export const db = {
             rating: "Excellent",
             content: "Greetings:\nAnything fun for Golden Week?\nAny weekend plans? (track meet tomorrow?)\n\nRead Lesson Objective\n\nGame:\n2 truths and a lie (have her read the instructions)\n\nMaking Observations:\nDescribe a picture of a sports match in detail\n\nDialogue Practice:\nSports match scenario (introduced another Irish name)\nHobbies scenario\n\nTextbook material:\nEnglish Vocabulary in Use (Unit 41- Sports and Leisure)\n\nChallenge:\nSpeaking about her own experiences using the vocab we learned (3 prompts)\n\nFor next class:\nBriefly looked over English Vocabulary in Use (Unit 42- Competitive Sport)",
             feedback: "Sarah did a great job with our lesson on Saturday night! Our main objective was to learn and practice new terms related to sports and leisure.\n\nWe began the lesson with a warm-up game, called \"two truths and a lie\". This is a very popular icebreaker game among English speaking students in America and Europe. I had her read the instructions so that she would be able to explain them if she ever wants to play this game with someone who is unfamiliar with it. Sarah understood the directions, and played the game well! It was a fun way to start our lesson.\n\nThen, I had Sarah free-speak about her observations about an image. She described it as \"a soccer game\" (+more details). While that is completely correct, I let her know that in Ireland, soccer is called \"football\", and games are called \"matches\".\n\nNext, we used 2 scenarios for dialogue practice. The first one was a conversation between two young girls regarding their football match that they won. I introduced another Irish name that is a little bit hard to pronounce (Saoirse - \"ceer-shuh\"). There were some new words that I want Sarah to review and practice using:\n- \"Nerve-wracking\" (adjective): to describe something that causes anxiety or nervousness, something that is high-pressure\n- \"Same here\": me too (「私も！」）\n- \"Pulling a muscle\": an injury of your muscles when you pull or tear them / 「肉離れ」\n\nNext, we reviewed sports vocabulary words that Sarah mostly knew, then learned verbs that match those words, and practiced structuring sentences using them. (English Vocabulary in Use, Unit 41- Sports and Leisure, pp. 88-89). We did all of the drills for that unit, and Sarah improved her sentence structure/grammar for describing sports and leisure activities. (Example: I did a bit of swimming in the summer VS. I swam in the summer VS. I go swimming in the summer)\n- new verbs: \"To play\", \"To do\", \"To race\", \"To run\" (\"To PLAY\" is usually for a sport with a ball!)\n\nAfter that, as a review, I had Sarah speak about her own experiences using the vocabulary that we used (3 prompts). Finally, we reviewed the textbook material for our next class.",
-            homework: "Exercise 41.4 from English Vocabulary in Use (Unit 41- Sports and Leisure)\n\nSome new words that I want Sarah to review, and practice using:\n1. \"Nerve-wracking\" (adjective): to describe something that causes anxiety or nervousness, something that is high-pressure\n2. \"Same here\": me too (「私も！」）\n3. \"Pulling a muscle\": an injury of your muscles when you pull or tear them / 「肉離れ」\n\nResources to review:\n- Everyday Conversations (Page 62, dialogue 3-9: Hobbies)\n- English Vocabulary in Use (Unit 41- Sports and Leisure)\n- English Vocabulary in Use (Unit 42- Competitive Sport)",
+            homework: "Exercise 41.4 from English Vocabulary in Use (Unit 41- Sports and Leisure)\n\nSome new words that I want Sarah to review, and practice using:\n1. \"Nerve-wracking\" (adjective): to describe something that causes anxiety or nervousness, something that is high-pressure\n2. \"Same here\": me too (「私も！」）\n3. \"Pulling a muscle\": an injury of your muscles when you pull or tear them / 「肉離れ」",
             impacts: [
                 { skill: "Advanced Vocabulary", change: "+2" },
                 { skill: "Grammar Accuracy", change: "+1" }
@@ -682,11 +674,23 @@ export const db = {
           ],
           lessons: [
             {
+                date: "2026年5月9日",
+                type: "通常レッスン",
+                topic: "レッスン2：スピーキング、語彙、文構造 - スポーツとレジャー",
+                content: "挨拶：\nゴールデンウィークは何か楽しいことありましたか？\n週末の予定は？（明日は陸上の大会？）\n\nレッスンの目標を確認\n\nゲーム：\n2つの真実と1つの嘘（ルールを読んでもらいました）\n\n観察：\nスポーツの試合の写真を詳しく描写する\n\nダイアログ練習：\nスポーツの試合のシナリオ（別のアイルランドの名前を紹介）\n趣味のシナリオ\n\nテキスト教材：\nEnglish Vocabulary in Use (Unit 41- Sports and Leisure)\n\nチャレンジ：\n今回学んだ語彙を使って自分の経験を話す（3つのお題）\n\n次回に向けて：\nEnglish Vocabulary in Use (Unit 42- Competitive Sport) を少しだけ確認",
+                feedback: "土曜日の夜のレッスン、サラはとてもよく頑張りました！今回の主な目標は、スポーツやレジャーに関する新しい単語を学び、練習することでした。\n\nまず、「2つの真実と1つの嘘」というウォーミングアップゲームから始めました。これは、アメリカやヨーロッパの英語を話す学生の間でとても人気のあるアイスブレイクです。このゲームを知らない人といつか遊ぶ時にルールを説明できるように、サラに指示文を読んでもらいました。彼女はルールを理解し、上手にプレイできました！レッスンの楽しいスタートになりました。\n\n次に、写真についての気づきを自由に話してもらいました。彼女は「サッカーの試合」（＋詳細）と描写しました。全くその通りなのですが、アイルランドではサッカーを「フットボール（football）」、試合を「マッチ（match）」と呼ぶことを伝えました。\n\n続いて、ダイアログ練習のために2つのシナリオを使いました。最初のシナリオは、試合に勝った2人の女の子のフットボールの試合に関する会話です。少し発音が難しいアイルランドの名前（Saoirse - シアーシャ）をもう一つ紹介しました。また、サラに復習して使ってみてほしい新しい単語がいくつかありました。\n- \"Nerve-wracking\"（形容詞）：不安や緊張を引き起こすようなこと、プレッシャーの高いこと\n- \"Same here\"：私も（me too）\n- \"Pulling a muscle\"：筋肉を引っ張ったり裂いたりした時のケガ / 肉離れ\n\n次に、サラがほとんど知っていたスポーツの語彙を復習し、それらの単語に合う動詞を学び、それらを使って文章を組み立てる練習をしました。（English Vocabulary in Use, Unit 41- Sports and Leisure, pp. 88-89）。そのユニットのドリルをすべて行い、スポーツやレジャー活動を描写するための文構造や文法が向上しました。（例：I did a bit of swimming in the summer VS. I swam in the summer VS. I go swimming in the summer）\n- 新しい動詞: \"To play\", \"To do\", \"To race\", \"To run\"（「To PLAY」は通常、ボールを使うスポーツに使います！）\n\nその後、復習として、使った語彙を用いて自分の経験について話してもらいました（3つのお題）。最後に、次回のクラスに向けたテキスト教材の確認を行いました。",
+                homework: "English Vocabulary in Use（Unit 41 - Sports and Leisure）のExercise 41.4\n\n復習して実際に使う練習をしてほしい新しい単語：\n1. \"Nerve-wracking\"（形容詞）：プレッシャーの高い、緊張するような\n2. \"Same here\"：私も！\n3. \"Pulling a muscle\"：肉離れ",
+                impacts: [
+                    { skill: "高度な語彙力", change: "+2" },
+                    { skill: "文法の正確さ", change: "+1" }
+                ]
+            },
+            {
                 date: "2026年4月26日",
                 type: "体験レッスン",
-                topic: "アセスメント、スライド＆テキスト",
-                content: "自己紹介、「Would you rather（究極の選択）」ゲーム、2つの対話練習シナリオ（理科の宿題、オフィスアワー）。テキストを使用した語彙とドリル（English Vocabulary in Use, Unit 20: Health）。",
-                feedback: "スピーキング、リスニング、リーディングにおいて非常に高いスキルを持っています。高度な語彙力としっかりとした発音を披露してくれました。カスタマイズしたスライドショーのアクティビティを楽しみ、テキストも新しい内容を学ぶのに役立ったようです。",
+                topic: "自己紹介、スピーキング/リーディング/リスニングの評価、スライド、テキスト",
+                content: "自己紹介 - 名前、出身地、趣味\nウォーミングアップゲーム - 「Would you rather（究極の選択）」\nダイアログ練習：1. 理科の宿題のシナリオ、2. オフィスアワーのシナリオ（作成したスライドを使用）\n観察 - 絵画に基づいた考えや気づきについて話す。サラに見たものを説明してもらい、また推測も行ってもらいました。\nテキストの語彙とドリル - English Vocabulary in Use, Unit 20 (Health): pp. 46-47\nスピーキングの自信：サラにある出来事やトピックについて話してもらいました。学校でのクラブ活動（陸上競技や地学クラブなど）について話してくれました。\n学んだ新しい用語の復習：\"she/he suffers from ___\"、\"Band-aid\"や\"Cancer\"などの固有名詞、文章における \"a\" や \"the\" の使用または無冠詞、様々な種類の医師。",
+                feedback: "サラとお会いできて、とても楽しい時間を過ごせました！スピーキング、リスニング、リーディングにおいて非常に高いスキルを持っていると感じました。今回はライティングには取り組みませんでした。彼女は高度な語彙力と全体的な理解力を示し、発音もとてもしっかりしていました。本日はサラのことを知り、彼女がどれくらい英語に慣れているかを評価したいと考えていました。レッスンはほぼすべて英語で行われましたが、サラは素晴らしいパフォーマンスを見せてくれました。\n\nスライド：まず、名前、出身地、趣味などの自己紹介から始めました。次に、「Would you rather」という楽しい質問を使ったウォーミングアップゲームを行いました。また、サラがスピーキングに慣れるよう、2つのダイアログ練習のシナリオにも取り組みました。さらに、絵画を見てもらい、そこからの気づきや意見、推測についてコメントしてもらいました。\n\nテキスト：次に、語彙とドリルからなるテキストの2ページに取り組みました。ドリルを通じて、サラは正確な文章を作り、個人的な経験について描写的に話すことができました。\n\nスピーキング：最後に、出来事や楽しかったことについてサラに話してもらいました。できるだけ長く、描写的に話すことを促しました。サラはこのエクササイズを見事にこなし、陸上競技や地学クラブなど、放課後の活動について明確に話してくれました。\n\n最後に、サラが学んだ新しい用語を復習し、レッスンの構成について少し意見をもらいました。サラは、私たちが行ったスライドショーのアクティビティとテキスト教材を楽しんでくれたようです。今日使用したテキストは彼女にとって簡単に感じられたようですが、知らない内容もあったため役に立ったと言ってくれました。今後もこのテキストをレッスンの約30分（またはそれ以上）で使用し続けたいと思います。彼女は私が作成したスライドショーを本当に楽しんでくれたようです。ゲームや写真を使ったアクティビティの他にも、実践的な学校のシナリオを作成してダイアログ練習を行い、同時にアイルランドの文化やアイルランド英語（アメリカとは少し異なるため）を少し取り入れました。\n\n今後もサラと一緒に学んでいくのを楽しみにしています！ありがとうございました！",
                 homework: "今回のレッスンでは特定の宿題はありません。",
                 impacts: [
                     { skill: "高度な語彙力", change: "+3" },
@@ -719,7 +723,7 @@ export const db = {
     { id: "r11", name: "Speakout_Advanced_Students_Book_LV5.CORE.READ.WRITE.LISTEN", display: "Speakout Advanced Students Book", category: "Business", assignedTo: [], link: "https://drive.google.com/file/d/1RBhkegJa1EdfB65oiPfIZ08tsTQ9ynRi/view?usp=drivesdk" },
     { id: "r12", name: "Business_Partner_Coursebook_B2_LV4.CORE", display: "Business Partner Coursebook B2", category: "Business", assignedTo: [], link: "https://drive.google.com/file/d/1O-AIV7C2M2oWjIH92vZYeRwNerMvPfJB/view?usp=drivesdk" },
     { id: "r13", name: "Free_English_Grammar_eBook_Beginner_LV1.CORE.COLOR", display: "Free English Grammar eBook Beginner", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/1JIUSg0IgKt4FKu61JVEgcm8s_31NYnsP/view?usp=drivesdk" },
-    { id: "r14", name: "Everyday_Conversations_LV2.CORE.ACTIVE.COLOR.SPEAK.LISTEN", display: "Everyday Conversations", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/1NAnHwWoqyzQevUPzmzwwoJVeDI-UD_mb/view?usp=drivesdk" },
+    { id: "r14", name: "Everyday_Conversations_LV2.CORE.ACTIVE.COLOR.SPEAK.LISTEN", display: "Everyday Conversations", category: "Basic English", assignedTo: ["s3"], link: "https://drive.google.com/file/d/1NAnHwWoqyzQevUPzmzwwoJVeDI-UD_mb/view?usp=drivesdk" },
     { id: "r15", name: "Basic_English_Grammar_LV1.CORE.ACTIVE.COLOR.HW.WORD.TEST.SPEAK.WRITE.LISTEN", display: "Basic English Grammar", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/1Bnty3KNlzekfbzgYOSN-PHVKjTM1u-l8/view?usp=drivesdk" },
     { id: "r16", name: "Practice_Makes_Perfect_Complete_English_All_in_One_for_ESL_Learners_LV3.CORE.ACTIVE.COLOR.HW.READ.SPEAK.WRITE.LISTEN", display: "Practice Makes Perfect Complete English", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/12GFYx8pIkYUAZo2cp-lGgL-qIXZUV4nG/view?usp=drivesdk" },
     { id: "r17", name: "English_for_Everyone_Level1_Beginner_Course_Book_LV1.CORE.ACTIVE.COLOR.HW.WORD.SPEAK.WRITE.LISTEN", display: "English For Everyone Level 1 Beginner", category: "Basic English", assignedTo: [], link: "https://drive.google.com/file/d/1S2Jn0Rb7QY9QaHwuO0oT7xbA64wfFm9g/view?usp=drivesdk" },
@@ -731,6 +735,8 @@ export const db = {
     { id: "r23", name: "Cambridge_Assessment_English_LV1.CORE.ACTIVE.WORD.COLOR", display: "Cambridge Assessment English", category: "Kids English", assignedTo: [], link: "https://drive.google.com/file/d/1Me06Z9s0tCX1L_OiYMgQnCyRz5-qu8PU/view?usp=drivesdk" },
     { id: "r24", name: "My_First_English_Book_LV1.CORE.ACTIVE", display: "My First English Book", category: "Kids English", assignedTo: [], link: "https://drive.google.com/file/d/17KZ8lKnKDeT_O2caHmFreZ7r9or2Zbo1/view?usp=drivesdk" },
     { id: "r25", name: "Smart_Phonics_3_LV1.CORE.ACTIVE", display: "Smart Phonics 3", category: "Kids English", assignedTo: [], link: "https://drive.google.com/file/d/10pIkdznDGk0sDIEVpxzbN10NtATHG1Oo/view?usp=drivesdk" },
-    { id: "r26", name: "RosettaStone_English_LV4.HW.TEST", display: "RosettaStone English", category: "Kids English", assignedTo: [], link: "https://drive.google.com/file/d/1vyCWm0pLi2CiVhvHnP-UJ0BQ6netDPc5/view?usp=drivesdk" }
+    { id: "r26", name: "RosettaStone_English_LV4.HW.TEST", display: "RosettaStone English", category: "Kids English", assignedTo: [], link: "https://drive.google.com/file/d/1vyCWm0pLi2CiVhvHnP-UJ0BQ6netDPc5/view?usp=drivesdk" },
+    { id: "r27", name: "English_Vocabulary_in_Use_Unit_41", display: "English Vocabulary in Use (Unit 41)", category: "Vocabulary", assignedTo: ["s3"], link: "#" },
+    { id: "r28", name: "English_Vocabulary_in_Use_Unit_42", display: "English Vocabulary in Use (Unit 42)", category: "Vocabulary", assignedTo: ["s3"], link: "#" }
   ]
 };
