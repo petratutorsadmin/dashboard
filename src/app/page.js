@@ -29,7 +29,7 @@ const softGold = "#f7f1df";
 
 const text = {
     en: {
-        chartLearningPlan: "Student Chart & Learning Plan",
+        chartLearningPlan: "Educational Diagnostics & Learning Plan",
         signOut: "Sign Out",
         diagnosis: "Diagnosis",
         overall: "Overall",
@@ -37,14 +37,14 @@ const text = {
         priority: "Priority",
         whatIsIssue: "What is the issue?",
         howToImprove: "How to improve",
-        coreIssue: "Core Issue",
-        focusMonth: "Focus This Month",
-        recentReports: "Recent Lesson Reports",
+        coreIssue: "Core Diagnostic Issue",
+        focusMonth: "Primary Developmental Focus",
+        recentReports: "Petra Learning Records",
         clickExpand: "Click to expand details",
         feedback: "Feedback & Performance",
         content: "Class Content",
         homework: "Homework Assigned",
-        nextPlan: "Next Lesson Plan",
+        nextPlan: "Strategic Focus",
         impacts: "Skills Impacted",
         noLessons: "No recent lessons found.",
         assignedResources: "Assigned Resources",
@@ -53,25 +53,35 @@ const text = {
         score: "Overall Score",
         baseline: "Baseline",
         current: "Current",
-        skillBreakdown: "Skill Breakdown"
+        skillBreakdown: "Cognitive Language Profile",
+        petraInsight: "Petra Insight",
+        currentPriority: "Current Priority",
+        interventionStrategy: "Intervention Strategy",
+        expectedTrajectory: "Expected Trajectory",
+        sessionSummary: "Session Summary",
+        observedStrength: "Observed Strength",
+        currentFocusArea: "Current Focus Area",
+        responseToIntervention: "Response to Intervention",
+        skillsImpacted: "Skills Impacted",
+        viewFullReport: "View Full Tutor Report"
     },
     ja: {
         chartLearningPlan: "学習状況＆レッスンプラン",
         signOut: "ログアウト",
-        diagnosis: "現在の学習状況",
+        diagnosis: "現在の診断状況",
         overall: "総合評価",
         target: "目標",
         priority: "優先",
         whatIsIssue: "課題点",
         howToImprove: "改善方法",
-        coreIssue: "主な課題",
-        focusMonth: "今月の重点目標",
-        recentReports: "最近のレッスンレポート",
+        coreIssue: "主な診断課題",
+        focusMonth: "今月の重点強化項目",
+        recentReports: "ペトラ学習記録",
         clickExpand: "クリックして詳細を見る",
         feedback: "フィードバックとパフォーマンス",
         content: "レッスン内容",
         homework: "宿題",
-        nextPlan: "次回のレッスンプラン",
+        nextPlan: "戦略的フォーカス",
         impacts: "スコアへの影響",
         noLessons: "最近のレッスンはありません。",
         assignedResources: "課題・教材",
@@ -80,7 +90,17 @@ const text = {
         score: "総合スコア",
         baseline: "初期設定",
         current: "現在",
-        skillBreakdown: "スキル詳細"
+        skillBreakdown: "認知言語プロファイル",
+        petraInsight: "ペトラインサイト",
+        currentPriority: "現在の優先課題",
+        interventionStrategy: "介入戦略",
+        expectedTrajectory: "期待される成長軌道",
+        sessionSummary: "セッションの概要",
+        observedStrength: "観察された強み",
+        currentFocusArea: "現在のフォーカス領域",
+        responseToIntervention: "介入への反応",
+        skillsImpacted: "影響を受けたスキル",
+        viewFullReport: "講師のフルレポートを表示"
     }
 };
 
@@ -168,7 +188,8 @@ function computeChartData(student, t, lang) {
         data.push({
             date: dateStr,
             score: getOverall(currentLevels),
-            lesson: lesson.topic
+            lesson: lesson.topic,
+            intervention: lesson.interventionStrategy
         });
     });
 
@@ -203,6 +224,12 @@ const CustomTooltip = ({ active, payload, label }) => {
                     <p className="text-xs text-zinc-500 mt-2 max-w-[200px] truncate">
                         {payload[0].payload.lesson}
                     </p>
+                )}
+                {payload[0].payload.intervention && (
+                    <div className="mt-2 bg-[#fdfaf5] p-2 rounded-lg border border-[#e8dcc4]">
+                        <p className="text-[10px] uppercase font-bold text-[#b45309]">Intervention</p>
+                        <p className="text-xs text-zinc-800 line-clamp-2 font-medium">{payload[0].payload.intervention}</p>
+                    </div>
                 )}
             </div>
         );
@@ -246,8 +273,8 @@ function SkillRow({ skill, student, lang = "en", recentChange }) {
                         </span>
                     </div>
 
-                    <div className="col-span-12 text-xs text-zinc-500 sm:col-span-2 sm:text-right line-clamp-1">
-                        {skill.note}
+                    <div className="col-span-12 text-xs font-semibold sm:col-span-2 sm:text-right line-clamp-1" style={{ color: petraPurple }}>
+                        {skill.condition || skill.note}
                     </div>
                 </div>
             </HoverCardTrigger>
@@ -356,6 +383,18 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                 </header>
 
                 <main className="space-y-6">
+                    {student.petraInsight && (
+                        <div className="rounded-3xl bg-[#fdfaf5] border border-[#e8dcc4] p-8 shadow-sm">
+                            <div className="flex items-center gap-2 mb-3">
+                                <MiniIcon><TrendingUp className="w-4 h-4" /></MiniIcon>
+                                <h2 className="text-xl font-bold" style={{ color: petraPurple }}>{t.petraInsight}</h2>
+                            </div>
+                            <p className="text-lg leading-relaxed font-medium text-zinc-900">
+                                {student.petraInsight}
+                            </p>
+                        </div>
+                    )}
+
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
                         <SectionCard className="lg:col-span-2">
                             <div className="mb-5 flex items-center justify-between">
@@ -564,20 +603,81 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                                         ))}
                                                     </div>
                                                 )}
-                                                <div className="rounded-xl bg-zinc-50 p-4 border border-zinc-100">
-                                                    <h4 className="text-xs font-bold text-zinc-900 mb-2 flex items-center gap-1.5"><MessageSquare className="w-3.5 h-3.5" style={{ color: petraPurple }}/> {t.feedback}</h4>
-                                                    <p className="text-sm text-zinc-700 leading-relaxed">{lesson.feedback}</p>
-                                                </div>
-                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                                    <div>
-                                                        <h4 className="text-xs font-bold text-zinc-900 mb-1.5 flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5" style={{ color: petraGold }}/> {t.content}</h4>
-                                                        <p className="text-xs text-zinc-600 leading-relaxed">{lesson.content}</p>
+
+                                                <div className="space-y-4">
+                                                    {(lesson.sessionSummary || lesson.content) && (
+                                                        <div className="bg-white p-5 rounded-2xl shadow-sm border border-zinc-100">
+                                                            <h4 className="font-bold text-zinc-900 mb-2 flex items-center gap-2">
+                                                                <BookOpen className="w-4 h-4 text-purple-600" />
+                                                                {t.sessionSummary}
+                                                            </h4>
+                                                            <p className="text-sm leading-relaxed text-zinc-800">{lesson.sessionSummary || lesson.content}</p>
+                                                        </div>
+                                                    )}
+
+                                                    {lesson.observedStrength && (
+                                                        <div className="bg-[#f7f1df]/50 p-5 rounded-2xl border border-[#ddb873]/50">
+                                                            <h4 className="font-bold text-zinc-900 mb-2 flex items-center gap-2">
+                                                                <Target className="w-4 h-4 text-[#b45309]" />
+                                                                {t.observedStrength}
+                                                            </h4>
+                                                            <p className="text-sm leading-relaxed font-bold text-zinc-800">{lesson.observedStrength}</p>
+                                                        </div>
+                                                    )}
+
+                                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                        {(lesson.currentFocusArea || lesson.feedback) && (
+                                                            <div className="bg-white p-4 rounded-xl border border-zinc-100 shadow-sm flex flex-col">
+                                                                <h4 className="font-bold text-zinc-500 text-xs uppercase tracking-wide mb-2">{t.currentFocusArea}</h4>
+                                                                <p className="text-sm text-zinc-800 mt-auto">{lesson.currentFocusArea || lesson.feedback}</p>
+                                                            </div>
+                                                        )}
+                                                        {lesson.interventionStrategy && (
+                                                            <div className="bg-white p-4 rounded-xl border border-zinc-100 shadow-sm flex flex-col">
+                                                                <h4 className="font-bold text-zinc-500 text-xs uppercase tracking-wide mb-2">{t.interventionStrategy}</h4>
+                                                                <p className="text-sm text-zinc-800 font-medium mt-auto" style={{ color: petraPurple }}>{lesson.interventionStrategy}</p>
+                                                            </div>
+                                                        )}
+                                                        {lesson.responseToIntervention && (
+                                                            <div className="bg-white p-4 rounded-xl border border-zinc-100 shadow-sm flex flex-col">
+                                                                <h4 className="font-bold text-zinc-500 text-xs uppercase tracking-wide mb-2">{t.responseToIntervention}</h4>
+                                                                <p className="text-sm text-zinc-800 mt-auto">{lesson.responseToIntervention}</p>
+                                                            </div>
+                                                        )}
                                                     </div>
-                                                    <div>
-                                                        <h4 className="text-xs font-bold text-zinc-900 mb-1.5 flex items-center gap-1.5"><PenTool className="w-3.5 h-3.5" style={{ color: petraPurple }}/> {t.homework}</h4>
-                                                        <p className="text-xs text-zinc-600 leading-relaxed">{lesson.homework}</p>
-                                                    </div>
                                                 </div>
+
+                                                {/* Full Original Report (Toggled) */}
+                                                {(lesson.content || lesson.feedback || lesson.homework) && (
+                                                    <div className="mt-6 border-t border-zinc-100 pt-4">
+                                                        <details className="group">
+                                                            <summary className="text-xs font-bold text-zinc-500 uppercase tracking-wide cursor-pointer hover:text-purple-600 transition-colors outline-none list-none flex items-center gap-2">
+                                                                <svg className="w-4 h-4 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                                                                {t.viewFullReport}
+                                                            </summary>
+                                                            <div className="mt-4 space-y-4 text-sm text-zinc-800 bg-zinc-50 rounded-xl p-5 border border-zinc-100">
+                                                                {lesson.content && (
+                                                                    <div>
+                                                                        <h4 className="font-bold text-zinc-900 mb-1">{t.content}</h4>
+                                                                        <p className="whitespace-pre-wrap">{lesson.content}</p>
+                                                                    </div>
+                                                                )}
+                                                                {lesson.feedback && (
+                                                                    <div>
+                                                                        <h4 className="font-bold text-zinc-900 mb-1">{t.feedback}</h4>
+                                                                        <p className="whitespace-pre-wrap">{lesson.feedback}</p>
+                                                                    </div>
+                                                                )}
+                                                                {lesson.homework && (
+                                                                    <div>
+                                                                        <h4 className="font-bold text-zinc-900 mb-1">{t.homework}</h4>
+                                                                        <p className="whitespace-pre-wrap">{lesson.homework}</p>
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        </details>
+                                                    </div>
+                                                )}
                                             </div>
                                         </AccordionContent>
                                     </AccordionItem>
@@ -589,16 +689,26 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                         </SectionCard>
 
                         <div className="lg:col-span-2 flex flex-col gap-6">
-                            <SectionCard>
-                                <h2 className="mb-4 text-xl font-bold">{t.nextPlan}</h2>
+                            <SectionCard className="bg-[#31063d] text-white">
+                                <div className="mb-6 flex items-center gap-2">
+                                    <MiniIcon dark><Target className="w-4 h-4" /></MiniIcon>
+                                    <h2 className="text-xl font-bold">{t.nextPlan}</h2>
+                                </div>
+                                <div className="space-y-4">
+                                    <div className="p-4 rounded-2xl bg-white/10 border border-white/20">
+                                        <h3 className="text-xs uppercase tracking-widest text-[#ddb873] font-bold mb-1">{t.currentPriority}</h3>
+                                        <p className="font-medium text-sm leading-relaxed">{computeNextPlan(student, lang)[0]?.desc || student.focusThisMonth}</p>
+                                    </div>
+                                    
+                                    <div className="p-4 rounded-2xl bg-white/10 border border-white/20">
+                                        <h3 className="text-xs uppercase tracking-widest text-[#ddb873] font-bold mb-1">{t.interventionStrategy}</h3>
+                                        <p className="font-medium text-sm leading-relaxed">{computeNextPlan(student, lang)[1]?.desc || "Targeted scenario repetition"}</p>
+                                    </div>
 
-                                <div className="space-y-3">
-                                    {computeNextPlan(student, lang).map((plan, index) => (
-                                        <div key={index} className="rounded-2xl bg-zinc-50 p-4 border border-zinc-100">
-                                            <p className="text-sm font-bold text-zinc-900">{plan.title}</p>
-                                            <p className="text-xs text-zinc-600 mt-1 leading-relaxed">{plan.desc}</p>
-                                        </div>
-                                    ))}
+                                    <div className="p-4 rounded-2xl bg-[#ddb873] text-[#31063d]">
+                                        <h3 className="text-xs uppercase tracking-widest font-black mb-1 opacity-80">{t.expectedTrajectory}</h3>
+                                        <p className="font-bold text-sm leading-relaxed">{computeNextPlan(student, lang)[2]?.desc || "Improved consistency within 2–3 lessons"}</p>
+                                    </div>
                                 </div>
                             </SectionCard>
 
