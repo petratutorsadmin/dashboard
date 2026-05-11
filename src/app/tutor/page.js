@@ -10,7 +10,7 @@ import { db } from "@/lib/data";
 import { Dashboard } from "../page";
 import { computeOverallGrade, computePhaseProgress } from "@/lib/utils";
 import { useRouter } from "next/navigation";
-import { BookOpen } from "lucide-react";
+import { BookOpen, Calendar } from "lucide-react";
 
 const petraPurple = "#31063d";
 const petraGold = "#ddb873";
@@ -195,8 +195,8 @@ export default function PetraTutorDashboard() {
         {tutor.nextLesson && tutor.nextLesson.studentId && (
             <div className="rounded-3xl bg-amber-50 border border-amber-100 p-6 flex flex-col md:flex-row items-center justify-between gap-4 animate-in slide-in-from-top-4 shadow-sm">
                 <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700 font-bold text-xl shrink-0">
-                        🗓
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700 shrink-0">
+                        <Calendar className="w-6 h-6" />
                     </div>
                     <div>
                         <p className="text-sm font-bold text-amber-800/80 uppercase tracking-wide">Next Lesson</p>

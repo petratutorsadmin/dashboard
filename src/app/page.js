@@ -17,7 +17,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Calendar, User, BookOpen, MessageSquare, PenTool, LogOut, TrendingUp, ExternalLink } from "lucide-react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
+import { Calendar, User, BookOpen, MessageSquare, PenTool, LogOut, TrendingUp, ExternalLink, Target } from "lucide-react";
 import { db } from "@/lib/data";
 import { cn, computeSkillLevel, computeGrade, computeOverallGrade, computePhaseProgress, computeNextPlan } from "@/lib/utils";
 import { useRouter } from "next/navigation";
@@ -47,7 +48,12 @@ const text = {
         impacts: "Skills Impacted",
         noLessons: "No recent lessons found.",
         assignedResources: "Assigned Resources",
-        noResources: "No resources assigned yet."
+        noResources: "No resources assigned yet.",
+        progressChart: "Progress Over Time",
+        score: "Overall Score",
+        baseline: "Baseline",
+        current: "Current",
+        skillBreakdown: "Skill Breakdown"
     },
     ja: {
         chartLearningPlan: "学習状況＆レッスンプラン",
@@ -69,7 +75,12 @@ const text = {
         impacts: "スコアへの影響",
         noLessons: "最近のレッスンはありません。",
         assignedResources: "課題・教材",
-        noResources: "現在割り当てられている教材はありません。"
+        noResources: "現在割り当てられている教材はありません。",
+        progressChart: "スコアの推移",
+        score: "総合スコア",
+        baseline: "初期設定",
+        current: "現在",
+        skillBreakdown: "スキル詳細"
     }
 };
 
@@ -103,6 +114,101 @@ function ProgressBar({ value, gold = false }) {
         </div>
     );
 }
+
+function computeChartData(student, t, lang) {
+    if (!student || !student.skills || !student.lessons) return [];
+
+    let currentLevels = {};
+    student.skills.forEach(skill => {
+        currentLevels[skill.name] = skill.baseLevel || 0;
+    });
+
+    const getOverall = (levels) => {
+        let totalWeight = 0;
+        let totalScore = 0;
+        student.skills.forEach(skill => {
+            const level = levels[skill.name] || 0;
+            const weight = skill.weight || 1.0;
+            totalScore += level * weight;
+            totalWeight += weight;
+        });
+        return totalWeight > 0 ? Math.round((totalScore / totalWeight) * 10) / 10 : 0;
+    };
+
+    const data = [];
+    data.push({
+        date: t.baseline,
+        score: getOverall(currentLevels)
+    });
+
+    const sortedLessons = [...student.lessons].sort((a, b) => {
+        const parseDate = (d) => new Date(d.replace(/年|月/g, '/').replace(/日/g, ''));
+        return parseDate(a.date) - parseDate(b.date);
+    });
+
+    sortedLessons.forEach(lesson => {
+        if (lesson.impacts) {
+            lesson.impacts.forEach(impact => {
+                if (currentLevels[impact.skill] !== undefined) {
+                    const changeVal = parseInt(impact.change.replace('+', ''), 10);
+                    if (!isNaN(changeVal)) {
+                        currentLevels[impact.skill] += changeVal;
+                        currentLevels[impact.skill] = Math.min(100, Math.max(0, currentLevels[impact.skill]));
+                    }
+                }
+            });
+        }
+        
+        let dateStr = lesson.date;
+        try {
+            const d = new Date(lesson.date.replace(/年|月/g, '/').replace(/日/g, ''));
+            dateStr = d.toLocaleDateString(lang === 'ja' ? 'ja-JP' : 'en-US', { month: 'short', day: 'numeric' });
+        } catch(e) {}
+
+        data.push({
+            date: dateStr,
+            score: getOverall(currentLevels),
+            lesson: lesson.topic
+        });
+    });
+
+    return data;
+}
+
+const RadarTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+        return (
+            <div className="bg-white p-3 rounded-2xl shadow-xl border border-zinc-100 z-50 relative">
+                <p className="font-bold text-sm text-zinc-900 mb-2">{payload[0].payload.subject}</p>
+                {payload.map((entry, index) => (
+                    <p key={`item-${index}`} className="text-sm font-semibold mb-0.5" style={{ color: entry.stroke || entry.color || petraPurple }}>
+                        {entry.name}: {entry.value}
+                    </p>
+                ))}
+            </div>
+        );
+    }
+    return null;
+};
+
+const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+        return (
+            <div className="bg-white p-3 rounded-2xl shadow-xl border border-zinc-100 z-50 relative">
+                <p className="font-bold text-sm text-zinc-900 mb-1">{label}</p>
+                <p className="text-sm font-semibold" style={{ color: petraPurple }}>
+                    {payload[0].name}: {payload[0].value}
+                </p>
+                {payload[0].payload.lesson && (
+                    <p className="text-xs text-zinc-500 mt-2 max-w-[200px] truncate">
+                        {payload[0].payload.lesson}
+                    </p>
+                )}
+            </div>
+        );
+    }
+    return null;
+};
 
 function SkillRow({ skill, student, lang = "en", recentChange }) {
     const isCritical = Boolean(skill.critical || skill.warning);
@@ -198,6 +304,16 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
         return parseDate(b.date) - parseDate(a.date);
     });
 
+    const chartData = React.useMemo(() => computeChartData(student, t, lang), [student, t, lang]);
+    const radarData = React.useMemo(() => {
+        if (!student || !student.skills) return [];
+        return student.skills.map(skill => ({
+            subject: skill.name,
+            current: computeSkillLevel(student, skill.name),
+            baseline: skill.baseLevel || 0,
+            fullMark: 100
+        }));
+    }, [student]);
     const [assignedResources, setAssignedResources] = React.useState([]);
 
     React.useEffect(() => {
@@ -293,6 +409,82 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                 </div>
                             </CardContent>
                         </Card>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                        <SectionCard className="lg:col-span-2">
+                            <div className="mb-6 flex items-center gap-2">
+                                <MiniIcon><TrendingUp className="w-4 h-4" /></MiniIcon>
+                                <h2 className="text-xl font-bold">{t.progressChart}</h2>
+                            </div>
+                            <div className="h-[280px] w-full">
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <LineChart data={chartData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                                        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f4f4f5" />
+                                        <XAxis 
+                                            dataKey="date" 
+                                            axisLine={false} 
+                                            tickLine={false} 
+                                            tick={{ fontSize: 12, fill: '#71717a', fontWeight: 500 }}
+                                            dy={10}
+                                        />
+                                        <YAxis 
+                                            domain={['auto', 'auto']} 
+                                            axisLine={false} 
+                                            tickLine={false} 
+                                            tick={{ fontSize: 12, fill: '#71717a', fontWeight: 500 }}
+                                            dx={-10}
+                                        />
+                                        <RechartsTooltip content={<CustomTooltip />} />
+                                        <Line 
+                                            type="monotone" 
+                                            name={t.score}
+                                            dataKey="score" 
+                                            stroke={petraPurple} 
+                                            strokeWidth={3}
+                                            dot={{ fill: petraGold, strokeWidth: 2, r: 4 }}
+                                            activeDot={{ r: 6, strokeWidth: 0, fill: petraPurple }}
+                                        />
+                                    </LineChart>
+                                </ResponsiveContainer>
+                            </div>
+                        </SectionCard>
+
+                        <SectionCard className="lg:col-span-1">
+                            <div className="mb-6 flex items-center gap-2">
+                                <MiniIcon><Target className="w-4 h-4" /></MiniIcon>
+                                <h2 className="text-xl font-bold">{t.skillBreakdown}</h2>
+                            </div>
+                            <div className="h-[280px] w-full -ml-2">
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <RadarChart cx="50%" cy="50%" outerRadius="65%" data={radarData}>
+                                        <PolarGrid stroke="#e4e4e7" />
+                                        <PolarAngleAxis 
+                                            dataKey="subject" 
+                                            tick={{ fill: '#71717a', fontSize: 10, fontWeight: 600 }} 
+                                        />
+                                        <PolarRadiusAxis angle={90} domain={[0, 100]} tick={false} axisLine={false} />
+                                        <Radar 
+                                            name={t.baseline} 
+                                            dataKey="baseline" 
+                                            stroke="#a1a1aa" 
+                                            strokeWidth={1.5}
+                                            fill="#a1a1aa" 
+                                            fillOpacity={0.1} 
+                                        />
+                                        <Radar 
+                                            name={t.current} 
+                                            dataKey="current" 
+                                            stroke={petraPurple} 
+                                            strokeWidth={2}
+                                            fill={petraPurple} 
+                                            fillOpacity={0.2} 
+                                        />
+                                        <RechartsTooltip content={<RadarTooltip />} />
+                                    </RadarChart>
+                                </ResponsiveContainer>
+                            </div>
+                        </SectionCard>
                     </div>
 
                     <section className="grid grid-cols-1 gap-6 lg:grid-cols-3">
@@ -413,7 +605,7 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                             <SectionCard>
                                 <div className="mb-4 flex items-center justify-between">
                                     <div className="flex items-center gap-2">
-                                        <MiniIcon>📚</MiniIcon>
+                                        <MiniIcon><BookOpen className="w-4 h-4" /></MiniIcon>
                                         <h2 className="text-xl font-bold">{t.assignedResources}</h2>
                                     </div>
                                 </div>
