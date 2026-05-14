@@ -18,14 +18,15 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
-import { Calendar, User, BookOpen, MessageSquare, PenTool, LogOut, TrendingUp, ExternalLink, Target } from "lucide-react";
+import { Calendar, User, BookOpen, MessageSquare, PenTool, LogOut, TrendingUp, ExternalLink, Target, LayoutDashboard } from "lucide-react";
 import { db } from "@/lib/data";
 import { cn, computeSkillLevel, computeGrade, computeOverallGrade, computePhaseProgress, computeNextPlan } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { AppShell } from "@/components/AppShell";
 
-const petraPurple = "#31063d";
-const petraGold = "#ddb873";
-const softGold = "#f7f1df";
+const petraPurple = "var(--primary)";
+const petraGold = "oklch(0.85 0.12 90)"; 
+const softGold = "oklch(0.97 0.01 270)"; // Soft background for icons
 
 const text = {
     en: {
@@ -112,10 +113,11 @@ function clampPercent(value) {
 function MiniIcon({ children, dark = false }) {
     return (
         <span
-            className="inline-flex h-7 w-7 items-center justify-center rounded-xl text-sm font-bold shrink-0"
+            className="inline-flex h-7 w-7 items-center justify-center rounded-xl text-sm font-bold shrink-0 shadow-sm"
             style={{
-                backgroundColor: dark ? "rgba(255,255,255,0.12)" : softGold,
-                color: dark ? petraGold : petraPurple,
+                backgroundColor: dark ? "var(--primary)" : softGold,
+                color: dark ? "var(--primary-foreground)" : petraPurple,
+                border: dark ? "none" : "1px solid var(--border)"
             }}
         >
             {children}
@@ -126,10 +128,10 @@ function MiniIcon({ children, dark = false }) {
 function ProgressBar({ value, gold = false }) {
     const safeValue = clampPercent(value);
     return (
-        <div className="h-2.5 w-full overflow-hidden rounded-full bg-zinc-100">
+        <div className="h-1.5 w-full overflow-hidden rounded-full bg-zinc-100 border border-zinc-200/50">
             <div
-                className="h-full rounded-full transition-all duration-1000 ease-out"
-                style={{ width: `${safeValue}%`, backgroundColor: gold ? petraGold : petraPurple }}
+                className="h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_8px_rgba(var(--primary-rgb),0.2)]"
+                style={{ width: `${safeValue}%`, backgroundColor: gold ? "var(--primary)" : "var(--foreground)" }}
             />
         </div>
     );
@@ -199,10 +201,10 @@ function computeChartData(student, t, lang) {
 const RadarTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
         return (
-            <div className="bg-white p-3 rounded-2xl shadow-xl border border-zinc-100 z-50 relative">
-                <p className="font-bold text-sm text-zinc-900 mb-2">{payload[0].payload.subject}</p>
+            <div className="bg-card/95 backdrop-blur-md p-3 rounded-xl shadow-2xl border border-border z-50 relative">
+                <p className="font-bold text-sm text-foreground mb-2">{payload[0].payload.subject}</p>
                 {payload.map((entry, index) => (
-                    <p key={`item-${index}`} className="text-sm font-semibold mb-0.5" style={{ color: entry.stroke || entry.color || petraPurple }}>
+                    <p key={`item-${index}`} className="text-sm font-semibold mb-0.5" style={{ color: entry.stroke || entry.color || "var(--primary)" }}>
                         {entry.name}: {entry.value}
                     </p>
                 ))}
@@ -215,20 +217,20 @@ const RadarTooltip = ({ active, payload }) => {
 const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
         return (
-            <div className="bg-white p-3 rounded-2xl shadow-xl border border-zinc-100 z-50 relative">
-                <p className="font-bold text-sm text-zinc-900 mb-1">{label}</p>
-                <p className="text-sm font-semibold" style={{ color: petraPurple }}>
+            <div className="bg-card/95 backdrop-blur-md p-3 rounded-xl shadow-2xl border border-border z-50 relative">
+                <p className="font-bold text-sm text-foreground mb-1">{label}</p>
+                <p className="text-sm font-semibold" style={{ color: "var(--primary)" }}>
                     {payload[0].name}: {payload[0].value}
                 </p>
                 {payload[0].payload.lesson && (
-                    <p className="text-xs text-zinc-500 mt-2 max-w-[200px] truncate">
+                    <p className="text-xs text-muted-foreground mt-2 max-w-[200px] truncate">
                         {payload[0].payload.lesson}
                     </p>
                 )}
                 {payload[0].payload.intervention && (
-                    <div className="mt-2 bg-[#fdfaf5] p-2 rounded-lg border border-[#e8dcc4]">
-                        <p className="text-[10px] uppercase font-bold text-[#b45309]">Intervention</p>
-                        <p className="text-xs text-zinc-800 line-clamp-2 font-medium">{payload[0].payload.intervention}</p>
+                    <div className="mt-2 bg-primary/5 p-2 rounded-lg border border-primary/20">
+                        <p className="text-[10px] uppercase font-bold text-primary">Intervention</p>
+                        <p className="text-xs text-foreground/80 line-clamp-2 font-medium">{payload[0].payload.intervention}</p>
                     </div>
                 )}
             </div>
@@ -244,19 +246,19 @@ function SkillRow({ skill, student, lang = "en", recentChange }) {
     const grade = computeGrade(level);
     return (
         <HoverCard openDelay={200} closeDelay={150}>
-            <HoverCardTrigger asChild>
-                <div className="grid grid-cols-12 items-center gap-3 border-b border-zinc-100 py-3 last:border-0 cursor-pointer hover:bg-zinc-50 transition-colors -mx-3 px-3 rounded-xl group relative">
+            <HoverCardTrigger>
+                <div className="grid grid-cols-12 items-center gap-3 border-b border-border/50 py-3 last:border-0 cursor-pointer hover:bg-primary/[0.03] transition-all -mx-3 px-3 rounded-xl group relative">
                     <div className="col-span-12 sm:col-span-4">
                         <div className="flex items-center gap-2 flex-wrap">
-                            <p className="font-medium text-zinc-900 group-hover:text-[#31063d] transition-colors line-clamp-1">{skill.name}</p>
+                            <p className="font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">{skill.name}</p>
                             {recentChange && (
-                                <Badge variant="secondary" className="bg-purple-50 text-purple-700 border-purple-100 font-bold px-1.5 py-0 text-[10px] whitespace-nowrap shrink-0">
+                                <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 font-bold px-1.5 py-0 text-[10px] whitespace-nowrap shrink-0">
                                     <TrendingUp className="w-2.5 h-2.5 mr-0.5 inline" />
                                     {recentChange}
                                 </Badge>
                             )}
                             {isCritical && (
-                                <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-700">
+                                <span className="shrink-0 rounded-full bg-destructive/20 px-2 py-0.5 text-xs font-bold text-destructive">
                                     {t.priority}
                                 </span>
                             )}
@@ -278,7 +280,7 @@ function SkillRow({ skill, student, lang = "en", recentChange }) {
                     </div>
                 </div>
             </HoverCardTrigger>
-            <HoverCardContent className="w-80 shadow-xl rounded-2xl border border-zinc-100 bg-white p-5 animate-in zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=top]:slide-in-from-bottom-2">
+            <HoverCardContent className="w-80 shadow-2xl rounded-xl border border-border bg-card/95 backdrop-blur-md p-5 animate-in zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=top]:slide-in-from-bottom-2">
                 <div className="space-y-4">
                     <div>
                         <h4 className="text-sm font-bold flex items-center gap-2 mb-1.5" style={{ color: petraPurple }}>
@@ -299,10 +301,18 @@ function SkillRow({ skill, student, lang = "en", recentChange }) {
     );
 }
 
-function SectionCard({ children, className = "", style = {} }) {
+function SectionCard({ children, className = "", style = {}, glow = false }) {
     return (
-        <Card className={`rounded-3xl border-0 shadow-sm ${className}`} style={style}>
-            <CardContent className="p-6">{children}</CardContent>
+        <Card 
+            className={cn(
+                "rounded-xl border border-border/60 shadow-sm hover:shadow-md relative overflow-hidden group transition-all duration-300",
+                "bg-white",
+                glow && "hover:border-primary/30",
+                className
+            )} 
+            style={style}
+        >
+            <CardContent className="p-6 relative z-10">{children}</CardContent>
         </Card>
     );
 }
@@ -357,39 +367,23 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
     }, [student.id]);
 
     return (
-        <div className="min-h-screen bg-[#faf8f4] p-4 sm:p-6 text-zinc-900 animate-in fade-in duration-500">
-            <div className="mx-auto max-w-6xl space-y-6">
-                <header className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                        <div className="mb-2 flex items-center gap-3">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-2xl font-bold text-white shadow-sm" style={{ backgroundColor: petraPurple }}>
-                                P
-                            </div>
-                            <Badge className="rounded-full px-3 py-1 border-0" style={{ backgroundColor: petraGold, color: petraPurple }}>
-                                {parentName}
-                            </Badge>
-                        </div>
-                        <h1 className="text-3xl font-bold tracking-tight" style={{ color: petraPurple }}>
-                            {t.chartLearningPlan}
-                        </h1>
-                        <p className="mt-1 text-zinc-600 font-medium">{student.name}｜{student.course}</p>
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                        <Button variant="outline" className="rounded-2xl bg-white border-zinc-200 text-zinc-600 hover:bg-zinc-50" onClick={onLogout}>
-                            <LogOut className="w-4 h-4 mr-2" /> {t.signOut}
-                        </Button>
-                    </div>
-                </header>
+        <div className="p-4 sm:p-6 text-foreground animate-in fade-in duration-500 max-w-6xl mx-auto space-y-6">
+            <header>
+                <h1 className="text-3xl font-bold tracking-tight text-foreground">
+                    {t.chartLearningPlan}
+                </h1>
+                <p className="mt-1 text-muted-foreground font-medium">{student.name}｜{student.course}</p>
+            </header>
 
                 <main className="space-y-6">
                     {student.petraInsight && (
-                        <div className="rounded-3xl bg-[#fdfaf5] border border-[#e8dcc4] p-8 shadow-sm">
+                        <div className="rounded-xl bg-primary/5 border border-primary/20 p-8 shadow-2xl relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl -mr-16 -mt-16 transition-all group-hover:scale-150" />
                             <div className="flex items-center gap-2 mb-3">
                                 <MiniIcon><TrendingUp className="w-4 h-4" /></MiniIcon>
-                                <h2 className="text-xl font-bold" style={{ color: petraPurple }}>{t.petraInsight}</h2>
+                                <h2 className="text-xl font-bold text-primary">{t.petraInsight}</h2>
                             </div>
-                            <p className="text-lg leading-relaxed font-medium text-zinc-900">
+                            <p className="text-lg leading-relaxed font-medium text-foreground/90 relative z-10">
                                 {student.petraInsight}
                             </p>
                         </div>
@@ -405,12 +399,12 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                 <Badge variant="outline" className="rounded-full font-bold">{t.overall}: {computeOverallGrade(student)}</Badge>
                             </div>
 
-                            <div className="mb-5 rounded-3xl p-5" style={{ backgroundColor: softGold }}>
+                            <div className="mb-5 rounded-xl p-5 border border-primary/20 bg-primary/5">
                                 <div className="flex items-start gap-3">
                                     <MiniIcon>◎</MiniIcon>
                                     <div>
-                                        <p className="font-bold text-zinc-900">{t.target}</p>
-                                        <p className="text-sm text-zinc-700 mt-0.5 leading-relaxed">
+                                        <p className="font-bold text-foreground text-sm uppercase tracking-wider">{t.target}</p>
+                                        <p className="text-sm text-foreground/80 mt-1 leading-relaxed">
                                             {student.target}
                                         </p>
                                     </div>
@@ -426,25 +420,24 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                             </div>
                         </SectionCard>
 
-                        <Card className="rounded-3xl border-0 shadow-sm overflow-hidden relative" style={{ backgroundColor: petraPurple }}>
-                            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
-                            <CardContent className="flex h-full flex-col justify-between p-6 text-white relative z-10">
+                        <Card className="rounded-xl border border-border shadow-2xl overflow-hidden relative bg-card/40 backdrop-blur-xl">
+                            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_0%,var(--primary),transparent)]" />
+                            <CardContent className="flex h-full flex-col justify-between p-6 text-foreground relative z-10">
                                 <div>
                                     <div className="mb-4 flex items-center gap-2">
                                         <MiniIcon dark>!</MiniIcon>
                                         <h2 className="text-xl font-bold">{t.coreIssue}</h2>
                                     </div>
-                                    <p className="text-2xl font-bold leading-snug">
+                                    <p className="text-2xl font-bold leading-snug text-primary">
                                         {student.coreIssue}
                                     </p>
-                                    <p className="mt-4 text-sm text-white/80 leading-relaxed">
+                                    <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
                                         {student.coreIssueDetail}
                                     </p>
                                 </div>
-
-                                <div className="mt-8 rounded-3xl border border-white/10 bg-black/10 backdrop-blur-sm p-4">
-                                    <p className="text-sm text-white/70">{t.focusMonth}</p>
-                                    <p className="mt-1 font-semibold text-lg">{student.focusThisMonth}</p>
+                                <div className="mt-8 rounded-xl border border-white/5 bg-white/5 p-4">
+                                    <p className="text-sm text-muted-foreground">{t.focusMonth}</p>
+                                    <p className="mt-1 font-semibold text-lg text-foreground">{student.focusThisMonth}</p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -479,10 +472,10 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                             type="monotone" 
                                             name={t.score}
                                             dataKey="score" 
-                                            stroke={petraPurple} 
+                                            stroke="var(--primary)" 
                                             strokeWidth={3}
-                                            dot={{ fill: petraGold, strokeWidth: 2, r: 4 }}
-                                            activeDot={{ r: 6, strokeWidth: 0, fill: petraPurple }}
+                                            dot={{ fill: "var(--foreground)", strokeWidth: 2, r: 4 }}
+                                            activeDot={{ r: 6, strokeWidth: 0, fill: "var(--primary)" }}
                                         />
                                     </LineChart>
                                 </ResponsiveContainer>
@@ -514,9 +507,9 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                         <Radar 
                                             name={t.current} 
                                             dataKey="current" 
-                                            stroke={petraPurple} 
+                                            stroke="var(--primary)" 
                                             strokeWidth={2}
-                                            fill={petraPurple} 
+                                            fill="var(--primary)" 
                                             fillOpacity={0.2} 
                                         />
                                         <RechartsTooltip content={<RadarTooltip />} />
@@ -537,7 +530,7 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                         <h3 className="text-xl font-bold mt-1">{phase.label}</h3>
                                         <p className="text-xs text-zinc-500 mt-1 font-medium">{phase.period}</p>
                                     </div>
-                                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl font-bold shadow-inner" style={{ backgroundColor: softGold, color: petraPurple }}>
+                                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl font-bold shadow-inner" style={{ backgroundColor: "rgba(255,255,255,0.05)", color: "var(--primary)" }}>
                                         {clampPercent(progress)}%
                                     </div>
                                 </div>
@@ -547,7 +540,7 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                 <div className="mt-5 space-y-3">
                                     {phase.items.map((item, idx) => (
                                         <div key={idx} className="flex items-start gap-2 text-sm text-zinc-700">
-                                            <span className="mt-0.5 font-bold shrink-0" style={{ color: (typeof item === 'object' ? item.completed : false) ? petraGold : "#d4d4d8" }}>
+                                            <span className="mt-0.5 font-bold shrink-0" style={{ color: (typeof item === 'object' ? item.completed : false) ? "var(--primary)" : "var(--muted-foreground)" }}>
                                                 {(typeof item === 'object' ? item.completed : false) ? "✓" : "○"}
                                             </span>
                                             <span className="leading-snug">{typeof item === 'object' ? item.title : item}</span>
@@ -570,17 +563,17 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
 
                             <Accordion className="w-full space-y-3">
                                 {sortedLessons.map((lesson) => (
-                                    <AccordionItem key={lesson.id} value={lesson.id} className="border border-zinc-100 rounded-2xl px-4 py-1 bg-white shadow-sm data-[state=open]:border-zinc-200 transition-colors">
+                                    <AccordionItem key={lesson.id} value={lesson.id} className="border border-border rounded-xl px-4 py-1 bg-card/30 backdrop-blur-sm shadow-sm data-[state=open]:border-primary/30 transition-colors overflow-hidden">
                                         <AccordionTrigger className="hover:no-underline py-3">
                                             <div className="flex items-center w-full gap-4 text-left">
-                                                <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-zinc-50 border border-zinc-100 text-zinc-600">
+                                                <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-border text-primary">
                                                     <Calendar className="w-5 h-5" />
                                                 </div>
                                                 <div className="flex-grow min-w-0">
-                                                    <h3 className="font-bold text-zinc-900 text-sm truncate">{lesson.date} <span className="text-zinc-400 font-normal ml-2 hidden sm:inline-block">| {lesson.topic}</span></h3>
-                                                    <div className="flex items-center gap-3 mt-1 text-xs font-medium text-zinc-500">
+                                                    <h3 className="font-bold text-foreground text-sm truncate">{lesson.date} <span className="text-muted-foreground font-normal ml-2 hidden sm:inline-block">| {lesson.topic}</span></h3>
+                                                    <div className="flex items-center gap-3 mt-1 text-xs font-medium text-muted-foreground">
                                                         <span className="flex items-center gap-1 shrink-0"><User className="w-3 h-3" /> {lesson.tutor}</span>
-                                                        <span className="px-2 py-0.5 rounded-full bg-zinc-100 shrink-0">{lesson.type}</span>
+                                                        <span className="px-2 py-0.5 rounded-full bg-white/5 shrink-0">{lesson.type}</span>
                                                     </div>
                                                 </div>
                                                 <div className="pr-4 shrink-0 hidden sm:block">
@@ -596,9 +589,9 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                                     <div className="flex flex-wrap items-center gap-2">
                                                         <span className="text-xs font-bold text-zinc-500 mr-1">{t.impacts}:</span>
                                                         {lesson.impacts.map(impact => (
-                                                            <Badge key={impact.skill} variant="secondary" className="bg-purple-50 text-purple-700 border-purple-100 font-medium px-2.5 py-0.5">
+                                                            <Badge key={impact.skill} variant="secondary" className="bg-primary/10 text-primary border-primary/20 font-medium px-2.5 py-0.5">
                                                                 <TrendingUp className="w-3 h-3 mr-1.5" />
-                                                                {impact.skill} <span className="ml-1.5 font-bold text-purple-900">{impact.change}</span>
+                                                                {impact.skill} <span className="ml-1.5 font-bold text-foreground">{impact.change}</span>
                                                             </Badge>
                                                         ))}
                                                     </div>
@@ -606,42 +599,42 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
 
                                                 <div className="space-y-4">
                                                     {(lesson.sessionSummary || lesson.content) && (
-                                                        <div className="bg-white p-5 rounded-2xl shadow-sm border border-zinc-100">
-                                                            <h4 className="font-bold text-zinc-900 mb-2 flex items-center gap-2">
-                                                                <BookOpen className="w-4 h-4 text-purple-600" />
+                                                        <div className="bg-card/50 p-5 rounded-xl shadow-sm border border-border">
+                                                            <h4 className="font-bold text-foreground mb-2 flex items-center gap-2">
+                                                                <BookOpen className="w-4 h-4 text-primary" />
                                                                 {t.sessionSummary}
                                                             </h4>
-                                                            <p className="text-sm leading-relaxed text-zinc-800">{lesson.sessionSummary || lesson.content}</p>
+                                                            <p className="text-sm leading-relaxed text-foreground/80">{lesson.sessionSummary || lesson.content}</p>
                                                         </div>
                                                     )}
 
                                                     {lesson.observedStrength && (
-                                                        <div className="bg-[#f7f1df]/50 p-5 rounded-2xl border border-[#ddb873]/50">
-                                                            <h4 className="font-bold text-zinc-900 mb-2 flex items-center gap-2">
-                                                                <Target className="w-4 h-4 text-[#b45309]" />
+                                                        <div className="bg-primary/5 p-5 rounded-xl border border-primary/20">
+                                                            <h4 className="font-bold text-foreground mb-2 flex items-center gap-2">
+                                                                <Target className="w-4 h-4 text-primary" />
                                                                 {t.observedStrength}
                                                             </h4>
-                                                            <p className="text-sm leading-relaxed font-bold text-zinc-800">{lesson.observedStrength}</p>
+                                                            <p className="text-sm leading-relaxed font-bold text-foreground/90">{lesson.observedStrength}</p>
                                                         </div>
                                                     )}
 
                                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                                         {(lesson.currentFocusArea || lesson.feedback) && (
-                                                            <div className="bg-white p-4 rounded-xl border border-zinc-100 shadow-sm flex flex-col">
-                                                                <h4 className="font-bold text-zinc-500 text-xs uppercase tracking-wide mb-2">{t.currentFocusArea}</h4>
-                                                                <p className="text-sm text-zinc-800 mt-auto">{lesson.currentFocusArea || lesson.feedback}</p>
+                                                            <div className="bg-card/30 p-4 rounded-xl border border-border shadow-sm flex flex-col">
+                                                                <h4 className="font-bold text-muted-foreground text-[10px] uppercase tracking-wider mb-2">{t.currentFocusArea}</h4>
+                                                                <p className="text-sm text-foreground mt-auto">{lesson.currentFocusArea || lesson.feedback}</p>
                                                             </div>
                                                         )}
                                                         {lesson.interventionStrategy && (
-                                                            <div className="bg-white p-4 rounded-xl border border-zinc-100 shadow-sm flex flex-col">
-                                                                <h4 className="font-bold text-zinc-500 text-xs uppercase tracking-wide mb-2">{t.interventionStrategy}</h4>
-                                                                <p className="text-sm text-zinc-800 font-medium mt-auto" style={{ color: petraPurple }}>{lesson.interventionStrategy}</p>
+                                                            <div className="bg-card/30 p-4 rounded-xl border border-border shadow-sm flex flex-col">
+                                                                <h4 className="font-bold text-muted-foreground text-[10px] uppercase tracking-wider mb-2">{t.interventionStrategy}</h4>
+                                                                <p className="text-sm text-primary font-bold mt-auto">{lesson.interventionStrategy}</p>
                                                             </div>
                                                         )}
                                                         {lesson.responseToIntervention && (
-                                                            <div className="bg-white p-4 rounded-xl border border-zinc-100 shadow-sm flex flex-col">
-                                                                <h4 className="font-bold text-zinc-500 text-xs uppercase tracking-wide mb-2">{t.responseToIntervention}</h4>
-                                                                <p className="text-sm text-zinc-800 mt-auto">{lesson.responseToIntervention}</p>
+                                                            <div className="bg-card/30 p-4 rounded-xl border border-border shadow-sm flex flex-col">
+                                                                <h4 className="font-bold text-muted-foreground text-[10px] uppercase tracking-wider mb-2">{t.responseToIntervention}</h4>
+                                                                <p className="text-sm text-foreground mt-auto">{lesson.responseToIntervention}</p>
                                                             </div>
                                                         )}
                                                     </div>
@@ -655,22 +648,22 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                                                 <svg className="w-4 h-4 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                                                                 {t.viewFullReport}
                                                             </summary>
-                                                            <div className="mt-4 space-y-4 text-sm text-zinc-800 bg-zinc-50 rounded-xl p-5 border border-zinc-100">
+                                                            <div className="mt-4 space-y-4 text-sm text-foreground/80 bg-white/5 rounded-xl p-5 border border-border">
                                                                 {lesson.content && (
                                                                     <div>
-                                                                        <h4 className="font-bold text-zinc-900 mb-1">{t.content}</h4>
+                                                                        <h4 className="font-bold text-foreground mb-1">{t.content}</h4>
                                                                         <p className="whitespace-pre-wrap">{lesson.content}</p>
                                                                     </div>
                                                                 )}
                                                                 {lesson.feedback && (
                                                                     <div>
-                                                                        <h4 className="font-bold text-zinc-900 mb-1">{t.feedback}</h4>
+                                                                        <h4 className="font-bold text-foreground mb-1">{t.feedback}</h4>
                                                                         <p className="whitespace-pre-wrap">{lesson.feedback}</p>
                                                                     </div>
                                                                 )}
                                                                 {lesson.homework && (
                                                                     <div>
-                                                                        <h4 className="font-bold text-zinc-900 mb-1">{t.homework}</h4>
+                                                                        <h4 className="font-bold text-foreground mb-1">{t.homework}</h4>
                                                                         <p className="whitespace-pre-wrap">{lesson.homework}</p>
                                                                     </div>
                                                                 )}
@@ -686,31 +679,21 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                     <div className="text-center py-8 text-zinc-500 text-sm">{t.noLessons}</div>
                                 )}
                             </Accordion>
+                            <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                                <h3 className="text-[10px] uppercase tracking-widest text-primary font-bold mb-1">{t.currentPriority}</h3>
+                                <p className="font-medium text-sm leading-relaxed text-foreground">{computeNextPlan(student, lang)[0]?.desc || student.focusThisMonth}</p>
+                            </div>
+                            
+                            <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                                <h3 className="text-[10px] uppercase tracking-widest text-primary font-bold mb-1">{t.interventionStrategy}</h3>
+                                <p className="font-medium text-sm leading-relaxed text-foreground">{computeNextPlan(student, lang)[1]?.desc || "Targeted scenario repetition"}</p>
+                            </div>
+ 
+                            <div className="p-4 rounded-xl bg-primary text-foreground border border-white/20 shadow-lg">
+                                <h3 className="text-[10px] uppercase tracking-widest font-black mb-1 opacity-80">{t.expectedTrajectory}</h3>
+                                <p className="font-bold text-sm leading-relaxed">{computeNextPlan(student, lang)[2]?.desc || "Improved consistency within 2-3 lessons"}</p>
+                            </div>
                         </SectionCard>
-
-                        <div className="lg:col-span-2 flex flex-col gap-6">
-                            <SectionCard className="bg-[#31063d] text-white">
-                                <div className="mb-6 flex items-center gap-2">
-                                    <MiniIcon dark><Target className="w-4 h-4" /></MiniIcon>
-                                    <h2 className="text-xl font-bold">{t.nextPlan}</h2>
-                                </div>
-                                <div className="space-y-4">
-                                    <div className="p-4 rounded-2xl bg-white/10 border border-white/20">
-                                        <h3 className="text-xs uppercase tracking-widest text-[#ddb873] font-bold mb-1">{t.currentPriority}</h3>
-                                        <p className="font-medium text-sm leading-relaxed">{computeNextPlan(student, lang)[0]?.desc || student.focusThisMonth}</p>
-                                    </div>
-                                    
-                                    <div className="p-4 rounded-2xl bg-white/10 border border-white/20">
-                                        <h3 className="text-xs uppercase tracking-widest text-[#ddb873] font-bold mb-1">{t.interventionStrategy}</h3>
-                                        <p className="font-medium text-sm leading-relaxed">{computeNextPlan(student, lang)[1]?.desc || "Targeted scenario repetition"}</p>
-                                    </div>
-
-                                    <div className="p-4 rounded-2xl bg-[#ddb873] text-[#31063d]">
-                                        <h3 className="text-xs uppercase tracking-widest font-black mb-1 opacity-80">{t.expectedTrajectory}</h3>
-                                        <p className="font-bold text-sm leading-relaxed">{computeNextPlan(student, lang)[2]?.desc || "Improved consistency within 2–3 lessons"}</p>
-                                    </div>
-                                </div>
-                            </SectionCard>
 
                             <SectionCard>
                                 <div className="mb-4 flex items-center justify-between">
@@ -722,13 +705,13 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                 {assignedResources.length > 0 ? (
                                     <div className="space-y-3">
                                         {assignedResources.map(res => (
-                                            <a key={res.id} href={res.link} target="_blank" rel="noopener noreferrer" className="block rounded-2xl bg-zinc-50 p-4 border border-zinc-100 hover:bg-zinc-100 transition-colors group">
+                                            <a key={res.id} href={res.link} target="_blank" rel="noopener noreferrer" className="block rounded-xl bg-white/5 p-4 border border-border hover:bg-white/10 transition-all group shadow-sm">
                                                 <div className="flex justify-between items-start gap-4">
                                                     <div>
-                                                        <span className="text-[10px] font-bold text-[#31063d] bg-purple-50 px-2 py-0.5 rounded-full mb-1.5 inline-block">{res.category}</span>
-                                                        <p className="text-sm font-bold text-zinc-900 group-hover:text-[#31063d] transition-colors line-clamp-1">{res.display}</p>
+                                                        <span className="text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full mb-1.5 inline-block">{res.category}</span>
+                                                        <p className="text-sm font-bold text-foreground group-hover:text-primary transition-colors line-clamp-1">{res.display}</p>
                                                     </div>
-                                                    <ExternalLink className="w-4 h-4 text-zinc-400 group-hover:text-[#31063d] shrink-0 mt-1" />
+                                                    <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0 mt-1" />
                                                 </div>
                                             </a>
                                         ))}
@@ -738,9 +721,7 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                 )}
                             </SectionCard>
                         </div>
-                    </div>
                 </main>
-            </div>
         </div>
     );
 }
@@ -804,59 +785,72 @@ export default function App() {
     };
 
     if (!isLoaded) {
-        return <div className="min-h-screen bg-[#faf8f4]" />; // Empty state while checking localStorage
+        return <div className="min-h-screen bg-background" />; // Empty state while checking localStorage
     }
 
     if (user) {
         const student = db.students[user.studentId];
-        return <Dashboard student={student} parentName={user.name} lang={user.lang || "en"} onLogout={handleLogout} />;
+        const navItems = [
+            { label: "Dashboard", href: "/", icon: LayoutDashboard },
+        ];
+        return (
+            <AppShell 
+                navItems={navItems} 
+                user={{ name: user.name, role: "Parent" }} 
+                onLogout={handleLogout}
+            >
+                <Dashboard student={student} parentName={user.name} lang={user.lang || "en"} onLogout={handleLogout} />
+            </AppShell>
+        );
     }
 
     return (
-        <div className="min-h-screen bg-[#faf8f4] flex items-center justify-center p-4">
-            <Card className="w-full max-w-md shadow-xl border-0 rounded-3xl overflow-hidden animate-in fade-in zoom-in-95 duration-500">
-                <div className="h-2 w-full" style={{ backgroundColor: petraPurple }} />
+        <div className="min-h-screen bg-background flex items-center justify-center p-4 relative overflow-hidden selection:bg-primary/30">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,var(--primary),transparent)] opacity-10" />
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] brightness-100 contrast-150" />
+            <Card className="w-full max-w-md shadow-xl border border-border/60 rounded-xl overflow-hidden animate-in fade-in zoom-in-95 duration-700 bg-white relative z-10">
+                <div className="h-1 w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
                 <CardContent className="p-8">
                     <div className="flex flex-col items-center text-center mb-8">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-3xl font-bold text-white text-3xl shadow-sm mb-4" style={{ backgroundColor: petraPurple }}>
+                        <div className="flex h-16 w-16 items-center justify-center rounded-xl font-bold text-primary text-3xl shadow-md mb-4 border border-border bg-zinc-50">
                             P
                         </div>
-                        <h1 className="text-2xl font-bold tracking-tight text-zinc-900">Petra Portal</h1>
-                        <p className="text-zinc-500 mt-1 text-sm">Sign in with your assigned credentials</p>
+                        <h1 className="text-2xl font-bold tracking-tight text-foreground">Petra Portal</h1>
+                        <p className="text-muted-foreground mt-1 text-sm">Sign in with your assigned credentials</p>
                     </div>
-
+ 
                     <form onSubmit={handleLogin} className="space-y-5">
                         <div className="space-y-2">
-                            <Label htmlFor="username" className="text-zinc-700 font-semibold">Username</Label>
+                            <Label htmlFor="username" className="text-foreground/80 font-semibold text-xs uppercase tracking-wider">Username</Label>
                             <Input 
                                 id="username" 
                                 type="text" 
                                 placeholder="e.g. tadashi_parent" 
-                                className="rounded-xl bg-zinc-50 border-zinc-200 h-11"
+                                className="rounded-xl bg-zinc-50 border-border h-11 text-foreground placeholder:text-muted-foreground focus:ring-primary/40 focus:bg-white transition-all"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                             />
                         </div>
                         <div className="space-y-2">
                             <div className="flex items-center justify-between">
-                                <Label htmlFor="password" className="text-zinc-700 font-semibold">Password</Label>
+                                <Label htmlFor="password" className="text-foreground/80 font-semibold text-xs uppercase tracking-wider">Password</Label>
                             </div>
                             <Input 
                                 id="password" 
                                 type="password" 
-                                className="rounded-xl bg-zinc-50 border-zinc-200 h-11"
+                                className="rounded-xl bg-zinc-50 border-border h-11 text-foreground focus:ring-primary/40 focus:bg-white transition-all"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
-
+ 
                         {error && (
-                            <div className="p-3 bg-red-50 text-red-600 rounded-xl text-sm font-medium animate-in fade-in slide-in-from-top-1">
+                            <div className="p-3 bg-destructive/10 text-destructive rounded-xl text-xs font-bold border border-destructive/20 animate-in fade-in slide-in-from-top-1">
                                 {error}
                             </div>
                         )}
-
-                        <Button type="submit" className="w-full h-11 rounded-xl font-bold text-base shadow-sm mt-2" style={{ backgroundColor: petraPurple }}>
+ 
+                        <Button type="submit" className="w-full h-11 rounded-xl font-bold text-base shadow-lg mt-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-all">
                             Sign In
                         </Button>
                     </form>

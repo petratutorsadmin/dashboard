@@ -8,14 +8,16 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { db } from "@/lib/data";
 import { useRouter } from "next/navigation";
+import { AppShell } from "@/components/AppShell";
+import { LayoutDashboard, Users, Settings } from "lucide-react";
 
-const petraPurple = "#31063d";
-const petraGold = "#ddb873";
-const softGold = "#f7f1df";
+const petraPurple = "var(--primary)";
+const petraGold = "oklch(0.85 0.12 90)";
+const softGold = "oklch(0.97 0.01 270)";
 
 function SectionCard({ children, className = "", style = {} }) {
   return (
-    <Card className={`rounded-3xl border-0 shadow-sm ${className}`} style={style}>
+    <Card className={`rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow bg-white ${className}`} style={style}>
       <CardContent className="p-6">{children}</CardContent>
     </Card>
   );
@@ -35,28 +37,27 @@ function TutorCard({ tutor, allStudents, toggleStudentForTutor }) {
     };
 
     return (
-        <SectionCard>
-            <div className="mb-4 flex items-start justify-between">
+        <SectionCard className="group relative overflow-hidden transition-all hover:border-primary/40">
+            <div className="mb-4 flex items-start justify-between relative z-10">
                 <div>
-                    <h2 className="text-xl font-bold text-zinc-900">{tutor.name}</h2>
-                    <p className="text-sm text-zinc-500">{tutor.role}</p>
+                    <h2 className="text-xl font-bold text-foreground">{tutor.name}</h2>
+                    <p className="text-sm text-muted-foreground font-medium">{tutor.role}</p>
                 </div>
             </div>
             
-            <div className="space-y-2 mb-6">
-                <p className="text-xs font-bold uppercase tracking-wide text-zinc-400 mb-2">Access Control</p>
+            <div className="space-y-2 mb-6 relative z-10">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3">Access Control</p>
                 {allStudents.map(student => {
                     const isAssigned = tutor.assignedStudents.includes(student.id);
                     return (
-                        <div key={student.id} className="flex items-center justify-between p-3 rounded-xl border border-zinc-100 bg-zinc-50">
+                        <div key={student.id} className="flex items-center justify-between p-3 rounded-xl border border-border bg-zinc-50 shadow-sm transition-all hover:bg-zinc-100">
                             <div>
-                                <p className="font-bold text-sm text-zinc-900">{student.name}</p>
-                                <p className="text-xs text-zinc-500">{student.course}</p>
+                                <p className="font-bold text-sm text-foreground">{student.name}</p>
+                                <p className="text-xs text-muted-foreground font-medium">{student.course}</p>
                             </div>
                             <Button 
                                 variant={isAssigned ? "default" : "outline"}
-                                className={`rounded-full h-8 text-xs font-bold transition-all ${isAssigned ? '' : 'bg-white'}`}
-                                style={isAssigned ? { backgroundColor: petraPurple } : {}}
+                                className={`rounded-lg h-8 text-[10px] font-black uppercase tracking-widest transition-all ${isAssigned ? 'bg-primary text-primary-foreground border-transparent' : 'bg-white border-border text-muted-foreground shadow-sm'}`}
                                 onClick={() => toggleStudentForTutor(tutor.id, student.id)}
                             >
                                 {isAssigned ? "Assigned" : "Assign"}
@@ -66,28 +67,28 @@ function TutorCard({ tutor, allStudents, toggleStudentForTutor }) {
                 })}
             </div>
 
-            <div className="pt-6 border-t border-zinc-100">
-                <p className="text-xs font-bold uppercase tracking-wide text-zinc-400 mb-3">Schedule Next Lesson</p>
+            <div className="pt-6 border-t border-border relative z-10">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-4">Schedule Next Lesson</p>
                 <div className="flex flex-col gap-3">
                     <div className="grid grid-cols-2 gap-2">
                         <div className="space-y-1">
-                            <Label className="text-xs">Student</Label>
+                            <Label className="text-[10px] uppercase font-bold text-muted-foreground">Student</Label>
                             <select 
-                                className="w-full h-9 rounded-xl border border-zinc-200 bg-white px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#ddb873]"
+                                className="w-full h-9 rounded-lg border border-border bg-zinc-50 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-primary/50 text-foreground"
                                 value={scheduleStudentId}
                                 onChange={e => setScheduleStudentId(e.target.value)}
                             >
-                                <option value="" disabled>Select...</option>
+                                <option value="" disabled className="bg-background">Select...</option>
                                 {tutor.assignedStudents.map(id => {
                                     const st = db.students[id];
-                                    return <option key={id} value={id}>{st?.name}</option>;
+                                    return <option key={id} value={id} className="bg-background">{st?.name}</option>;
                                 })}
                             </select>
                         </div>
                         <div className="space-y-1">
-                            <Label className="text-xs">Time</Label>
+                            <Label className="text-[10px] uppercase font-bold text-muted-foreground">Time</Label>
                             <Input 
-                                className="h-9 rounded-xl text-sm" 
+                                className="h-9 rounded-lg text-sm bg-zinc-50 border-border focus:ring-1 focus:ring-primary/50 text-foreground" 
                                 placeholder="Today 6:00 PM" 
                                 value={scheduleTime}
                                 onChange={e => setScheduleTime(e.target.value)}
@@ -96,16 +97,15 @@ function TutorCard({ tutor, allStudents, toggleStudentForTutor }) {
                     </div>
                     <Button 
                         onClick={handleSchedule}
-                        className="w-full h-9 rounded-xl font-bold text-xs shadow-sm" 
-                        style={{ backgroundColor: petraPurple }}
+                        className="w-full h-9 rounded-lg font-bold text-[10px] uppercase tracking-widest shadow-md bg-primary text-primary-foreground border border-transparent hover:bg-primary/90" 
                     >
                         Save Next Lesson
                     </Button>
                 </div>
                 {tutor.nextLesson && (
-                    <div className="mt-3 rounded-xl bg-zinc-50 p-3 text-center border border-zinc-100">
-                        <p className="text-xs text-zinc-500">Currently Scheduled</p>
-                        <p className="text-sm font-bold mt-0.5" style={{ color: petraPurple }}>
+                    <div className="mt-3 rounded-lg bg-zinc-50 p-3 text-center border border-border shadow-sm">
+                        <p className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest">Currently Scheduled</p>
+                        <p className="text-sm font-bold mt-1 text-primary">
                             {db.students[tutor.nextLesson.studentId]?.name} @ {tutor.nextLesson.time}
                         </p>
                     </div>
@@ -154,32 +154,22 @@ export default function PetraAdminDashboard() {
     setRefresh(r => r + 1);
   };
 
-  if (!isLoaded || !admin) return <div className="min-h-screen bg-[#faf8f4]" />;
+  if (!isLoaded || !admin) return <div className="min-h-screen bg-background" />;
 
   const allStudents = Object.values(db.students);
 
-  return (
-    <div className="min-h-screen bg-[#faf8f4] p-6 text-zinc-900 animate-in fade-in duration-500">
-      <div className="mx-auto max-w-7xl space-y-6">
-        <header className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <div className="mb-2 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl font-bold text-white" style={{ backgroundColor: petraPurple }}>
-                A
-              </div>
-              <Badge className="rounded-full px-3 py-1" style={{ backgroundColor: petraGold, color: petraPurple }}>
-                Admin Dashboard
-              </Badge>
-            </div>
-            <h1 className="text-3xl font-bold tracking-tight" style={{ color: petraPurple }}>
+  const navItems = [
+    { label: "Admin Panel", href: "/admin", icon: Users },
+    { label: "System Settings", href: "#", icon: Settings },
+  ];
+
+  const adminContent = (
+    <div className="p-6 text-foreground animate-in fade-in duration-500 max-w-7xl mx-auto space-y-6">
+        <header>
+            <h1 className="text-3xl font-bold tracking-tight text-foreground">
               Tutor Access Control
             </h1>
-            <p className="mt-1 text-zinc-600">Manage which students are assigned to each tutor</p>
-          </div>
-
-          <div className="flex gap-2">
-            <Button variant="outline" className="rounded-2xl bg-white border-zinc-200" onClick={handleLogout}>Sign Out</Button>
-          </div>
+            <p className="mt-1 text-muted-foreground font-medium">Manage which students are assigned to each tutor</p>
         </header>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -192,7 +182,16 @@ export default function PetraAdminDashboard() {
                 />
             ))}
         </div>
-      </div>
     </div>
+  );
+
+  return (
+    <AppShell 
+      navItems={navItems} 
+      user={{ name: admin.name, role: "Administrator" }} 
+      onLogout={handleLogout}
+    >
+      {adminContent}
+    </AppShell>
   );
 }

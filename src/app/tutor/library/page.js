@@ -3,6 +3,9 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { db } from "@/lib/data";
+import { AppShell } from "@/components/AppShell";
+import { LayoutDashboard, BookOpen, Calendar } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const views = ["Library", "My Picks", "Assigned"];
 const categories = ["All", "IELTS", "IB", "Kids English", "Eiken", "Academic", "Business", "Basic English", "A1 English", "Vocabulary"];
@@ -11,7 +14,12 @@ const quickTags = ["CORE", "ACTIVE", "HW", "WORD", "TEST", "JP", "READ", "SPEAK"
 
 function parseTags(name) {
   const parts = name.split("_");
-  return parts[parts.length - 1].split(".");
+  const rawTags = parts[parts.length - 1].split(".");
+  // Deduplicate tags and filter out common extensions or empty strings
+  const filteredTags = [...new Set(rawTags)].filter(tag => 
+    tag && !["pdf", "docx", "doc", "pptx", "xlsx"].includes(tag.toLowerCase())
+  );
+  return filteredTags;
 }
 
 function getLevel(name) {
@@ -24,25 +32,25 @@ function Tag({ text }) {
   const isHomework = text === "HW";
   const isTest = text === "TEST";
   const isColor = text === "COLOR";
-
-  let style = "bg-purple-50 text-[#31063d] border-purple-100";
-  if (isLevel) style = "bg-[#31063d] text-white border-[#31063d]";
-  if (isCore) style = "bg-[#ddb873]/20 text-[#6b4d12] border-[#ddb873]/40";
-  if (isHomework) style = "bg-blue-50 text-blue-700 border-blue-100";
-  if (isTest) style = "bg-red-50 text-red-700 border-red-100";
-  if (isColor) style = "bg-pink-50 text-pink-700 border-pink-100";
-
-  return <span className={`text-xs px-2.5 py-1 rounded-full border font-medium ${style}`}>{text}</span>;
+ 
+  let style = "bg-primary/10 text-primary border-primary/20";
+  if (isLevel) style = "bg-primary text-primary-foreground border-transparent font-black";
+  if (isCore) style = "bg-zinc-100 text-foreground border-zinc-200";
+  if (isHomework) style = "bg-blue-50 text-blue-600 border-blue-200";
+  if (isTest) style = "bg-red-50 text-red-600 border-red-200";
+  if (isColor) style = "bg-pink-50 text-pink-600 border-pink-200";
+ 
+  return <span className={`text-[10px] px-2 py-0.5 rounded uppercase tracking-widest border font-bold ${style}`}>{text}</span>;
 }
 
 function FilterChip({ label, active, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+      className={`rounded-lg border px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest transition shadow-sm ${
         active
-          ? "border-[#31063d] bg-[#31063d] text-white shadow-sm"
-          : "border-purple-100 bg-white text-slate-500 hover:bg-purple-50 hover:text-[#31063d]"
+          ? "border-primary bg-primary text-primary-foreground shadow-md"
+          : "border-border bg-white text-muted-foreground hover:bg-zinc-50 hover:text-foreground"
       }`}
     >
       {label}
@@ -53,74 +61,76 @@ function FilterChip({ label, active, onClick }) {
 function ResourceCard({ item, selectedStudentId, onAssign, onUnassign, onToggleFav, isFav }) {
   const tags = parseTags(item.name);
   const isAssignedToSelectedStudent = item.assignedTo.includes(selectedStudentId);
-
+ 
   return (
-    <div className="group rounded-[28px] border border-purple-100 bg-white p-5 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl">
-      <div className="mb-4 flex items-start justify-between gap-4">
-        <div>
-          <div className="mb-2 flex items-center gap-2">
-            <span className="rounded-full bg-[#fbf8f2] px-2.5 py-1 text-xs font-semibold text-[#31063d] shrink-0">{item.category}</span>
-            <span className="text-xs text-slate-400 truncate" title={item.name}>{item.name.split('_LV')[0].replace(/_/g, ' ')}</span>
+    <div className="group rounded-xl border border-border/60 bg-white p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/40 relative overflow-hidden">
+      <div className="relative z-10">
+        <div className="mb-4 flex items-start justify-between gap-4">
+          <div className="min-w-0">
+            <div className="mb-2 flex items-center gap-2">
+              <span className="rounded px-2 py-0.5 text-[10px] font-black uppercase tracking-widest border border-primary/20 bg-primary/10 text-primary shrink-0">{item.category}</span>
+              <span className="text-[10px] text-muted-foreground truncate uppercase tracking-widest font-bold" title={item.name}>{item.name.split('_LV')[0].replace(/_/g, ' ')}</span>
+            </div>
+            <h3 className="text-base font-bold leading-snug text-foreground line-clamp-2" title={item.display}>{item.display}</h3>
           </div>
-          <h3 className="text-lg font-bold leading-snug text-[#31063d] line-clamp-2" title={item.display}>{item.display}</h3>
+          <button
+            onClick={() => onToggleFav(item.id)}
+            className={`flex h-9 w-9 items-center justify-center rounded-lg border text-sm transition-all ${
+              isFav
+                ? "border-primary/50 bg-primary/10 text-primary shadow-sm"
+                : "border-border bg-zinc-50 text-muted-foreground hover:bg-zinc-100 hover:text-foreground"
+            }`}
+          >
+            ★
+          </button>
         </div>
-        <button
-          onClick={() => onToggleFav(item.id)}
-          className={`flex h-10 w-10 items-center justify-center rounded-full border text-lg transition ${
-            isFav
-              ? "border-[#ddb873]/50 bg-[#ddb873]/20 text-[#ddb873]"
-              : "border-slate-100 bg-white text-slate-300 hover:bg-slate-50"
-          }`}
-        >
-          ★
-        </button>
-      </div>
-
-      <div className="mb-5 flex flex-wrap gap-2">
-        {tags.map((t) => <Tag key={t} text={t} />)}
-      </div>
-
-      <div className="mb-4 rounded-2xl bg-slate-50 p-3 text-xs text-slate-600">
-        {item.assignedTo.length > 0 ? (
-          <span><b className="text-slate-800">Used by:</b> {item.assignedTo.map(id => db.students[id]?.name || id).join(", ")}</span>
-        ) : (
-          <span className="text-slate-400">Not assigned yet</span>
-        )}
-      </div>
-
-      <div className="grid grid-cols-3 gap-2">
-        <button
-          onClick={() => onAssign(item.id, selectedStudentId)}
-          disabled={isAssignedToSelectedStudent || !selectedStudentId}
-          className={`rounded-2xl py-2.5 text-sm font-semibold transition ${
-            isAssignedToSelectedStudent
-              ? "bg-purple-50 text-[#31063d] cursor-not-allowed"
-              : "bg-[#31063d] text-white hover:bg-[#4a0d5a] disabled:opacity-50 disabled:cursor-not-allowed"
-          }`}
-        >
-          {isAssignedToSelectedStudent ? "Assigned" : "Assign"}
-        </button>
-
-        <button
-          onClick={() => onUnassign(item.id, selectedStudentId)}
-          disabled={!isAssignedToSelectedStudent || !selectedStudentId}
-          className={`rounded-2xl border py-2.5 text-sm font-semibold transition ${
-            isAssignedToSelectedStudent
-              ? "border-red-100 text-red-600 hover:bg-red-50"
-              : "border-slate-100 text-slate-300 cursor-not-allowed"
-          }`}
-        >
-          Unassign
-        </button>
-
-        <a
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-2xl border border-purple-100 px-3 py-2.5 text-center text-sm font-semibold text-[#31063d] hover:bg-purple-50"
-        >
-          Drive
-        </a>
+ 
+        <div className="mb-5 flex flex-wrap gap-2">
+          {tags.map((t) => <Tag key={t} text={t} />)}
+        </div>
+ 
+        <div className="mb-4 rounded-lg bg-zinc-50 border border-border p-3 text-[10px] text-muted-foreground font-medium uppercase tracking-widest">
+          {item.assignedTo.length > 0 ? (
+            <span className="line-clamp-1"><b className="text-foreground">Used by:</b> {item.assignedTo.map(id => db.students[id]?.name || id).join(", ")}</span>
+          ) : (
+            <span className="opacity-50 italic">Not assigned yet</span>
+          )}
+        </div>
+ 
+        <div className="grid grid-cols-3 gap-2">
+          <button
+            onClick={() => onAssign(item.id, selectedStudentId)}
+            disabled={isAssignedToSelectedStudent || !selectedStudentId}
+            className={`rounded-lg py-2 text-[10px] font-black uppercase tracking-widest transition-all ${
+              isAssignedToSelectedStudent
+                ? "bg-primary/10 text-primary cursor-not-allowed border border-primary/20"
+                : "bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed shadow-md border border-transparent"
+            }`}
+          >
+            {isAssignedToSelectedStudent ? "Assigned" : "Assign"}
+          </button>
+ 
+          <button
+            onClick={() => onUnassign(item.id, selectedStudentId)}
+            disabled={!isAssignedToSelectedStudent || !selectedStudentId}
+            className={`rounded-lg border py-2 text-[10px] font-black uppercase tracking-widest transition-all ${
+              isAssignedToSelectedStudent
+                ? "border-destructive/30 text-destructive hover:bg-destructive/10"
+                : "border-border text-muted-foreground opacity-30 cursor-not-allowed"
+            }`}
+          >
+            Unassign
+          </button>
+ 
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg border border-border bg-white px-3 py-2 text-center text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-foreground hover:bg-zinc-50 transition-all shadow-sm"
+          >
+            Drive
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -180,6 +190,12 @@ export default function PetraLibraryPremium() {
 
     setIsLoaded(true);
   }, [router]);
+
+  const handleLogout = () => {
+    setTutor(null);
+    localStorage.removeItem("petra_tutor_id");
+    router.push("/");
+  };
 
   function saveAssignments(currentResources) {
       const assignments = {};
@@ -257,141 +273,128 @@ export default function PetraLibraryPremium() {
     }
 
     return result;
-  }, [view, resources, favs, search, categoryFilter, levelFilter, tagFilter]);
+  }, [view, resources, favs, search, categoryFilter, levelFilter, tagFilter]);  if (!isLoaded || !tutor) return <div className="min-h-screen bg-background" />;
 
-  if (!isLoaded || !tutor) return <div className="min-h-screen bg-[#fbf8f2]" />;
+  const navItems = [
+    { label: "Dashboard", href: "/tutor", icon: LayoutDashboard },
+    { label: "Resource Library", href: "/tutor/library", icon: BookOpen },
+    { label: "Schedule", href: "#", icon: Calendar },
+  ];
 
-  return (
-    <div className="min-h-screen bg-[#fbf8f2] text-slate-950 animate-in fade-in duration-500">
-      <div className="flex">
-        <aside className="sticky top-0 hidden h-screen w-64 flex-col border-r border-purple-100 bg-white/90 p-6 md:flex">
-          <div className="mb-8">
-            <button 
-                onClick={() => router.push('/tutor')} 
-                className="mb-6 flex items-center text-sm font-semibold text-slate-500 hover:text-[#31063d] transition-colors"
+  const libraryContent = (
+    <div className="flex-1 p-5 md:p-8 animate-in fade-in duration-500">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-8 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p className="mb-1 text-[10px] font-black uppercase tracking-[0.3em] text-primary">Petra Tutors</p>
+            <h1 className="text-4xl font-black tracking-tight text-foreground md:text-6xl">Resource Library</h1>
+            <p className="mt-3 text-sm text-muted-foreground font-medium">Pick → Assign → Open Drive → Teach</p>
+          </div>
+
+          <div className="rounded-xl border border-border bg-white p-4 shadow-sm min-w-[240px]">
+            <p className="mb-2 px-1 text-[10px] font-black uppercase tracking-widest text-muted-foreground">Current student</p>
+            <select
+              value={selectedStudentId}
+              onChange={(e) => setSelectedStudentId(e.target.value)}
+              className="w-full rounded-lg border border-border bg-zinc-50 px-4 py-2 text-sm font-bold text-primary outline-none focus:ring-1 focus:ring-primary/30 transition-all"
             >
-                ← Back to Dashboard
+              {students.map((s) => <option key={s.id} value={s.id} className="bg-background">{s.name}</option>)}
+              {students.length === 0 && <option value="" disabled className="bg-background">No students assigned</option>}
+            </select>
+          </div>
+        </div>
+
+        <div className="mb-8 flex flex-wrap gap-2 pb-4 border-b border-border">
+          {views.map((v) => (
+            <button
+              key={v}
+              onClick={() => setView(v)}
+              className={cn(
+                "rounded-lg px-4 py-2 text-[10px] font-black uppercase tracking-widest transition-all",
+                view === v ? "bg-primary text-primary-foreground shadow-md" : "text-muted-foreground hover:bg-zinc-50"
+              )}
+            >
+              {v}
             </button>
-            <h2 className="text-xl font-bold text-[#31063d]">Petra Library</h2>
-            <p className="mt-1 text-xs text-slate-400">Tutor materials hub</p>
+          ))}
+        </div>
+
+        <div className="mb-8 rounded-xl border border-border bg-white p-6 shadow-sm">
+          <div className="mb-6 flex flex-col gap-3 md:flex-row">
+            <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search by title, tag, category, student..."
+              className="flex-1 rounded-xl border border-border bg-zinc-50 px-4 py-3 text-sm outline-none transition focus:ring-1 focus:ring-primary/50 placeholder:text-muted-foreground/50 text-foreground"
+            />
+            <button onClick={clearFilters} className="rounded-xl border border-border px-6 py-3 text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-foreground hover:bg-zinc-50 transition-all">
+              Clear
+            </button>
           </div>
 
-          <div className="space-y-2 flex-grow">
-            {views.map((v) => (
-              <button
-                key={v}
-                onClick={() => setView(v)}
-                className={`w-full rounded-2xl px-4 py-3 text-left text-sm font-semibold transition ${
-                  view === v ? "bg-purple-50 text-[#31063d]" : "text-slate-500 hover:bg-slate-50"
-                }`}
-              >
-                {v}
-              </button>
-            ))}
-          </div>
-
-          <div className="mt-8 rounded-3xl bg-[#31063d] p-4 text-white">
-            <p className="text-sm font-bold text-[#ddb873]">Simple flow</p>
-            <p className="mt-2 text-sm leading-6 text-purple-50">Search, filter, assign to student, then open the Drive file.</p>
-          </div>
-        </aside>
-
-        <main className="flex-1 p-5 md:p-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-6 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-              <div>
-                <button 
-                    onClick={() => router.push('/tutor')} 
-                    className="mb-4 inline-flex md:hidden items-center text-sm font-semibold text-slate-500 hover:text-[#31063d]"
-                >
-                    ← Back to Dashboard
-                </button>
-                <p className="mb-2 text-xs font-bold uppercase tracking-[0.25em] text-[#ddb873]">Petra Tutors</p>
-                <h1 className="text-3xl font-black tracking-tight text-[#31063d] md:text-5xl">Resource Library</h1>
-                <p className="mt-2 text-sm text-slate-500">Pick → Assign → Open Drive → Teach</p>
-              </div>
-
-              <div className="rounded-3xl border border-purple-100 bg-white p-3 shadow-sm min-w-[200px]">
-                <p className="mb-1 px-1 text-xs font-semibold text-slate-400">Current student</p>
-                <select
-                  value={selectedStudentId}
-                  onChange={(e) => setSelectedStudentId(e.target.value)}
-                  className="w-full rounded-2xl border border-slate-100 bg-slate-50 px-4 py-2.5 text-sm font-bold text-[#31063d] outline-none"
-                >
-                  {students.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
-                  {students.length === 0 && <option value="" disabled>No students assigned</option>}
-                </select>
+          <div className="space-y-4">
+            <div>
+              <p className="mb-3 text-[10px] font-black uppercase tracking-widest text-muted-foreground">Category</p>
+              <div className="flex flex-wrap gap-2">
+                {categories.map((c) => <FilterChip key={c} label={c} active={categoryFilter === c} onClick={() => setCategoryFilter(c)} />)}
               </div>
             </div>
 
-            <div className="mb-6 rounded-[32px] border border-purple-100 bg-white p-5 shadow-sm">
-              <div className="mb-5 flex flex-col gap-3 md:flex-row">
-                <input
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search by title, tag, category, student..."
-                  className="flex-1 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-purple-300 focus:bg-white"
-                />
-                <button onClick={clearFilters} className="rounded-2xl border border-purple-100 px-4 py-3 text-sm font-semibold text-[#31063d] hover:bg-purple-50">
-                  Clear
-                </button>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <p className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-400">Category</p>
-                  <div className="flex flex-wrap gap-2">
-                    {categories.map((c) => <FilterChip key={c} label={c} active={categoryFilter === c} onClick={() => setCategoryFilter(c)} />)}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-400">Level</p>
-                  <div className="flex flex-wrap gap-2">
-                    {levels.map((l) => <FilterChip key={l} label={l} active={levelFilter === l} onClick={() => setLevelFilter(l)} />)}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-400">Use / Skill Tags</p>
-                  <div className="flex flex-wrap gap-2">
-                    <FilterChip label="All" active={tagFilter === "All"} onClick={() => setTagFilter("All")} />
-                    {quickTags.map((t) => <FilterChip key={t} label={t} active={tagFilter === t} onClick={() => setTagFilter(t)} />)}
-                  </div>
-                </div>
+            <div>
+              <p className="mb-3 text-[10px] font-black uppercase tracking-widest text-muted-foreground">Level</p>
+              <div className="flex flex-wrap gap-2">
+                {levels.map((l) => <FilterChip key={l} label={l} active={levelFilter === l} onClick={() => setLevelFilter(l)} />)}
               </div>
             </div>
 
-            <div className="mb-4 flex items-center justify-between">
-              <div>
-                <h2 className="text-lg font-bold text-slate-900">{view}</h2>
-                <p className="text-sm text-slate-500">Showing {filtered.length} resource{filtered.length === 1 ? "" : "s"}</p>
+            <div>
+              <p className="mb-3 text-[10px] font-black uppercase tracking-widest text-muted-foreground">Use / Skill Tags</p>
+              <div className="flex flex-wrap gap-2">
+                <FilterChip label="All" active={tagFilter === "All"} onClick={() => setTagFilter("All")} />
+                {quickTags.map((t) => <FilterChip key={t} label={t} active={tagFilter === t} onClick={() => setTagFilter(t)} />)}
               </div>
             </div>
-
-            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {filtered.map((item) => (
-                <ResourceCard
-                  key={item.id}
-                  item={item}
-                  selectedStudentId={selectedStudentId}
-                  onAssign={assign}
-                  onUnassign={unassign}
-                  onToggleFav={toggleFav}
-                  isFav={favs.includes(item.id)}
-                />
-              ))}
-            </div>
-
-            {filtered.length === 0 && (
-              <div className="rounded-[32px] border border-dashed border-purple-200 bg-white p-12 text-center">
-                <p className="text-lg font-bold text-[#31063d]">No matching resources</p>
-                <p className="mt-2 text-sm text-slate-500">Try clearing filters or searching a broader term.</p>
-              </div>
-            )}
           </div>
-        </main>
+        </div>
+
+        <div className="mb-6 flex items-center justify-between">
+          <div>
+            <h2 className="text-xl font-bold text-foreground">{view}</h2>
+            <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mt-1">Showing {filtered.length} resource{filtered.length === 1 ? "" : "s"}</p>
+          </div>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {filtered.map((item) => (
+            <ResourceCard
+              key={item.id}
+              item={item}
+              selectedStudentId={selectedStudentId}
+              onAssign={assign}
+              onUnassign={unassign}
+              onToggleFav={toggleFav}
+              isFav={favs.includes(item.id)}
+            />
+          ))}
+        </div>
+
+        {filtered.length === 0 && (
+          <div className="rounded-xl border border-dashed border-border bg-zinc-50 p-12 text-center">
+            <p className="text-lg font-bold text-foreground">No matching resources</p>
+            <p className="mt-2 text-xs text-muted-foreground font-medium uppercase tracking-widest">Try clearing filters or searching a broader term.</p>
+          </div>
+        )}
       </div>
     </div>
+  );
+
+  return (
+    <AppShell 
+      navItems={navItems} 
+      user={{ name: tutor.name, role: tutor.role }} 
+      onLogout={handleLogout}
+    >
+      {libraryContent}
+    </AppShell>
   );
 }
