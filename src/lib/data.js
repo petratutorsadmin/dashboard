@@ -238,6 +238,36 @@ export const db = {
             ],
             "lessons": [
                 {
+                    "id": "l_yutaka0515",
+                    "date": "May 15, 2026",
+                    "tutor": "Yutaka",
+                    "type": "Regular",
+                    "topic": "Eiken Pre-1 reading and summarization",
+                    "rating": "Excellent",
+                    "sessionSummary": "Today we focused on Eiken Pre-1 reading comprehension and summary skills. Tadashi showed good improvement in identifying important information from reading passages, especially after applying strategies learned in previous lessons. A particularly positive point was his ability to summarise long paragraphs into short key ideas using bullet points, which is an important foundation for future summary writing and reading accuracy. He also participated well in conversation practice when discussing familiar topics such as baseball and school activities.",
+                    "observedStrength": "Tadashi initially needed some prompting, but after guidance he was able to identify many correct answers independently and showed good intuitive understanding of the passages. He also remembered and applied strategies taught in the previous lesson, especially the “one question per paragraph” reading technique. His summarisation ability was especially promising, as he could identify important information and reduce paragraphs into concise key points effectively.",
+                    "currentFocusArea": "Student responds very well to structured reading guidance and paragraph-by-paragraph analysis. Summary compression training appears highly effective for him and should continue regularly.",
+                    "interventionStrategy": "Practice compressing each paragraph into short bullet points to build summarisation skills (summary structure training). Use familiar topics for conversation practice to build natural speaking ability.",
+                    "responseToIntervention": "Speaking ability was more natural when discussing familiar interests. Good retention of previous lesson strategies.",
+                    "impacts": [
+                        {
+                            "skill": "Listening Adaptability",
+                            "change": "+2"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        }
+                    ],
+                    "content": "Worked on Eiken Pre-1 reading questions from p.7 and p.10-11. Tadashi initially needed some prompting, but after guidance he was able to identify many correct answers independently and showed good intuitive understanding of the passages. He also remembered and applied strategies taught in the previous lesson, especially the “one question per paragraph” reading technique.\n\nWe also had short conversation practice about his interests and baseball activities, including Giants Academy, school baseball, and Richard Sunakawa. He was comfortable speaking about familiar topics and responded naturally.\n\nAdditionally, we practiced summary structure training using the “Haymarket Affair” reading passage from an Eiken Pre-1 exam. Although the original task was not a summarisation question, the student practiced compressing each paragraph into short bullet points to build summarisation skills.\n\nExamples included:\n- Workers protested after police killed strikers\n- Laws existed but were not enforced well\n- Newspapers increased public anger\n- Event became symbol for labor rights\n\nThe goal was to strengthen:\n- identifying core ideas\n- concise information compression\n- paragraph-by-paragraph understanding",
+                    "feedback": "Today we focused on Eiken Pre-1 reading comprehension and summary skills. Tadashi showed good improvement in identifying important information from reading passages, especially after applying strategies learned in previous lessons. A particularly positive point was his ability to summarise long paragraphs into short key ideas using bullet points, which is an important foundation for future summary writing and reading accuracy. He also participated well in conversation practice when discussing familiar topics such as baseball and school activities. Good overall performance. Tadashi showed stronger reading comprehension once given structure and prompting, and demonstrated good retention of previous lesson strategies. His summarisation ability was especially promising, as he could identify important information and reduce paragraphs into concise key points effectively. Speaking ability was more natural when discussing familiar interests.",
+                    "homework": "Review and memorise the following vocabulary words:\n\n- bilingual\n- fashionable\n- participant\n- surprised\n- foreign\n- tense\n\nIn addition, to finish the bullet-point summarisation of the Haymarket Affair Pre-1 Reading."
+                },
+                {
                     "id": "l_hazel0508",
                     "date": "May 8, 2026",
                     "tutor": "Hazel",
