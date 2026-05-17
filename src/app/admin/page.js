@@ -6,58 +6,59 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { db } from "@/lib/data";
+import { dbService } from "@/lib/db";
 import { useRouter } from "next/navigation";
 import { AppShell } from "@/components/AppShell";
 import { LayoutDashboard, Users, Settings } from "lucide-react";
 
 const petraPurple = "var(--primary)";
 const petraGold = "oklch(0.85 0.12 90)";
-const softGold = "oklch(0.97 0.01 270)";
 
 function SectionCard({ children, className = "", style = {} }) {
   return (
-    <Card className={`rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow bg-white ${className}`} style={style}>
-      <CardContent className="p-6">{children}</CardContent>
+    <Card className={`rounded-md border border-border shadow-sm bg-white ${className}`} style={style}>
+      <CardContent className="p-5">{children}</CardContent>
     </Card>
   );
 }
 
-function TutorCard({ tutor, allStudents, toggleStudentForTutor }) {
+function TutorCard({ tutor, allStudents, toggleStudentForTutor, onScheduleSave }) {
     const [scheduleStudentId, setScheduleStudentId] = useState(tutor.nextLesson?.studentId || (tutor.assignedStudents[0] || ""));
     const [scheduleTime, setScheduleTime] = useState(tutor.nextLesson?.time || "");
-    const [refresh, setRefresh] = useState(0);
 
-    const handleSchedule = () => {
+    const handleSchedule = async () => {
         if (!scheduleStudentId || !scheduleTime) return;
-        tutor.nextLesson = { studentId: scheduleStudentId, time: scheduleTime };
-        setRefresh(r => r + 1);
-        // Alert is okay for admin prototype
-        alert("Next lesson scheduled successfully.");
+        const success = await dbService.scheduleLesson(tutor.id, scheduleStudentId, scheduleTime);
+        if (success) {
+            alert("Next lesson scheduled successfully.");
+            if (onScheduleSave) {
+                await onScheduleSave();
+            }
+        }
     };
 
     return (
-        <SectionCard className="group relative overflow-hidden transition-all hover:border-primary/40">
+        <SectionCard className="group relative overflow-hidden">
             <div className="mb-4 flex items-start justify-between relative z-10">
                 <div>
-                    <h2 className="text-xl font-bold text-foreground">{tutor.name}</h2>
-                    <p className="text-sm text-muted-foreground font-medium">{tutor.role}</p>
+                    <h2 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{tutor.name}</h2>
+                    <p className="text-xs text-muted-foreground font-medium">{tutor.role}</p>
                 </div>
             </div>
             
-            <div className="space-y-2 mb-6 relative z-10">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3">Access Control</p>
+            <div className="space-y-2 mb-5 relative z-10">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground mb-2.5">Access Control</p>
                 {allStudents.map(student => {
                     const isAssigned = tutor.assignedStudents.includes(student.id);
                     return (
-                        <div key={student.id} className="flex items-center justify-between p-3 rounded-xl border border-border bg-zinc-50 shadow-sm transition-all hover:bg-zinc-100">
+                        <div key={student.id} className="flex items-center justify-between p-2.5 rounded-md border border-border bg-zinc-50/50 transition-all hover:bg-zinc-50">
                             <div>
-                                <p className="font-bold text-sm text-foreground">{student.name}</p>
-                                <p className="text-xs text-muted-foreground font-medium">{student.course}</p>
+                                <p className="font-semibold text-xs text-foreground">{student.name}</p>
+                                <p className="text-[11px] text-muted-foreground">{student.course}</p>
                             </div>
                             <Button 
                                 variant={isAssigned ? "default" : "outline"}
-                                className={`rounded-lg h-8 text-[10px] font-black uppercase tracking-widest transition-all ${isAssigned ? 'bg-primary text-primary-foreground border-transparent' : 'bg-white border-border text-muted-foreground shadow-sm'}`}
+                                className={`rounded-md h-7 px-2.5 text-[9px] font-semibold uppercase tracking-wider transition-all shadow-none ${isAssigned ? 'bg-primary text-primary-foreground border-transparent hover:bg-primary/95' : 'bg-white border-border text-muted-foreground hover:bg-zinc-50'}`}
                                 onClick={() => toggleStudentForTutor(tutor.id, student.id)}
                             >
                                 {isAssigned ? "Assigned" : "Assign"}
@@ -67,28 +68,28 @@ function TutorCard({ tutor, allStudents, toggleStudentForTutor }) {
                 })}
             </div>
 
-            <div className="pt-6 border-t border-border relative z-10">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-4">Schedule Next Lesson</p>
+            <div className="pt-4 border-t border-border relative z-10">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground mb-3">Schedule Next Lesson</p>
                 <div className="flex flex-col gap-3">
                     <div className="grid grid-cols-2 gap-2">
                         <div className="space-y-1">
-                            <Label className="text-[10px] uppercase font-bold text-muted-foreground">Student</Label>
+                            <Label className="text-[9px] uppercase font-bold text-muted-foreground">Student</Label>
                             <select 
-                                className="w-full h-9 rounded-lg border border-border bg-zinc-50 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-primary/50 text-foreground"
+                                className="w-full h-8.5 rounded-md border border-border bg-zinc-50/50 px-2.5 text-xs focus:outline-none focus:ring-1 focus:ring-primary/20 text-foreground transition-all"
                                 value={scheduleStudentId}
                                 onChange={e => setScheduleStudentId(e.target.value)}
                             >
                                 <option value="" disabled className="bg-background">Select...</option>
                                 {tutor.assignedStudents.map(id => {
-                                    const st = db.students[id];
+                                    const st = allStudents.find(s => s.id === id);
                                     return <option key={id} value={id} className="bg-background">{st?.name}</option>;
                                 })}
                             </select>
                         </div>
                         <div className="space-y-1">
-                            <Label className="text-[10px] uppercase font-bold text-muted-foreground">Time</Label>
+                            <Label className="text-[9px] uppercase font-bold text-muted-foreground">Time</Label>
                             <Input 
-                                className="h-9 rounded-lg text-sm bg-zinc-50 border-border focus:ring-1 focus:ring-primary/50 text-foreground" 
+                                className="h-8.5 rounded-md text-xs bg-zinc-50/50 border-border focus:ring-1 focus:ring-primary/20 text-foreground transition-all placeholder:text-muted-foreground/60" 
                                 placeholder="Today 6:00 PM" 
                                 value={scheduleTime}
                                 onChange={e => setScheduleTime(e.target.value)}
@@ -97,16 +98,16 @@ function TutorCard({ tutor, allStudents, toggleStudentForTutor }) {
                     </div>
                     <Button 
                         onClick={handleSchedule}
-                        className="w-full h-9 rounded-lg font-bold text-[10px] uppercase tracking-widest shadow-md bg-primary text-primary-foreground border border-transparent hover:bg-primary/90" 
+                        className="w-full h-8.5 rounded-md font-medium text-[9px] uppercase tracking-widest shadow-none bg-primary text-primary-foreground border border-transparent hover:bg-primary/95 transition-all" 
                     >
                         Save Next Lesson
                     </Button>
                 </div>
                 {tutor.nextLesson && (
-                    <div className="mt-3 rounded-lg bg-zinc-50 p-3 text-center border border-border shadow-sm">
-                        <p className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest">Currently Scheduled</p>
-                        <p className="text-sm font-bold mt-1 text-primary">
-                            {db.students[tutor.nextLesson.studentId]?.name} @ {tutor.nextLesson.time}
+                    <div className="mt-2.5 rounded-md bg-zinc-50/50 p-2.5 text-center border border-border shadow-none">
+                        <p className="text-[9px] uppercase font-bold text-muted-foreground tracking-widest">Currently Scheduled</p>
+                        <p className="text-xs font-semibold mt-0.5 text-primary">
+                            {allStudents.find(s => s.id === tutor.nextLesson.studentId)?.name || "Student"} @ {tutor.nextLesson.time}
                         </p>
                     </div>
                 )}
@@ -118,22 +119,34 @@ function TutorCard({ tutor, allStudents, toggleStudentForTutor }) {
 export default function PetraAdminDashboard() {
   const [admin, setAdmin] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [refresh, setRefresh] = useState(0);
+  const [tutors, setTutors] = useState([]);
+  const [students, setStudents] = useState([]);
   const router = useRouter();
 
+  const loadData = async () => {
+    const allTutors = await dbService.getAllTutors();
+    const allStudents = await dbService.getAllStudents();
+    setTutors(allTutors);
+    setStudents(allStudents);
+  };
+
   useEffect(() => {
-    const savedAdminId = localStorage.getItem("petra_admin_id");
-    if (savedAdminId) {
-      const found = db.admins.find(a => a.id === savedAdminId);
-      if (found) {
+    async function init() {
+      const savedAdminId = localStorage.getItem("petra_admin_id");
+      if (savedAdminId) {
+        const found = await dbService.getAdminById(savedAdminId);
+        if (found) {
           setAdmin(found);
-      } else {
+          await loadData();
+        } else {
           router.push("/");
-      }
-    } else {
+        }
+      } else {
         router.push("/");
+      }
+      setIsLoaded(true);
     }
-    setIsLoaded(true);
+    init();
   }, [router]);
 
   const handleLogout = () => {
@@ -142,21 +155,24 @@ export default function PetraAdminDashboard() {
     router.push("/");
   };
 
-  const toggleStudentForTutor = (tutorId, studentId) => {
-    const tutor = db.tutors.find(t => t.id === tutorId);
+  const toggleStudentForTutor = async (tutorId, studentId) => {
+    const tutor = tutors.find(t => t.id === tutorId);
     if (!tutor) return;
     
-    if (tutor.assignedStudents.includes(studentId)) {
-        tutor.assignedStudents = tutor.assignedStudents.filter(id => id !== studentId);
-    } else {
-        tutor.assignedStudents.push(studentId);
+    const isAssigned = tutor.assignedStudents.includes(studentId);
+    const success = await dbService.assignStudentToTutor(tutorId, studentId, !isAssigned);
+    if (success) {
+      const updatedTutors = await dbService.getAllTutors();
+      setTutors(updatedTutors);
     }
-    setRefresh(r => r + 1);
+  };
+
+  const handleScheduleSave = async () => {
+    const updatedTutors = await dbService.getAllTutors();
+    setTutors(updatedTutors);
   };
 
   if (!isLoaded || !admin) return <div className="min-h-screen bg-background" />;
-
-  const allStudents = Object.values(db.students);
 
   const navItems = [
     { label: "Admin Panel", href: "/admin", icon: Users },
@@ -166,19 +182,20 @@ export default function PetraAdminDashboard() {
   const adminContent = (
     <div className="p-6 text-foreground animate-in fade-in duration-500 max-w-7xl mx-auto space-y-6">
         <header>
-            <h1 className="text-3xl font-bold tracking-tight text-foreground">
+            <h1 className="text-2xl font-semibold tracking-tight text-foreground">
               Tutor Access Control
             </h1>
-            <p className="mt-1 text-muted-foreground font-medium">Manage which students are assigned to each tutor</p>
+            <p className="mt-1 text-muted-foreground text-xs">Manage which students are assigned to each tutor</p>
         </header>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {db.tutors.map(tutor => (
+            {tutors.map(tutorItem => (
                 <TutorCard 
-                    key={tutor.id} 
-                    tutor={tutor} 
-                    allStudents={allStudents} 
+                    key={tutorItem.id} 
+                    tutor={tutorItem} 
+                    allStudents={students} 
                     toggleStudentForTutor={toggleStudentForTutor} 
+                    onScheduleSave={handleScheduleSave}
                 />
             ))}
         </div>

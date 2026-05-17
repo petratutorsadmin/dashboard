@@ -36,59 +36,63 @@ export function AppShell({ children, navItems = [], user = null, onLogout }) {
         "fixed inset-y-0 left-0 z-50 w-64 transform border-r border-border bg-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 shadow-sm flex flex-col",
         isSidebarOpen ? "translate-x-0" : "-translate-x-full"
       )}>
-        <div className="flex h-16 items-center border-b border-border px-6 gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary font-bold text-primary-foreground shadow-lg">
+        <div className="flex h-16 items-center border-b border-border px-5 gap-2.5">
+          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary font-bold text-xs text-primary-foreground shadow-sm">
             P
           </div>
-          <span className="text-lg font-bold tracking-tight text-foreground">Petra Portal</span>
+          <span className="text-md font-semibold tracking-tight text-foreground">Petra Portal</span>
         </div>
 
-        <nav className="flex-1 space-y-1 px-3 py-4 overflow-y-auto">
+        <nav className="flex-1 space-y-1.5 px-3 py-4 overflow-y-auto">
           {navItems.map((item) => {
-            const isActive = pathname === item.href;
+            const isActive = item.isActive !== undefined ? item.isActive : pathname === item.href;
             return (
               <button
                 key={item.label}
                 onClick={() => {
-                  router.push(item.href);
+                  if (item.onClick) {
+                    item.onClick();
+                  } else if (item.href) {
+                    router.push(item.href);
+                  }
                   setIsSidebarOpen(false);
                 }}
                 className={cn(
-                  "group flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-bold transition-all",
+                  "group flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-xs font-medium transition-colors focus:outline-none",
                   isActive 
-                    ? "bg-primary text-primary-foreground shadow-md" 
-                    : "text-muted-foreground hover:bg-zinc-50 hover:text-foreground"
+                    ? "bg-primary/5 text-primary border border-primary/20 shadow-none" 
+                    : "text-muted-foreground hover:bg-zinc-100/50 hover:text-foreground border border-transparent"
                 )}
               >
-                <item.icon className={cn(
-                  "h-5 w-5 shrink-0",
-                  isActive ? "text-primary-foreground" : "text-muted-foreground group-hover:text-primary transition-colors"
-                )} />
-                <span className="flex-1 text-left">{item.label}</span>
-                {isActive && <ChevronRight className="h-4 w-4 opacity-50" />}
+                {item.icon && <item.icon className={cn(
+                  "h-4 w-4 shrink-0",
+                  isActive ? "text-primary" : "text-muted-foreground group-hover:text-primary transition-colors"
+                )} />}
+                <span className="flex-1 text-left truncate">{item.label}</span>
+                {isActive && <ChevronRight className="h-3 w-3 text-primary opacity-60" />}
               </button>
             );
           })}
         </nav>
 
         {/* User Section */}
-        <div className="border-t border-border p-4 bg-zinc-50/50">
+        <div className="border-t border-border p-3.5 bg-zinc-50/40">
           {user && (
-            <div className="mb-4 flex items-center gap-3 px-2">
-              <div className="h-9 w-9 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
-                <UserCircle className="h-6 w-6 text-primary" />
+            <div className="mb-3 flex items-center gap-2.5 px-1.5">
+              <div className="h-8 w-8 rounded-md bg-primary/10 flex items-center justify-center border border-primary/15">
+                <UserCircle className="h-5 w-5 text-primary" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-bold text-foreground leading-tight">{user.name}</p>
-                <p className="truncate text-[10px] font-bold uppercase tracking-wider text-muted-foreground">{user.role || 'User'}</p>
+                <p className="truncate text-xs font-semibold text-foreground leading-tight">{user.name}</p>
+                <p className="truncate text-[9px] font-semibold uppercase tracking-widest text-muted-foreground">{user.role || 'User'}</p>
               </div>
             </div>
           )}
           <button
             onClick={onLogout}
-            className="flex w-full items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-bold text-muted-foreground hover:bg-destructive/5 hover:text-destructive transition-all"
+            className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-xs font-medium text-muted-foreground hover:bg-destructive/5 hover:text-destructive transition-colors focus:outline-none"
           >
-            <LogOut className="h-5 w-5" />
+            <LogOut className="h-4 w-4" />
             <span>Sign Out</span>
           </button>
         </div>
@@ -100,14 +104,14 @@ export function AppShell({ children, navItems = [], user = null, onLogout }) {
         <header className="flex h-16 items-center border-b border-border bg-white px-4 lg:hidden">
           <button
             onClick={toggleSidebar}
-            className="rounded-lg p-2 text-muted-foreground hover:bg-zinc-50 hover:text-foreground transition-colors"
+            className="rounded-md p-1.5 text-muted-foreground hover:bg-zinc-50 hover:text-foreground transition-colors"
           >
-            <Menu className="h-6 w-6" />
+            <Menu className="h-5 w-5" />
           </button>
-          <div className="ml-4 flex h-8 w-8 items-center justify-center rounded-lg bg-primary font-bold text-primary-foreground">
+          <div className="ml-3 flex h-7 w-7 items-center justify-center rounded-md bg-primary font-bold text-xs text-primary-foreground">
             P
           </div>
-          <span className="ml-2 text-lg font-bold tracking-tight text-foreground">Petra</span>
+          <span className="ml-2 text-md font-semibold tracking-tight text-foreground">Petra</span>
         </header>
 
         <main className="flex-1 overflow-y-auto">

@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { db } from "@/lib/data";
+import { dbService } from "@/lib/db";
 import { AppShell } from "@/components/AppShell";
 import { LayoutDashboard, BookOpen, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -58,7 +58,7 @@ function FilterChip({ label, active, onClick }) {
   );
 }
 
-function ResourceCard({ item, selectedStudentId, onAssign, onUnassign, onToggleFav, isFav }) {
+function ResourceCard({ item, selectedStudentId, onAssign, onUnassign, onToggleFav, isFav, students }) {
   const tags = parseTags(item.name);
   const isAssignedToSelectedStudent = item.assignedTo.includes(selectedStudentId);
  
@@ -91,7 +91,7 @@ function ResourceCard({ item, selectedStudentId, onAssign, onUnassign, onToggleF
  
         <div className="mb-4 rounded-lg bg-zinc-50 border border-border p-3 text-[10px] text-muted-foreground font-medium uppercase tracking-widest">
           {item.assignedTo.length > 0 ? (
-            <span className="line-clamp-1"><b className="text-foreground">Used by:</b> {item.assignedTo.map(id => db.students[id]?.name || id).join(", ")}</span>
+            <span className="line-clamp-1"><b className="text-foreground">Used by:</b> {item.assignedTo.map(id => students.find(s => s.id === id)?.name || id).join(", ")}</span>
           ) : (
             <span className="opacity-50 italic">Not assigned yet</span>
           )}
@@ -142,7 +142,7 @@ export default function PetraLibraryPremium() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [students, setStudents] = useState([]);
   
-  const [resources, setResources] = useState(db.resources || []);
+  const [resources, setResources] = useState([]);
   const [view, setView] = useState("Library");
   const [selectedStudentId, setSelectedStudentId] = useState("");
   const [favs, setFavs] = useState([]);
@@ -152,43 +152,54 @@ export default function PetraLibraryPremium() {
   const [tagFilter, setTagFilter] = useState("All");
 
   useEffect(() => {
-    const savedTutorId = localStorage.getItem("petra_tutor_id");
-    if (savedTutorId) {
-      const found = db.tutors.find(t => t.id === savedTutorId);
-      if (found) {
+    async function loadData() {
+      const savedTutorId = localStorage.getItem("petra_tutor_id");
+      if (savedTutorId) {
+        const found = await dbService.getTutorById(savedTutorId);
+        if (found) {
           setTutor(found);
-          const assigned = found.assignedStudents.map(id => db.students[id]).filter(Boolean);
-          setStudents(assigned);
-          if (assigned.length > 0) {
-              setSelectedStudentId(assigned[0].id);
+          if (found.assignedStudents && found.assignedStudents.length > 0) {
+            const assigned = await Promise.all(
+              found.assignedStudents.map(id => dbService.getStudentById(id))
+            );
+            const filteredStudents = assigned.filter(Boolean);
+            setStudents(filteredStudents);
+            if (filteredStudents.length > 0) {
+              setSelectedStudentId(filteredStudents[0].id);
+            }
+          } else {
+            setStudents([]);
           }
 
           const savedFavs = localStorage.getItem(`petra_favs_${savedTutorId}`);
           if (savedFavs) {
-              try { setFavs(JSON.parse(savedFavs)); } catch(e){}
+            try { setFavs(JSON.parse(savedFavs)); } catch(e){}
           }
-      } else {
+        } else {
           router.push("/");
-      }
-    } else {
+        }
+      } else {
         router.push("/");
-    }
+      }
 
-    const savedAssignmentsStr = localStorage.getItem("petra_library_assignments");
-    if (savedAssignmentsStr) {
+      // Fetch dynamic resources
+      const allResources = await dbService.getResources();
+      let updatedResources = allResources;
+
+      const savedAssignmentsStr = localStorage.getItem("petra_library_assignments");
+      if (savedAssignmentsStr) {
         try {
-            const savedAssignments = JSON.parse(savedAssignmentsStr);
-            setResources(prev => prev.map(r => {
-                const updatedAssigned = savedAssignments[r.id] || r.assignedTo;
-                // Keep db in sync for runtime
-                const dbItem = db.resources.find(res => res.id === r.id);
-                if (dbItem) dbItem.assignedTo = updatedAssigned;
-                return { ...r, assignedTo: updatedAssigned };
-            }));
+          const savedAssignments = JSON.parse(savedAssignmentsStr);
+          updatedResources = allResources.map(r => {
+            const updatedAssigned = savedAssignments[r.id] || r.assignedTo;
+            return { ...r, assignedTo: updatedAssigned };
+          });
         } catch(e) {}
+      }
+      setResources(updatedResources);
+      setIsLoaded(true);
     }
-
-    setIsLoaded(true);
+    loadData();
   }, [router]);
 
   const handleLogout = () => {
@@ -215,12 +226,7 @@ export default function PetraLibraryPremium() {
     setResources((r) => {
       const newR = r.map((item) => {
         if (item.id === id && !item.assignedTo.includes(studentId)) {
-          const updated = { ...item, assignedTo: [...item.assignedTo, studentId] };
-          const dbItem = db.resources.find(res => res.id === id);
-          if (dbItem && !dbItem.assignedTo.includes(studentId)) {
-              dbItem.assignedTo.push(studentId);
-          }
-          return updated;
+          return { ...item, assignedTo: [...item.assignedTo, studentId] };
         }
         return item;
       });
@@ -233,12 +239,7 @@ export default function PetraLibraryPremium() {
     setResources((r) => {
       const newR = r.map((item) => {
         if (item.id === id) {
-          const updated = { ...item, assignedTo: item.assignedTo.filter((s) => s !== studentId) };
-          const dbItem = db.resources.find(res => res.id === id);
-          if (dbItem) {
-              dbItem.assignedTo = dbItem.assignedTo.filter(s => s !== studentId);
-          }
-          return updated;
+          return { ...item, assignedTo: item.assignedTo.filter((s) => s !== studentId) };
         }
         return item;
       });
@@ -267,7 +268,7 @@ export default function PetraLibraryPremium() {
     if (search.trim() !== "") {
       const s = search.toLowerCase();
       result = result.filter((r) => {
-        const studentNames = r.assignedTo.map(id => db.students[id]?.name || "").join(" ");
+        const studentNames = r.assignedTo.map(id => students.find(st => st.id === id)?.name || "").join(" ");
         return `${r.name} ${r.display} ${r.category} ${studentNames}`.toLowerCase().includes(s);
       });
     }
@@ -374,6 +375,7 @@ export default function PetraLibraryPremium() {
               onUnassign={unassign}
               onToggleFav={toggleFav}
               isFav={favs.includes(item.id)}
+              students={students}
             />
           ))}
         </div>
