@@ -10,9 +10,35 @@ import {
   Menu, 
   X, 
   ChevronRight,
-  UserCircle
+  UserCircle,
+  RefreshCw
 } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
+
+// Small premium micro-interactive Reload button
+function ReloadButton() {
+  const [isRotating, setIsRotating] = useState(false);
+
+  const handleReload = () => {
+    setIsRotating(true);
+    setTimeout(() => {
+      window.location.reload();
+    }, 450);
+  };
+
+  return (
+    <button
+      onClick={handleReload}
+      title="Reload Portal Data"
+      className="inline-flex items-center justify-center h-7 w-7 rounded-md border border-border bg-white text-muted-foreground hover:text-primary hover:bg-primary/5 hover:border-primary/20 transition-all focus:outline-none shrink-0 shadow-none"
+    >
+      <RefreshCw className={cn(
+        "h-3.5 w-3.5 transition-transform duration-500 ease-out",
+        isRotating && "rotate-180 text-primary"
+      )} />
+    </button>
+  );
+}
 
 export function AppShell({ children, navItems = [], user = null, onLogout }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -36,11 +62,16 @@ export function AppShell({ children, navItems = [], user = null, onLogout }) {
         "fixed inset-y-0 left-0 z-50 w-64 transform border-r border-border bg-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 shadow-sm flex flex-col",
         isSidebarOpen ? "translate-x-0" : "-translate-x-full"
       )}>
-        <div className="flex h-16 items-center border-b border-border px-5 gap-2.5">
-          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary font-bold text-xs text-primary-foreground shadow-sm">
-            P
+        <div className="flex h-16 items-center justify-between border-b border-border px-5">
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary font-bold text-xs text-primary-foreground shadow-sm">
+              P
+            </div>
+            <span className="text-md font-semibold tracking-tight text-foreground">Petra Portal</span>
           </div>
-          <span className="text-md font-semibold tracking-tight text-foreground">Petra Portal</span>
+          
+          {/* Desktop Reload Button */}
+          <ReloadButton />
         </div>
 
         <nav className="flex-1 space-y-1.5 px-3 py-4 overflow-y-auto">
@@ -101,17 +132,22 @@ export function AppShell({ children, navItems = [], user = null, onLogout }) {
       {/* Main Content */}
       <div className="flex flex-1 flex-col">
         {/* Mobile Header */}
-        <header className="flex h-16 items-center border-b border-border bg-white px-4 lg:hidden">
-          <button
-            onClick={toggleSidebar}
-            className="rounded-md p-1.5 text-muted-foreground hover:bg-zinc-50 hover:text-foreground transition-colors"
-          >
-            <Menu className="h-5 w-5" />
-          </button>
-          <div className="ml-3 flex h-7 w-7 items-center justify-center rounded-md bg-primary font-bold text-xs text-primary-foreground">
-            P
+        <header className="flex h-16 items-center justify-between border-b border-border bg-white px-4 lg:hidden">
+          <div className="flex items-center">
+            <button
+              onClick={toggleSidebar}
+              className="rounded-md p-1.5 text-muted-foreground hover:bg-zinc-50 hover:text-foreground transition-colors"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
+            <div className="ml-3 flex h-7 w-7 items-center justify-center rounded-md bg-primary font-bold text-xs text-primary-foreground">
+              P
+            </div>
+            <span className="ml-2 text-md font-semibold tracking-tight text-foreground">Petra</span>
           </div>
-          <span className="ml-2 text-md font-semibold tracking-tight text-foreground">Petra</span>
+          
+          {/* Mobile Reload Button */}
+          <ReloadButton />
         </header>
 
         <main className="flex-1 overflow-y-auto">
