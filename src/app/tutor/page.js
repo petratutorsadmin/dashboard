@@ -201,6 +201,7 @@ export default function PetraTutorDashboard() {
     { label: "← Back to Students", onClick: () => { setSelectedStudent(null); setCurrentView("dashboard"); } },
     { label: "Dashboard", onClick: () => setCurrentView("dashboard"), isActive: currentView === "dashboard", icon: LayoutDashboard },
     { label: "Learning Records", onClick: () => setCurrentView("records"), isActive: currentView === "records", icon: BookOpen },
+    { label: "My Reports", onClick: () => { setSelectedStudent(null); setCurrentView("reports"); }, isActive: currentView === "reports", icon: FileText },
   ] : [
     { label: "Dashboard", onClick: () => { setSelectedStudent(null); setCurrentView("dashboard"); }, isActive: currentView === "dashboard", icon: LayoutDashboard },
     { label: "Resource Library", href: "/tutor/library", icon: BookOpen },
