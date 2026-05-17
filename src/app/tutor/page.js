@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { db } from "@/lib/data";
 import { dbService } from "@/lib/db";
 import { Dashboard } from "../page";
+import { ScheduleView } from "@/components/ScheduleView";
 import { computeOverallGrade, computePhaseProgress } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { BookOpen, Calendar, LayoutDashboard, ChevronRight } from "lucide-react";
@@ -200,9 +201,9 @@ export default function PetraTutorDashboard() {
     { label: "Dashboard", onClick: () => setCurrentView("dashboard"), isActive: currentView === "dashboard", icon: LayoutDashboard },
     { label: "Learning Records", onClick: () => setCurrentView("records"), isActive: currentView === "records", icon: BookOpen },
   ] : [
-    { label: "Dashboard", href: "/tutor", icon: LayoutDashboard },
+    { label: "Dashboard", onClick: () => { setSelectedStudent(null); setCurrentView("dashboard"); }, isActive: currentView === "dashboard", icon: LayoutDashboard },
     { label: "Resource Library", href: "/tutor/library", icon: BookOpen },
-    { label: "Schedule", href: "#", icon: Calendar },
+    { label: "Schedule", onClick: () => { setSelectedStudent(null); setCurrentView("schedule"); }, isActive: currentView === "schedule", icon: Calendar },
   ];
 
   const dashboardContent = selectedStudent ? (
@@ -213,6 +214,10 @@ export default function PetraTutorDashboard() {
             </Button>
         </div>
         <Dashboard student={selectedStudent} parentName={parentName} lang="en" onLogout={() => {}} view={currentView} />
+    </div>
+  ) : currentView === "schedule" ? (
+    <div className="p-6">
+      <ScheduleView tutorName={tutor.name} lang="en" />
     </div>
   ) : (
     <div className="p-6 text-foreground animate-in fade-in duration-500 max-w-7xl mx-auto space-y-6">

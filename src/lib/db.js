@@ -80,6 +80,19 @@ function mapResource(r) {
   };
 }
 
+function mapSchedule(sch) {
+  if (!sch) return null;
+  return {
+    ...sch,
+    studentId: sch.student_id !== undefined ? sch.student_id : sch.studentId,
+    tutorId: sch.tutor_id !== undefined ? sch.tutor_id : sch.tutorId,
+    dateTime: sch.date_time !== undefined ? sch.date_time : sch.dateTime,
+    paymentStatus: sch.payment_status !== undefined ? sch.payment_status : sch.paymentStatus,
+    billedAmount: sch.billed_amount !== undefined ? sch.billed_amount : sch.billedAmount,
+    payoutAmount: sch.payout_amount !== undefined ? sch.payout_amount : sch.payoutAmount,
+  };
+}
+
 function tutorMatchesLesson(tutorName, lessonTutor) {
   if (!tutorName || !lessonTutor) return false;
   const tName = tutorName.toLowerCase().trim();
@@ -643,6 +656,71 @@ export const dbService = {
     } catch (err) {
       console.error("Supabase Students list fetch error:", err);
       return Object.values(mockDb.students).map(mapStudent);
+    }
+  },
+
+  // 9. Fetch schedules for student
+  async getSchedulesByStudentId(studentId) {
+    if (!isSupabaseConfigured()) {
+      return (mockDb.schedules || [])
+        .filter(s => s.studentId === studentId)
+        .map(mapSchedule);
+    }
+
+    try {
+      const { data, error } = await withTimeout(
+        supabase
+          .from("schedules")
+          .select("*")
+          .eq("student_id", studentId),
+        1500
+      );
+
+      if (error) throw error;
+      if (!data || data.length === 0) {
+        return (mockDb.schedules || [])
+          .filter(s => s.studentId === studentId)
+          .map(mapSchedule);
+      }
+      return data.map(mapSchedule);
+    } catch (err) {
+      console.error("Supabase schedules fetch by student ID error:", err);
+      return (mockDb.schedules || [])
+        .filter(s => s.studentId === studentId)
+        .map(mapSchedule);
+    }
+  },
+
+  // 10. Fetch schedules for tutor
+  async getSchedulesByTutorName(tutorName) {
+    if (!isSupabaseConfigured()) {
+      return (mockDb.schedules || [])
+        .filter(s => s.tutorName && tutorMatchesLesson(tutorName, s.tutorName))
+        .map(mapSchedule);
+    }
+
+    try {
+      const { data, error } = await withTimeout(
+        supabase
+          .from("schedules")
+          .select("*"),
+        1500
+      );
+
+      if (error) throw error;
+      if (!data || data.length === 0) {
+        return (mockDb.schedules || [])
+          .filter(s => s.tutorName && tutorMatchesLesson(tutorName, s.tutorName))
+          .map(mapSchedule);
+      }
+      return data
+        .map(mapSchedule)
+        .filter(s => s.tutorName && tutorMatchesLesson(tutorName, s.tutorName));
+    } catch (err) {
+      console.error("Supabase schedules fetch by tutor name error:", err);
+      return (mockDb.schedules || [])
+        .filter(s => s.tutorName && tutorMatchesLesson(tutorName, s.tutorName))
+        .map(mapSchedule);
     }
   }
 };

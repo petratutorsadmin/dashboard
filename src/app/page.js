@@ -25,6 +25,7 @@ import { cn, computeSkillLevel, computeGrade, computeOverallGrade, computePhaseP
 import { useRouter } from "next/navigation";
 import { AppShell } from "@/components/AppShell";
 import { LearningRecords, getDynamicImpacts } from "@/components/LearningRecords";
+import { ScheduleView } from "@/components/ScheduleView";
 
 const petraPurple = "var(--primary)";
 const petraGold = "oklch(0.85 0.12 90)"; 
@@ -379,6 +380,10 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
         return <LearningRecords student={student} t={t} sortedLessons={sortedLessons} />;
     }
 
+    if (view === "schedule") {
+        return <ScheduleView studentId={student.id} lang={lang} />;
+    }
+
     return (
         <div className="p-4 sm:p-6 text-foreground animate-in fade-in duration-500 max-w-6xl mx-auto space-y-6">
             <header className="border-b border-border pb-4 mb-6">
@@ -717,6 +722,7 @@ export default function App() {
         const navItems = [
             { label: "Dashboard", onClick: () => setCurrentView("dashboard"), isActive: currentView === "dashboard", icon: LayoutDashboard },
             { label: "Learning Records", onClick: () => setCurrentView("records"), isActive: currentView === "records", icon: BookOpen },
+            { label: "Schedule", onClick: () => setCurrentView("schedule"), isActive: currentView === "schedule", icon: Calendar },
         ];
         return (
             <AppShell 
