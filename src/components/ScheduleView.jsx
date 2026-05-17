@@ -125,7 +125,7 @@ export function ScheduleView({ studentId = null, tutorName = null, lang = "en" }
             {t.title}
           </h1>
           <p className="mt-1 text-xs text-muted-foreground">
-            {studentId ? "View all lesson schedules and payment invoices" : "Manage your past and upcoming student sessions"}
+            {studentId ? "View all lesson schedules" : "Manage your past and upcoming student sessions"}
           </p>
         </div>
 
@@ -162,7 +162,6 @@ export function ScheduleView({ studentId = null, tutorName = null, lang = "en" }
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {activeSchedules.map((schedule) => {
             const isCompleted = schedule.status === 'Completed';
-            const isPaid = schedule.paymentStatus === 'Paid';
             const isScheduleUpcoming = schedule.status === 'Scheduled';
 
             return (
@@ -201,19 +200,6 @@ export function ScheduleView({ studentId = null, tutorName = null, lang = "en" }
                       >
                         {isScheduleUpcoming ? t.scheduled : isCompleted ? t.completed : schedule.status}
                       </Badge>
-                      
-                      {schedule.paymentStatus && (
-                        <Badge 
-                          variant="outline" 
-                          className={`rounded-md text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 shadow-none border ${
-                            isPaid 
-                              ? "bg-zinc-100 text-zinc-500 border-zinc-200" 
-                              : "bg-amber-500/5 text-amber-600 border-amber-500/20"
-                          }`}
-                        >
-                          {isPaid ? t.paid : t.unpaid}
-                        </Badge>
-                      )}
                     </div>
                   </div>
 
@@ -235,20 +221,12 @@ export function ScheduleView({ studentId = null, tutorName = null, lang = "en" }
                     </div>
                   </div>
 
-                  {/* Tutor view only financials */}
+                  {/* Tutor view only financials - show ONLY payout, NO billing, NO margin! */}
                   {tutorName && (
-                    <div className="grid grid-cols-3 gap-2.5 pt-1.5 text-center">
-                      <div className="rounded-md bg-zinc-50/50 border border-zinc-200/50 p-2">
-                        <p className="text-[8px] font-bold uppercase tracking-wider text-muted-foreground">{t.billed}</p>
-                        <p className="text-xs font-semibold text-foreground/80 mt-0.5">{schedule.billedAmount}</p>
-                      </div>
-                      <div className="rounded-md bg-zinc-50/50 border border-zinc-200/50 p-2">
-                        <p className="text-[8px] font-bold uppercase tracking-wider text-muted-foreground">{t.payout}</p>
-                        <p className="text-xs font-semibold text-foreground/80 mt-0.5">{schedule.payoutAmount}</p>
-                      </div>
-                      <div className="rounded-md bg-primary/5 border border-primary/10 p-2">
-                        <p className="text-[8px] font-bold uppercase tracking-wider text-primary opacity-80">{t.margin}</p>
-                        <p className="text-xs font-bold text-primary mt-0.5">¥{schedule.margin}</p>
+                    <div className="grid grid-cols-1 pt-1.5 text-center animate-in fade-in duration-300">
+                      <div className="rounded-md bg-zinc-50/50 border border-zinc-200/50 p-2.5">
+                        <p className="text-[9px] font-bold uppercase tracking-wider text-muted-foreground">{t.payout}</p>
+                        <p className="text-sm font-semibold text-foreground mt-0.5">{schedule.payoutAmount}</p>
                       </div>
                     </div>
                   )}
