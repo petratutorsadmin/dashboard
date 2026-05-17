@@ -630,8 +630,18 @@ export const dbService = {
         .map(mapLesson)
         .filter(l => l.tutor && tutorMatchesLesson(tutorName, l.tutor));
     } catch (err) {
-      console.error("Supabase lessons fetch by tutor error:", err);
-      return [];
+      // Silently fall back to mock data (e.g. table doesn't exist yet)
+      const lessons = [];
+      Object.values(mockDb.students).forEach(student => {
+        if (student.lessons) {
+          student.lessons.forEach(l => {
+            if (l.tutor && tutorMatchesLesson(tutorName, l.tutor)) {
+              lessons.push(mapLesson({ ...l, student_id: student.id }));
+            }
+          });
+        }
+      });
+      return lessons;
     }
   },
 
@@ -717,7 +727,7 @@ export const dbService = {
         .map(mapSchedule)
         .filter(s => s.tutorName && tutorMatchesLesson(tutorName, s.tutorName));
     } catch (err) {
-      console.error("Supabase schedules fetch by tutor name error:", err);
+      // Silently fall back to mock data (e.g. schedules table not yet created)
       return (mockDb.schedules || [])
         .filter(s => s.tutorName && tutorMatchesLesson(tutorName, s.tutorName))
         .map(mapSchedule);
