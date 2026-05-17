@@ -137,9 +137,26 @@ export default function PetraTutorDashboard() {
         const found = await dbService.getTutorById(savedTutorId);
         if (found) {
           setTutor(found);
-          if (found.assignedStudents && found.assignedStudents.length > 0) {
+          
+          // Gather both explicitly assigned student IDs AND student IDs from any lessons they have taught
+          let studentIds = [...(found.assignedStudents || [])];
+          
+          try {
+            const tutorLessons = await dbService.getLessonsByTutorName(found.name);
+            if (tutorLessons && tutorLessons.length > 0) {
+              tutorLessons.forEach(l => {
+                if (l.studentId && !studentIds.includes(l.studentId)) {
+                  studentIds.push(l.studentId);
+                }
+              });
+            }
+          } catch (e) {
+            console.error("Error gathering dynamic student IDs for tutor:", e);
+          }
+
+          if (studentIds.length > 0) {
             const studentProfiles = await Promise.all(
-              found.assignedStudents.map(id => dbService.getStudentById(id))
+              studentIds.map(id => dbService.getStudentById(id))
             );
             setAssignedStudents(studentProfiles.filter(Boolean));
           } else {

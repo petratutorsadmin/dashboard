@@ -63,6 +63,22 @@ function mapResource(r) {
   };
 }
 
+function tutorMatchesLesson(tutorName, lessonTutor) {
+  if (!tutorName || !lessonTutor) return false;
+  const tName = tutorName.toLowerCase().trim();
+  const lTutor = lessonTutor.toLowerCase().trim();
+  
+  if (tName === lTutor || lTutor.includes(tName) || tName.includes(lTutor)) {
+    return true;
+  }
+  
+  if (tName.startsWith("day") && lTutor.startsWith("day")) return true;
+  if (tName.startsWith("tina") && lTutor.startsWith("tina")) return true;
+  
+  return false;
+}
+
+
 // Helper: Wraps a promise in a 1-second timeout
 function withTimeout(promise, ms = 1000) {
   const timeout = new Promise((_, reject) =>
@@ -539,6 +555,53 @@ export const dbService = {
     } catch (err) {
       console.error("Supabase Tutors list fetch error:", err);
       return mockDb.tutors.map(mapTutor);
+    }
+  },
+
+  async getLessonsByTutorName(tutorName) {
+    if (!isSupabaseConfigured()) {
+      const lessons = [];
+      Object.values(mockDb.students).forEach(student => {
+        if (student.lessons) {
+          student.lessons.forEach(l => {
+            if (l.tutor && tutorMatchesLesson(tutorName, l.tutor)) {
+              lessons.push(mapLesson({ ...l, student_id: student.id }));
+            }
+          });
+        }
+      });
+      return lessons;
+    }
+
+    try {
+      const { data, error } = await withTimeout(
+        supabase
+          .from("lessons")
+          .select("*"),
+        1500
+      );
+
+      if (error) throw error;
+      if (!data || data.length === 0) {
+        const lessons = [];
+        Object.values(mockDb.students).forEach(student => {
+          if (student.lessons) {
+            student.lessons.forEach(l => {
+              if (l.tutor && tutorMatchesLesson(tutorName, l.tutor)) {
+                lessons.push(mapLesson({ ...l, student_id: student.id }));
+              }
+            });
+          }
+        });
+        return lessons;
+      }
+      
+      return data
+        .map(mapLesson)
+        .filter(l => l.tutor && tutorMatchesLesson(tutorName, l.tutor));
+    } catch (err) {
+      console.error("Supabase lessons fetch by tutor error:", err);
+      return [];
     }
   },
 
