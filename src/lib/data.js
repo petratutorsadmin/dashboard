@@ -1116,1467 +1116,1425 @@ export const db = {
             }
         },
         "s4": {
-                  "id": "s4",
-                  "name": "Shinichi Fukui",
-                  "course": "EIKEN Grade Pre-2",
-                  "target": "Pass EIKEN Grade Pre-2",
-                  "overallGrade": "B",
-                  "coreIssue": "Needs consistent practice and vocabulary expansion.",
-                  "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
-                  "focusThisMonth": "Vocabulary building and active speaking practice.",
-                  "petraInsight": "Shinichi Fukui is making steady progress. Focus should remain on consistency and building confidence in active production.",
-                  "skills": [
-                            {
-                                      "name": "Vocabulary Precision",
-                                      "baseLevel": 65,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good foundation",
-                                      "issue": "Needs more advanced vocabulary.",
-                                      "improvement": "Regular reading practice."
-                            },
-                            {
-                                      "name": "Structural Accuracy",
-                                      "baseLevel": 60,
-                                      "weight": 1,
-                                      "condition": "Further Practice Recommended",
-                                      "note": "Grammar needs work",
-                                      "issue": "Occasional errors in complex sentences.",
-                                      "improvement": "Grammar drills."
-                            },
-                            {
-                                      "name": "Expression Fluidity",
-                                      "baseLevel": 70,
-                                      "weight": 1.2,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Speaks naturally",
-                                      "issue": "Needs to use more transitional phrases.",
-                                      "improvement": "Practice linking ideas."
-                            },
-                            {
-                                      "name": "Listening Adaptability",
-                                      "baseLevel": 75,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good comprehension",
-                                      "issue": "Struggles with fast native speech.",
-                                      "improvement": "Listen to podcasts."
-                            },
-                            {
-                                      "name": "Conversational Confidence",
-                                      "baseLevel": 80,
-                                      "weight": 1,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Not afraid to speak",
-                                      "issue": "Sometimes lacks vocabulary to express complex ideas.",
-                                      "improvement": "Debate practice."
-                            }
-                  ],
-                  "phases": [
-                            {
-                                      "id": "ph1",
-                                      "title": "Phase 1: Foundation Building",
-                                      "description": "Focus on core vocabulary and basic grammar structures.",
-                                      "status": "Completed",
-                                      "weeks": "Weeks 1-4",
-                                      "progress": 100
-                            },
-                            {
-                                      "id": "ph2",
-                                      "title": "Phase 2: Skill Application",
-                                      "description": "Apply foundational skills to reading and listening exercises.",
-                                      "status": "In Progress",
-                                      "weeks": "Weeks 5-8",
-                                      "progress": 45
-                            },
-                            {
-                                      "id": "ph3",
-                                      "title": "Phase 3: Exam Preparation",
-                                      "description": "Mock exams and time management strategies.",
-                                      "status": "Upcoming",
-                                      "weeks": "Weeks 9-12",
-                                      "progress": 0
-                            }
-                  ],
-                  "lessons": [
-                            {
-                                      "id": "l_s4_0",
-                                      "date": "Apr 27, 2026",
-                                      "tutor": "Hannah Tuffy",
-                                      "type": "Regular",
-                                      "topic": "EIKEN Grade Pre-2 Practice Session 1",
-                                      "rating": "Good",
-                                      "sessionSummary": "We covered key topics related to EIKEN Grade Pre-2 and practiced various exercises.",
-                                      "observedStrength": "Shinichi Fukui showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Shinichi Fukui responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of EIKEN Grade Pre-2 materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Shinichi Fukui! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            }
-                  ],
-                  "nextPlan": [
-                            {
-                                      "title": "1. Core Vocabulary Review",
-                                      "desc": "Regular review of essential terms."
-                            },
-                            {
-                                      "title": "2. Speaking Practice",
-                                      "desc": "Weekly free-talk sessions to build confidence."
-                            },
-                            {
-                                      "title": "3. Grammar Consolidation",
-                                      "desc": "Focus on sentence structure accuracy."
-                            }
-                  ]
+            "id": "s4",
+            "name": "Shinichi Fukui",
+            "course": "EIKEN Grade Pre-2",
+            "target": "Pass EIKEN Grade Pre-2",
+            "overallGrade": "B",
+            "coreIssue": "Difficulty with detailed listening and spontaneous speaking",
+            "coreIssueDetail": "Shinichi has strong foundational reading and grammar skills, but struggles to catch detailed information during listening exercises and needs practice formulating spontaneous responses in everyday conversations.",
+            "focusThisMonth": "Building conversational confidence and listening for details",
+            "petraInsight": "Shinichi is motivated to improve everyday English rather than business English. We are utilizing role-play scenarios and textbook dialogues to help him practice active listening and natural response flow.",
+            "skills": [
+                {
+                    "name": "Structural Accuracy",
+                    "baseLevel": 75,
+                    "condition": "Consistent",
+                    "note": "Strong foundation",
+                    "issue": "Rarely makes basic grammar mistakes.",
+                    "improvement": "Focus on complex structures."
+                },
+                {
+                    "name": "Vocabulary Precision",
+                    "baseLevel": 60,
+                    "condition": "Developing",
+                    "note": "Knows basic terms",
+                    "issue": "Needs broader vocabulary for everyday scenarios.",
+                    "improvement": "Learn phrasal verbs and idioms."
+                },
+                {
+                    "name": "Listening Adaptability",
+                    "baseLevel": 45,
+                    "condition": "Requires Focus",
+                    "note": "Misses details",
+                    "issue": "Has trouble catching specific details in fast speech.",
+                    "improvement": "Targeted listening exercises with comprehension checks."
+                },
+                {
+                    "name": "Conversational Confidence",
+                    "baseLevel": 55,
+                    "condition": "Improving",
+                    "note": "Hesitant",
+                    "issue": "Takes time to formulate responses.",
+                    "improvement": "Scenario-based roleplay."
+                }
+            ],
+            "phases": [
+                {
+                    "id": "ph1",
+                    "title": "Assessment & Baseline",
+                    "description": "Evaluating current proficiency and setting goals.",
+                    "status": "Completed",
+                    "weeks": "Week 1",
+                    "progress": 100
+                },
+                {
+                    "id": "ph2",
+                    "title": "Targeted Skill Building",
+                    "description": "Building conversational confidence and listening for details",
+                    "status": "In Progress",
+                    "weeks": "Weeks 2-6",
+                    "progress": 35
+                },
+                {
+                    "id": "ph3",
+                    "title": "Fluency & Application",
+                    "description": "Applying learned skills to complex, unguided scenarios.",
+                    "status": "Upcoming",
+                    "weeks": "Weeks 7-10",
+                    "progress": 0
+                }
+            ],
+            "lessons": [
+                {
+                    "id": "l_s4_0",
+                    "date": "Apr 27, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "EIKEN Grade Pre-2 Practice Session 1",
+                    "rating": "Good",
+                    "sessionSummary": "We covered key topics related to EIKEN Grade Pre-2 and practiced various exercises.",
+                    "observedStrength": "Shinichi Fukui showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Shinichi Fukui responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of EIKEN Grade Pre-2 materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Shinichi Fukui! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                }
+            ],
+            "nextPlan": [
+                {
+                    "title": "1. Core Vocabulary Review",
+                    "desc": "Regular review of essential terms."
+                },
+                {
+                    "title": "2. Speaking Practice",
+                    "desc": "Weekly free-talk sessions to build confidence."
+                },
+                {
+                    "title": "3. Grammar Consolidation",
+                    "desc": "Focus on sentence structure accuracy."
+                }
+            ]
         },
         "s5": {
-                  "id": "s5",
-                  "name": "Kizuki Ishida",
-                  "course": "EIKEN Grade 2",
-                  "target": "Boost speaking confidence for EIKEN Grade 2",
-                  "overallGrade": "B",
-                  "coreIssue": "Needs consistent practice and vocabulary expansion.",
-                  "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
-                  "focusThisMonth": "Vocabulary building and active speaking practice.",
-                  "petraInsight": "Kizuki Ishida is making steady progress. Focus should remain on consistency and building confidence in active production.",
-                  "skills": [
-                            {
-                                      "name": "Vocabulary Precision",
-                                      "baseLevel": 65,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good foundation",
-                                      "issue": "Needs more advanced vocabulary.",
-                                      "improvement": "Regular reading practice."
-                            },
-                            {
-                                      "name": "Structural Accuracy",
-                                      "baseLevel": 60,
-                                      "weight": 1,
-                                      "condition": "Further Practice Recommended",
-                                      "note": "Grammar needs work",
-                                      "issue": "Occasional errors in complex sentences.",
-                                      "improvement": "Grammar drills."
-                            },
-                            {
-                                      "name": "Expression Fluidity",
-                                      "baseLevel": 70,
-                                      "weight": 1.2,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Speaks naturally",
-                                      "issue": "Needs to use more transitional phrases.",
-                                      "improvement": "Practice linking ideas."
-                            },
-                            {
-                                      "name": "Listening Adaptability",
-                                      "baseLevel": 75,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good comprehension",
-                                      "issue": "Struggles with fast native speech.",
-                                      "improvement": "Listen to podcasts."
-                            },
-                            {
-                                      "name": "Conversational Confidence",
-                                      "baseLevel": 80,
-                                      "weight": 1,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Not afraid to speak",
-                                      "issue": "Sometimes lacks vocabulary to express complex ideas.",
-                                      "improvement": "Debate practice."
-                            }
-                  ],
-                  "phases": [
-                            {
-                                      "id": "ph1",
-                                      "title": "Phase 1: Foundation Building",
-                                      "description": "Focus on core vocabulary and basic grammar structures.",
-                                      "status": "Completed",
-                                      "weeks": "Weeks 1-4",
-                                      "progress": 100
-                            },
-                            {
-                                      "id": "ph2",
-                                      "title": "Phase 2: Skill Application",
-                                      "description": "Apply foundational skills to reading and listening exercises.",
-                                      "status": "In Progress",
-                                      "weeks": "Weeks 5-8",
-                                      "progress": 45
-                            },
-                            {
-                                      "id": "ph3",
-                                      "title": "Phase 3: Exam Preparation",
-                                      "description": "Mock exams and time management strategies.",
-                                      "status": "Upcoming",
-                                      "weeks": "Weeks 9-12",
-                                      "progress": 0
-                            }
-                  ],
-                  "lessons": [
-                            {
-                                      "id": "l_s5_0",
-                                      "date": "Apr 19, 2026",
-                                      "tutor": "Ashley Norton",
-                                      "type": "Regular",
-                                      "topic": "EIKEN Grade 2 Practice Session 1",
-                                      "rating": "Excellent",
-                                      "sessionSummary": "We covered key topics related to EIKEN Grade 2 and practiced various exercises.",
-                                      "observedStrength": "Kizuki Ishida showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Kizuki Ishida responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of EIKEN Grade 2 materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Kizuki Ishida! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            },
-                            {
-                                      "id": "l_s5_1",
-                                      "date": "Apr 29, 2026",
-                                      "tutor": "Ashley Norton",
-                                      "type": "Regular",
-                                      "topic": "EIKEN Grade 2 Practice Session 2",
-                                      "rating": "Good",
-                                      "sessionSummary": "We covered key topics related to EIKEN Grade 2 and practiced various exercises.",
-                                      "observedStrength": "Kizuki Ishida showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Kizuki Ishida responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of EIKEN Grade 2 materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Kizuki Ishida! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            }
-                  ],
-                  "nextPlan": [
-                            {
-                                      "title": "1. Core Vocabulary Review",
-                                      "desc": "Regular review of essential terms."
-                            },
-                            {
-                                      "title": "2. Speaking Practice",
-                                      "desc": "Weekly free-talk sessions to build confidence."
-                            },
-                            {
-                                      "title": "3. Grammar Consolidation",
-                                      "desc": "Focus on sentence structure accuracy."
-                            }
-                  ]
+            "id": "s5",
+            "name": "Kizuki Ishida",
+            "course": "EIKEN Grade 2",
+            "target": "Boost speaking confidence for EIKEN Grade 2",
+            "overallGrade": "B",
+            "coreIssue": "Mastering advanced scientific vocabulary and concepts",
+            "coreIssueDetail": "Kizuki is studying Biology (Evolution, Phylogenetic trees, Cell structure). He has a great attitude and participates actively, but needs to solidify his understanding of complex biological mechanisms.",
+            "focusThisMonth": "Cellular structures and evolutionary relationships",
+            "petraInsight": "Kizuki shows excellent engagement and asks great questions. His analytical thinking is strong, and our focus is purely on expanding his scientific knowledge base and technical terminology in Biology.",
+            "skills": [
+                {
+                    "name": "Scientific Vocabulary",
+                    "baseLevel": 80,
+                    "condition": "Rapid Improvement",
+                    "note": "Learns quickly",
+                    "issue": "Encountering highly technical terms.",
+                    "improvement": "Flashcards and terminology review."
+                },
+                {
+                    "name": "Analytical Thinking",
+                    "baseLevel": 85,
+                    "condition": "Consistent",
+                    "note": "Great questions",
+                    "issue": "None. Very inquisitive.",
+                    "improvement": "Challenge with complex biological scenarios."
+                },
+                {
+                    "name": "Concept Retention",
+                    "baseLevel": 75,
+                    "condition": "Steady",
+                    "note": "Understands core ideas",
+                    "issue": "Needs review of intricate cell mechanisms.",
+                    "improvement": "Diagram labeling and verbal explanations."
+                }
+            ],
+            "phases": [
+                {
+                    "id": "ph1",
+                    "title": "Assessment & Baseline",
+                    "description": "Evaluating current proficiency and setting goals.",
+                    "status": "Completed",
+                    "weeks": "Week 1",
+                    "progress": 100
+                },
+                {
+                    "id": "ph2",
+                    "title": "Targeted Skill Building",
+                    "description": "Cellular structures and evolutionary relationships",
+                    "status": "In Progress",
+                    "weeks": "Weeks 2-6",
+                    "progress": 35
+                },
+                {
+                    "id": "ph3",
+                    "title": "Fluency & Application",
+                    "description": "Applying learned skills to complex, unguided scenarios.",
+                    "status": "Upcoming",
+                    "weeks": "Weeks 7-10",
+                    "progress": 0
+                }
+            ],
+            "lessons": [
+                {
+                    "id": "l_s5_0",
+                    "date": "Apr 19, 2026",
+                    "tutor": "Ashley Norton",
+                    "type": "Regular",
+                    "topic": "EIKEN Grade 2 Practice Session 1",
+                    "rating": "Excellent",
+                    "sessionSummary": "We covered key topics related to EIKEN Grade 2 and practiced various exercises.",
+                    "observedStrength": "Kizuki Ishida showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Kizuki Ishida responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of EIKEN Grade 2 materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Kizuki Ishida! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                },
+                {
+                    "id": "l_s5_1",
+                    "date": "Apr 29, 2026",
+                    "tutor": "Ashley Norton",
+                    "type": "Regular",
+                    "topic": "EIKEN Grade 2 Practice Session 2",
+                    "rating": "Good",
+                    "sessionSummary": "We covered key topics related to EIKEN Grade 2 and practiced various exercises.",
+                    "observedStrength": "Kizuki Ishida showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Kizuki Ishida responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of EIKEN Grade 2 materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Kizuki Ishida! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                }
+            ],
+            "nextPlan": [
+                {
+                    "title": "1. Core Vocabulary Review",
+                    "desc": "Regular review of essential terms."
+                },
+                {
+                    "title": "2. Speaking Practice",
+                    "desc": "Weekly free-talk sessions to build confidence."
+                },
+                {
+                    "title": "3. Grammar Consolidation",
+                    "desc": "Focus on sentence structure accuracy."
+                }
+            ]
         },
         "s6": {
-                  "id": "s6",
-                  "name": "Lee Akihiro",
-                  "course": "EIKEN Grade 3",
-                  "target": "Boost speaking confidence for EIKEN Grade 3",
-                  "overallGrade": "A",
-                  "coreIssue": "Needs consistent practice and vocabulary expansion.",
-                  "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
-                  "focusThisMonth": "Vocabulary building and active speaking practice.",
-                  "petraInsight": "Lee Akihiro is making steady progress. Focus should remain on consistency and building confidence in active production.",
-                  "skills": [
-                            {
-                                      "name": "Vocabulary Precision",
-                                      "baseLevel": 65,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good foundation",
-                                      "issue": "Needs more advanced vocabulary.",
-                                      "improvement": "Regular reading practice."
-                            },
-                            {
-                                      "name": "Structural Accuracy",
-                                      "baseLevel": 60,
-                                      "weight": 1,
-                                      "condition": "Further Practice Recommended",
-                                      "note": "Grammar needs work",
-                                      "issue": "Occasional errors in complex sentences.",
-                                      "improvement": "Grammar drills."
-                            },
-                            {
-                                      "name": "Expression Fluidity",
-                                      "baseLevel": 70,
-                                      "weight": 1.2,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Speaks naturally",
-                                      "issue": "Needs to use more transitional phrases.",
-                                      "improvement": "Practice linking ideas."
-                            },
-                            {
-                                      "name": "Listening Adaptability",
-                                      "baseLevel": 75,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good comprehension",
-                                      "issue": "Struggles with fast native speech.",
-                                      "improvement": "Listen to podcasts."
-                            },
-                            {
-                                      "name": "Conversational Confidence",
-                                      "baseLevel": 80,
-                                      "weight": 1,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Not afraid to speak",
-                                      "issue": "Sometimes lacks vocabulary to express complex ideas.",
-                                      "improvement": "Debate practice."
-                            }
-                  ],
-                  "phases": [
-                            {
-                                      "id": "ph1",
-                                      "title": "Phase 1: Foundation Building",
-                                      "description": "Focus on core vocabulary and basic grammar structures.",
-                                      "status": "Completed",
-                                      "weeks": "Weeks 1-4",
-                                      "progress": 100
-                            },
-                            {
-                                      "id": "ph2",
-                                      "title": "Phase 2: Skill Application",
-                                      "description": "Apply foundational skills to reading and listening exercises.",
-                                      "status": "In Progress",
-                                      "weeks": "Weeks 5-8",
-                                      "progress": 45
-                            },
-                            {
-                                      "id": "ph3",
-                                      "title": "Phase 3: Exam Preparation",
-                                      "description": "Mock exams and time management strategies.",
-                                      "status": "Upcoming",
-                                      "weeks": "Weeks 9-12",
-                                      "progress": 0
-                            }
-                  ],
-                  "lessons": [
-                            {
-                                      "id": "l_s6_0",
-                                      "date": "May 3, 2026",
-                                      "tutor": "Alice Williams",
-                                      "type": "Regular",
-                                      "topic": "EIKEN Grade 3 Practice Session 1",
-                                      "rating": "Good",
-                                      "sessionSummary": "We covered key topics related to EIKEN Grade 3 and practiced various exercises.",
-                                      "observedStrength": "Lee Akihiro showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Lee Akihiro responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of EIKEN Grade 3 materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Lee Akihiro! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            }
-                  ],
-                  "nextPlan": [
-                            {
-                                      "title": "1. Core Vocabulary Review",
-                                      "desc": "Regular review of essential terms."
-                            },
-                            {
-                                      "title": "2. Speaking Practice",
-                                      "desc": "Weekly free-talk sessions to build confidence."
-                            },
-                            {
-                                      "title": "3. Grammar Consolidation",
-                                      "desc": "Focus on sentence structure accuracy."
-                            }
-                  ]
+            "id": "s6",
+            "name": "Lee Akihiro",
+            "course": "EIKEN Grade 3",
+            "target": "Boost speaking confidence for EIKEN Grade 3",
+            "overallGrade": "A",
+            "coreIssue": "Fine-tuning advanced pronunciation and British English nuances",
+            "coreIssueDetail": "Akihiro has a much higher English level than expected. He completes basic tasks effortlessly. His focus is on refining vocabulary, mastering British English pronunciation, and high-level comprehension.",
+            "focusThisMonth": "Advanced vocabulary and native-level pronunciation",
+            "petraInsight": "Akihiro is an advanced learner who benefits most from high-level, challenging tasks rather than foundational review. We are focusing on nuanced pronunciation and sophisticated vocabulary expansion.",
+            "skills": [
+                {
+                    "name": "Comprehension Speed",
+                    "baseLevel": 95,
+                    "condition": "Mastery",
+                    "note": "Extremely fast",
+                    "issue": "Finds standard material too easy.",
+                    "improvement": "Introduce advanced authentic materials."
+                },
+                {
+                    "name": "Vocabulary Precision",
+                    "baseLevel": 85,
+                    "condition": "Consistent",
+                    "note": "Broad lexicon",
+                    "issue": "Wants to learn highly specific/advanced terms.",
+                    "improvement": "Focus on academic and nuanced synonyms."
+                },
+                {
+                    "name": "Pronunciation Accuracy",
+                    "baseLevel": 80,
+                    "condition": "Refining",
+                    "note": "Clear speech",
+                    "issue": "Wants to master specific British English sounds.",
+                    "improvement": "Phonetic drills and shadowing."
+                }
+            ],
+            "phases": [
+                {
+                    "id": "ph1",
+                    "title": "Assessment & Baseline",
+                    "description": "Evaluating current proficiency and setting goals.",
+                    "status": "Completed",
+                    "weeks": "Week 1",
+                    "progress": 100
+                },
+                {
+                    "id": "ph2",
+                    "title": "Targeted Skill Building",
+                    "description": "Advanced vocabulary and native-level pronunciation",
+                    "status": "In Progress",
+                    "weeks": "Weeks 2-6",
+                    "progress": 35
+                },
+                {
+                    "id": "ph3",
+                    "title": "Fluency & Application",
+                    "description": "Applying learned skills to complex, unguided scenarios.",
+                    "status": "Upcoming",
+                    "weeks": "Weeks 7-10",
+                    "progress": 0
+                }
+            ],
+            "lessons": [
+                {
+                    "id": "l_s6_0",
+                    "date": "May 3, 2026",
+                    "tutor": "Alice Williams",
+                    "type": "Regular",
+                    "topic": "EIKEN Grade 3 Practice Session 1",
+                    "rating": "Good",
+                    "sessionSummary": "We covered key topics related to EIKEN Grade 3 and practiced various exercises.",
+                    "observedStrength": "Lee Akihiro showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Lee Akihiro responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of EIKEN Grade 3 materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Lee Akihiro! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                }
+            ],
+            "nextPlan": [
+                {
+                    "title": "1. Core Vocabulary Review",
+                    "desc": "Regular review of essential terms."
+                },
+                {
+                    "title": "2. Speaking Practice",
+                    "desc": "Weekly free-talk sessions to build confidence."
+                },
+                {
+                    "title": "3. Grammar Consolidation",
+                    "desc": "Focus on sentence structure accuracy."
+                }
+            ]
         },
         "s7": {
-                  "id": "s7",
-                  "name": "Shoji Takanao",
-                  "course": "EIKEN Grade Pre-2",
-                  "target": "Improve reading and writing for EIKEN Grade Pre-2",
-                  "overallGrade": "A",
-                  "coreIssue": "Needs consistent practice and vocabulary expansion.",
-                  "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
-                  "focusThisMonth": "Vocabulary building and active speaking practice.",
-                  "petraInsight": "Shoji Takanao is making steady progress. Focus should remain on consistency and building confidence in active production.",
-                  "skills": [
-                            {
-                                      "name": "Vocabulary Precision",
-                                      "baseLevel": 65,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good foundation",
-                                      "issue": "Needs more advanced vocabulary.",
-                                      "improvement": "Regular reading practice."
-                            },
-                            {
-                                      "name": "Structural Accuracy",
-                                      "baseLevel": 60,
-                                      "weight": 1,
-                                      "condition": "Further Practice Recommended",
-                                      "note": "Grammar needs work",
-                                      "issue": "Occasional errors in complex sentences.",
-                                      "improvement": "Grammar drills."
-                            },
-                            {
-                                      "name": "Expression Fluidity",
-                                      "baseLevel": 70,
-                                      "weight": 1.2,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Speaks naturally",
-                                      "issue": "Needs to use more transitional phrases.",
-                                      "improvement": "Practice linking ideas."
-                            },
-                            {
-                                      "name": "Listening Adaptability",
-                                      "baseLevel": 75,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good comprehension",
-                                      "issue": "Struggles with fast native speech.",
-                                      "improvement": "Listen to podcasts."
-                            },
-                            {
-                                      "name": "Conversational Confidence",
-                                      "baseLevel": 80,
-                                      "weight": 1,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Not afraid to speak",
-                                      "issue": "Sometimes lacks vocabulary to express complex ideas.",
-                                      "improvement": "Debate practice."
-                            }
-                  ],
-                  "phases": [
-                            {
-                                      "id": "ph1",
-                                      "title": "Phase 1: Foundation Building",
-                                      "description": "Focus on core vocabulary and basic grammar structures.",
-                                      "status": "Completed",
-                                      "weeks": "Weeks 1-4",
-                                      "progress": 100
-                            },
-                            {
-                                      "id": "ph2",
-                                      "title": "Phase 2: Skill Application",
-                                      "description": "Apply foundational skills to reading and listening exercises.",
-                                      "status": "In Progress",
-                                      "weeks": "Weeks 5-8",
-                                      "progress": 45
-                            },
-                            {
-                                      "id": "ph3",
-                                      "title": "Phase 3: Exam Preparation",
-                                      "description": "Mock exams and time management strategies.",
-                                      "status": "Upcoming",
-                                      "weeks": "Weeks 9-12",
-                                      "progress": 0
-                            }
-                  ],
-                  "lessons": [
-                            {
-                                      "id": "l_s7_0",
-                                      "date": "May 5, 2026",
-                                      "tutor": "Hannah Tuffy",
-                                      "type": "Regular",
-                                      "topic": "EIKEN Grade Pre-2 Practice Session 1",
-                                      "rating": "Excellent",
-                                      "sessionSummary": "We covered key topics related to EIKEN Grade Pre-2 and practiced various exercises.",
-                                      "observedStrength": "Shoji Takanao showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Shoji Takanao responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of EIKEN Grade Pre-2 materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Shoji Takanao! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            },
-                            {
-                                      "id": "l_s7_1",
-                                      "date": "May 17, 2026",
-                                      "tutor": "Hannah Tuffy",
-                                      "type": "Regular",
-                                      "topic": "EIKEN Grade Pre-2 Practice Session 2",
-                                      "rating": "Excellent",
-                                      "sessionSummary": "We covered key topics related to EIKEN Grade Pre-2 and practiced various exercises.",
-                                      "observedStrength": "Shoji Takanao showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Shoji Takanao responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of EIKEN Grade Pre-2 materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Shoji Takanao! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            }
-                  ],
-                  "nextPlan": [
-                            {
-                                      "title": "1. Core Vocabulary Review",
-                                      "desc": "Regular review of essential terms."
-                            },
-                            {
-                                      "title": "2. Speaking Practice",
-                                      "desc": "Weekly free-talk sessions to build confidence."
-                            },
-                            {
-                                      "title": "3. Grammar Consolidation",
-                                      "desc": "Focus on sentence structure accuracy."
-                            }
-                  ]
+            "id": "s7",
+            "name": "Shoji Takanao",
+            "course": "EIKEN Grade Pre-2",
+            "target": "Improve reading and writing for EIKEN Grade Pre-2",
+            "overallGrade": "A",
+            "coreIssue": "Navigating complex metaphors and highly advanced business terminology",
+            "coreIssueDetail": "Shoji is extremely fluent and professional. His pronunciation is excellent. He only struggles with obscure metaphors (e.g., 'scaling the biggest myth') and highly advanced phrasing used in tech/AI discussions.",
+            "focusThisMonth": "Discussing AI, Finance, and Market Research",
+            "petraInsight": "Shoji is essentially fluent. Our sessions function more like high-level professional discussions. We dissect complex YouTube videos, articles, and industry-specific jargon to perfect his near-native fluency.",
+            "skills": [
+                {
+                    "name": "Expression Fluidity",
+                    "baseLevel": 95,
+                    "condition": "Near Native",
+                    "note": "No pauses",
+                    "issue": "Speaks smoothly and professionally.",
+                    "improvement": "Maintain fluency."
+                },
+                {
+                    "name": "Idiomatic Mastery",
+                    "baseLevel": 75,
+                    "condition": "Developing",
+                    "note": "Occasional confusion",
+                    "issue": "Struggles with rare English metaphors/idioms.",
+                    "improvement": "Analyze authentic media and podcasts."
+                },
+                {
+                    "name": "Business Vocabulary",
+                    "baseLevel": 90,
+                    "condition": "Excellent",
+                    "note": "Knows finance/AI terms",
+                    "issue": "None.",
+                    "improvement": "Expand into emerging tech terminology."
+                }
+            ],
+            "phases": [
+                {
+                    "id": "ph1",
+                    "title": "Assessment & Baseline",
+                    "description": "Evaluating current proficiency and setting goals.",
+                    "status": "Completed",
+                    "weeks": "Week 1",
+                    "progress": 100
+                },
+                {
+                    "id": "ph2",
+                    "title": "Targeted Skill Building",
+                    "description": "Discussing AI, Finance, and Market Research",
+                    "status": "In Progress",
+                    "weeks": "Weeks 2-6",
+                    "progress": 35
+                },
+                {
+                    "id": "ph3",
+                    "title": "Fluency & Application",
+                    "description": "Applying learned skills to complex, unguided scenarios.",
+                    "status": "Upcoming",
+                    "weeks": "Weeks 7-10",
+                    "progress": 0
+                }
+            ],
+            "lessons": [
+                {
+                    "id": "l_s7_0",
+                    "date": "May 5, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "EIKEN Grade Pre-2 Practice Session 1",
+                    "rating": "Excellent",
+                    "sessionSummary": "We covered key topics related to EIKEN Grade Pre-2 and practiced various exercises.",
+                    "observedStrength": "Shoji Takanao showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Shoji Takanao responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of EIKEN Grade Pre-2 materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Shoji Takanao! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                },
+                {
+                    "id": "l_s7_1",
+                    "date": "May 17, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "EIKEN Grade Pre-2 Practice Session 2",
+                    "rating": "Excellent",
+                    "sessionSummary": "We covered key topics related to EIKEN Grade Pre-2 and practiced various exercises.",
+                    "observedStrength": "Shoji Takanao showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Shoji Takanao responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of EIKEN Grade Pre-2 materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Shoji Takanao! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                }
+            ],
+            "nextPlan": [
+                {
+                    "title": "1. Core Vocabulary Review",
+                    "desc": "Regular review of essential terms."
+                },
+                {
+                    "title": "2. Speaking Practice",
+                    "desc": "Weekly free-talk sessions to build confidence."
+                },
+                {
+                    "title": "3. Grammar Consolidation",
+                    "desc": "Focus on sentence structure accuracy."
+                }
+            ]
         },
         "s8": {
-                  "id": "s8",
-                  "name": "Takeshi Kawana",
-                  "course": "IELTS Prep",
-                  "target": "Boost speaking confidence for IELTS Prep",
-                  "overallGrade": "B+",
-                  "coreIssue": "Needs consistent practice and vocabulary expansion.",
-                  "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
-                  "focusThisMonth": "Vocabulary building and active speaking practice.",
-                  "petraInsight": "Takeshi Kawana is making steady progress. Focus should remain on consistency and building confidence in active production.",
-                  "skills": [
-                            {
-                                      "name": "Vocabulary Precision",
-                                      "baseLevel": 65,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good foundation",
-                                      "issue": "Needs more advanced vocabulary.",
-                                      "improvement": "Regular reading practice."
-                            },
-                            {
-                                      "name": "Structural Accuracy",
-                                      "baseLevel": 60,
-                                      "weight": 1,
-                                      "condition": "Further Practice Recommended",
-                                      "note": "Grammar needs work",
-                                      "issue": "Occasional errors in complex sentences.",
-                                      "improvement": "Grammar drills."
-                            },
-                            {
-                                      "name": "Expression Fluidity",
-                                      "baseLevel": 70,
-                                      "weight": 1.2,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Speaks naturally",
-                                      "issue": "Needs to use more transitional phrases.",
-                                      "improvement": "Practice linking ideas."
-                            },
-                            {
-                                      "name": "Listening Adaptability",
-                                      "baseLevel": 75,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good comprehension",
-                                      "issue": "Struggles with fast native speech.",
-                                      "improvement": "Listen to podcasts."
-                            },
-                            {
-                                      "name": "Conversational Confidence",
-                                      "baseLevel": 80,
-                                      "weight": 1,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Not afraid to speak",
-                                      "issue": "Sometimes lacks vocabulary to express complex ideas.",
-                                      "improvement": "Debate practice."
-                            }
-                  ],
-                  "phases": [
-                            {
-                                      "id": "ph1",
-                                      "title": "Phase 1: Foundation Building",
-                                      "description": "Focus on core vocabulary and basic grammar structures.",
-                                      "status": "Completed",
-                                      "weeks": "Weeks 1-4",
-                                      "progress": 100
-                            },
-                            {
-                                      "id": "ph2",
-                                      "title": "Phase 2: Skill Application",
-                                      "description": "Apply foundational skills to reading and listening exercises.",
-                                      "status": "In Progress",
-                                      "weeks": "Weeks 5-8",
-                                      "progress": 45
-                            },
-                            {
-                                      "id": "ph3",
-                                      "title": "Phase 3: Exam Preparation",
-                                      "description": "Mock exams and time management strategies.",
-                                      "status": "Upcoming",
-                                      "weeks": "Weeks 9-12",
-                                      "progress": 0
-                            }
-                  ],
-                  "lessons": [
-                            {
-                                      "id": "l_s8_0",
-                                      "date": "May 6, 2026",
-                                      "tutor": "Hannah Tuffy",
-                                      "type": "Regular",
-                                      "topic": "IELTS Prep Practice Session 1",
-                                      "rating": "Good",
-                                      "sessionSummary": "We covered key topics related to IELTS Prep and practiced various exercises.",
-                                      "observedStrength": "Takeshi Kawana showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Takeshi Kawana responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of IELTS Prep materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Takeshi Kawana! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            },
-                            {
-                                      "id": "l_s8_1",
-                                      "date": "May 13, 2026",
-                                      "tutor": "Hannah Tuffy",
-                                      "type": "Regular",
-                                      "topic": "IELTS Prep Practice Session 2",
-                                      "rating": "Good",
-                                      "sessionSummary": "We covered key topics related to IELTS Prep and practiced various exercises.",
-                                      "observedStrength": "Takeshi Kawana showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Takeshi Kawana responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of IELTS Prep materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Takeshi Kawana! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            }
-                  ],
-                  "nextPlan": [
-                            {
-                                      "title": "1. Core Vocabulary Review",
-                                      "desc": "Regular review of essential terms."
-                            },
-                            {
-                                      "title": "2. Speaking Practice",
-                                      "desc": "Weekly free-talk sessions to build confidence."
-                            },
-                            {
-                                      "title": "3. Grammar Consolidation",
-                                      "desc": "Focus on sentence structure accuracy."
-                            }
-                  ]
+            "id": "s8",
+            "name": "Takeshi Kawana",
+            "course": "IELTS Prep",
+            "target": "Boost speaking confidence for IELTS Prep",
+            "overallGrade": "B+",
+            "coreIssue": "Reducing pauses and improving speech fluidity",
+            "coreIssueDetail": "Takeshi has strong foundational skills and great reading comprehension. However, he takes frequent pauses when speaking and needs to improve his conversational flow for travel and everyday interactions.",
+            "focusThisMonth": "Dialogue practice and reducing hesitation",
+            "petraInsight": "Takeshi is very motivated to speak English for his hobbies (dance class, travel). By using 'English Grammar in Use' and continuous free-talk, we are working to eliminate his pauses and build his speaking rhythm.",
+            "skills": [
+                {
+                    "name": "Grammar & Reading",
+                    "baseLevel": 85,
+                    "condition": "Consistent",
+                    "note": "Strong foundation",
+                    "issue": "Understands rules well.",
+                    "improvement": "Apply rules automatically in speech."
+                },
+                {
+                    "name": "Expression Fluidity",
+                    "baseLevel": 50,
+                    "condition": "Needs Practice",
+                    "note": "Frequent pauses",
+                    "issue": "Translates or overthinks before speaking.",
+                    "improvement": "Shadowing and timed speaking drills."
+                },
+                {
+                    "name": "Conversational Confidence",
+                    "baseLevel": 65,
+                    "condition": "Steady",
+                    "note": "Willing to try",
+                    "issue": "Hesitant but motivated.",
+                    "improvement": "Frequent low-pressure free talk."
+                }
+            ],
+            "phases": [
+                {
+                    "id": "ph1",
+                    "title": "Assessment & Baseline",
+                    "description": "Evaluating current proficiency and setting goals.",
+                    "status": "Completed",
+                    "weeks": "Week 1",
+                    "progress": 100
+                },
+                {
+                    "id": "ph2",
+                    "title": "Targeted Skill Building",
+                    "description": "Dialogue practice and reducing hesitation",
+                    "status": "In Progress",
+                    "weeks": "Weeks 2-6",
+                    "progress": 35
+                },
+                {
+                    "id": "ph3",
+                    "title": "Fluency & Application",
+                    "description": "Applying learned skills to complex, unguided scenarios.",
+                    "status": "Upcoming",
+                    "weeks": "Weeks 7-10",
+                    "progress": 0
+                }
+            ],
+            "lessons": [
+                {
+                    "id": "l_s8_0",
+                    "date": "May 6, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "IELTS Prep Practice Session 1",
+                    "rating": "Good",
+                    "sessionSummary": "We covered key topics related to IELTS Prep and practiced various exercises.",
+                    "observedStrength": "Takeshi Kawana showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Takeshi Kawana responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of IELTS Prep materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Takeshi Kawana! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                },
+                {
+                    "id": "l_s8_1",
+                    "date": "May 13, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "IELTS Prep Practice Session 2",
+                    "rating": "Good",
+                    "sessionSummary": "We covered key topics related to IELTS Prep and practiced various exercises.",
+                    "observedStrength": "Takeshi Kawana showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Takeshi Kawana responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of IELTS Prep materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Takeshi Kawana! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                }
+            ],
+            "nextPlan": [
+                {
+                    "title": "1. Core Vocabulary Review",
+                    "desc": "Regular review of essential terms."
+                },
+                {
+                    "title": "2. Speaking Practice",
+                    "desc": "Weekly free-talk sessions to build confidence."
+                },
+                {
+                    "title": "3. Grammar Consolidation",
+                    "desc": "Focus on sentence structure accuracy."
+                }
+            ]
         },
         "s9": {
-                  "id": "s9",
-                  "name": "Yusuke",
-                  "course": "EIKEN Grade 3",
-                  "target": "Build foundation for EIKEN Grade 3",
-                  "overallGrade": "B+",
-                  "coreIssue": "Needs consistent practice and vocabulary expansion.",
-                  "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
-                  "focusThisMonth": "Vocabulary building and active speaking practice.",
-                  "petraInsight": "Yusuke is making steady progress. Focus should remain on consistency and building confidence in active production.",
-                  "skills": [
-                            {
-                                      "name": "Vocabulary Precision",
-                                      "baseLevel": 65,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good foundation",
-                                      "issue": "Needs more advanced vocabulary.",
-                                      "improvement": "Regular reading practice."
-                            },
-                            {
-                                      "name": "Structural Accuracy",
-                                      "baseLevel": 60,
-                                      "weight": 1,
-                                      "condition": "Further Practice Recommended",
-                                      "note": "Grammar needs work",
-                                      "issue": "Occasional errors in complex sentences.",
-                                      "improvement": "Grammar drills."
-                            },
-                            {
-                                      "name": "Expression Fluidity",
-                                      "baseLevel": 70,
-                                      "weight": 1.2,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Speaks naturally",
-                                      "issue": "Needs to use more transitional phrases.",
-                                      "improvement": "Practice linking ideas."
-                            },
-                            {
-                                      "name": "Listening Adaptability",
-                                      "baseLevel": 75,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good comprehension",
-                                      "issue": "Struggles with fast native speech.",
-                                      "improvement": "Listen to podcasts."
-                            },
-                            {
-                                      "name": "Conversational Confidence",
-                                      "baseLevel": 80,
-                                      "weight": 1,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Not afraid to speak",
-                                      "issue": "Sometimes lacks vocabulary to express complex ideas.",
-                                      "improvement": "Debate practice."
-                            }
-                  ],
-                  "phases": [
-                            {
-                                      "id": "ph1",
-                                      "title": "Phase 1: Foundation Building",
-                                      "description": "Focus on core vocabulary and basic grammar structures.",
-                                      "status": "Completed",
-                                      "weeks": "Weeks 1-4",
-                                      "progress": 100
-                            },
-                            {
-                                      "id": "ph2",
-                                      "title": "Phase 2: Skill Application",
-                                      "description": "Apply foundational skills to reading and listening exercises.",
-                                      "status": "In Progress",
-                                      "weeks": "Weeks 5-8",
-                                      "progress": 45
-                            },
-                            {
-                                      "id": "ph3",
-                                      "title": "Phase 3: Exam Preparation",
-                                      "description": "Mock exams and time management strategies.",
-                                      "status": "Upcoming",
-                                      "weeks": "Weeks 9-12",
-                                      "progress": 0
-                            }
-                  ],
-                  "lessons": [
-                            {
-                                      "id": "l_s9_0",
-                                      "date": "May 6, 2026",
-                                      "tutor": "Hannah Tuffy",
-                                      "type": "Regular",
-                                      "topic": "EIKEN Grade 3 Practice Session 1",
-                                      "rating": "Outstanding",
-                                      "sessionSummary": "We covered key topics related to EIKEN Grade 3 and practiced various exercises.",
-                                      "observedStrength": "Yusuke showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Yusuke responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of EIKEN Grade 3 materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Yusuke! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            }
-                  ],
-                  "nextPlan": [
-                            {
-                                      "title": "1. Core Vocabulary Review",
-                                      "desc": "Regular review of essential terms."
-                            },
-                            {
-                                      "title": "2. Speaking Practice",
-                                      "desc": "Weekly free-talk sessions to build confidence."
-                            },
-                            {
-                                      "title": "3. Grammar Consolidation",
-                                      "desc": "Focus on sentence structure accuracy."
-                            }
-                  ]
+            "id": "s9",
+            "name": "Yusuke",
+            "course": "EIKEN Grade 3",
+            "target": "Build foundation for EIKEN Grade 3",
+            "overallGrade": "B+",
+            "coreIssue": "Translating from Japanese internally and pronunciation mechanics",
+            "coreIssueDetail": "Yusuke has good basic skills and knows his directions well. However, he mentally translates from Japanese before speaking, which slows him down. He also needs targeted help with specific phonetic sounds ('ts' vs 't').",
+            "focusThisMonth": "Direct English thinking and phonetic drills",
+            "petraInsight": "Yusuke enjoys structured dialogue practice. Our goal is to train him to respond directly in English without the intermediate Japanese translation step, drastically improving his response time.",
+            "skills": [
+                {
+                    "name": "Pronunciation Accuracy",
+                    "baseLevel": 55,
+                    "condition": "Developing",
+                    "note": "Specific sound issues",
+                    "issue": "Struggles with 'ts' vs 't' (e.g., comments).",
+                    "improvement": "Targeted phonetic repetition."
+                },
+                {
+                    "name": "Response Speed",
+                    "baseLevel": 45,
+                    "condition": "Requires Focus",
+                    "note": "Translates internally",
+                    "issue": "Slow response due to mental translation.",
+                    "improvement": "Rapid-fire Q&A drills."
+                },
+                {
+                    "name": "Structural Knowledge",
+                    "baseLevel": 70,
+                    "condition": "Consistent",
+                    "note": "Knows the basics",
+                    "issue": "Can read and understand basic structures.",
+                    "improvement": "Apply structures in live conversation."
+                }
+            ],
+            "phases": [
+                {
+                    "id": "ph1",
+                    "title": "Assessment & Baseline",
+                    "description": "Evaluating current proficiency and setting goals.",
+                    "status": "Completed",
+                    "weeks": "Week 1",
+                    "progress": 100
+                },
+                {
+                    "id": "ph2",
+                    "title": "Targeted Skill Building",
+                    "description": "Direct English thinking and phonetic drills",
+                    "status": "In Progress",
+                    "weeks": "Weeks 2-6",
+                    "progress": 35
+                },
+                {
+                    "id": "ph3",
+                    "title": "Fluency & Application",
+                    "description": "Applying learned skills to complex, unguided scenarios.",
+                    "status": "Upcoming",
+                    "weeks": "Weeks 7-10",
+                    "progress": 0
+                }
+            ],
+            "lessons": [
+                {
+                    "id": "l_s9_0",
+                    "date": "May 6, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "EIKEN Grade 3 Practice Session 1",
+                    "rating": "Outstanding",
+                    "sessionSummary": "We covered key topics related to EIKEN Grade 3 and practiced various exercises.",
+                    "observedStrength": "Yusuke showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Yusuke responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of EIKEN Grade 3 materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Yusuke! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                }
+            ],
+            "nextPlan": [
+                {
+                    "title": "1. Core Vocabulary Review",
+                    "desc": "Regular review of essential terms."
+                },
+                {
+                    "title": "2. Speaking Practice",
+                    "desc": "Weekly free-talk sessions to build confidence."
+                },
+                {
+                    "title": "3. Grammar Consolidation",
+                    "desc": "Focus on sentence structure accuracy."
+                }
+            ]
         },
         "s10": {
-                  "id": "s10",
-                  "name": "Yuta Sumiya",
-                  "course": "EIKEN Grade Pre-1",
-                  "target": "Build foundation for EIKEN Grade Pre-1",
-                  "overallGrade": "B",
-                  "coreIssue": "Needs consistent practice and vocabulary expansion.",
-                  "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
-                  "focusThisMonth": "Vocabulary building and active speaking practice.",
-                  "petraInsight": "Yuta Sumiya is making steady progress. Focus should remain on consistency and building confidence in active production.",
-                  "skills": [
-                            {
-                                      "name": "Vocabulary Precision",
-                                      "baseLevel": 65,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good foundation",
-                                      "issue": "Needs more advanced vocabulary.",
-                                      "improvement": "Regular reading practice."
-                            },
-                            {
-                                      "name": "Structural Accuracy",
-                                      "baseLevel": 60,
-                                      "weight": 1,
-                                      "condition": "Further Practice Recommended",
-                                      "note": "Grammar needs work",
-                                      "issue": "Occasional errors in complex sentences.",
-                                      "improvement": "Grammar drills."
-                            },
-                            {
-                                      "name": "Expression Fluidity",
-                                      "baseLevel": 70,
-                                      "weight": 1.2,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Speaks naturally",
-                                      "issue": "Needs to use more transitional phrases.",
-                                      "improvement": "Practice linking ideas."
-                            },
-                            {
-                                      "name": "Listening Adaptability",
-                                      "baseLevel": 75,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good comprehension",
-                                      "issue": "Struggles with fast native speech.",
-                                      "improvement": "Listen to podcasts."
-                            },
-                            {
-                                      "name": "Conversational Confidence",
-                                      "baseLevel": 80,
-                                      "weight": 1,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Not afraid to speak",
-                                      "issue": "Sometimes lacks vocabulary to express complex ideas.",
-                                      "improvement": "Debate practice."
-                            }
-                  ],
-                  "phases": [
-                            {
-                                      "id": "ph1",
-                                      "title": "Phase 1: Foundation Building",
-                                      "description": "Focus on core vocabulary and basic grammar structures.",
-                                      "status": "Completed",
-                                      "weeks": "Weeks 1-4",
-                                      "progress": 100
-                            },
-                            {
-                                      "id": "ph2",
-                                      "title": "Phase 2: Skill Application",
-                                      "description": "Apply foundational skills to reading and listening exercises.",
-                                      "status": "In Progress",
-                                      "weeks": "Weeks 5-8",
-                                      "progress": 45
-                            },
-                            {
-                                      "id": "ph3",
-                                      "title": "Phase 3: Exam Preparation",
-                                      "description": "Mock exams and time management strategies.",
-                                      "status": "Upcoming",
-                                      "weeks": "Weeks 9-12",
-                                      "progress": 0
-                            }
-                  ],
-                  "lessons": [
-                            {
-                                      "id": "l_s10_0",
-                                      "date": "May 7, 2026",
-                                      "tutor": "Hannah Tuffy",
-                                      "type": "Regular",
-                                      "topic": "EIKEN Grade Pre-1 Practice Session 1",
-                                      "rating": "Good",
-                                      "sessionSummary": "We covered key topics related to EIKEN Grade Pre-1 and practiced various exercises.",
-                                      "observedStrength": "Yuta Sumiya showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Yuta Sumiya responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of EIKEN Grade Pre-1 materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Yuta Sumiya! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            },
-                            {
-                                      "id": "l_s10_1",
-                                      "date": "May 15, 2026",
-                                      "tutor": "Hannah Tuffy",
-                                      "type": "Regular",
-                                      "topic": "EIKEN Grade Pre-1 Practice Session 2",
-                                      "rating": "Outstanding",
-                                      "sessionSummary": "We covered key topics related to EIKEN Grade Pre-1 and practiced various exercises.",
-                                      "observedStrength": "Yuta Sumiya showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Yuta Sumiya responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of EIKEN Grade Pre-1 materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Yuta Sumiya! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            }
-                  ],
-                  "nextPlan": [
-                            {
-                                      "title": "1. Core Vocabulary Review",
-                                      "desc": "Regular review of essential terms."
-                            },
-                            {
-                                      "title": "2. Speaking Practice",
-                                      "desc": "Weekly free-talk sessions to build confidence."
-                            },
-                            {
-                                      "title": "3. Grammar Consolidation",
-                                      "desc": "Focus on sentence structure accuracy."
-                            }
-                  ]
+            "id": "s10",
+            "name": "Yuta Sumiya",
+            "course": "EIKEN Grade Pre-1",
+            "target": "Build foundation for EIKEN Grade Pre-1",
+            "overallGrade": "B",
+            "coreIssue": "Mastering small talk and casual relationship building",
+            "coreIssueDetail": "Yuta dislikes lecture-style lessons and textbook drills. He has a strong foundation but wants to exclusively practice casual conversation, small talk, and role-playing scenarios (restaurants, family friends, in-laws).",
+            "focusThisMonth": "Role-playing everyday social scenarios",
+            "petraInsight": "Yuta learns best through immersive conversation. We discuss his work in marketing supplements with AI, travel experiences, and practice navigating social etiquette in English-speaking environments.",
+            "skills": [
+                {
+                    "name": "Social Etiquette",
+                    "baseLevel": 70,
+                    "condition": "Improving",
+                    "note": "Understands basics",
+                    "issue": "Wants to sound more natural with friends/in-laws.",
+                    "improvement": "Roleplay nuanced social situations."
+                },
+                {
+                    "name": "Conversational Confidence",
+                    "baseLevel": 80,
+                    "condition": "High",
+                    "note": "Talkative",
+                    "issue": "Not afraid to speak, just needs refinement.",
+                    "improvement": "Introduce advanced conversational connectors."
+                },
+                {
+                    "name": "Active Listening",
+                    "baseLevel": 85,
+                    "condition": "Consistent",
+                    "note": "Catches context well",
+                    "issue": "None.",
+                    "improvement": "Listen to natural, overlapping native speech."
+                }
+            ],
+            "phases": [
+                {
+                    "id": "ph1",
+                    "title": "Assessment & Baseline",
+                    "description": "Evaluating current proficiency and setting goals.",
+                    "status": "Completed",
+                    "weeks": "Week 1",
+                    "progress": 100
+                },
+                {
+                    "id": "ph2",
+                    "title": "Targeted Skill Building",
+                    "description": "Role-playing everyday social scenarios",
+                    "status": "In Progress",
+                    "weeks": "Weeks 2-6",
+                    "progress": 35
+                },
+                {
+                    "id": "ph3",
+                    "title": "Fluency & Application",
+                    "description": "Applying learned skills to complex, unguided scenarios.",
+                    "status": "Upcoming",
+                    "weeks": "Weeks 7-10",
+                    "progress": 0
+                }
+            ],
+            "lessons": [
+                {
+                    "id": "l_s10_0",
+                    "date": "May 7, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "EIKEN Grade Pre-1 Practice Session 1",
+                    "rating": "Good",
+                    "sessionSummary": "We covered key topics related to EIKEN Grade Pre-1 and practiced various exercises.",
+                    "observedStrength": "Yuta Sumiya showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Yuta Sumiya responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of EIKEN Grade Pre-1 materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Yuta Sumiya! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                },
+                {
+                    "id": "l_s10_1",
+                    "date": "May 15, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "EIKEN Grade Pre-1 Practice Session 2",
+                    "rating": "Outstanding",
+                    "sessionSummary": "We covered key topics related to EIKEN Grade Pre-1 and practiced various exercises.",
+                    "observedStrength": "Yuta Sumiya showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Yuta Sumiya responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of EIKEN Grade Pre-1 materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Yuta Sumiya! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                }
+            ],
+            "nextPlan": [
+                {
+                    "title": "1. Core Vocabulary Review",
+                    "desc": "Regular review of essential terms."
+                },
+                {
+                    "title": "2. Speaking Practice",
+                    "desc": "Weekly free-talk sessions to build confidence."
+                },
+                {
+                    "title": "3. Grammar Consolidation",
+                    "desc": "Focus on sentence structure accuracy."
+                }
+            ]
         },
         "s12": {
-                  "id": "s12",
-                  "name": "Hiroyuki Iwakura",
-                  "course": "EIKEN Grade 2",
-                  "target": "Pass EIKEN Grade 2",
-                  "overallGrade": "A",
-                  "coreIssue": "Needs consistent practice and vocabulary expansion.",
-                  "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
-                  "focusThisMonth": "Vocabulary building and active speaking practice.",
-                  "petraInsight": "Hiroyuki Iwakura is making steady progress. Focus should remain on consistency and building confidence in active production.",
-                  "skills": [
-                            {
-                                      "name": "Vocabulary Precision",
-                                      "baseLevel": 65,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good foundation",
-                                      "issue": "Needs more advanced vocabulary.",
-                                      "improvement": "Regular reading practice."
-                            },
-                            {
-                                      "name": "Structural Accuracy",
-                                      "baseLevel": 60,
-                                      "weight": 1,
-                                      "condition": "Further Practice Recommended",
-                                      "note": "Grammar needs work",
-                                      "issue": "Occasional errors in complex sentences.",
-                                      "improvement": "Grammar drills."
-                            },
-                            {
-                                      "name": "Expression Fluidity",
-                                      "baseLevel": 70,
-                                      "weight": 1.2,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Speaks naturally",
-                                      "issue": "Needs to use more transitional phrases.",
-                                      "improvement": "Practice linking ideas."
-                            },
-                            {
-                                      "name": "Listening Adaptability",
-                                      "baseLevel": 75,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good comprehension",
-                                      "issue": "Struggles with fast native speech.",
-                                      "improvement": "Listen to podcasts."
-                            },
-                            {
-                                      "name": "Conversational Confidence",
-                                      "baseLevel": 80,
-                                      "weight": 1,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Not afraid to speak",
-                                      "issue": "Sometimes lacks vocabulary to express complex ideas.",
-                                      "improvement": "Debate practice."
-                            }
-                  ],
-                  "phases": [
-                            {
-                                      "id": "ph1",
-                                      "title": "Phase 1: Foundation Building",
-                                      "description": "Focus on core vocabulary and basic grammar structures.",
-                                      "status": "Completed",
-                                      "weeks": "Weeks 1-4",
-                                      "progress": 100
-                            },
-                            {
-                                      "id": "ph2",
-                                      "title": "Phase 2: Skill Application",
-                                      "description": "Apply foundational skills to reading and listening exercises.",
-                                      "status": "In Progress",
-                                      "weeks": "Weeks 5-8",
-                                      "progress": 45
-                            },
-                            {
-                                      "id": "ph3",
-                                      "title": "Phase 3: Exam Preparation",
-                                      "description": "Mock exams and time management strategies.",
-                                      "status": "Upcoming",
-                                      "weeks": "Weeks 9-12",
-                                      "progress": 0
-                            }
-                  ],
-                  "lessons": [
-                            {
-                                      "id": "l_s12_0",
-                                      "date": "Apr 10, 2026",
-                                      "tutor": "Hannah Tuffy",
-                                      "type": "Regular",
-                                      "topic": "EIKEN Grade 2 Practice Session 1",
-                                      "rating": "Excellent",
-                                      "sessionSummary": "We covered key topics related to EIKEN Grade 2 and practiced various exercises.",
-                                      "observedStrength": "Hiroyuki Iwakura showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Hiroyuki Iwakura responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of EIKEN Grade 2 materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Hiroyuki Iwakura! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            }
-                  ],
-                  "nextPlan": [
-                            {
-                                      "title": "1. Core Vocabulary Review",
-                                      "desc": "Regular review of essential terms."
-                            },
-                            {
-                                      "title": "2. Speaking Practice",
-                                      "desc": "Weekly free-talk sessions to build confidence."
-                            },
-                            {
-                                      "title": "3. Grammar Consolidation",
-                                      "desc": "Focus on sentence structure accuracy."
-                            }
-                  ]
+            "id": "s12",
+            "name": "Hiroyuki Iwakura",
+            "course": "EIKEN Grade 2",
+            "target": "Pass EIKEN Grade 2",
+            "overallGrade": "A",
+            "coreIssue": "Needs consistent practice and vocabulary expansion.",
+            "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
+            "focusThisMonth": "Vocabulary building and active speaking practice.",
+            "petraInsight": "Hiroyuki Iwakura is making steady progress. Focus should remain on consistency and building confidence in active production.",
+            "skills": [
+                {
+                    "name": "Vocabulary Precision",
+                    "baseLevel": 65,
+                    "weight": 1,
+                    "condition": "Becoming More Consistent",
+                    "note": "Good foundation",
+                    "issue": "Needs more advanced vocabulary.",
+                    "improvement": "Regular reading practice."
+                },
+                {
+                    "name": "Structural Accuracy",
+                    "baseLevel": 60,
+                    "weight": 1,
+                    "condition": "Further Practice Recommended",
+                    "note": "Grammar needs work",
+                    "issue": "Occasional errors in complex sentences.",
+                    "improvement": "Grammar drills."
+                },
+                {
+                    "name": "Expression Fluidity",
+                    "baseLevel": 70,
+                    "weight": 1.2,
+                    "condition": "Rapid Improvement",
+                    "note": "Speaks naturally",
+                    "issue": "Needs to use more transitional phrases.",
+                    "improvement": "Practice linking ideas."
+                },
+                {
+                    "name": "Listening Adaptability",
+                    "baseLevel": 75,
+                    "weight": 1,
+                    "condition": "Becoming More Consistent",
+                    "note": "Good comprehension",
+                    "issue": "Struggles with fast native speech.",
+                    "improvement": "Listen to podcasts."
+                },
+                {
+                    "name": "Conversational Confidence",
+                    "baseLevel": 80,
+                    "weight": 1,
+                    "condition": "Rapid Improvement",
+                    "note": "Not afraid to speak",
+                    "issue": "Sometimes lacks vocabulary to express complex ideas.",
+                    "improvement": "Debate practice."
+                }
+            ],
+            "phases": [
+                {
+                    "id": "ph1",
+                    "title": "Phase 1: Foundation Building",
+                    "description": "Focus on core vocabulary and basic grammar structures.",
+                    "status": "Completed",
+                    "weeks": "Weeks 1-4",
+                    "progress": 100
+                },
+                {
+                    "id": "ph2",
+                    "title": "Phase 2: Skill Application",
+                    "description": "Apply foundational skills to reading and listening exercises.",
+                    "status": "In Progress",
+                    "weeks": "Weeks 5-8",
+                    "progress": 45
+                },
+                {
+                    "id": "ph3",
+                    "title": "Phase 3: Exam Preparation",
+                    "description": "Mock exams and time management strategies.",
+                    "status": "Upcoming",
+                    "weeks": "Weeks 9-12",
+                    "progress": 0
+                }
+            ],
+            "lessons": [
+                {
+                    "id": "l_s12_0",
+                    "date": "Apr 10, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "EIKEN Grade 2 Practice Session 1",
+                    "rating": "Excellent",
+                    "sessionSummary": "We covered key topics related to EIKEN Grade 2 and practiced various exercises.",
+                    "observedStrength": "Hiroyuki Iwakura showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Hiroyuki Iwakura responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of EIKEN Grade 2 materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Hiroyuki Iwakura! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                }
+            ],
+            "nextPlan": [
+                {
+                    "title": "1. Core Vocabulary Review",
+                    "desc": "Regular review of essential terms."
+                },
+                {
+                    "title": "2. Speaking Practice",
+                    "desc": "Weekly free-talk sessions to build confidence."
+                },
+                {
+                    "title": "3. Grammar Consolidation",
+                    "desc": "Focus on sentence structure accuracy."
+                }
+            ]
         },
         "s13": {
-                  "id": "s13",
-                  "name": "Takuma",
-                  "course": "Conversational English",
-                  "target": "Build foundation for Conversational English",
-                  "overallGrade": "A",
-                  "coreIssue": "Needs consistent practice and vocabulary expansion.",
-                  "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
-                  "focusThisMonth": "Vocabulary building and active speaking practice.",
-                  "petraInsight": "Takuma is making steady progress. Focus should remain on consistency and building confidence in active production.",
-                  "skills": [
-                            {
-                                      "name": "Vocabulary Precision",
-                                      "baseLevel": 65,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good foundation",
-                                      "issue": "Needs more advanced vocabulary.",
-                                      "improvement": "Regular reading practice."
-                            },
-                            {
-                                      "name": "Structural Accuracy",
-                                      "baseLevel": 60,
-                                      "weight": 1,
-                                      "condition": "Further Practice Recommended",
-                                      "note": "Grammar needs work",
-                                      "issue": "Occasional errors in complex sentences.",
-                                      "improvement": "Grammar drills."
-                            },
-                            {
-                                      "name": "Expression Fluidity",
-                                      "baseLevel": 70,
-                                      "weight": 1.2,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Speaks naturally",
-                                      "issue": "Needs to use more transitional phrases.",
-                                      "improvement": "Practice linking ideas."
-                            },
-                            {
-                                      "name": "Listening Adaptability",
-                                      "baseLevel": 75,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good comprehension",
-                                      "issue": "Struggles with fast native speech.",
-                                      "improvement": "Listen to podcasts."
-                            },
-                            {
-                                      "name": "Conversational Confidence",
-                                      "baseLevel": 80,
-                                      "weight": 1,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Not afraid to speak",
-                                      "issue": "Sometimes lacks vocabulary to express complex ideas.",
-                                      "improvement": "Debate practice."
-                            }
-                  ],
-                  "phases": [
-                            {
-                                      "id": "ph1",
-                                      "title": "Phase 1: Foundation Building",
-                                      "description": "Focus on core vocabulary and basic grammar structures.",
-                                      "status": "Completed",
-                                      "weeks": "Weeks 1-4",
-                                      "progress": 100
-                            },
-                            {
-                                      "id": "ph2",
-                                      "title": "Phase 2: Skill Application",
-                                      "description": "Apply foundational skills to reading and listening exercises.",
-                                      "status": "In Progress",
-                                      "weeks": "Weeks 5-8",
-                                      "progress": 45
-                            },
-                            {
-                                      "id": "ph3",
-                                      "title": "Phase 3: Exam Preparation",
-                                      "description": "Mock exams and time management strategies.",
-                                      "status": "Upcoming",
-                                      "weeks": "Weeks 9-12",
-                                      "progress": 0
-                            }
-                  ],
-                  "lessons": [
-                            {
-                                      "id": "l_s13_0",
-                                      "date": "May 9, 2026",
-                                      "tutor": "Ashley Norton",
-                                      "type": "Regular",
-                                      "topic": "Conversational English Practice Session 1",
-                                      "rating": "Good",
-                                      "sessionSummary": "We covered key topics related to Conversational English and practiced various exercises.",
-                                      "observedStrength": "Takuma showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Takuma responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of Conversational English materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Takuma! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            }
-                  ],
-                  "nextPlan": [
-                            {
-                                      "title": "1. Core Vocabulary Review",
-                                      "desc": "Regular review of essential terms."
-                            },
-                            {
-                                      "title": "2. Speaking Practice",
-                                      "desc": "Weekly free-talk sessions to build confidence."
-                            },
-                            {
-                                      "title": "3. Grammar Consolidation",
-                                      "desc": "Focus on sentence structure accuracy."
-                            }
-                  ]
+            "id": "s13",
+            "name": "Takuma",
+            "course": "Conversational English",
+            "target": "Build foundation for Conversational English",
+            "overallGrade": "A",
+            "coreIssue": "Needs consistent practice and vocabulary expansion.",
+            "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
+            "focusThisMonth": "Vocabulary building and active speaking practice.",
+            "petraInsight": "Takuma is making steady progress. Focus should remain on consistency and building confidence in active production.",
+            "skills": [
+                {
+                    "name": "Vocabulary Precision",
+                    "baseLevel": 65,
+                    "weight": 1,
+                    "condition": "Becoming More Consistent",
+                    "note": "Good foundation",
+                    "issue": "Needs more advanced vocabulary.",
+                    "improvement": "Regular reading practice."
+                },
+                {
+                    "name": "Structural Accuracy",
+                    "baseLevel": 60,
+                    "weight": 1,
+                    "condition": "Further Practice Recommended",
+                    "note": "Grammar needs work",
+                    "issue": "Occasional errors in complex sentences.",
+                    "improvement": "Grammar drills."
+                },
+                {
+                    "name": "Expression Fluidity",
+                    "baseLevel": 70,
+                    "weight": 1.2,
+                    "condition": "Rapid Improvement",
+                    "note": "Speaks naturally",
+                    "issue": "Needs to use more transitional phrases.",
+                    "improvement": "Practice linking ideas."
+                },
+                {
+                    "name": "Listening Adaptability",
+                    "baseLevel": 75,
+                    "weight": 1,
+                    "condition": "Becoming More Consistent",
+                    "note": "Good comprehension",
+                    "issue": "Struggles with fast native speech.",
+                    "improvement": "Listen to podcasts."
+                },
+                {
+                    "name": "Conversational Confidence",
+                    "baseLevel": 80,
+                    "weight": 1,
+                    "condition": "Rapid Improvement",
+                    "note": "Not afraid to speak",
+                    "issue": "Sometimes lacks vocabulary to express complex ideas.",
+                    "improvement": "Debate practice."
+                }
+            ],
+            "phases": [
+                {
+                    "id": "ph1",
+                    "title": "Phase 1: Foundation Building",
+                    "description": "Focus on core vocabulary and basic grammar structures.",
+                    "status": "Completed",
+                    "weeks": "Weeks 1-4",
+                    "progress": 100
+                },
+                {
+                    "id": "ph2",
+                    "title": "Phase 2: Skill Application",
+                    "description": "Apply foundational skills to reading and listening exercises.",
+                    "status": "In Progress",
+                    "weeks": "Weeks 5-8",
+                    "progress": 45
+                },
+                {
+                    "id": "ph3",
+                    "title": "Phase 3: Exam Preparation",
+                    "description": "Mock exams and time management strategies.",
+                    "status": "Upcoming",
+                    "weeks": "Weeks 9-12",
+                    "progress": 0
+                }
+            ],
+            "lessons": [
+                {
+                    "id": "l_s13_0",
+                    "date": "May 9, 2026",
+                    "tutor": "Ashley Norton",
+                    "type": "Regular",
+                    "topic": "Conversational English Practice Session 1",
+                    "rating": "Good",
+                    "sessionSummary": "We covered key topics related to Conversational English and practiced various exercises.",
+                    "observedStrength": "Takuma showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Takuma responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of Conversational English materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Takuma! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                }
+            ],
+            "nextPlan": [
+                {
+                    "title": "1. Core Vocabulary Review",
+                    "desc": "Regular review of essential terms."
+                },
+                {
+                    "title": "2. Speaking Practice",
+                    "desc": "Weekly free-talk sessions to build confidence."
+                },
+                {
+                    "title": "3. Grammar Consolidation",
+                    "desc": "Focus on sentence structure accuracy."
+                }
+            ]
         },
         "s14": {
-                  "id": "s14",
-                  "name": "Yuki Takenaka",
-                  "course": "IELTS Prep",
-                  "target": "Boost speaking confidence for IELTS Prep",
-                  "overallGrade": "B+",
-                  "coreIssue": "Needs consistent practice and vocabulary expansion.",
-                  "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
-                  "focusThisMonth": "Vocabulary building and active speaking practice.",
-                  "petraInsight": "Yuki Takenaka is making steady progress. Focus should remain on consistency and building confidence in active production.",
-                  "skills": [
-                            {
-                                      "name": "Vocabulary Precision",
-                                      "baseLevel": 65,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good foundation",
-                                      "issue": "Needs more advanced vocabulary.",
-                                      "improvement": "Regular reading practice."
-                            },
-                            {
-                                      "name": "Structural Accuracy",
-                                      "baseLevel": 60,
-                                      "weight": 1,
-                                      "condition": "Further Practice Recommended",
-                                      "note": "Grammar needs work",
-                                      "issue": "Occasional errors in complex sentences.",
-                                      "improvement": "Grammar drills."
-                            },
-                            {
-                                      "name": "Expression Fluidity",
-                                      "baseLevel": 70,
-                                      "weight": 1.2,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Speaks naturally",
-                                      "issue": "Needs to use more transitional phrases.",
-                                      "improvement": "Practice linking ideas."
-                            },
-                            {
-                                      "name": "Listening Adaptability",
-                                      "baseLevel": 75,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good comprehension",
-                                      "issue": "Struggles with fast native speech.",
-                                      "improvement": "Listen to podcasts."
-                            },
-                            {
-                                      "name": "Conversational Confidence",
-                                      "baseLevel": 80,
-                                      "weight": 1,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Not afraid to speak",
-                                      "issue": "Sometimes lacks vocabulary to express complex ideas.",
-                                      "improvement": "Debate practice."
-                            }
-                  ],
-                  "phases": [
-                            {
-                                      "id": "ph1",
-                                      "title": "Phase 1: Foundation Building",
-                                      "description": "Focus on core vocabulary and basic grammar structures.",
-                                      "status": "Completed",
-                                      "weeks": "Weeks 1-4",
-                                      "progress": 100
-                            },
-                            {
-                                      "id": "ph2",
-                                      "title": "Phase 2: Skill Application",
-                                      "description": "Apply foundational skills to reading and listening exercises.",
-                                      "status": "In Progress",
-                                      "weeks": "Weeks 5-8",
-                                      "progress": 45
-                            },
-                            {
-                                      "id": "ph3",
-                                      "title": "Phase 3: Exam Preparation",
-                                      "description": "Mock exams and time management strategies.",
-                                      "status": "Upcoming",
-                                      "weeks": "Weeks 9-12",
-                                      "progress": 0
-                            }
-                  ],
-                  "lessons": [
-                            {
-                                      "id": "l_s14_0",
-                                      "date": "May 10, 2026",
-                                      "tutor": "Ashley Norton",
-                                      "type": "Regular",
-                                      "topic": "IELTS Prep Practice Session 1",
-                                      "rating": "Excellent",
-                                      "sessionSummary": "We covered key topics related to IELTS Prep and practiced various exercises.",
-                                      "observedStrength": "Yuki Takenaka showed great enthusiasm and participation during the session.",
-                                      "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                                      "interventionStrategy": "Interactive exercises and targeted feedback.",
-                                      "responseToIntervention": "Yuki Takenaka responded well to the exercises and showed improvement.",
-                                      "impacts": [
-                                                {
-                                                          "skill": "Vocabulary Precision",
-                                                          "change": "+1"
-                                                },
-                                                {
-                                                          "skill": "Conversational Confidence",
-                                                          "change": "+2"
-                                                }
-                                      ],
-                                      "content": "Detailed review of IELTS Prep materials, focusing on areas of weakness.",
-                                      "feedback": "Great job today, Yuki Takenaka! Keep practicing the vocabulary words we discussed.",
-                                      "homework": "Review today's notes and complete the assigned worksheet."
-                            }
-                  ],
-                  "nextPlan": [
-                            {
-                                      "title": "1. Core Vocabulary Review",
-                                      "desc": "Regular review of essential terms."
-                            },
-                            {
-                                      "title": "2. Speaking Practice",
-                                      "desc": "Weekly free-talk sessions to build confidence."
-                            },
-                            {
-                                      "title": "3. Grammar Consolidation",
-                                      "desc": "Focus on sentence structure accuracy."
-                            }
-                  ]
+            "id": "s14",
+            "name": "Yuki Takenaka",
+            "course": "IELTS Prep",
+            "target": "Boost speaking confidence for IELTS Prep",
+            "overallGrade": "B+",
+            "coreIssue": "Needs consistent practice and vocabulary expansion.",
+            "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
+            "focusThisMonth": "Vocabulary building and active speaking practice.",
+            "petraInsight": "Yuki Takenaka is making steady progress. Focus should remain on consistency and building confidence in active production.",
+            "skills": [
+                {
+                    "name": "Vocabulary Precision",
+                    "baseLevel": 65,
+                    "weight": 1,
+                    "condition": "Becoming More Consistent",
+                    "note": "Good foundation",
+                    "issue": "Needs more advanced vocabulary.",
+                    "improvement": "Regular reading practice."
+                },
+                {
+                    "name": "Structural Accuracy",
+                    "baseLevel": 60,
+                    "weight": 1,
+                    "condition": "Further Practice Recommended",
+                    "note": "Grammar needs work",
+                    "issue": "Occasional errors in complex sentences.",
+                    "improvement": "Grammar drills."
+                },
+                {
+                    "name": "Expression Fluidity",
+                    "baseLevel": 70,
+                    "weight": 1.2,
+                    "condition": "Rapid Improvement",
+                    "note": "Speaks naturally",
+                    "issue": "Needs to use more transitional phrases.",
+                    "improvement": "Practice linking ideas."
+                },
+                {
+                    "name": "Listening Adaptability",
+                    "baseLevel": 75,
+                    "weight": 1,
+                    "condition": "Becoming More Consistent",
+                    "note": "Good comprehension",
+                    "issue": "Struggles with fast native speech.",
+                    "improvement": "Listen to podcasts."
+                },
+                {
+                    "name": "Conversational Confidence",
+                    "baseLevel": 80,
+                    "weight": 1,
+                    "condition": "Rapid Improvement",
+                    "note": "Not afraid to speak",
+                    "issue": "Sometimes lacks vocabulary to express complex ideas.",
+                    "improvement": "Debate practice."
+                }
+            ],
+            "phases": [
+                {
+                    "id": "ph1",
+                    "title": "Phase 1: Foundation Building",
+                    "description": "Focus on core vocabulary and basic grammar structures.",
+                    "status": "Completed",
+                    "weeks": "Weeks 1-4",
+                    "progress": 100
+                },
+                {
+                    "id": "ph2",
+                    "title": "Phase 2: Skill Application",
+                    "description": "Apply foundational skills to reading and listening exercises.",
+                    "status": "In Progress",
+                    "weeks": "Weeks 5-8",
+                    "progress": 45
+                },
+                {
+                    "id": "ph3",
+                    "title": "Phase 3: Exam Preparation",
+                    "description": "Mock exams and time management strategies.",
+                    "status": "Upcoming",
+                    "weeks": "Weeks 9-12",
+                    "progress": 0
+                }
+            ],
+            "lessons": [
+                {
+                    "id": "l_s14_0",
+                    "date": "May 10, 2026",
+                    "tutor": "Ashley Norton",
+                    "type": "Regular",
+                    "topic": "IELTS Prep Practice Session 1",
+                    "rating": "Excellent",
+                    "sessionSummary": "We covered key topics related to IELTS Prep and practiced various exercises.",
+                    "observedStrength": "Yuki Takenaka showed great enthusiasm and participation during the session.",
+                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
+                    "interventionStrategy": "Interactive exercises and targeted feedback.",
+                    "responseToIntervention": "Yuki Takenaka responded well to the exercises and showed improvement.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+1"
+                        },
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "Detailed review of IELTS Prep materials, focusing on areas of weakness.",
+                    "feedback": "Great job today, Yuki Takenaka! Keep practicing the vocabulary words we discussed.",
+                    "homework": "Review today's notes and complete the assigned worksheet."
+                }
+            ],
+            "nextPlan": [
+                {
+                    "title": "1. Core Vocabulary Review",
+                    "desc": "Regular review of essential terms."
+                },
+                {
+                    "title": "2. Speaking Practice",
+                    "desc": "Weekly free-talk sessions to build confidence."
+                },
+                {
+                    "title": "3. Grammar Consolidation",
+                    "desc": "Focus on sentence structure accuracy."
+                }
+            ]
         },
         "s15": {
-                  "id": "s15",
-                  "name": "Tomioka",
-                  "course": "EIKEN Grade 3",
-                  "target": "Pass EIKEN Grade 3",
-                  "overallGrade": "B+",
-                  "coreIssue": "Needs consistent practice and vocabulary expansion.",
-                  "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
-                  "focusThisMonth": "Vocabulary building and active speaking practice.",
-                  "petraInsight": "Tomioka is making steady progress. Focus should remain on consistency and building confidence in active production.",
-                  "skills": [
-                            {
-                                      "name": "Vocabulary Precision",
-                                      "baseLevel": 65,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good foundation",
-                                      "issue": "Needs more advanced vocabulary.",
-                                      "improvement": "Regular reading practice."
-                            },
-                            {
-                                      "name": "Structural Accuracy",
-                                      "baseLevel": 60,
-                                      "weight": 1,
-                                      "condition": "Further Practice Recommended",
-                                      "note": "Grammar needs work",
-                                      "issue": "Occasional errors in complex sentences.",
-                                      "improvement": "Grammar drills."
-                            },
-                            {
-                                      "name": "Expression Fluidity",
-                                      "baseLevel": 70,
-                                      "weight": 1.2,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Speaks naturally",
-                                      "issue": "Needs to use more transitional phrases.",
-                                      "improvement": "Practice linking ideas."
-                            },
-                            {
-                                      "name": "Listening Adaptability",
-                                      "baseLevel": 75,
-                                      "weight": 1,
-                                      "condition": "Becoming More Consistent",
-                                      "note": "Good comprehension",
-                                      "issue": "Struggles with fast native speech.",
-                                      "improvement": "Listen to podcasts."
-                            },
-                            {
-                                      "name": "Conversational Confidence",
-                                      "baseLevel": 80,
-                                      "weight": 1,
-                                      "condition": "Rapid Improvement",
-                                      "note": "Not afraid to speak",
-                                      "issue": "Sometimes lacks vocabulary to express complex ideas.",
-                                      "improvement": "Debate practice."
-                            }
-                  ],
-                  "phases": [
-                            {
-                                      "id": "ph1",
-                                      "title": "Phase 1: Foundation Building",
-                                      "description": "Focus on core vocabulary and basic grammar structures.",
-                                      "status": "Completed",
-                                      "weeks": "Weeks 1-4",
-                                      "progress": 100
-                            },
-                            {
-                                      "id": "ph2",
-                                      "title": "Phase 2: Skill Application",
-                                      "description": "Apply foundational skills to reading and listening exercises.",
-                                      "status": "In Progress",
-                                      "weeks": "Weeks 5-8",
-                                      "progress": 45
-                            },
-                            {
-                                      "id": "ph3",
-                                      "title": "Phase 3: Exam Preparation",
-                                      "description": "Mock exams and time management strategies.",
-                                      "status": "Upcoming",
-                                      "weeks": "Weeks 9-12",
-                                      "progress": 0
-                            }
-                  ],
-                  "lessons": [],
-                  "nextPlan": [
-                            {
-                                      "title": "1. Core Vocabulary Review",
-                                      "desc": "Regular review of essential terms."
-                            },
-                            {
-                                      "title": "2. Speaking Practice",
-                                      "desc": "Weekly free-talk sessions to build confidence."
-                            },
-                            {
-                                      "title": "3. Grammar Consolidation",
-                                      "desc": "Focus on sentence structure accuracy."
-                            }
-                  ]
+            "id": "s15",
+            "name": "Tomioka",
+            "course": "EIKEN Grade 3",
+            "target": "Pass EIKEN Grade 3",
+            "overallGrade": "B+",
+            "coreIssue": "Needs consistent practice and vocabulary expansion.",
+            "coreIssueDetail": "While understanding is generally good, active recall of vocabulary needs improvement.",
+            "focusThisMonth": "Vocabulary building and active speaking practice.",
+            "petraInsight": "Tomioka is making steady progress. Focus should remain on consistency and building confidence in active production.",
+            "skills": [
+                {
+                    "name": "Vocabulary Precision",
+                    "baseLevel": 65,
+                    "weight": 1,
+                    "condition": "Becoming More Consistent",
+                    "note": "Good foundation",
+                    "issue": "Needs more advanced vocabulary.",
+                    "improvement": "Regular reading practice."
+                },
+                {
+                    "name": "Structural Accuracy",
+                    "baseLevel": 60,
+                    "weight": 1,
+                    "condition": "Further Practice Recommended",
+                    "note": "Grammar needs work",
+                    "issue": "Occasional errors in complex sentences.",
+                    "improvement": "Grammar drills."
+                },
+                {
+                    "name": "Expression Fluidity",
+                    "baseLevel": 70,
+                    "weight": 1.2,
+                    "condition": "Rapid Improvement",
+                    "note": "Speaks naturally",
+                    "issue": "Needs to use more transitional phrases.",
+                    "improvement": "Practice linking ideas."
+                },
+                {
+                    "name": "Listening Adaptability",
+                    "baseLevel": 75,
+                    "weight": 1,
+                    "condition": "Becoming More Consistent",
+                    "note": "Good comprehension",
+                    "issue": "Struggles with fast native speech.",
+                    "improvement": "Listen to podcasts."
+                },
+                {
+                    "name": "Conversational Confidence",
+                    "baseLevel": 80,
+                    "weight": 1,
+                    "condition": "Rapid Improvement",
+                    "note": "Not afraid to speak",
+                    "issue": "Sometimes lacks vocabulary to express complex ideas.",
+                    "improvement": "Debate practice."
+                }
+            ],
+            "phases": [
+                {
+                    "id": "ph1",
+                    "title": "Phase 1: Foundation Building",
+                    "description": "Focus on core vocabulary and basic grammar structures.",
+                    "status": "Completed",
+                    "weeks": "Weeks 1-4",
+                    "progress": 100
+                },
+                {
+                    "id": "ph2",
+                    "title": "Phase 2: Skill Application",
+                    "description": "Apply foundational skills to reading and listening exercises.",
+                    "status": "In Progress",
+                    "weeks": "Weeks 5-8",
+                    "progress": 45
+                },
+                {
+                    "id": "ph3",
+                    "title": "Phase 3: Exam Preparation",
+                    "description": "Mock exams and time management strategies.",
+                    "status": "Upcoming",
+                    "weeks": "Weeks 9-12",
+                    "progress": 0
+                }
+            ],
+            "lessons": [],
+            "nextPlan": [
+                {
+                    "title": "1. Core Vocabulary Review",
+                    "desc": "Regular review of essential terms."
+                },
+                {
+                    "title": "2. Speaking Practice",
+                    "desc": "Weekly free-talk sessions to build confidence."
+                },
+                {
+                    "title": "3. Grammar Consolidation",
+                    "desc": "Focus on sentence structure accuracy."
+                }
+            ]
+        },
+        "s11": {
+            "id": "s11",
+            "name": "Konan Saito",
+            "course": "Conversational English",
+            "target": "Improve daily communication",
+            "overallGrade": "B",
+            "coreIssue": "Translating Japanese concepts into natural English",
+            "coreIssueDetail": "Konan is focusing on daily conversations and expanding from self-introductions to discussing past experiences. He relies heavily on direct translation from Japanese.",
+            "focusThisMonth": "Expressing personal history naturally",
+            "petraInsight": "Konan actively engages in self-introductions. Our next step is to help him describe past events using correct tenses without sounding translated.",
+            "skills": [
+                {
+                    "name": "Grammar Tenses",
+                    "baseLevel": 60,
+                    "condition": "Developing",
+                    "note": "Past tense issues",
+                    "issue": "Mixes up past and present when telling stories.",
+                    "improvement": "Narrative storytelling practice."
+                },
+                {
+                    "name": "Vocabulary Breadth",
+                    "baseLevel": 65,
+                    "condition": "Steady",
+                    "note": "Knows daily words",
+                    "issue": "Needs more descriptive adjectives.",
+                    "improvement": "Read short stories."
+                },
+                {
+                    "name": "Conversational Confidence",
+                    "baseLevel": 75,
+                    "condition": "Improving",
+                    "note": "Willing to share",
+                    "issue": "None, very engaged.",
+                    "improvement": "Maintain positive environment."
+                }
+            ],
+            "phases": [
+                {
+                    "id": "ph1",
+                    "title": "Self-Introductions",
+                    "description": "Mastering basic personal background sharing.",
+                    "status": "Completed",
+                    "weeks": "Week 1-2",
+                    "progress": 100
+                },
+                {
+                    "id": "ph2",
+                    "title": "Narrative Storytelling",
+                    "description": "Talking about past experiences and memories.",
+                    "status": "In Progress",
+                    "weeks": "Weeks 3-6",
+                    "progress": 20
+                },
+                {
+                    "id": "ph3",
+                    "title": "Opinion Sharing",
+                    "description": "Expressing thoughts on abstract topics.",
+                    "status": "Upcoming",
+                    "weeks": "Weeks 7-10",
+                    "progress": 0
+                }
+            ],
+            "lessons": [
+                {
+                    "id": "l_s11_0",
+                    "date": "May 11, 2026",
+                    "tutor": "Ashley Norton",
+                    "type": "Trial",
+                    "topic": "English Communication & Introductions",
+                    "rating": "Good",
+                    "sessionSummary": "Daily conversations and translating some Japanese sentences to English.",
+                    "observedStrength": "Very willing to speak and elaborate on self-introductions.",
+                    "currentFocusArea": "Using correct past tense when describing history.",
+                    "interventionStrategy": "Guided translation and narrative framing.",
+                    "responseToIntervention": "Successfully expanded on his self-introduction and talked about his past.",
+                    "impacts": [
+                        {
+                            "skill": "Conversational Confidence",
+                            "change": "+2"
+                        }
+                    ],
+                    "content": "自己紹介を中心に話を広げ、自身の過去に関連する事柄を英語で表現した。",
+                    "feedback": "Great job today, Konan! You did very well talking about your past experiences.",
+                    "homework": "Write a short paragraph about your favorite childhood memory."
+                }
+            ],
+            "nextPlan": [
+                {
+                    "title": "1. Narrative Practice",
+                    "desc": "Focus on recounting past weekend activities."
+                },
+                {
+                    "title": "2. Adjective Expansion",
+                    "desc": "Learn new words to describe feelings."
+                }
+            ]
         }
     },
     "resources": [
@@ -2776,579 +2734,579 @@ export const db = {
         }
     ],
     "schedules": [
-    {
-        "id": "38",
-        "studentName": "Hiroyuki Iwakura",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s12",
-        "tutorId": "t2",
-        "dateTime": "2026-04-10 11:30:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥1,800.00",
-        "margin": "2200"
-    },
-    {
-        "id": "24",
-        "studentName": "Tadashi Hashimoto",
-        "tutorName": "Tina Zheng",
-        "studentId": "s1",
-        "tutorId": "t1",
-        "dateTime": "2026-04-10 18:00:00+09:00",
-        "duration": 45,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥5,894.00",
-        "payoutAmount": "¥1,650.00",
-        "margin": "4244"
-    },
-    {
-        "id": "23",
-        "studentName": "Tadashi Hashimoto",
-        "tutorName": "Tina Zheng",
-        "studentId": "s1",
-        "tutorId": "t1",
-        "dateTime": "2026-04-17 18:00:00+09:00",
-        "duration": 45,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥5,894.00",
-        "payoutAmount": "¥1,650.00",
-        "margin": "4244"
-    },
-    {
-        "id": "41",
-        "studentName": "Kizuki Ishida",
-        "tutorName": "Ashley Norton",
-        "studentId": "s5",
-        "tutorId": "t6",
-        "dateTime": "2026-04-19 19:30:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥3,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "1000"
-    },
-    {
-        "id": "25",
-        "studentName": "Miyako Isobe",
-        "tutorName": "Dayun Suh",
-        "studentId": "s2",
-        "tutorId": "t3",
-        "dateTime": "2026-04-21 17:30:00+09:00",
-        "duration": 90,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥6,000.00",
-        "payoutAmount": "¥3,000.00",
-        "margin": "3000"
-    },
-    {
-        "id": "28",
-        "studentName": "Tadashi Hashimoto",
-        "tutorName": "Tina Zheng",
-        "studentId": "s1",
-        "tutorId": "t1",
-        "dateTime": "2026-04-23 18:15:00+09:00",
-        "duration": 45,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥5,894.00",
-        "payoutAmount": "¥1,650.00",
-        "margin": "4244"
-    },
-    {
-        "id": "29",
-        "studentName": "Tadashi Hashimoto",
-        "tutorName": "Riku Ishida",
-        "studentId": "s1",
-        "tutorId": "t7",
-        "dateTime": "2026-04-24 17:30:00+09:00",
-        "duration": 45,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥5,894.00",
-        "payoutAmount": "¥0.00",
-        "margin": "5894"
-    },
-    {
-        "id": "19",
-        "studentName": "Sarah Sugiyama",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s3",
-        "tutorId": "t2",
-        "dateTime": "2026-04-26 09:00:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "2000"
-    },
-    {
-        "id": "27",
-        "studentName": "Shinichi Fukui",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s4",
-        "tutorId": "t2",
-        "dateTime": "2026-04-27 10:00:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "2000"
-    },
-    {
-        "id": "48",
-        "studentName": "Miyako Isobe",
-        "tutorName": "Dayun Suh",
-        "studentId": "s2",
-        "tutorId": "t3",
-        "dateTime": "2026-04-28 17:30:00+09:00",
-        "duration": 90,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥6,000.00",
-        "payoutAmount": "¥3,000.00",
-        "margin": "3000"
-    },
-    {
-        "id": "22",
-        "studentName": "Kizuki Ishida",
-        "tutorName": "Ashley Norton",
-        "studentId": "s5",
-        "tutorId": "t6",
-        "dateTime": "2026-04-29 21:00:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥3,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "1000"
-    },
-    {
-        "id": "20",
-        "studentName": "Tadashi Hashimoto",
-        "tutorName": "Tina Zheng",
-        "studentId": "s1",
-        "tutorId": "t1",
-        "dateTime": "2026-04-30 18:15:00+09:00",
-        "duration": 45,
-        "status": "Completed",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥5,894.00",
-        "payoutAmount": "¥1,650.00",
-        "margin": "4244"
-    },
-    {
-        "id": "53",
-        "studentName": "Tadashi Hashimoto",
-        "tutorName": "Alice Williams",
-        "studentId": "s1",
-        "tutorId": "t5",
-        "dateTime": "2026-05-01 18:00:00+09:00",
-        "duration": 45,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥5,894.00",
-        "payoutAmount": "¥1,650.00",
-        "margin": "4244"
-    },
-    {
-        "id": "54",
-        "studentName": "Lee Akihiro",
-        "tutorName": "Alice Williams",
-        "studentId": "s6",
-        "tutorId": "t5",
-        "dateTime": "2026-05-03 10:00:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥2,000.00",
-        "payoutAmount": "¥1,800.00",
-        "margin": "200"
-    },
-    {
-        "id": "66",
-        "studentName": "Shoji Takanao",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s7",
-        "tutorId": "t2",
-        "dateTime": "2026-05-05 15:00:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "2000"
-    },
-    {
-        "id": "31",
-        "studentName": "Takeshi Kawana",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s8",
-        "tutorId": "t2",
-        "dateTime": "2026-05-06 11:10:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "2000"
-    },
-    {
-        "id": "74",
-        "studentName": "Yusuke",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s9",
-        "tutorId": "t2",
-        "dateTime": "2026-05-06 18:30:00+09:00",
-        "duration": 30,
-        "status": "Completed",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥2,000.00",
-        "payoutAmount": "¥1,000.00",
-        "margin": "1000"
-    },
-    {
-        "id": "26",
-        "studentName": "Yuta Sumiya",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s10",
-        "tutorId": "t2",
-        "dateTime": "2026-05-07 18:00:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "2000"
-    },
-    {
-        "id": "55",
-        "studentName": "Tadashi Hashimoto",
-        "tutorName": "Alice Williams",
-        "studentId": "s1",
-        "tutorId": "t5",
-        "dateTime": "2026-05-07 18:15:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥7,500.00",
-        "payoutAmount": "¥2,200.00",
-        "margin": "5300"
-    },
-    {
-        "id": "50",
-        "studentName": "Tadashi Hashimoto",
-        "tutorName": "Hazel",
-        "studentId": "s1",
-        "tutorId": "t4",
-        "dateTime": "2026-05-08 18:00:00+09:00",
-        "duration": 45,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥5,894.00",
-        "payoutAmount": "¥1,650.00",
-        "margin": "4244"
-    },
-    {
-        "id": "58",
-        "studentName": "Sarah Sugiyama",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s3",
-        "tutorId": "t2",
-        "dateTime": "2026-05-09 20:00:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,200.00",
-        "margin": "1800"
-    },
-    {
-        "id": "75",
-        "studentName": "Takuma",
-        "tutorName": "Ashley Norton",
-        "studentId": "s13",
-        "tutorId": "t6",
-        "dateTime": "2026-05-09 21:00:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "2000"
-    },
-    {
-        "id": "73",
-        "studentName": "Yuki Takenaka",
-        "tutorName": "Ashley Norton",
-        "studentId": "s14",
-        "tutorId": "t6",
-        "dateTime": "2026-05-10 10:00:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "2000"
-    },
-    {
-        "id": "67",
-        "studentName": "Miyako Isobe",
-        "tutorName": "Dayun Suh",
-        "studentId": "s2",
-        "tutorId": "t3",
-        "dateTime": "2026-05-12 17:30:00+09:00",
-        "duration": 90,
-        "status": "Completed",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,200.00",
-        "margin": "1800"
-    },
-    {
-        "id": "76",
-        "studentName": "Takeshi Kawana",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s8",
-        "tutorId": "t2",
-        "dateTime": "2026-05-13 13:40:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "2000"
-    },
-    {
-        "id": "84",
-        "studentName": "Yuta Sumiya",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s10",
-        "tutorId": "t2",
-        "dateTime": "2026-05-15 12:30:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "2000"
-    },
-    {
-        "id": "56",
-        "studentName": "Tadashi Hashimoto",
-        "tutorName": "Yutaka Takaku",
-        "studentId": "s1",
-        "tutorId": "t8",
-        "dateTime": "2026-05-15 18:15:00+09:00",
-        "duration": 45,
-        "status": "Completed",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥5,894.00",
-        "payoutAmount": "¥0.00",
-        "margin": "5894"
-    },
-    {
-        "id": "88",
-        "studentName": "Sarah Sugiyama",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s3",
-        "tutorId": "t2",
-        "dateTime": "2026-05-17 09:00:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,200.00",
-        "margin": "1800"
-    },
-    {
-        "id": "79",
-        "studentName": "Shoji Takanao",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s7",
-        "tutorId": "t2",
-        "dateTime": "2026-05-17 18:00:00+09:00",
-        "duration": 60,
-        "status": "Completed",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "2000"
-    },
-    {
-        "id": "90",
-        "studentName": "Tomioka",
-        "tutorName": "Alice Williams",
-        "studentId": "s15",
-        "tutorId": "t5",
-        "dateTime": "2026-05-19 08:00:00+09:00",
-        "duration": 30,
-        "status": "Scheduled",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥0.00",
-        "payoutAmount": "¥900.00",
-        "margin": "-900"
-    },
-    {
-        "id": "68",
-        "studentName": "Miyako Isobe",
-        "tutorName": "Dayun Suh",
-        "studentId": "s2",
-        "tutorId": "t3",
-        "dateTime": "2026-05-19 17:30:00+09:00",
-        "duration": 90,
-        "status": "Scheduled",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥6,000.00",
-        "payoutAmount": "¥2,200.00",
-        "margin": "3800"
-    },
-    {
-        "id": "83",
-        "studentName": "Kizuki Ishida",
-        "tutorName": "Ashley Norton",
-        "studentId": "s5",
-        "tutorId": "t6",
-        "dateTime": "2026-05-19 20:30:00+09:00",
-        "duration": 45,
-        "status": "Scheduled",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥3,125.00",
-        "payoutAmount": "¥1,500.00",
-        "margin": "1625"
-    },
-    {
-        "id": "91",
-        "studentName": "Yuta Sumiya",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s10",
-        "tutorId": "t2",
-        "dateTime": "2026-05-21 16:30:00+09:00",
-        "duration": 60,
-        "status": "Scheduled",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "2000"
-    },
-    {
-        "id": "57",
-        "studentName": "Tadashi Hashimoto",
-        "tutorName": "Alice Williams",
-        "studentId": "s1",
-        "tutorId": "t5",
-        "dateTime": "2026-05-21 18:15:00+09:00",
-        "duration": 60,
-        "status": "Scheduled",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥7,500.00",
-        "payoutAmount": "¥2,200.00",
-        "margin": "5300"
-    },
-    {
-        "id": "51",
-        "studentName": "Tadashi Hashimoto",
-        "tutorName": "Hazel",
-        "studentId": "s1",
-        "tutorId": "t4",
-        "dateTime": "2026-05-22 18:00:00+09:00",
-        "duration": 60,
-        "status": "Scheduled",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥7,500.00",
-        "payoutAmount": "¥2,200.00",
-        "margin": "5300"
-    },
-    {
-        "id": "69",
-        "studentName": "Miyako Isobe",
-        "tutorName": "Dayun Suh",
-        "studentId": "s2",
-        "tutorId": "t3",
-        "dateTime": "2026-05-26 17:30:00+09:00",
-        "duration": 90,
-        "status": "Scheduled",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥6,000.00",
-        "payoutAmount": "¥2,200.00",
-        "margin": "3800"
-    },
-    {
-        "id": "89",
-        "studentName": "Takeshi Kawana",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s8",
-        "tutorId": "t2",
-        "dateTime": "2026-05-27 11:10:00+09:00",
-        "duration": 60,
-        "status": "Scheduled",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "2000"
-    },
-    {
-        "id": "59",
-        "studentName": "Tadashi Hashimoto",
-        "tutorName": "Hazel",
-        "studentId": "s1",
-        "tutorId": "t4",
-        "dateTime": "2026-05-28 18:15:00+09:00",
-        "duration": 60,
-        "status": "Scheduled",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥7,500.00",
-        "payoutAmount": "¥2,200.00",
-        "margin": "5300"
-    },
-    {
-        "id": "52",
-        "studentName": "Tadashi Hashimoto",
-        "tutorName": "Hazel",
-        "studentId": "s1",
-        "tutorId": "t4",
-        "dateTime": "2026-05-29 18:00:00+09:00",
-        "duration": 60,
-        "status": "Scheduled",
-        "paymentStatus": "Paid",
-        "billedAmount": "¥7,500.00",
-        "payoutAmount": "¥2,200.00",
-        "margin": "5300"
-    },
-    {
-        "id": "60",
-        "studentName": "Sarah Sugiyama",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s3",
-        "tutorId": "t2",
-        "dateTime": "2026-05-31 11:00:00+09:00",
-        "duration": 120,
-        "status": "Scheduled",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥8,000.00",
-        "payoutAmount": "¥4,400.00",
-        "margin": "3600"
-    },
-    {
-        "id": "92",
-        "studentName": "Shoji Takanao",
-        "tutorName": "Hannah Tuffy",
-        "studentId": "s7",
-        "tutorId": "t2",
-        "dateTime": "2026-05-31 18:00:00+09:00",
-        "duration": 60,
-        "status": "Scheduled",
-        "paymentStatus": "Unpaid",
-        "billedAmount": "¥4,000.00",
-        "payoutAmount": "¥2,000.00",
-        "margin": "2000"
-    }
-]
+        {
+            "id": "38",
+            "studentName": "Hiroyuki Iwakura",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s12",
+            "tutorId": "t2",
+            "dateTime": "2026-04-10 11:30:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥1,800.00",
+            "margin": "2200"
+        },
+        {
+            "id": "24",
+            "studentName": "Tadashi Hashimoto",
+            "tutorName": "Tina Zheng",
+            "studentId": "s1",
+            "tutorId": "t1",
+            "dateTime": "2026-04-10 18:00:00+09:00",
+            "duration": 45,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥5,894.00",
+            "payoutAmount": "¥1,650.00",
+            "margin": "4244"
+        },
+        {
+            "id": "23",
+            "studentName": "Tadashi Hashimoto",
+            "tutorName": "Tina Zheng",
+            "studentId": "s1",
+            "tutorId": "t1",
+            "dateTime": "2026-04-17 18:00:00+09:00",
+            "duration": 45,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥5,894.00",
+            "payoutAmount": "¥1,650.00",
+            "margin": "4244"
+        },
+        {
+            "id": "41",
+            "studentName": "Kizuki Ishida",
+            "tutorName": "Ashley Norton",
+            "studentId": "s5",
+            "tutorId": "t6",
+            "dateTime": "2026-04-19 19:30:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥3,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "1000"
+        },
+        {
+            "id": "25",
+            "studentName": "Miyako Isobe",
+            "tutorName": "Dayun Suh",
+            "studentId": "s2",
+            "tutorId": "t3",
+            "dateTime": "2026-04-21 17:30:00+09:00",
+            "duration": 90,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥6,000.00",
+            "payoutAmount": "¥3,000.00",
+            "margin": "3000"
+        },
+        {
+            "id": "28",
+            "studentName": "Tadashi Hashimoto",
+            "tutorName": "Tina Zheng",
+            "studentId": "s1",
+            "tutorId": "t1",
+            "dateTime": "2026-04-23 18:15:00+09:00",
+            "duration": 45,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥5,894.00",
+            "payoutAmount": "¥1,650.00",
+            "margin": "4244"
+        },
+        {
+            "id": "29",
+            "studentName": "Tadashi Hashimoto",
+            "tutorName": "Riku Ishida",
+            "studentId": "s1",
+            "tutorId": "t7",
+            "dateTime": "2026-04-24 17:30:00+09:00",
+            "duration": 45,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥5,894.00",
+            "payoutAmount": "¥0.00",
+            "margin": "5894"
+        },
+        {
+            "id": "19",
+            "studentName": "Sarah Sugiyama",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s3",
+            "tutorId": "t2",
+            "dateTime": "2026-04-26 09:00:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "2000"
+        },
+        {
+            "id": "27",
+            "studentName": "Shinichi Fukui",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s4",
+            "tutorId": "t2",
+            "dateTime": "2026-04-27 10:00:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "2000"
+        },
+        {
+            "id": "48",
+            "studentName": "Miyako Isobe",
+            "tutorName": "Dayun Suh",
+            "studentId": "s2",
+            "tutorId": "t3",
+            "dateTime": "2026-04-28 17:30:00+09:00",
+            "duration": 90,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥6,000.00",
+            "payoutAmount": "¥3,000.00",
+            "margin": "3000"
+        },
+        {
+            "id": "22",
+            "studentName": "Kizuki Ishida",
+            "tutorName": "Ashley Norton",
+            "studentId": "s5",
+            "tutorId": "t6",
+            "dateTime": "2026-04-29 21:00:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥3,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "1000"
+        },
+        {
+            "id": "20",
+            "studentName": "Tadashi Hashimoto",
+            "tutorName": "Tina Zheng",
+            "studentId": "s1",
+            "tutorId": "t1",
+            "dateTime": "2026-04-30 18:15:00+09:00",
+            "duration": 45,
+            "status": "Completed",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥5,894.00",
+            "payoutAmount": "¥1,650.00",
+            "margin": "4244"
+        },
+        {
+            "id": "53",
+            "studentName": "Tadashi Hashimoto",
+            "tutorName": "Alice Williams",
+            "studentId": "s1",
+            "tutorId": "t5",
+            "dateTime": "2026-05-01 18:00:00+09:00",
+            "duration": 45,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥5,894.00",
+            "payoutAmount": "¥1,650.00",
+            "margin": "4244"
+        },
+        {
+            "id": "54",
+            "studentName": "Lee Akihiro",
+            "tutorName": "Alice Williams",
+            "studentId": "s6",
+            "tutorId": "t5",
+            "dateTime": "2026-05-03 10:00:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥2,000.00",
+            "payoutAmount": "¥1,800.00",
+            "margin": "200"
+        },
+        {
+            "id": "66",
+            "studentName": "Shoji Takanao",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s7",
+            "tutorId": "t2",
+            "dateTime": "2026-05-05 15:00:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "2000"
+        },
+        {
+            "id": "31",
+            "studentName": "Takeshi Kawana",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s8",
+            "tutorId": "t2",
+            "dateTime": "2026-05-06 11:10:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "2000"
+        },
+        {
+            "id": "74",
+            "studentName": "Yusuke",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s9",
+            "tutorId": "t2",
+            "dateTime": "2026-05-06 18:30:00+09:00",
+            "duration": 30,
+            "status": "Completed",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥2,000.00",
+            "payoutAmount": "¥1,000.00",
+            "margin": "1000"
+        },
+        {
+            "id": "26",
+            "studentName": "Yuta Sumiya",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s10",
+            "tutorId": "t2",
+            "dateTime": "2026-05-07 18:00:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "2000"
+        },
+        {
+            "id": "55",
+            "studentName": "Tadashi Hashimoto",
+            "tutorName": "Alice Williams",
+            "studentId": "s1",
+            "tutorId": "t5",
+            "dateTime": "2026-05-07 18:15:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥7,500.00",
+            "payoutAmount": "¥2,200.00",
+            "margin": "5300"
+        },
+        {
+            "id": "50",
+            "studentName": "Tadashi Hashimoto",
+            "tutorName": "Hazel",
+            "studentId": "s1",
+            "tutorId": "t4",
+            "dateTime": "2026-05-08 18:00:00+09:00",
+            "duration": 45,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥5,894.00",
+            "payoutAmount": "¥1,650.00",
+            "margin": "4244"
+        },
+        {
+            "id": "58",
+            "studentName": "Sarah Sugiyama",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s3",
+            "tutorId": "t2",
+            "dateTime": "2026-05-09 20:00:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,200.00",
+            "margin": "1800"
+        },
+        {
+            "id": "75",
+            "studentName": "Takuma",
+            "tutorName": "Ashley Norton",
+            "studentId": "s13",
+            "tutorId": "t6",
+            "dateTime": "2026-05-09 21:00:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "2000"
+        },
+        {
+            "id": "73",
+            "studentName": "Yuki Takenaka",
+            "tutorName": "Ashley Norton",
+            "studentId": "s14",
+            "tutorId": "t6",
+            "dateTime": "2026-05-10 10:00:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "2000"
+        },
+        {
+            "id": "67",
+            "studentName": "Miyako Isobe",
+            "tutorName": "Dayun Suh",
+            "studentId": "s2",
+            "tutorId": "t3",
+            "dateTime": "2026-05-12 17:30:00+09:00",
+            "duration": 90,
+            "status": "Completed",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,200.00",
+            "margin": "1800"
+        },
+        {
+            "id": "76",
+            "studentName": "Takeshi Kawana",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s8",
+            "tutorId": "t2",
+            "dateTime": "2026-05-13 13:40:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "2000"
+        },
+        {
+            "id": "84",
+            "studentName": "Yuta Sumiya",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s10",
+            "tutorId": "t2",
+            "dateTime": "2026-05-15 12:30:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "2000"
+        },
+        {
+            "id": "56",
+            "studentName": "Tadashi Hashimoto",
+            "tutorName": "Yutaka Takaku",
+            "studentId": "s1",
+            "tutorId": "t8",
+            "dateTime": "2026-05-15 18:15:00+09:00",
+            "duration": 45,
+            "status": "Completed",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥5,894.00",
+            "payoutAmount": "¥0.00",
+            "margin": "5894"
+        },
+        {
+            "id": "88",
+            "studentName": "Sarah Sugiyama",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s3",
+            "tutorId": "t2",
+            "dateTime": "2026-05-17 09:00:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,200.00",
+            "margin": "1800"
+        },
+        {
+            "id": "79",
+            "studentName": "Shoji Takanao",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s7",
+            "tutorId": "t2",
+            "dateTime": "2026-05-17 18:00:00+09:00",
+            "duration": 60,
+            "status": "Completed",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "2000"
+        },
+        {
+            "id": "90",
+            "studentName": "Tomioka",
+            "tutorName": "Alice Williams",
+            "studentId": "s15",
+            "tutorId": "t5",
+            "dateTime": "2026-05-19 08:00:00+09:00",
+            "duration": 30,
+            "status": "Scheduled",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥0.00",
+            "payoutAmount": "¥900.00",
+            "margin": "-900"
+        },
+        {
+            "id": "68",
+            "studentName": "Miyako Isobe",
+            "tutorName": "Dayun Suh",
+            "studentId": "s2",
+            "tutorId": "t3",
+            "dateTime": "2026-05-19 17:30:00+09:00",
+            "duration": 90,
+            "status": "Scheduled",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥6,000.00",
+            "payoutAmount": "¥2,200.00",
+            "margin": "3800"
+        },
+        {
+            "id": "83",
+            "studentName": "Kizuki Ishida",
+            "tutorName": "Ashley Norton",
+            "studentId": "s5",
+            "tutorId": "t6",
+            "dateTime": "2026-05-19 20:30:00+09:00",
+            "duration": 45,
+            "status": "Scheduled",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥3,125.00",
+            "payoutAmount": "¥1,500.00",
+            "margin": "1625"
+        },
+        {
+            "id": "91",
+            "studentName": "Yuta Sumiya",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s10",
+            "tutorId": "t2",
+            "dateTime": "2026-05-21 16:30:00+09:00",
+            "duration": 60,
+            "status": "Scheduled",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "2000"
+        },
+        {
+            "id": "57",
+            "studentName": "Tadashi Hashimoto",
+            "tutorName": "Alice Williams",
+            "studentId": "s1",
+            "tutorId": "t5",
+            "dateTime": "2026-05-21 18:15:00+09:00",
+            "duration": 60,
+            "status": "Scheduled",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥7,500.00",
+            "payoutAmount": "¥2,200.00",
+            "margin": "5300"
+        },
+        {
+            "id": "51",
+            "studentName": "Tadashi Hashimoto",
+            "tutorName": "Hazel",
+            "studentId": "s1",
+            "tutorId": "t4",
+            "dateTime": "2026-05-22 18:00:00+09:00",
+            "duration": 60,
+            "status": "Scheduled",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥7,500.00",
+            "payoutAmount": "¥2,200.00",
+            "margin": "5300"
+        },
+        {
+            "id": "69",
+            "studentName": "Miyako Isobe",
+            "tutorName": "Dayun Suh",
+            "studentId": "s2",
+            "tutorId": "t3",
+            "dateTime": "2026-05-26 17:30:00+09:00",
+            "duration": 90,
+            "status": "Scheduled",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥6,000.00",
+            "payoutAmount": "¥2,200.00",
+            "margin": "3800"
+        },
+        {
+            "id": "89",
+            "studentName": "Takeshi Kawana",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s8",
+            "tutorId": "t2",
+            "dateTime": "2026-05-27 11:10:00+09:00",
+            "duration": 60,
+            "status": "Scheduled",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "2000"
+        },
+        {
+            "id": "59",
+            "studentName": "Tadashi Hashimoto",
+            "tutorName": "Hazel",
+            "studentId": "s1",
+            "tutorId": "t4",
+            "dateTime": "2026-05-28 18:15:00+09:00",
+            "duration": 60,
+            "status": "Scheduled",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥7,500.00",
+            "payoutAmount": "¥2,200.00",
+            "margin": "5300"
+        },
+        {
+            "id": "52",
+            "studentName": "Tadashi Hashimoto",
+            "tutorName": "Hazel",
+            "studentId": "s1",
+            "tutorId": "t4",
+            "dateTime": "2026-05-29 18:00:00+09:00",
+            "duration": 60,
+            "status": "Scheduled",
+            "paymentStatus": "Paid",
+            "billedAmount": "¥7,500.00",
+            "payoutAmount": "¥2,200.00",
+            "margin": "5300"
+        },
+        {
+            "id": "60",
+            "studentName": "Sarah Sugiyama",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s3",
+            "tutorId": "t2",
+            "dateTime": "2026-05-31 11:00:00+09:00",
+            "duration": 120,
+            "status": "Scheduled",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥8,000.00",
+            "payoutAmount": "¥4,400.00",
+            "margin": "3600"
+        },
+        {
+            "id": "92",
+            "studentName": "Shoji Takanao",
+            "tutorName": "Hannah Tuffy",
+            "studentId": "s7",
+            "tutorId": "t2",
+            "dateTime": "2026-05-31 18:00:00+09:00",
+            "duration": 60,
+            "status": "Scheduled",
+            "paymentStatus": "Unpaid",
+            "billedAmount": "¥4,000.00",
+            "payoutAmount": "¥2,000.00",
+            "margin": "2000"
+        }
+    ]
 };
