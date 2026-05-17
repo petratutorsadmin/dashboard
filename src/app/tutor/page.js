@@ -10,9 +10,10 @@ import { db } from "@/lib/data";
 import { dbService } from "@/lib/db";
 import { Dashboard } from "../page";
 import { ScheduleView } from "@/components/ScheduleView";
+import { TutorReports } from "@/components/TutorReports";
 import { computeOverallGrade, computePhaseProgress } from "@/lib/utils";
 import { useRouter } from "next/navigation";
-import { BookOpen, Calendar, LayoutDashboard, ChevronRight } from "lucide-react";
+import { BookOpen, Calendar, LayoutDashboard, ChevronRight, FileText } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 
 const petraPurple = "var(--primary)";
@@ -204,6 +205,7 @@ export default function PetraTutorDashboard() {
     { label: "Dashboard", onClick: () => { setSelectedStudent(null); setCurrentView("dashboard"); }, isActive: currentView === "dashboard", icon: LayoutDashboard },
     { label: "Resource Library", href: "/tutor/library", icon: BookOpen },
     { label: "Schedule", onClick: () => { setSelectedStudent(null); setCurrentView("schedule"); }, isActive: currentView === "schedule", icon: Calendar },
+    { label: "My Reports", onClick: () => { setSelectedStudent(null); setCurrentView("reports"); }, isActive: currentView === "reports", icon: FileText },
   ];
 
   const dashboardContent = selectedStudent ? (
@@ -218,6 +220,10 @@ export default function PetraTutorDashboard() {
   ) : currentView === "schedule" ? (
     <div className="p-6">
       <ScheduleView tutorName={tutor.name} lang="en" />
+    </div>
+  ) : currentView === "reports" ? (
+    <div className="p-6">
+      <TutorReports tutorName={tutor.name} />
     </div>
   ) : (
     <div className="p-6 text-foreground animate-in fade-in duration-500 max-w-7xl mx-auto space-y-6">

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, User, BookOpen, TrendingUp, Target, ChevronDown, ChevronRight, FileText, CheckCircle2, PenTool } from "lucide-react";
+import { Calendar, User, BookOpen, TrendingUp, Target, ChevronDown, ChevronRight, FileText, CheckCircle2, PenTool, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Intelligent dynamic skill impact generator based on lesson topics and student profiles
@@ -179,6 +179,12 @@ export function LearningRecords({ student, t, sortedLessons }) {
                                             <User className="w-3.5 h-3.5" /> 
                                             {lesson.tutor}
                                         </div>
+                                        {lesson.duration && (
+                                            <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                                                <Clock className="w-3.5 h-3.5" />
+                                                {lesson.duration} min
+                                            </div>
+                                        )}
                                         <div className="flex items-center gap-2">
                                             <Badge variant="outline" className="rounded-md font-medium text-[10px] uppercase tracking-wider bg-zinc-100/50 border-border text-muted-foreground">
                                                 {lesson.type}
