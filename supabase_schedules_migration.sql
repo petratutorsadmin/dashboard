@@ -19,9 +19,9 @@ CREATE TABLE IF NOT EXISTS schedules (
 
 -- 2. Insert Missing Tutors (with secure default credentials)
 INSERT INTO tutors (id, name, role, username, password, assigned_students, today_agenda) VALUES
-('t6', 'Ashley Norton', 'tutor', 'ashley', 'petra2026', ARRAY[]::TEXT[], ARRAY[]::TEXT[]),
-('t7', 'Riku Ishida', 'tutor', 'riku', 'petra2026', ARRAY[]::TEXT[], ARRAY[]::TEXT[]),
-('t8', 'Yutaka Takaku', 'tutor', 'yutaka_t', 'petra2026', ARRAY[]::TEXT[], ARRAY[]::TEXT[])
+('t6', 'Ashley Norton', 'tutor', 'ashley', 'petra2026', '[]'::jsonb, '[]'::jsonb),
+('t7', 'Riku Ishida', 'tutor', 'riku', 'petra2026', '[]'::jsonb, '[]'::jsonb),
+('t8', 'Yutaka Takaku', 'tutor', 'yutaka_t', 'petra2026', '[]'::jsonb, '[]'::jsonb)
 ON CONFLICT (id) DO NOTHING;
 
 -- 3. Insert Missing Students (with safe placeholders)
