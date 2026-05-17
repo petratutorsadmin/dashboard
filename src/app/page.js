@@ -24,7 +24,7 @@ import { dbService } from "@/lib/db";
 import { cn, computeSkillLevel, computeGrade, computeOverallGrade, computePhaseProgress, computeNextPlan } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { AppShell } from "@/components/AppShell";
-import { LearningRecords } from "@/components/LearningRecords";
+import { LearningRecords, getDynamicImpacts } from "@/components/LearningRecords";
 
 const petraPurple = "var(--primary)";
 const petraGold = "oklch(0.85 0.12 90)"; 
@@ -174,8 +174,9 @@ function computeChartData(student, t, lang) {
     });
 
     sortedLessons.forEach(lesson => {
-        if (lesson.impacts) {
-            lesson.impacts.forEach(impact => {
+        const impacts = getDynamicImpacts(lesson, student);
+        if (impacts) {
+            impacts.forEach(impact => {
                 if (currentLevels[impact.skill] !== undefined) {
                     const changeVal = parseInt(impact.change.replace('+', ''), 10);
                     if (!isNaN(changeVal)) {
