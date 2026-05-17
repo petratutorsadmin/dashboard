@@ -126,6 +126,7 @@ function StudentCard({ student, onClick }) {
 export default function PetraTutorDashboard() {
   const [tutor, setTutor] = useState(null);
   const [assignedStudents, setAssignedStudents] = useState([]);
+  const [nextSchedule, setNextSchedule] = useState(null);
   const [parentName, setParentName] = useState("Parent");
   const [isLoaded, setIsLoaded] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState(null);
@@ -163,6 +164,18 @@ export default function PetraTutorDashboard() {
             setAssignedStudents(studentProfiles.filter(Boolean));
           } else {
             setAssignedStudents([]);
+          }
+
+          // Compute next upcoming schedule from schedules data
+          try {
+            const schedules = await dbService.getSchedulesByTutorName(found.name);
+            const now = new Date();
+            const upcoming = schedules
+              .filter(s => new Date(s.dateTime) >= now)
+              .sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
+            setNextSchedule(upcoming[0] || null);
+          } catch (e) {
+            // leave nextSchedule null
           }
         } else {
           router.push("/");
@@ -235,7 +248,7 @@ export default function PetraTutorDashboard() {
             <p className="mt-1 text-muted-foreground text-xs">Welcome back, {tutor.name}</p>
         </header>
 
-        {tutor.nextLesson && tutor.nextLesson.studentId && (
+        {nextSchedule && (
             <div className="rounded-md bg-primary/5 border border-primary/10 p-5 flex flex-col md:flex-row items-center justify-between gap-4 animate-in slide-in-from-top-4 shadow-none relative overflow-hidden group">
                 <div className="flex items-center gap-3.5 relative z-10">
                     <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary border border-primary/20 shrink-0">
@@ -244,7 +257,17 @@ export default function PetraTutorDashboard() {
                     <div>
                         <p className="text-[9px] font-bold text-primary uppercase tracking-widest">Next Lesson</p>
                         <p className="text-base font-semibold text-foreground mt-0.5">
-                            {assignedStudents.find(s => s.id === tutor.nextLesson.studentId)?.name || "Student"} <span className="font-normal text-muted-foreground ml-1.5 text-xs">@ {tutor.nextLesson.time}</span>
+                            {nextSchedule.studentName}
+                            <span className="font-normal text-muted-foreground ml-2 text-xs">
+                                {new Date(nextSchedule.dateTime).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" })}
+                                {" @ "}
+                                {new Date(nextSchedule.dateTime).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: true })}
+                            </span>
+                            {nextSchedule.duration && (
+                                <span className="ml-2 text-[10px] font-semibold text-muted-foreground bg-zinc-100 border border-border rounded px-1.5 py-0.5">
+                                    {nextSchedule.duration} min
+                                </span>
+                            )}
                         </p>
                     </div>
                 </div>
