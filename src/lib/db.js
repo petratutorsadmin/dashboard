@@ -10,14 +10,31 @@ function isSupabaseConfigured() {
 // Map database column names to JS camelCase properties where needed
 function mapStudent(st) {
   if (!st) return null;
+  
+  // Safe parsing helper for JSONB fields
+  const parseJsonField = (field, fallback = []) => {
+    if (!field) return fallback;
+    if (typeof field === "string") {
+      try {
+        return JSON.parse(field);
+      } catch (e) {
+        return fallback;
+      }
+    }
+    return field;
+  };
+
   return {
     ...st,
-    overallGrade: st.overall_grade !== undefined ? st.overall_grade : st.overallGrade,
-    coreIssue: st.core_issue !== undefined ? st.core_issue : st.coreIssue,
-    coreIssueDetail: st.core_issue_detail !== undefined ? st.core_issue_detail : st.coreIssueDetail,
-    focusThisMonth: st.focus_this_month !== undefined ? st.focus_this_month : st.focusThisMonth,
-    petraInsight: st.petra_insight !== undefined ? st.petra_insight : st.petraInsight,
-    nextPlan: st.next_plan !== undefined ? st.next_plan : st.nextPlan,
+    overallGrade: st.overall_grade !== undefined ? st.overall_grade : (st.overallGrade || "Needs Assessment"),
+    coreIssue: st.core_issue !== undefined ? st.core_issue : (st.coreIssue || "Needs Assessment"),
+    coreIssueDetail: st.core_issue_detail !== undefined ? st.core_issue_detail : (st.coreIssueDetail || "The student's developmental needs are currently being evaluated."),
+    focusThisMonth: st.focus_this_month !== undefined ? st.focus_this_month : (st.focusThisMonth || "Diagnostic Assessment"),
+    petraInsight: st.petra_insight !== undefined ? st.petra_insight : (st.petraInsight || "The student's diagnostic profile is being populated by their instructor."),
+    skills: parseJsonField(st.skills || st.skills),
+    phases: parseJsonField(st.phases || st.phases),
+    nextPlan: parseJsonField(st.next_plan || st.nextPlan || st.next_plan),
+    lessons: st.lessons || [],
   };
 }
 

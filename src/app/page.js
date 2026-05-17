@@ -424,9 +424,13 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                         </div>
 
                         <div className="mt-2">
-                            {student.skills.map((skill) => {
-                                const latestLessonWithImpact = sortedLessons.find(l => l.impacts?.some(i => i.skill === skill.name));
-                                const recentChange = latestLessonWithImpact?.impacts.find(i => i.skill === skill.name)?.change;
+                            {(student.skills || []).map((skill) => {
+                                const latestLessonWithImpact = sortedLessons.find(l => {
+                                    const impacts = getDynamicImpacts(l, student);
+                                    return impacts?.some(i => i.skill === skill.name);
+                                });
+                                const impacts = latestLessonWithImpact ? getDynamicImpacts(latestLessonWithImpact, student) : [];
+                                const recentChange = impacts.find(i => i.skill === skill.name)?.change;
                                 return <SkillRow key={skill.name} skill={skill} student={student} lang={lang} recentChange={recentChange} />
                             })}
                         </div>
@@ -531,7 +535,7 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                 </div>
 
                 <section className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-                    {student.phases.map((phase) => {
+                    {(student.phases || []).map((phase) => {
                         const progress = computePhaseProgress(phase);
                         return (
                             <SectionCard key={phase.title}>
@@ -549,7 +553,7 @@ export function Dashboard({ student: rawStudent, parentName, lang = "en", onLogo
                                 <ProgressBar value={progress} />
 
                                 <div className="mt-4 space-y-2.5">
-                                    {phase.items.map((item, idx) => (
+                                    {(phase.items || []).map((item, idx) => (
                                         <div key={idx} className="flex items-start gap-2 text-xs text-foreground/80">
                                             <span className="mt-0.5 font-bold shrink-0 text-xs" style={{ color: (typeof item === 'object' ? item.completed : false) ? "var(--primary)" : "var(--muted-foreground)" }}>
                                                 {(typeof item === 'object' ? item.completed : false) ? "✓" : "○"}
