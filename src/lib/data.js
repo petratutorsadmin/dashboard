@@ -859,6 +859,32 @@ export const db = {
             ],
             "lessons": [
                 {
+                    "id": "s3_l3",
+                    "date": "May 17, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "Vocabulary, Reading, and Grammar (Competitive sports)",
+                    "rating": "Excellent",
+                    "sessionSummary": "Played an animal guessing game, read articles about famous athletes, and learned vocabulary/grammar to discuss competitive sports, scores, and world records.",
+                    "observedStrength": "Sarah showed excellent comprehension of the reading materials and confidently completed all textbook drills, confirming she had no confusion about the previous unit.",
+                    "currentFocusArea": "Mastering sports-specific vocabulary (e.g., consecutive, nil, draw) and accurately describing scores versus results.",
+                    "interventionStrategy": "Introduced new terms with clear examples ('nil' in UK/Ireland, 'score' vs 'result') and engaged in open-ended questions and free talk to apply them.",
+                    "responseToIntervention": "Sarah did a great job applying the new words and grammar points to talk about her own thoughts and experiences regarding sports.",
+                    "impacts": [
+                        {
+                            "skill": "Vocabulary Precision",
+                            "change": "+2"
+                        },
+                        {
+                            "skill": "Structural Accuracy",
+                            "change": "+1"
+                        }
+                    ],
+                    "content": "Game:\n\"Who am I?\" - animal guessing game, starting with only yes/no questions, and later using open-ended questions.\n\nReviewing Homework:\nSarah might have forgotten to do her homework, but we reviewed it in class and she did great!\n\nReviewing last unit overall:\nShe got all of the answers correct. When I asked her if there was any parts she was confused about, she said it's all good.\n\nRead lesson objective and ask question:\nWhat is a competitive sport?\nWhat are these? (picture of medal and trophy)\n\nTextbook material:\nEnglish Vocabulary in Use, pg. 90-91(Competitive sports)\n\nReading material about different types of competitions, with my own questions (Check for any confusion)\nVocabulary - winning/ losing, and keeping score\nSports report reading (3 different athletes)\nVocab to describe an athlete (and free talk about favorite athlete/team)\nDrills/exercises on pg. 91\nFree talk questions at bottom of pg. 91 (Q.2, Q.4, Q.5)\nHomework review\n\nInternal Note: make sure to review this unit using the same strategy (in our next class): check hw, ask questions, fill in the blanks, ask for any questions or confusions.",
+                    "feedback": "Sarah did a great job today talking about different types of sports competitions! Our lesson today consisted of a lot of reading, such as reading about different types of competitive sports and reading articles about famous athletes. We were able to learn new vocabulary words and grammar points to properly speak about scores, world records, winning, and more. We also did multiple drills as well as speaking practice about her own thoughts and experiences. Outstanding job today!\n\nSome of the words that were NEW for Sarah today:\n- consecutive: in a row\n- league: \n- 2-0 (two NIL): \"nil\" instead of zero in UK/Ireland\n- Draw: same score, to be tied \n- Defeated: to beat another team \n- score vs. result: \"score\" is used to describe points DURING the game, whereas \"result\" is used at the end\n- Lead/leading: to have the top score DURING the competition (haven't won yet, but might win)\n- Achieved: to have accomplished(done) something that is difficult or impressive\n- Gave up (in sports) :to stop playing for a short amount of time, or forever\n- Superb: Amazing, outstanding, very skilled\n- \"e.g.\": for example \n\nWe also reviewed some grammar (conjugating, filling in the blanks, etc.). Sarah did very good with the drills from the textbook as well as the questions I asked her. Please have her do the crossword at the bottom of page 91 in the textbook before our next class!",
+                    "homework": "Page 91: Crossword exercise 42.4 of English Vocab in Use textbook"
+                },
+                {
                     "id": "s3_l2",
                     "date": "May 9, 2026",
                     "tutor": "Hannah Tuffy",
@@ -1003,6 +1029,29 @@ export const db = {
                     }
                 ],
                 "lessons": [
+                    {
+                        "date": "2026年5月17日",
+                        "type": "通常レッスン",
+                        "topic": "語彙、リーディング、文法（競技スポーツ）",
+                        "sessionSummary": "動物当てゲームを行い、有名なアスリートについての記事を読み、競技スポーツやスコア、世界記録について話すための語彙と文法を学びました。",
+                        "observedStrength": "リーディング教材を完璧に理解し、テキストのドリルにも自信を持って取り組んでおり、前回のユニットについての理解も定着していました。",
+                        "currentFocusArea": "スポーツ特有の語彙（連続した、無得点、引き分けなど）の習得と、スコアと結果の正確な使い分け。",
+                        "interventionStrategy": "明確な例を用いて新しい用語（イギリス/アイルランド英語の「nil」や「score」と「result」の違いなど）を導入し、オープンエンドの質問やフリートークで実際に使ってみる練習を行いました。",
+                        "responseToIntervention": "新しい単語や文法を上手に使いこなし、スポーツに関する自身の考えや経験について素晴らしいスピーキングができました。",
+                        "impacts": [
+                            {
+                                "skill": "Vocabulary Precision",
+                                "change": "+2"
+                            },
+                            {
+                                "skill": "Structural Accuracy",
+                                "change": "+1"
+                            }
+                        ],
+                        "content": "ゲーム：\n「Who am I?」 - 動物当てゲーム（最初は「はい/いいえ」の質問のみで始め、後から自由な質問も交えて）\n\n宿題の確認：\nサラは宿題を忘れてしまったようですが、クラス内で一緒に確認し、素晴らしい出来でした！\n\n前回のユニットの全体復習：\nすべて正解でした。わからない部分があったか尋ねましたが、すべて大丈夫とのことでした。\n\nレッスンの目標の確認と質問：\n競技スポーツとは何ですか？\nこれらは何ですか？（メダルとトロフィーの写真）\n\nテキスト教材：\nEnglish Vocabulary in Use, pp. 90-91(Competitive sports)\n\n様々な種類の競技に関するリーディング教材と私からの質問（理解度チェック）\n語彙 - 勝ち/負け、スコアのつけ方\nスポーツレポートのリーディング（3人の異なるアスリートについて）\nアスリートを描写する語彙（お気に入りのアスリート/チームについてのフリートーク）\n91ページのドリル/練習問題\n91ページ下部のフリートークの質問（Q.2, Q.4, Q.5）\n宿題の復習\n\n内部メモ：次回のクラスでも同じ戦略でこのユニットを復習する（宿題の確認、質問、穴埋め問題、わからない部分がないかの確認）。",
+                        "feedback": "本日は、さまざまな種類のスポーツ競技について話すという素晴らしい取り組みができました！今日のレッスンでは、競技スポーツの種類についてや有名なアスリートの記事を読むなど、多くのリーディングを行いました。スコア、世界記録、勝敗などについて正しく話すための新しい語彙と文法も学びました。さらに、複数のドリルを行い、自身の考えや経験について話すスピーキング練習も実施しました。素晴らしい取り組みでした！\n\n今日サラが学んだ新しい単語：\n- consecutive: 連続した\n- league: リーグ\n- 2-0 (two NIL): イギリス/アイルランド英語ではゼロの代わりに「nil」を使います\n- Draw: 同点、引き分け\n- Defeated: 他のチームを打ち負かすこと\n- score vs. result: 「score」は試合中の点数を表すのに対し、「result」は最終的な結果を表します\n- Lead/leading: 試合中にトップの点数を取っている状態（まだ勝ってはいませんが、勝つ可能性があります）\n- Achieved: 困難または印象的なことを成し遂げた（達成した）こと\n- Gave up (in sports): 短期間、または永遠にスポーツをやめること\n- Superb: 素晴らしい、傑出した、非常にスキルが高い\n- \"e.g.\": 例えば\n\nまた、いくつかの文法（活用、穴埋め問題など）の復習も行いました。サラはテキストのドリルや私がした質問に対して非常に良く答えていました。次回のクラスまでに、テキストの91ページ下部にあるクロスワードを宿題としてやってきてください！",
+                        "homework": "テキスト『English Vocab in Use』91ページ：クロスワード問題 42.4"
+                    },
                     {
                         "date": "2026年5月9日",
                         "type": "通常レッスン",
