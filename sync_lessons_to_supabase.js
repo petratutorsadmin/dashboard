@@ -19,10 +19,6 @@ async function syncLessons() {
   for (const student of students) {
     if (student.lessons && student.lessons.length > 0) {
       for (const lesson of student.lessons) {
-        // Map data.js lesson to Supabase 'lessons' table schema
-        // Schema: id, student_id, date, tutor, type, topic, rating, session_summary, 
-        // observed_strength, current_focus_area, intervention_strategy, response_to_intervention, 
-        // impacts, content, feedback, homework
         const payload = {
             id: lesson.id || `l_${student.id}_${Date.now()}_${Math.floor(Math.random()*1000)}`,
             student_id: student.id,
@@ -36,7 +32,7 @@ async function syncLessons() {
             current_focus_area: lesson.currentFocusArea || null,
             intervention_strategy: lesson.interventionStrategy || null,
             response_to_intervention: lesson.responseToIntervention || null,
-            impacts: lesson.impacts ? JSON.stringify(lesson.impacts) : null,
+            impacts: lesson.impacts || [],  // PASS AS ARRAY, NOT STRING
             content: lesson.content || null,
             feedback: lesson.feedback || null,
             homework: lesson.homework || null

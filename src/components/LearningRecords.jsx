@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, User, BookOpen, TrendingUp, Target, ChevronDown, ChevronRight, FileText, CheckCircle2, PenTool, Clock } from "lucide-react";
+import { Calendar, User, BookOpen, TrendingUp, Target, ChevronDown, ChevronRight, FileText, CheckCircle2, PenTool, Clock, Sparkles, Loader2 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 import { cn } from "@/lib/utils";
 
 // Intelligent dynamic skill impact generator based on lesson topics and student profiles
@@ -89,6 +90,48 @@ const localText = {
 export function LearningRecords({ student, t, sortedLessons }) {
     const [expandedLessonId, setExpandedLessonId] = useState(null);
     const [isSimplifiedMode, setIsSimplifiedMode] = useState(true);
+    const [evaluatingSet, setEvaluatingSet] = useState({});
+    const [localImpacts, setLocalImpacts] = useState({});
+
+    const handleEvaluate = async (lesson) => {
+        setEvaluatingSet(prev => ({ ...prev, [lesson.id]: true }));
+        try {
+            const res = await fetch('/api/evaluate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ student, lesson })
+            });
+            const data = await res.json();
+            
+            if (data.impacts && Array.isArray(data.impacts)) {
+                const { error } = await supabase
+                    .from('lessons')
+                    .update({ impacts: data.impacts })
+                    .eq('id', lesson.id);
+                    
+                if (!error) {
+                    setLocalImpacts(prev => ({ ...prev, [lesson.id]: data.impacts }));
+                } else {
+                    console.error("Failed to save to Supabase", error);
+                }
+            }
+        } catch (error) {
+            console.error("Evaluation error", error);
+        } finally {
+            setEvaluatingSet(prev => ({ ...prev, [lesson.id]: 'done' }));
+        }
+    };
+
+    React.useEffect(() => {
+        if (!sortedLessons) return;
+        const lessonToEvaluate = sortedLessons.find(lesson => {
+            const impacts = localImpacts[lesson.id] || lesson.impacts || [];
+            return (!impacts || impacts.length === 0) && !evaluatingSet[lesson.id];
+        });
+        if (lessonToEvaluate) {
+            handleEvaluate(lessonToEvaluate);
+        }
+    }, [sortedLessons, localImpacts, evaluatingSet]);
 
     if (!sortedLessons || sortedLessons.length === 0) {
         return (
@@ -149,7 +192,7 @@ export function LearningRecords({ student, t, sortedLessons }) {
                     const isLast = idx === sortedLessons.length - 1;
                     
                     // Automatically resolve dynamic impacts
-                    const impacts = getDynamicImpacts(lesson, student);
+                    const impacts = localImpacts[lesson.id] || lesson.impacts || [];
 
                     return (
                         <div 
@@ -207,6 +250,14 @@ export function LearningRecords({ student, t, sortedLessons }) {
                                     <div className="space-y-6 max-w-4xl">
                                         
                                         {/* Dynamic Impact Pills (+ Skills) */}
+                                        {(!impacts || impacts.length === 0) && evaluatingSet[lesson.id] !== 'done' && (
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <div className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100 rounded-md shadow-sm">
+                                                    <Loader2 className="w-3.5 h-3.5 animate-spin text-indigo-500" />
+                                                    Analyzing session data...
+                                                </div>
+                                            </div>
+                                        )}
                                         {impacts && impacts.length > 0 && (
                                             <div className="flex flex-wrap items-center gap-2">
                                                 {impacts.map(impact => (
