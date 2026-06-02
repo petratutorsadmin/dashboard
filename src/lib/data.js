@@ -378,6 +378,57 @@ export const db = {
                     "content": "Vocabulary check - quizzed student on vocabulary spelling and definition from last lesson; taught student differences between noun, adjective, verb\nReading comprehension practice - used 2 EIKEN style reading passages to test student's comprehension, asked student to identify topic, supporters' opinions, critics' opinions, and summarizing the passage in 3 sentences or under; gave student tips such as skipping unknown words, identifying connecting indicators like \"first\" \"for example\" \"to conclude\"\nReading summarization practice - had student shorten long sentences into shorter ones, learning skills like removing irrelevant information, identifying key words\nNote taking - helped student take notes about important content from today",
                     "feedback": "Today, we started with a vocabulary check to review spelling and definitions from the previous lesson, and also introduced the differences between nouns, adjectives, and verbs. We then focused on reading comprehension using EIKEN-style passages, where Tadashi practiced identifying the main topic, supporters’ and critics’ opinions, and summarizing the text in a few sentences. I also introduced strategies such as skipping unknown words and using keywords like “first” and “for example” to follow the structure more easily. We then practiced summarization by shortening longer sentences and focusing on key information.\n\nTadashi showed good overall reading comprehension and stayed focused throughout the lesson. He is able to understand the main ideas well, but needs more practice summarizing using academic language and filtering out less important details. We will also continue building his grammar foundation to better understand word types and sentence structure.\n\nFor homework, he should memorize the spelling and definitions of today’s vocabulary.",
                     "homework": "Memorize spelling and definition of today's vocabulary perfectly."
+                },
+                {
+                    "id": "l_s1_6_1780370928719_836",
+                    "date": "May 15, 2026",
+                    "tutor": "Yutaka Takaku",
+                    "type": "Regular",
+                    "topic": "Lesson",
+                    "rating": "Excellent",
+                    "sessionSummary": "Worked on Eiken Pre-1 reading questions from p.7 and p.10-11. Tadashi initially needed some prompting, but after guidance he was able to identify many correct answers independently and showed good intuitive understanding of the passages. He also remembered and applied strategies taught in the previous lesson, especially the “one question per paragraph” reading technique.\n\nWe also had short conversation practice about his interests and baseball activities, including Giants Academy, school baseball, and Richard Sunakawa. He was comfortable speaking about familiar topics and responded naturally.\n\nAdditionally, we practiced summary structure training using the “Haymarket Affair” reading passage from an Eiken Pre-1 exam. Although the original task was not a summarisation question, the student practiced compressing each paragraph into short bullet points to build summarisation skills.\n\nExamples included:\n- Workers protested after police killed strikers\n- Laws existed but were not enforced well\n- Newspapers increased public anger\n- Event became symbol for labor rights\n\nThe goal was to strengthen:\n- identifying core ideas\n- concise information compression\n- paragraph-by-paragraph understanding\n\nGood overall performance. Tadashi showed stronger reading comprehension once given structure and prompting, and demonstrated good retention of previous lesson strategies. His summarisation ability was especially promising, as he could identify important information and reduce paragraphs into concise key points effectively. Speaking ability was more natural when discussing familiar interests.",
+                    "observedStrength": "Review and memorise the following vocabulary words:\n\n- bilingual\n- fashionable\n- participant\n- surprised\n- foreign\n- tense\n\nIn addition, to finish the bullet-point summarisation of the Haymarket Affair Pre-1 Reading.",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "Today we focused on Eiken Pre-1 reading comprehension and summary skills. Tadashi showed good improvement in identifying important information from reading passages, especially after applying strategies learned in previous lessons. A particularly positive point was his ability to summarise long paragraphs into short key ideas using bullet points, which is an important foundation for future summary writing and reading accuracy. He also participated well in conversation practice when discussing familiar topics such as baseball and school activities.",
+                    "homework": ""
+                },
+                {
+                    "id": "l_s1_7_1780370928719_175",
+                    "date": "May 21, 2026",
+                    "tutor": "Alice Williams",
+                    "type": "Regular",
+                    "topic": "Reading comprehension/ answer writing ",
+                    "rating": "Good",
+                    "sessionSummary": "Today we worked on an Eiken style reading about public parks and cities. We practised reading for the main idea, finding information in the text, and answering comprehension questions with evidence. We also learnt some new vocabulary related to the environment and city life, and practiced giving opinions with reasons using full sentences.",
+                    "observedStrength": "Spelling Practice. Learn the correct spelling and definitions for the following words.\n\n- Pollution\n- Housing \n- Consequence \n- Significant\n- Controversial \n- Perspective \n- Emphasize ",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "He still needs support with turning bullet points into full sentences and developing his ideas in more detail. We are also continuing to work on organising paragraphs more clearly and improving how he explains and links his points together. At times, he needs extra time to structure his thoughts and express them clearly in writing.",
+                    "homework": "IMG_1384.HEIC (https://airtable.com/appAdxLhXqRtaq618/tblyMMtwV94h0wEjp/recW0WPkJhJpyjPjn/fldHwB1RcWWdSX33v/attLhSjL6ngLO85BS), IMG_1383.heic (https://airtable.com/appAdxLhXqRtaq618/tblyMMtwV94h0wEjp/recW0WPkJhJpyjPjn/fldHwB1RcWWdSX33v/att7CiVulDIYpzgJa), IMG_1382.HEIC (https://airtable.com/appAdxLhXqRtaq618/tblyMMtwV94h0wEjp/recW0WPkJhJpyjPjn/fldHwB1RcWWdSX33v/atti9JJcO1hyYOfyG)"
+                },
+                {
+                    "id": "l_s1_8_1780370971415_825",
+                    "date": "May 15, 2026",
+                    "tutor": "Yutaka Takaku",
+                    "type": "Regular",
+                    "topic": "Lesson",
+                    "rating": "Excellent",
+                    "sessionSummary": "Worked on Eiken Pre-1 reading questions from p.7 and p.10-11. Tadashi initially needed some prompting, but after guidance he was able to identify many correct answers independently and showed good intuitive understanding of the passages. He also remembered and applied strategies taught in the previous lesson, especially the “one question per paragraph” reading technique.\n\nWe also had short conversation practice about his interests and baseball activities, including Giants Academy, school baseball, and Richard Sunakawa. He was comfortable speaking about familiar topics and responded naturally.\n\nAdditionally, we practiced summary structure training using the “Haymarket Affair” reading passage from an Eiken Pre-1 exam. Although the original task was not a summarisation question, the student practiced compressing each paragraph into short bullet points to build summarisation skills.\n\nExamples included:\n- Workers protested after police killed strikers\n- Laws existed but were not enforced well\n- Newspapers increased public anger\n- Event became symbol for labor rights\n\nThe goal was to strengthen:\n- identifying core ideas\n- concise information compression\n- paragraph-by-paragraph understanding\n\nGood overall performance. Tadashi showed stronger reading comprehension once given structure and prompting, and demonstrated good retention of previous lesson strategies. His summarisation ability was especially promising, as he could identify important information and reduce paragraphs into concise key points effectively. Speaking ability was more natural when discussing familiar interests.",
+                    "observedStrength": "Review and memorise the following vocabulary words:\n\n- bilingual\n- fashionable\n- participant\n- surprised\n- foreign\n- tense\n\nIn addition, to finish the bullet-point summarisation of the Haymarket Affair Pre-1 Reading.",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "Today we focused on Eiken Pre-1 reading comprehension and summary skills. Tadashi showed good improvement in identifying important information from reading passages, especially after applying strategies learned in previous lessons. A particularly positive point was his ability to summarise long paragraphs into short key ideas using bullet points, which is an important foundation for future summary writing and reading accuracy. He also participated well in conversation practice when discussing familiar topics such as baseball and school activities.",
+                    "homework": ""
                 }
             ],
             "nextPlan": [
@@ -575,6 +626,57 @@ export const db = {
                     "content": "The lesson focused on practical speaking without using a textbook. We practiced natural communication assuming a conversation with someone meeting for the first time, covering self-introductions, hobbies, and background. I provided real-time feedback on natural phrasing and sentence structure, and connected useful vocabulary to the student's actual speech.",
                     "feedback": "Today we had a practical English conversation lesson focusing on speaking. Although Miyako mentioned feeling nervous, she actually showed very high ability to express herself and the conversation flowed smoothly. She has a proactive attitude toward speaking, which is a great learning mindset. I was particularly impressed that she understands the core concept that 'English is learned by speaking' and is eager to focus on output. Her pronunciation is also very good. The current challenge is not her English ability itself, but rather building 'familiarity' and 'confidence', which we hope to develop at Petra.",
                     "homework": "None (Trial lesson)"
+                },
+                {
+                    "id": "l_s2_4_1780370846966_758",
+                    "date": "Apr 21, 2026",
+                    "tutor": "Dayun Suh",
+                    "type": "Trial",
+                    "topic": "English speaking, reading, and grammar practice. ",
+                    "rating": "Good",
+                    "sessionSummary": "Discovering the student's English level and the contents she would like to learn for her final goal, which is to study abroad. \n- Basic Self Introduction(Name, birthday, age, where from, etc.)\n- Location vocabulary (Unit 1)\n- Reading a dialogue and solving related questions (Textbook excerpt, dialogue unit 1)",
+                    "observedStrength": "Writing a diary entry: she enjoys keeping a diary, so this task lets her practice English in a format she already likes, while also getting insight into her current writing level.",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "English Speaking, Reading & Grammar Practice\nIn today's lesson, we focused on assessing your daughter's current English level and understanding her learning goals as she prepares to study abroad.\nTopics covered:\nBasic self-introduction (name, birthday, age, hometown, etc.)\nLocation vocabulary (Unit 1)\nReading a dialogue and solving related questions (Textbook Unit 1)",
+                    "homework": ""
+                },
+                {
+                    "id": "l_s2_5_1780370898409_135",
+                    "date": "May 19, 2026",
+                    "tutor": "Dayun Suh",
+                    "type": "Regular",
+                    "topic": "English Language",
+                    "rating": "Good",
+                    "sessionSummary": "Homework and Vocabulary Review\nR and L pronunciation practice\nGrammar practice from Free English Grammar Ebook (Pg. 10-16)\n4000 Essential English Words reading practice  (Pg. 18)",
+                    "observedStrength": "- Diary Entry\n- R sound practice\n- revise the vocabularies",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "Today’s lesson included homework and vocabulary review, R and L pronunciation practice, grammar practice from the Free English Grammar E-book (Pages 10–16), and reading practice from 4000 Essential English Words (Page 18).",
+                    "homework": ""
+                },
+                {
+                    "id": "l_s2_6_1780370898410_796",
+                    "date": "May 26, 2026",
+                    "tutor": "Dayun Suh",
+                    "type": "Regular",
+                    "topic": "English Grammar and Speaking",
+                    "rating": "Good",
+                    "sessionSummary": "Grammar from Free Grammar E-book Pg. 17-22\nSpeaking game: 20 questions game using Does it and It is. Descriptive drawing game using It is and There is and There are.\nPractice the R and L sounds",
+                    "observedStrength": "Diary Entry\nPractice R and L ",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "Today’s lesson included grammar practice from the Free Grammar E-book (Pages 17–22), speaking activities such as the “20 Questions” game using “Does it” and “It is,” and a descriptive drawing game using “It is,” “There is,” and “There are.” We also practiced the R and L sounds. She is improving with the L sound pronunciation, but still needs more practice with the R sounds.",
+                    "homework": ""
                 }
             ],
             "nextPlan": [
@@ -935,6 +1037,23 @@ export const db = {
                     "content": "Introductions - name, where you are from, and hobbies\nWarm up game - \"would you rather\"\nDialogue practice: 1. Science homework scenario and 2. office hours scenario (I made slides)\nObservations - speaking about thoughts and observations based on a painting. I had Sarah describe what she saw, and also making inferences.\nTextbook vocabulary and drills - English Vocabulary in Use, Unit 20 (Health): pg. 46-47\nSpeaking confidence: I had Sarah speak about an event or topic. She spoke about her club activities at school, including track and field and Earth Sciences Club.\nRecap of new terms learned: \"she/he suffers from ___\", proper nouns like \"Band-aid\" and \"Cancer\", using \"a\", \"the\", or none in sentences, different types of doctors.",
                     "feedback": "I had a very pleasant time meeting Sarah! I noticed that she is very skilled in speaking, listening, and reading. We did not work on any writing today. She demonstrated advanced vocabulary and overall comprehension, and her pronunciation was pretty solid. Today, I wanted to get to know Sarah and assess her comfort level with English. The lesson was conducted almost completely English, and Sarah showed excellent performance.\n\nSLIDES: We started with introductions, including our name, where we are from, and our hobbies. Next, we played a warm up game with fun questions, called \"would you rather\". We also worked on 2 dialogue practice scenarios to get Sarah comfortable with speaking. I also had Sarah look at a painting, and make comments about her observations, opinions, and inferences.\n\nTEXTBOOK: Next, we worked on 2 textbook pages that consisted of vocabulary and drills. The drills allowed Sarah to form precise sentences as well as descriptively speaking about personal experiences.\n\nSPEAKING: Finally, I prompted Sarah to speak about an event or something fun. I wanted to encourage her to speak descriptively for as long as she could. Sarah did amazing on this exercise, and spoke clearly about her after school activities, such as track and field and Earth sciences club.\n\nAt the end, we reviewed new terms that Sarah learned, and I got some input about our lesson structure. Sarah said that she enjoyed the slideshow activities that we did, as well as the textbook material. The textbook used today seemed easy for her, but she told me that it was helpful, as there was some new material she didn't know. I would like to keep using this textbook to use for ~30 mins(or more) of the lesson. She seemed to really enjoy the slideshow I made. Besides the game and picture activities, I created realistic school scenarios for dialogue practice, while sprinkling a bit of Irish culture and Irish English (since it's a bit different than U.S.).\n\nI'm looking forward to continue working with Sarah! Thank you!",
                     "homework": "No specific homework for this lesson."
+                },
+                {
+                    "id": "l_s3_4_1780370898410_225",
+                    "date": "May 31, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "School System (Slideshow, textbook)",
+                    "rating": "Excellent",
+                    "sessionSummary": "1. Greetings\n2. Warm up game: Would you rather\n3. Reviewing Homework:\n-forgot to do homework but we did it in class\n4. Reviewing last unit overall:\n-great!\n5.Transition year (St Joseph of Cluny website)\n-Sarah said she already looked through this and understands it! I let her know that she can reach out to me if she has any confusion about it, or needs advice.\n6. Read Lesson Objective\n- Learn about the schooling system in Ireland\n- Learn how to use new vocabulary and grammar (British/Irish Schools)\n- Reading and practice problems\n\n7.Question: What are some rules at your school? Name a few. \n- good\n\n8. Textbook material:\nEnglish Vocabulary in Use, Unit 32, pg. 70-71 (School Education)\n\n-- Reading the material, with my own questions (Check for any confusion)\n-- Vocabulary - attend, nursery school, primary school, pupils, state school, private school, take/do GCSE Exams, vocational training, stay at school, 'A' level exams, \n-- Reading about the school timetable, and new vocab \n--- Vocab to describe rules (and free talk about her own experiences/ comparing with Japan)\n-- Drills/exercises on pg. 71: great \n\nReviewed everything we learned\n\nFeedback: this was very easy for Sarah, in terms of vocabulary/grammar. However, it was very helpful, as Sarah got to learn more about how schools work in Ireland. She saw many similarities, in comparison with Japanese schooling systems (such as the terms, schedule, rules, etc.).",
+                    "observedStrength": "",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "Sarah did a great job in our lesson on Sunday. The textbook unit seemed very easy for her, in terms of comprehending the grammar and vocabulary. However, the unit seemed pretty helpful, as Sarah got to learn more about how schools work in Ireland. She saw many similarities, in comparison with Japanese schooling systems (such as the terms, schedule, rules, etc.).\n\nWe finished the school education unit of the textbook (English Vocabulary in Use, Unit 32, pg. 70-71). We completed the drills, and I made sure to ask Sarah my own questions and had her speak freely about her own experiences. \n\nShe also did great on the review 'quiz' of the contents from the last class (about competitive sports). \n\nI showed her the St. Joseph of Cluny website regarding the transition year. I let Sarah know that she can reach out to me if she has any confusion, or needs advice. We also discussed what 15/16 year olds do in Ireland, and she informed me that she wants to stay in school and work towards taking the 'A' level exams for university entrance later on. \n\nPlease send me any textbook material you would like for me to cover with Sarah for our next class! I can build my lesson plan around that textbook unit, and add more of my own material as well!\n\nThank you very much!",
+                    "homework": ""
                 }
             ],
             "nextPlan": [
@@ -1342,6 +1461,40 @@ export const db = {
                     "content": "Detailed review of EIKEN Grade 2 materials, focusing on areas of weakness.",
                     "feedback": "Great job today, Kizuki Ishida! Keep practicing the vocabulary words we discussed.",
                     "homework": "Review today's notes and complete the assigned worksheet."
+                },
+                {
+                    "id": "l_s5_3_1780370898409_996",
+                    "date": "May 19, 2026",
+                    "tutor": "Ashley Norton",
+                    "type": "Regular",
+                    "topic": "chemistry ",
+                    "rating": "Excellent",
+                    "sessionSummary": "無機化合物／有機化合物　\n放射性同位体",
+                    "observedStrength": "",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "きずきさんが疑問に思っている分野を中心に解説しました。授業態度はとてもよく、積極的に質問をしてくれていたため、彼女がどこをどれほど理解しているかがわかりやすかったです。",
+                    "homework": ""
+                },
+                {
+                    "id": "l_s5_4_1780370898410_315",
+                    "date": "May 26, 2026",
+                    "tutor": "Ashley Norton",
+                    "type": "Regular",
+                    "topic": "math/ chemistry ",
+                    "rating": "Excellent",
+                    "sessionSummary": "2つの円の位置関係",
+                    "observedStrength": "",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "",
+                    "homework": ""
                 }
             ],
             "nextPlan": [
@@ -1578,6 +1731,40 @@ export const db = {
                     "content": "Detailed review of EIKEN Grade Pre-2 materials, focusing on areas of weakness.",
                     "feedback": "Great job today, Shoji Takanao! Keep practicing the vocabulary words we discussed.",
                     "homework": "Review today's notes and complete the assigned worksheet."
+                },
+                {
+                    "id": "l_s7_3_1780370898410_14",
+                    "date": "May 31, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "Discussion on AI Models (Improvements & Changes in Past Year)",
+                    "rating": "Excellent",
+                    "sessionSummary": "We covered the overall content of the video shared by Shoji. \n\nVocabulary, comprehension of material (video + transcript) \nDiscussion questions, dissecting contents by reading together, etc.  \n\nI helped explain the concepts in a simpler way, as well as explain expressions that are used in academic/formal senses. ",
+                    "observedStrength": "",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "Thank you so much for preparing some interesting material for our class again! I had a pleasant time discussing complex AI topics with you, and I am glad that you were satisfied with the flow of our lesson. Please let me know if you would like to discuss this video further for next class (i.e. Speaking further about World Models vs. LLM Models), or if there's anything else you want to look at (I will try my best to prepare)!",
+                    "homework": "State_of_LLMs_2026_English_Lesson_20260531.docx (https://airtable.com/appAdxLhXqRtaq618/tblyMMtwV94h0wEjp/recwzrwJQGqi1TqRn/fldHwB1RcWWdSX33v/att1h4ml8T3awgvhO)"
+                },
+                {
+                    "id": "l_s7_4_1780370971415_190",
+                    "date": "May 17, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "Vocabulary and discussion based on Video about AI use",
+                    "rating": "Excellent",
+                    "sessionSummary": "Today, me and Shoji looked at the contents of a YouTube video that explained how to efficiently use AI. Shoji prepared a document including an English written script, a Japanese translation of the script, and a chart of words. We focused on the highlighted words, as well as a discussion prompt and the vocab word chart. Shoji highlighted words that were confusing in meaning or use. Many of them were metaphors, such as scaling the biggest myth, and turning tiny knobs, some were phrases such as prompting away, as well as some complex words such as well-rounded and incomprehensible. I explained the meanings of these words, and gave examples as well as instructions on how to properly use those words. Shoji also prepared materials for discussion, regarding AI use in the workforce, everyday life, universities, and more. We were able to conduct a formal discussion which included the subjects/words Shoji wasn't initially sure of. We also looked at a chart of additional vocabulary words that Shoji had heard of, but was not completely confident in using. We were able to clarify those words. Finally, we went over a topic we can further discuss in our upcoming class. ",
+                    "observedStrength": "",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "Thank you so much for attending today's class! I had a really enjoyable time discussing different aspects of AI and its usage in the modern world. As for the words we looked at, I will send you my definitions so you can look back at them as needed. I really appreciate you for preparing materials, and I look forward to speaking with you again!\n\n1. Prompting away - freely giving various prompts to AI \n\nHave you heard of the term, “Ask away!”?\n→ “__(verb)__ away!” is basically saying, “Go ahead an __(verb)__!” \n\nSo, when you add “-ing”, it describes an action that people do continuously/freely.\n\nexamples) \nasking away = to keep asking freely\nchatting away = to continuously talk\n\n2. Let us scale the biggest myth\n\nMyth = a common belief that is actually not true. A common misconception.\n“Let us scale the biggest myth” → let us disprove this misconception about AI.\n\nScale, in this case, means to metaphorically climb over, or overcome. (scaling a mountain)\nOVERCOMING the myth. \n\n3. Pointy ears- 尖った耳\n\n4. Incomprehensible \nTo comprehend is to understand \nComprehensible is something that can be understood.\n→ So INcomprehensible is extremely hard, or impossible to understand.\n\nComparing it to \"insane\"\nInsane just means crazy, so \"incomprehensible\" holds more meaning, as something that is extremely difficult to understand or do.\nex) Your actions were insane = What you did is crazy    VS.      Your actions are incomprehensible = I can't even begin to understand why you did that\n\nIncomprehensible scale → an amount SO big that we can’t even comprehend it\nThat's why AI does for us.\n\n5. Turning tiny knobs\n A metaphor. Like turning a knob on a machine, a speaker, a stove system, etc. (control knobs)\n Adjusting carefully until they get it right.\n\n6. Clicks into place - starts to make a lot of sense in your head \nLike a snap or a lightbulb\n\n7. A new one drops every few weeks \n→ “Drops” means for something new to come out, or be announced.  (not literally/physically dropping)\n\nexample) “Uniqlo dropped a new collaboration with Ghibli”\n\nSo, he is explaining that a new AI software is released every few weeks. (such as once in 3 weeks)\n\n8. It did not look it up\n“It” being the AI tool, and “look it up” means to search it up online. \n\nSo, instead of using the internet to find the answer, the AI tool used patterns to predict it (the answer).\n\n9. Well-rounded\nTo be good quality in many different ways, and offers the best performance\n\nPeople can be “well-rounded” as well. For example, jobs will most likely search for well-rounded, dependable people.\n\n10. Constraints make the output sharper\nConstraints - limits\nIn this case, putting limits on your prompts makes the result clear, specific, and of better quality.\n(as in telling the AI, \"this is what I DON'T want you to do\"/\"Please DON'T _____\")\n\n11. Watermark\nA logo or graphic that obstructs a digital file so that it cannot be stolen by others or plagiarized.\nex) paparazzi photos, artwork, stock images, etc. ",
+                    "homework": ""
                 }
             ],
             "nextPlan": [
@@ -1659,56 +1846,38 @@ export const db = {
             ],
             "lessons": [
                 {
-                    "id": "l_s8_0",
-                    "date": "May 6, 2026",
+                    "id": "l_s8_3_1780370898410_726",
+                    "date": "May 27, 2026",
                     "tutor": "Hannah Tuffy",
                     "type": "Regular",
-                    "topic": "IELTS Prep Practice Session 1",
+                    "topic": "Review of Grammar and Vocabulary Words, Free Speak",
                     "rating": "Good",
-                    "sessionSummary": "We covered key topics related to IELTS Prep and practiced various exercises.",
-                    "observedStrength": "Takeshi Kawana showed great enthusiasm and participation during the session.",
-                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                    "interventionStrategy": "Interactive exercises and targeted feedback.",
-                    "responseToIntervention": "Takeshi Kawana responded well to the exercises and showed improvement.",
-                    "impacts": [
-                        {
-                            "skill": "Vocabulary Precision",
-                            "change": "+1"
-                        },
-                        {
-                            "skill": "Conversational Confidence",
-                            "change": "+2"
-                        }
-                    ],
-                    "content": "Detailed review of IELTS Prep materials, focusing on areas of weakness.",
-                    "feedback": "Great job today, Takeshi Kawana! Keep practicing the vocabulary words we discussed.",
-                    "homework": "Review today's notes and complete the assigned worksheet."
+                    "sessionSummary": "Intro Conversation:\nTalked about how he went to Starbucks last week, and how he likes people watching. Corrected his usage of words like eat and drink to past tense. \nTalked about Liberal Arts Major in Universities, what is taught there, who can join, differences in gender and major choice \n\nWarm-up Question:\nWhat is your favorite scent?\nI explained what scent means. We talked about different kinds of scents we enjoy: citrus perfumes, flower scents, streets near restaurants at lunch time, etc. \n\nReview of Grammar:\n\"Could\" as a suggestion or a wish\nPractice questions, review of textbook, exercises using them in sentences\n\nReview of Vocab:\nMatching quiz of important vocab words from last class\nPractice questions of vocab, asked for examples\nAsked to use in sentences\n\nTextbook Continued:\n\"Couldn't\" (could not)\n1. past tense (過去形) \nex) 過去形： \"I couldn't finish my test yesterday.\" 「昨日はテストを終えることができませんでした。」\n\n2. not possible (何かが不可能だと言う)\nex) 何かが不可能だと言う：\"I couldn't live in Tokyo, it's too loud and crowded.\"　「東京には住めないよ、うるさすぎるし人が多すぎるから。」\n\nReview of today's unit\n\nTalked about next class content --> textbook unit 28 (\"must\"), and practicing past, present, and future tense. Dialogue if we have time. ",
+                    "observedStrength": "",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "Thank you very much for joining our lesson today! You did great with remembering the new vocabulary and grammar we learned last class. Today, I noticed that you have some challenges expressing verbs in the past tense. Here is a quick review of some of the content we covered today.\n\n今日学んだ単語です。できたら復習してください！\nMajor\nScent\nSpecialize\nCitrus\n\n過去形の文法：\nDrinking (飲んでいる）--> drank （飲んだ）\neating（たべている） --> ate　（食べた）\n\n新しい文法 -\"Couldn't\" (could not):\n\n1. past tense (過去形) \nex) 過去形： \"I couldn't finish my test yesterday.\" 「昨日はテストを終えることができませんでした。」\n\n2. not possible (何かが不可能だと言う)\nex) 何かが不可能だと言う：\"I couldn't live in Tokyo, it's too loud and crowded.\"　「東京には住めないよ、うるさすぎるし人が多すぎるから。」\n\nThank you, and I'll see you in two weeks!",
+                    "homework": ""
                 },
                 {
-                    "id": "l_s8_1",
+                    "id": "l_s8_2_1780370971414_447",
                     "date": "May 13, 2026",
                     "tutor": "Hannah Tuffy",
                     "type": "Regular",
-                    "topic": "IELTS Prep Practice Session 2",
-                    "rating": "Good",
-                    "sessionSummary": "We covered key topics related to IELTS Prep and practiced various exercises.",
-                    "observedStrength": "Takeshi Kawana showed great enthusiasm and participation during the session.",
-                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                    "interventionStrategy": "Interactive exercises and targeted feedback.",
-                    "responseToIntervention": "Takeshi Kawana responded well to the exercises and showed improvement.",
-                    "impacts": [
-                        {
-                            "skill": "Vocabulary Precision",
-                            "change": "+1"
-                        },
-                        {
-                            "skill": "Conversational Confidence",
-                            "change": "+2"
-                        }
-                    ],
-                    "content": "Detailed review of IELTS Prep materials, focusing on areas of weakness.",
-                    "feedback": "Great job today, Takeshi Kawana! Keep practicing the vocabulary words we discussed.",
-                    "homework": "Review today's notes and complete the assigned worksheet."
+                    "topic": "Dialogue, Grammar, Free-Speak",
+                    "rating": "Excellent",
+                    "sessionSummary": "- Warm up conversations using questions:\n1. What is your favorite genre of music? Why? -- Classical music, because he loves to play piano\n2. What was a popular trend when you were a teenager? -- Disco clubs, one piece dresses\n\n- Dialogue practice: \n- At the theater scenario\n- Hobbies scenario \n\n- Textbook: \"English Grammar in Use\" Unit 27 - “could (do) and could have (done)” pg. 54\nSection A & B (\"could\": suggestion, possibility, or wish) \nDrill 27.1 - Which goes with which? (\"could\" suggestions)\n\nReview:\nAt the end, we briefly reviewed new words, new grammar, homework, and what we'll be covering next lesson.",
+                    "observedStrength": "今日学んだ語彙の中から、お気に入りの単語を復習してください！\n1) Performance: パフォーマンス\n2) Compliment: Saying something nice about someone (褒め言葉)\n3) Choreography: steps/moves of a dance or performance (振り付け)\n4) Talented: Very good at something (才能)\n5) \"That's very kind of you\": That's so nice!\n6) The arts: performance arts like dancing, singing, etc. (芸術?)\n7) Midterm: 中間試験\n8) \"Gonna\": I'm going to do ___. (example: \"I'm gonna go camping\")\n9) Shades: 色合い (example: Shades of blue)\n10) Hang: 掛ける\n\nAdditionally, please practice using \"could\" at least once a day! \nExamples) \"I could eat pancakes for breakfast\" (maybe I can), \"I could go to McDonald's for lunch\" (maybe I can), \"I could stay here all day\" (I wish)",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "You did a great job today! I had a fun time talking about music, trends, and more! I will briefly summarize our lesson.\n\nAfter our warm-up questions, we did some dialogue practice including a scenario about a theater performance (musical) as well as a conversation about hobbies/vacations (Michigan, canoeing, etc.). The textbook material we covered today taught how to use the term \"could\" in a sentence. So far, we know that \"could\" can be used as a suggestion, a possibility, or a wish! Thank you so much for today, and I will see you next on 5/27! \n\nHOMEWORK:\n今日学んだ語彙の中から、お気に入りの単語を復習してください！\n1) Performance: パフォーマンス\n2) Compliment: Saying something nice about someone (褒め言葉)\n3) Choreography: steps/moves of a dance or performance (振り付け)\n4) Talented: Very good at something (才能)\n5) \"That's very kind of you\": That's so nice!\n6) The arts: performance arts like dancing, singing, etc. (芸術?)\n7) Midterm: 中間試験\n8) \"Gonna\": I'm going to do ___. (example: \"I'm gonna go camping\")\n9) Shades: 色合い (example: Shades of blue)\n10) Hang: 掛ける\n\nAdditionally, please practice using \"could\" at least once a day! \nExamples) \"I could eat pancakes for breakfast\" (maybe I can), \"I could go to McDonald's for lunch\" (maybe I can), \"I could stay here all day\" (I wish)\n",
+                    "homework": ""
                 }
             ],
             "nextPlan": [
@@ -1945,6 +2114,57 @@ export const db = {
                     "content": "Detailed review of EIKEN Grade Pre-1 materials, focusing on areas of weakness.",
                     "feedback": "Great job today, Yuta Sumiya! Keep practicing the vocabulary words we discussed.",
                     "homework": "Review today's notes and complete the assigned worksheet."
+                },
+                {
+                    "id": "l_s10_3_1780370898409_276",
+                    "date": "May 21, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "Free Talk and Important Parts of a Conversation",
+                    "rating": "Good",
+                    "sessionSummary": "Introduction, greetings\n--> Small talk questions\n- Do you prefer rainy weather or sunny weather\n- How has your product marketing been going as of lately?\n\nSmall-Talk Speaking Practice \n1. REACTION WORDS!\nShow slide\nHave him practice using reaction words\n\n2. FOLLOW UP QUESTIONS!\nGet him used to asking follow up questions like “what about you?”\n\n3. ADDING DETAILS!\nInstead of giving short answers, try to add details and ask back. \n\nSmall talk cont.\nWhen entering a home, speak about pictures/art/other features of the home\n→ then you can bring up questions about travel or food\n\nScenario/Role-play Practice\nSlides\n\nFree talk ",
+                    "observedStrength": "",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "It was great to speak with you today! Here's a summary of the key points from today's lesson:\n\n1. REACTION WORDS!\n“Really?”\n“That sounds fun.”\n“No way!”\n“I see.”\n“That makes sense.”\n“Interesting.”\n“That must be difficult.”\n“Good to know”\nRemember that the meanings of these can change with TONE.\n\n2. CLARIFYING QUESTIONS!　（聞き取れなかった時）\n\"Sorry?\"\n\"Can you repeat that?\"\n\"What did you say?\"\n\"The what ___?\" --> EXAMPLE) the bullet train - \"the what train?\"\n\n3. FOLLOW UP QUESTIONS!\nIt's great to ask follow up questions like “what about you?” or \"how about you?\"　(同じ意味です。）\n\nInstead of giving short answers, try to add details AND ask back. \nExample）\nQ: Do you like traveling?\nShort Answer: Yes, I do.\n-->Better Version\n“Yes, I do. I especially like traveling within Japan because I enjoy hot springs. How about you?”\n\nSmall talk cont.\nWhen entering a home, speak about pictures/art/other features of the home\n→ then you can bring up questions about travel or food\n\nScenario/Role-play Practice\n1. Catching up\nA: Hi! Long time no see. How have you been?\nB: I’ve been good, just busy with work lately.\nA: What kind of work are you doing now?\nB: I work in sales for a manufacturing company.\n\n2. Casual Friend Conversation\nA: What did you do this weekend?\n B: I stayed home and watched Netflix.\n A: Oh really? What did you watch?\n B: A Japanese drama about cooking.\n- you can say \"oh really?\" or \"oh nice!\"\n\nLastly, we looked over metaphors. Metaphors can help you express your feelings in a shorter, more interesting phrase. They often describes things that are not literal.\nEX) Time is money\nEX2) She has a heart of gold",
+                    "homework": ""
+                },
+                {
+                    "id": "l_s10_4_1780370898410_165",
+                    "date": "May 28, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "Casual Convo Practice, Important phrases, and Metaphors",
+                    "rating": "Good",
+                    "sessionSummary": "1. Intro convo\n2. Warm up questions:\nWhat is your favorite genre of music? Why? - he doesn't listen to music that much but he likes rock music because he played guitar in a band when he was younger. They played original songs and covers. (Bump of Chicken, RADWIMPS) \nNew words:\nMusical instrument, \"I was in a band\"\n\nWhat was a popular trend when you were a teenager?- Thrifting was popular because younger students don't have much money. Asked for recommendations. \nNew words: \nThrift shop, to thrift/thrifting, used clothing\n\n3. Review of past content\nReaction words, follow up questions, and clarification questions \nMetaphors\n\n4. Scenario role-play practice with structured questions. Reviewed new words he did not know.\nNew words: \nChoreography, \"You were such a talented ballerina\" vs. ARE, the arts, compliment \n\nWe also practiced pronunciation of \"really\", \"see\", & \"theater\". Wants to be taught American pronunciation.\n\n5. Metaphors\n- Out of this world\n- Night owl\n- It's gonna be a breeze/ It was a breeze\n\n6. Free speak\nConversation --> describe a quiet place that you like to go to. We had back and forth conversation with details! ",
+                    "observedStrength": "",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "Today, you did an amazing job with using reaction words, follow up questions, and clarification questions in our conversations. You're already starting to sound fluent!!\n\nHere are the new phrases and words we went over today.\n\nVOCAB\nMusical instrument: 楽器\nI was in a band: バンドをやっていた\nThrift shop: 古着屋\nTo thrift/thrifting: 古着を買う\nUsed clothing: 古着\nChoreography: 振り付け (dance moves, steps)\nThe arts: Performance arts like dancing, singing, music, theater (芸術?)\nCompliment: 褒め言葉 --> \"You're so talented!\"\n\nPHRASES\n\"You WERE such a talented ballerina\" (instead of ARE): 懐かしいように過去のことを話していた。-->「才能があったのに...」\nGonna: \"going to ___\", CASUAL (I'm gonna go to bed soon 今からやること/ It's gonna be so easy 予測する)\nCome up with: 思いつく --> \"Can you come up with some options?\"\n\nGRAMMAR\nEnd up [with] extra: [結局]余分なものが出る\nEnd up [taking] a cold shower everyday: 私は毎日冷たいシャワーを浴びる[ことになる]\n\nMETAPHORS\n- Out of this world: \"This gumbo is out of this world!\" --> something is so extremely good, that it seems to originate from beyond our planet.\n- Night owl: \"I am a night owl\" --> 夜遅くまで起きていることを好み、夕方に最も精力的に活動したり生産的になったりする人\n- It's gonna be a breeze/ It was a breeze: 簡単だと思う・簡単だった\n\nPlease practice the American pronunciations of \"really\", \"see\", & \"theater.\n\nNext time, I will prepare commonly used phrases that are not often seen in textbooks, similar to \"gonna\" or \"go with __\". I will also prepare more dialogue role-play and topics for us to have free speak conversations. Thank you!",
+                    "homework": ""
+                },
+                {
+                    "id": "l_s10_5_1780370971415_119",
+                    "date": "May 15, 2026",
+                    "tutor": "Hannah Tuffy",
+                    "type": "Regular",
+                    "topic": "Conversation and Roleplay",
+                    "rating": "Excellent",
+                    "sessionSummary": "Conversation: Asked about how he's been doing, what's new at work etc. Basic English back-and-forth convo\n- talked about AI use\n- He told me about his new project at work (vitamin/supplements) and how he is using AI to help market his product\n\nFollow up questions such as: What is challenging about marketing your product? How did AI help you? What features are marketable? What kind of marketing strategies did you use?\n\nScenario Role-Play practice:\nRestaurant in America\nEtiquette, language, \"how do you want your eggs cooked\"\n\nFollow up questions about different topics:\nFavorite restaurant in California? (Memphis Diner)\nWhat else is memorable about California? (Disneyland)",
+                    "observedStrength": "",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "Thank you for attending our lesson today. I enjoyed speaking about various different topics with you! You convey your thoughts very clearly in English, and I'd be happy to give you more support in terms of vocabulary and conversational skills! \n\n今日学んだ新しい単語はこちらです。\n- Humid: 蒸し暑い\n- Shortly: 間もなく・すぐに\n- My feet are sore: 足が痛い\n- My muscles are sore: 筋肉痛\n- \"Can I get you started on any drinks?\": 飲み物はいかがですか？\n- Types of eggs: Sunny side up, over easy, over medium, scrambled, poached, etc.\n- ”Can I do ____\"/\"Can I have ___\" (when ordering food): it's both acceptable!\n- \"Can I have A sandwich\" じゃなくて \"can I have THE sandwich\" \n\nPlease have a look at these words before our next lesson. We can review them again! Next time, I will prepare some practice scenarios for \"small-talk\" and talking with \"family friends\"!",
+                    "homework": ""
                 }
             ],
             "nextPlan": [
@@ -2297,34 +2517,7 @@ export const db = {
                     "progress": 0
                 }
             ],
-            "lessons": [
-                {
-                    "id": "l_s14_0",
-                    "date": "May 10, 2026",
-                    "tutor": "Ashley Norton",
-                    "type": "Regular",
-                    "topic": "IELTS Prep Practice Session 1",
-                    "rating": "Excellent",
-                    "sessionSummary": "We covered key topics related to IELTS Prep and practiced various exercises.",
-                    "observedStrength": "Yuki Takenaka showed great enthusiasm and participation during the session.",
-                    "currentFocusArea": "Continuing to build vocabulary and improve sentence structure.",
-                    "interventionStrategy": "Interactive exercises and targeted feedback.",
-                    "responseToIntervention": "Yuki Takenaka responded well to the exercises and showed improvement.",
-                    "impacts": [
-                        {
-                            "skill": "Vocabulary Precision",
-                            "change": "+1"
-                        },
-                        {
-                            "skill": "Conversational Confidence",
-                            "change": "+2"
-                        }
-                    ],
-                    "content": "Detailed review of IELTS Prep materials, focusing on areas of weakness.",
-                    "feedback": "Great job today, Yuki Takenaka! Keep practicing the vocabulary words we discussed.",
-                    "homework": "Review today's notes and complete the assigned worksheet."
-                }
-            ],
+            "lessons": [],
             "nextPlan": [
                 {
                     "title": "1. Core Vocabulary Review",
@@ -2535,204 +2728,51 @@ export const db = {
                     "desc": "Learn new words to describe feelings."
                 }
             ]
+        },
+        "s_new_1780370928720_56": {
+            "id": "s_new_1780370928720_56",
+            "name": "Handa",
+            "course": "General",
+            "target": "Improve English",
+            "overallGrade": "B",
+            "lessons": [
+                {
+                    "id": "l_s_new_1780370928720_56_1_1780370928720_500",
+                    "date": "May 22, 2026",
+                    "tutor": "Riku Ishida",
+                    "type": "Regular",
+                    "topic": "Presentation Preperation",
+                    "rating": "Good",
+                    "sessionSummary": "During today’s lesson, we discussed university preparation and academic expectations for Yuuka’s upcoming studies in Malaysia. A major focus of the session was exploring possible research paper topics connected to business and society, particularly Corporate Social Responsibility (CSR). We discussed how companies such as Amazon attempt to address their social and environmental impact through policies related to sustainability and transparency. We also talked about how writing research papers and participating in academic projects can strengthen future internship and CV opportunities.\n\nThe lesson also focused heavily on presentation structure and academic communication. Yuuka learned how to organize a professional PowerPoint presentation by creating a strong hook, clear research question, logical structure, supporting statistics and graphs, and a conclusion. We used a previous research presentation regarding Portugal’s drug policy as an example of effective academic presentation structure.\n\nLater in the lesson, we brainstormed additional social research topics, including gender inequality in the workplace and issues surrounding succession within the Japanese Imperial family. We discussed how cultural and historical perspectives can influence modern social systems and opportunities. The lesson concluded with vocabulary and presentation speaking practice to help build confidence for future academic presentations.",
+                    "observedStrength": "to decide on research question, topics",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "Today’s lesson focused on university preparation, academic research skills, and presentation development. Yuuka explored several social and business-related research topics, including Corporate Social Responsibility and gender inequality, while also learning how to structure an effective academic presentation using evidence and statistics. We additionally practiced English vocabulary connected to presentations and academic communication. Yuuka showed strong engagement and curiosity throughout the lesson and participated very positively in discussions and brainstorming activities.",
+                    "homework": ""
+                },
+                {
+                    "id": "l_s_new_1780370928720_56_2_1780370928720_517",
+                    "date": "May 26, 2026",
+                    "tutor": "Riku Ishida",
+                    "type": "Regular",
+                    "topic": "Presentation Creation ",
+                    "rating": "Good",
+                    "sessionSummary": "During this lesson, we worked on developing the student’s academic English and presentation skills through the topic of gender inequality. The main objective of the lesson was to help the student research, organize, and explain social issues in English while also improving presentation structure and evidence usage. Together, we brainstormed possible presentation themes before narrowing the focus to gender inequality, specifically looking at wage gaps, educational disparities, and social expectations between genders in different countries.\n\nThroughout the lesson, the student researched English-language sources and gathered statistical evidence related to global and Japanese gender inequality. We discussed how to interpret and use statistics effectively within a presentation and practiced organizing ideas into clear sections with supporting evidence. The student also learned how to properly include in-text citations and reference lists to improve the credibility and academic quality of the presentation. In addition, we worked on integrating screenshots, visuals, and supporting materials into a shared Google Document to help structure the final presentation more clearly.",
+                    "observedStrength": "Work on finding more evidence for the presentation",
+                    "currentFocusArea": "",
+                    "interventionStrategy": "",
+                    "responseToIntervention": "",
+                    "impacts": [],
+                    "content": "",
+                    "feedback": "今回のレッスンでは、「ジェンダー不平等」をテーマに、英語でのプレゼンテーション作成を進めました。男女間の賃金格差や教育格差、社会的な期待の違いなどについて、英語の資料や統計データを用いながらリサーチを行い、情報を整理しながら発表内容の構成を考えました。\n\nまた、プレゼンテーションに必要な「根拠の示し方」についても学び、統計データの使い方や引用（citation）の入れ方、参考文献リストの作成方法など、アカデミックな発表に必要な基礎スキルも練習しました。Googleドキュメント上で画像やスクリーンショットを整理しながら、視覚的にも分かりやすい発表作りを進めています。\n\nレッスン中は、自分の考えを積極的に出しながら取り組むことができ、社会問題について英語で考え、説明する力が少しずつ伸びてきています。今後は、より自然で分かりやすい英語表現や、発表時の流れ・説明力をさらに強化していく予定です。",
+                    "homework": ""
+                }
+            ]
         }
     },
-    "resources": [
-        {
-            "id": "r7",
-            "name": "4000_Essential_English_Words_5_LV4.CORE.ACTIVE.COLOR.HW.WORD.TEST.READ.WRITE.LISTEN",
-            "display": "4000 Essential English Words 5",
-            "category": "Vocabulary",
-            "assignedTo": [
-                "s1"
-            ],
-            "link": "https://drive.google.com/file/d/1WQAkQGmus8ALK63Akz_B8RYdahRy8Lrv/view?usp=drivesdk"
-        },
-        {
-            "id": "r8",
-            "name": "English_Collocations_in_Use_Advanced_LV4.CORE.ACTIVE.HW.WORD.COLOR.READ.WRITE.LISTEN",
-            "display": "English Collocations In Use Advanced",
-            "category": "Business",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/1HJ5w-ogaIp0bfBwZjSqO9QykZywocmo5/view?usp=drivesdk"
-        },
-        {
-            "id": "r9",
-            "name": "English_for_Everyone_Business_English_LV2.CORE.ACTIVE.COLOR.HW.WORD.TEST.COLOR.SPEAK.WRITE.LISTEN",
-            "display": "English For Everyone Business English",
-            "category": "Business",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/1xTfrXOYcOAfhpNLQfdsyqVNLv7P2Hho4/view?usp=drivesdk"
-        },
-        {
-            "id": "r10",
-            "name": "Business_English_Lesson_Template_Guide_LV1.CORE",
-            "display": "Business English Lesson Template Guide",
-            "category": "Business",
-            "assignedTo": [],
-            "link": "https://docs.google.com/document/d/1EcLKARs5UYUU0yI66nfzr7gB-v9O78KTiLzeeEPbbU4/edit?usp=drivesdk"
-        },
-        {
-            "id": "r11",
-            "name": "Speakout_Advanced_Students_Book_LV5.CORE.READ.WRITE.LISTEN",
-            "display": "Speakout Advanced Students Book",
-            "category": "Business",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/1RBhkegJa1EdfB65oiPfIZ08tsTQ9ynRi/view?usp=drivesdk"
-        },
-        {
-            "id": "r12",
-            "name": "Business_Partner_Coursebook_B2_LV4.CORE",
-            "display": "Business Partner Coursebook B2",
-            "category": "Business",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/1O-AIV7C2M2oWjIH92vZYeRwNerMvPfJB/view?usp=drivesdk"
-        },
-        {
-            "id": "r13",
-            "name": "Free_English_Grammar_eBook_Beginner_LV1.CORE.COLOR",
-            "display": "Free English Grammar eBook Beginner",
-            "category": "Basic English",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/1JIUSg0IgKt4FKu61JVEgcm8s_31NYnsP/view?usp=drivesdk"
-        },
-        {
-            "id": "r14",
-            "name": "Everyday_Conversations_LV2.CORE.ACTIVE.COLOR.SPEAK.LISTEN",
-            "display": "Everyday Conversations",
-            "category": "Basic English",
-            "assignedTo": [
-                "s3"
-            ],
-            "link": "https://drive.google.com/file/d/1NAnHwWoqyzQevUPzmzwwoJVeDI-UD_mb/view?usp=drivesdk"
-        },
-        {
-            "id": "r15",
-            "name": "Basic_English_Grammar_LV1.CORE.ACTIVE.COLOR.HW.WORD.TEST.SPEAK.WRITE.LISTEN",
-            "display": "Basic English Grammar",
-            "category": "Basic English",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/1Bnty3KNlzekfbzgYOSN-PHVKjTM1u-l8/view?usp=drivesdk"
-        },
-        {
-            "id": "r16",
-            "name": "Practice_Makes_Perfect_Complete_English_All_in_One_for_ESL_Learners_LV3.CORE.ACTIVE.COLOR.HW.READ.SPEAK.WRITE.LISTEN",
-            "display": "Practice Makes Perfect Complete English",
-            "category": "Basic English",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/12GFYx8pIkYUAZo2cp-lGgL-qIXZUV4nG/view?usp=drivesdk"
-        },
-        {
-            "id": "r17",
-            "name": "English_for_Everyone_Level1_Beginner_Course_Book_LV1.CORE.ACTIVE.COLOR.HW.WORD.SPEAK.WRITE.LISTEN",
-            "display": "English For Everyone Level 1 Beginner",
-            "category": "Basic English",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/1S2Jn0Rb7QY9QaHwuO0oT7xbA64wfFm9g/view?usp=drivesdk"
-        },
-        {
-            "id": "r18",
-            "name": "English_Grammar_in_Use_LV3.CORE.ACTIVE.COLOR.HW.WORD.TEST.READ.WRITE.LISTEN",
-            "display": "English Grammar In Use",
-            "category": "Basic English",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/171NP-XWsv_nS6oLqM3Hp04y-RXb98kaN/view?usp=drivesdk"
-        },
-        {
-            "id": "r19",
-            "name": "Rosetta_Stone_English_American_Student_Workbook_LV1.ACTIVE.HW.WORD.TEST.READ.WRITE",
-            "display": "Rosetta Stone English American Workbook",
-            "category": "Basic English",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/1mWQzpsP0vcmWBiJpZoxtLLHEUgLwnfwZ/view?usp=drivesdk"
-        },
-        {
-            "id": "r20",
-            "name": "New_Headway_Beginner_Student_Book_LV1.CORE.ACTIVE.COLOR.SPEAK.WRITE.LISTEN",
-            "display": "New Headway Beginner Student Book",
-            "category": "Basic English",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/1cZ9cGwM7D4dWspwslEVyigc3-DHmIFFH/view?usp=drivesdk"
-        },
-        {
-            "id": "r21",
-            "name": "Speakout_Advanced_Students_Book_LV5.CORE.ACTIVE.COLOR.WORD.SPEAK.WRITE.LISTEN",
-            "display": "Speakout Advanced Students Book",
-            "category": "Basic English",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/1TT8no82mHttMizKo5RelMAsTFCrYCRYj/view?usp=drivesdk"
-        },
-        {
-            "id": "r22",
-            "name": "Basic_English_Grammar_A1_LV1.CORE.ACTIVE.COLOR.HW.WORD.TEST.SPEAK.WRITE.LISTEN",
-            "display": "Basic English Grammar A1",
-            "category": "A1 English",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/1nk33oFAU23CWh0vL_TNqQg4aFytmop1j/view?usp=drivesdk"
-        },
-        {
-            "id": "r23",
-            "name": "Cambridge_Assessment_English_LV1.CORE.ACTIVE.WORD.COLOR",
-            "display": "Cambridge Assessment English",
-            "category": "Kids English",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/1Me06Z9s0tCX1L_OiYMgQnCyRz5-qu8PU/view?usp=drivesdk"
-        },
-        {
-            "id": "r24",
-            "name": "My_First_English_Book_LV1.CORE.ACTIVE",
-            "display": "My First English Book",
-            "category": "Kids English",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/17KZ8lKnKDeT_O2caHmFreZ7r9or2Zbo1/view?usp=drivesdk"
-        },
-        {
-            "id": "r25",
-            "name": "Smart_Phonics_3_LV1.CORE.ACTIVE",
-            "display": "Smart Phonics 3",
-            "category": "Kids English",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/10pIkdznDGk0sDIEVpxzbN10NtATHG1Oo/view?usp=drivesdk"
-        },
-        {
-            "id": "r26",
-            "name": "RosettaStone_English_LV4.HW.TEST",
-            "display": "RosettaStone English",
-            "category": "Kids English",
-            "assignedTo": [],
-            "link": "https://drive.google.com/file/d/1vyCWm0pLi2CiVhvHnP-UJ0BQ6netDPc5/view?usp=drivesdk"
-        },
-        {
-            "id": "r27",
-            "name": "English_Vocabulary_in_Use_Unit_41",
-            "display": "English Vocabulary in Use (Unit 41)",
-            "category": "Vocabulary",
-            "assignedTo": [
-                "s3"
-            ],
-            "link": "#"
-        },
-        {
-            "id": "r28",
-            "name": "English_Vocabulary_in_Use_Unit_42",
-            "display": "English Vocabulary in Use (Unit 42)",
-            "category": "Vocabulary",
-            "assignedTo": [
-                "s3"
-            ],
-            "link": "#"
-        },
-        {
-            "id": "r29",
-            "name": "Eiken_official_paper_pre-1_3",
-            "display": "Eiken official paper pre-1 (3)",
-            "category": "Exam Prep",
-            "assignedTo": [
-                "s1"
-            ],
-            "link": "#"
-        }
-    ],
     "schedules": [
         {
             "id": "38",
